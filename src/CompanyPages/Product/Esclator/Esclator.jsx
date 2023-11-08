@@ -15,7 +15,7 @@ const Esclator = () => {
   };
 
   const { data, error, isLoading } = useSWR(
-    "http://localhost:5000/api/product/Esclator",
+    "https://shy-ruby-gosling-sari.cyclic.app/api/product/Esclator",
     fetcher
   );
   return (
