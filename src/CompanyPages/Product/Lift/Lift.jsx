@@ -14,7 +14,7 @@ const Lift = () => {
   };
 
   const { data, error, isLoading } = useSWR(
-    "http://localhost:5000/api/product/Lift",
+    "https://shy-ruby-gosling-sari.cyclic.app/api/product/Lift",
     fetcher
   );
 
