@@ -32,7 +32,7 @@ export default function Header() {
             class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 "
           >
           <div className=" rounded-full ">
-          <img src={Logo} alt="" className="sm:w-28 md:w-12 xl:w-28 w-28" />
+          <img src={Logo} alt="" className="sm:w-15 md:w-18 xl:w-28 w-12" />
 
           </div>
           </Link>
