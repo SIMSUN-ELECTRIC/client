@@ -32,7 +32,7 @@ export default function Header() {
             class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 "
           >
             <div className=" rounded-full ">
-              <img src={Logo} alt="" className="sm:w-28 md:w-15 xl:w-28 w-28" />
+              <img src={Logo} alt="" className="sm:w-25 md:w-15 xl:w-20 w-20" />
 
             </div>
           </Link>
@@ -104,12 +104,12 @@ export default function Header() {
                 onMouseLeave={() => setFlyer(false)}
                 className={
                   flyer
-                    ? "opacity-100 translate-y-0  transition ease-out duration-200 absolute z-20 -ml-4 mt-3   transform px-2 w-[15rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                    : "hidden opacity-0 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                    ? "opacity-90 translate-y-0  transition ease-out duration-200 absolute z-20 -ml-5 mt-3   transform px-1 w-[13rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 bg-red lg:-translate-x-1/2"
+                    : "hidden opacity-0 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 "
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap  bg-[#161D24] px-2 py-4 sm:gap-2 ">
+                  <div className="relative grid gap  bg-[#161D24] px-1 py-1 sm:gap-2 ">
                     <Link
                       to="/about/ourcompany"
                       className="-m-3  flex items-start rounded-lg hover:bg-gray-800 "
@@ -126,7 +126,7 @@ export default function Header() {
                       className="-m-3  flex items-start rounded-lg hover:bg-gray-800 "
                     >
                       <div className="ml-4">
-                        <p className="text-base font-medium text-white">
+                        <p className="text-base font-medium text-white ">
                           Our Team
 
                         </p>

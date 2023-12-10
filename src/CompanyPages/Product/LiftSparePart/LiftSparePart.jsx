@@ -12,7 +12,6 @@ import lift1copy from '../../../assets/img/lift1copy.jpg'
 const LiftSparePart = () => {
   return (
     <>
-
       <div className="   ">
         <h1 style={{ textAlign: 'center', fontWeight: 'bolder' }} className='mt-4'><strong className='text-3xl mt-4'>ALL PRODUCTS</strong></h1>
         <div className="row  flex sm:flex-row flex-col ">
