@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import axios from 'axios'
-
+import { Link } from 'react-router-dom';
 const ConsumerRegister = () => {
-  const [fullName,setFullName] = useState("")
-  const [userName,setUserName] = useState("")
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
+  const [fullName, setFullName] = useState("")
+  const [userName, setUserName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
 
   const handleConsumerRegister = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await axios.post("http://localhost:5000/api/consumerRegister", {
         fullName,
@@ -18,7 +18,7 @@ const ConsumerRegister = () => {
         email,
         password
       });
-  
+
       if (response.status === 200) {
         // Registration was successful
         const json = response.data;
@@ -32,7 +32,7 @@ const ConsumerRegister = () => {
       console.error("Registration failed:", error.message);
     }
   };
-  
+
   return (
     <>
       <div className="h-screen md:flex">
@@ -165,9 +165,12 @@ const ConsumerRegister = () => {
             >
               Register
             </button>
-            <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
+            {/* <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
               Have an account ?
-            </span>
+            </span> */}
+            <Link to="/auth/consumerLogin" >
+              Have an account ?
+            </Link>
           </form>
         </div>
       </div>

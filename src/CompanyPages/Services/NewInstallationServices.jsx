@@ -90,7 +90,7 @@ const NewInstallationServices = () => {
           </button>
         </div>
 
-        <div className="bg-green-400 p-8 rounded shadow-md text-white w-full md:w-1/2 lg:w-4/5">
+        <div className="bg-green-400 p-8 rounded shadow-md text-white w-full mb-5 md:w-1/2 lg:w-4/5">
           <h2 className="text-2xl font-semibold mb-4">Commercial Installation</h2>
           <p>
             When it comes to commercial electrical installations, our team has the expertise to handle large-scale projects. We offer tailored solutions to meet the electrical requirements of your business, ensuring efficiency and reliability.

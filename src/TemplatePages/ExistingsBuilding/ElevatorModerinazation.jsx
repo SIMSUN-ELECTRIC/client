@@ -59,13 +59,13 @@ const ElevatorModerinazation = () => {
           alt="Your Image"
           className="w-full sm:max-h-[40rem] h-[45rem]"
         />
-        <div className="absolute inset-0 flex flex-col justify-center items-center">
+        <div className="absolute inset-0 flex flex-col justify-center items-center mt-[20rem]">
           <div className="p-4 rounded-lg shadow-lg text-center bg-transparent flex justify-center items-center md:-translate-y-44 sm:-translate-y-24 -translate-y-10">
             <div className="mx-4 sm:mx-8 lg:mx-28 w-full sm:w-[65%] ">
-              <h1 className="sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white text-3xl  text-left">
+              <h1 className="sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black text-3xl  text-left">
                 Elevator modernization
               </h1>
-              <p className="text-xl sm:text-2xl text-white text-left">
+              <p className="text-xl sm:text-2xl text-black text-left">
                 Boost your elevator’s reliability, eco-efficiency, comfort, and
                 appearance – and bring it in line with the latest safety,
                 aesthetics, eco-efficiency, performance, and accessibility
@@ -130,7 +130,7 @@ const ElevatorModerinazation = () => {
             </h2>
           </div>
           <div className="flex flex-wrap justify-center mt-4  w-full ">
-            <div className="bg-white  p-4 rounded-lg shadow-lg sm:w-[25%] w-[90%] flex  items-start px-10 justify-around flex-col min-h-[30rem] font-semibold  mb-4 ">
+            <div className="bg-white p-4 rounded-lg shadow-lg sm:w-[25%] w-[90%] flex  items-start px-10 justify-around flex-col min-h-[30rem] font-semibold  m-4">
               <h1 className="text-6xl text-blue-700">1</h1>
               <div className="text-2xl font-semibold">
                 AN INVESTMENT THAT PAYS OFF
@@ -142,7 +142,7 @@ const ElevatorModerinazation = () => {
               </div>
             </div>
 
-            <div className="bg-white  p-4 rounded-lg shadow-lg sm:w-[25%] w-[90%] flex  items-start px-10 justify-around flex-col min-h-[30rem] font-semibold mb-4  ">
+            <div className="bg-white  p-4 rounded-lg shadow-lg sm:w-[25%] w-[90%] flex  items-start px-10 justify-around flex-col min-h-[30rem] font-semibold m-4">
               <h1 className="text-6xl text-blue-700">2</h1>
               <div className="text-2xl font-semibold">
                 HAPPIER BUILDING USERS
@@ -154,7 +154,7 @@ const ElevatorModerinazation = () => {
               </div>
             </div>
 
-            <div className="bg-white  p-4 rounded-lg shadow-lg sm:w-[25%] w-[90%] flex  items-start px-10 justify-around flex-col min-h-[30rem] font-semibold mb-4  ">
+            <div className="bg-white  p-4 rounded-lg shadow-lg sm:w-[25%] w-[90%] flex  items-start px-10 justify-around flex-col min-h-[30rem] font-semibold m-4  ">
               <h1 className="text-6xl text-blue-700">3</h1>
               <div className="text-2xl font-semibold">
                 HASSEL-FREE INSTALLATION

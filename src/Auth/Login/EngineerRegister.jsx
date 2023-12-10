@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const EngineerRegister = () => {
   const [fullName, setFullName] = useState("");
@@ -167,9 +168,9 @@ const EngineerRegister = () => {
             >
               Register
             </button>
-            <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
+            <Link to="/auth/EngineerLogin" >
               Have an account ?
-            </span>
+            </Link>
           </form>
         </div>
       </div>

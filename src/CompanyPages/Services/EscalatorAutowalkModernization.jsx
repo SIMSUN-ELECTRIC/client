@@ -13,7 +13,7 @@ const EscalatorAutowalkModernization = () => {
               alt="Your Image"
               className="w-full sm:max-h-[40rem] h-[45rem]"
             />
-            <div className="absolute inset-0 flex flex-col justify-center items-center ">
+            <div className="absolute inset-0 flex flex-col justify-center items-center  mt-[19rem]">
               <div className=" p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
                 <h1 className="sm:text-6xl font-semibold  text-white sm:max-w-[65%] text-4xl max-w-full">
                   ESCALATOR MODERNIZATION

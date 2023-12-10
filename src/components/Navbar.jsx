@@ -26,15 +26,15 @@ export default function Header() {
   return (
     <header class=" top-0 w-full  z-50 bg-[#161D24] flex justify-around">
       <div class=" w-full  p-2  flex flex-wrap  flex-col sm:flex-row  sm:justify-normal sm:items-center   xl:bg-inherit    justify-around ">
-        <div className="flex flex-row  items-center justify-between  md:p-1  ">
+       <div className="flex flex-row  items-center justify-between  md:p-1  ">
           <Link
             to="/"
             class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 "
           >
-          <div className=" rounded-full ">
-          <img src={Logo} alt="" className="sm:w-15 md:w-18 xl:w-24 w-12" />
+            <div className=" rounded-full ">
+              <img src={Logo} alt="" className="sm:w-28 md:w-15 xl:w-28 w-28" />
 
-          </div>
+            </div>
           </Link>
           <button
             className="text-white pb-4 cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none content-end ml-auto "
@@ -62,13 +62,13 @@ export default function Header() {
         </div>
         <div
           className={
-            "md:flex   items-center justify-center ml-5 flex-col w-full md:w-4/5 xl:w-[90%]   " +
+            "md:flex items-center justify-center ml-85 flex-col w-full md:w-4/5 xl:w-[90%]   " +
             (navbarOpen ? " block  flex-col   p-5" : " hidden")
           }
         >
-        
+
           <div class="md:ml-auto md:mr-auto  font-4 pt-1 md:pl-14 pl-1 flex flex-wrap  md:text-base text-1xl md:justify-center sm:items-center   flex-col sm:flex-row ">
-            
+
 
 
 
@@ -79,7 +79,7 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer(!flyer), setFlyerTwo(false),setFlyer1(false),setFlyer2(false),setFlyer3(false),setFlyer4(false),setFlyer5(false))}
+                onMouseEnter={() => (setFlyer(!flyer), setFlyerTwo(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">About Us</span>
                 <svg
@@ -118,7 +118,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Our Company
                         </p>
-                      
+
                       </div>
                     </Link>
                     <Link
@@ -127,10 +127,10 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Our Team
-                        
+                          Our Team
+
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -139,9 +139,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Our Success Story
+                          Our Success Story
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -150,9 +150,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        News & References
+                          News & References
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -161,9 +161,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Add Product
+                          Add Product
                         </p>
-                       
+
                       </div>
                     </Link>
                   </div>
@@ -171,15 +171,15 @@ export default function Header() {
               </div>
             </div>
             {/* first dropdown end here */}
-            
+
             {/* second dropdown start here */}
             <div className="relative md:mr-4 ">
-            <button
+              <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer1(!flyer1), setFlyerTwo1(false),setFlyer(false),setFlyer2(false),setFlyer3(false),setFlyer4(false),setFlyer5(false))}
+                onMouseEnter={() => (setFlyer1(!flyer1), setFlyerTwo1(false), setFlyer(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Product</span>
                 <svg
@@ -218,7 +218,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Lift
                         </p>
-                 
+
                       </div>
                     </Link>
                     <Link
@@ -229,7 +229,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Esclators
                         </p>
-                 
+
                       </div>
                     </Link>
                     <Link
@@ -240,7 +240,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Lift Spare parts
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -249,15 +249,15 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Escalator spare parts
+                          Escalator spare parts
                         </p>
-                       
+
                       </div>
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>            
+            </div>
             {/* second dropdown end here */}
 
             {/* third dropdown start here */}
@@ -267,7 +267,7 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer2(!flyer), setFlyerTwo2(false),setFlyer1(false),setFlyer(false),setFlyer3(false),setFlyer4(false),setFlyer5(false))}
+                onMouseEnter={() => (setFlyer2(!flyer), setFlyerTwo2(false), setFlyer1(false), setFlyer(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Services</span>
                 <svg
@@ -306,7 +306,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           New Installation Services
                         </p>
-                 
+
                       </div>
                     </Link>
                     <Link
@@ -317,7 +317,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Annual Maintainence Services
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -326,9 +326,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Breakdown Services
+                          Breakdown Services
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -339,7 +339,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Maintenance
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -348,9 +348,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Elevator Moderinazation
+                          Elevator Moderinazation
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -359,9 +359,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Elevator Walk
+                          Elevator Walk
                         </p>
-                       
+
                       </div>
                     </Link>
                   </div>
@@ -369,19 +369,19 @@ export default function Header() {
               </div>
             </div>
             {/* third dropdown end here */}
-            
+
             <Link to='/shop' className="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-medium ">
               Shops
             </Link>
-           
-                  {/* fourth dropdown start here */}
+
+            {/* fourth dropdown start here */}
             <div className="relative md:mr-4">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer3(!flyer), setFlyerTwo3(false),setFlyer1(false),setFlyer2(false),setFlyer(false),setFlyer4(false),setFlyer5(false))}
+                onMouseEnter={() => (setFlyer3(!flyer), setFlyerTwo3(false), setFlyer1(false), setFlyer2(false), setFlyer(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Customer Services</span>
                 <svg
@@ -420,7 +420,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Your orders
                         </p>
-                 
+
                       </div>
                     </Link>
                     <Link
@@ -431,7 +431,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Return & Refunds
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -440,9 +440,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Manage addresses
+                          Manage addresses
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -451,9 +451,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Payment Settings
+                          Payment Settings
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -462,9 +462,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Account Settings
+                          Account Settings
                         </p>
-                       
+
                       </div>
                     </Link>
                   </div>
@@ -472,16 +472,16 @@ export default function Header() {
               </div>
             </div>
             {/* fourth dropdown end here */}
-            
 
-              {/* fifth dropdown start here */}
-              <div className="relative md:mr-4">
+
+            {/* fifth dropdown start here */}
+            <div className="relative md:mr-4">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer4(!flyer), setFlyerTwo4(false),setFlyer1(false),setFlyer2(false),setFlyer3(false),setFlyer(false),setFlyer5(false))}
+                onMouseEnter={() => (setFlyer4(!flyer), setFlyerTwo4(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Register</span>
                 <svg
@@ -520,7 +520,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Consumer Registration
                         </p>
-                 
+
                       </div>
                     </Link>
                     <Link
@@ -529,12 +529,23 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Engineer Registration
+                          Engineer Registration
                         </p>
-                       
+
                       </div>
                     </Link>
-                  
+                    <Link
+                      to="/auth/adminRegistration"
+                      className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
+                    >
+                      <div className="ml-4">
+                        <p className="text-base font-medium text-white">
+                          Admin Registration
+                        </p>
+
+                      </div>
+                    </Link>
+
                   </div>
                 </div>
               </div>
@@ -542,14 +553,14 @@ export default function Header() {
             {/* fifth dropdown end here */}
 
 
-                  {/* sixth dropdown start here */}
-              <div className="relative md:mr-4">
+            {/* sixth dropdown start here */}
+            <div className="relative md:mr-4">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer5(!flyer), setFlyerTwo5(false),setFlyer1(false),setFlyer2(false),setFlyer3(false),setFlyer4(false),setFlyer(false))}
+                onMouseEnter={() => (setFlyer5(!flyer), setFlyerTwo5(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer(false))}
               >
                 <span className=" text-xl">Login</span>
                 <svg
@@ -588,7 +599,7 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Consumer Login
                         </p>
-                 
+
                       </div>
                     </Link>
                     <Link
@@ -597,9 +608,9 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Engineer Login
+                          Engineer Login
                         </p>
-                       
+
                       </div>
                     </Link>
                     <Link
@@ -608,12 +619,12 @@ export default function Header() {
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                        Admin Login
+                          Admin Login
                         </p>
-                       
+
                       </div>
                     </Link>
-                  
+
                   </div>
                 </div>
               </div>
@@ -629,8 +640,8 @@ export default function Header() {
               Cart
             </Link>
           </div>
-      
-        
+
+
         </div>
       </div>
     </header>

@@ -49,11 +49,11 @@ function Cart() {
   const email = "user@example.com";
 
   return (
-    <div className="bg-gradient-to-b from-blue-200 to-blue-400 min-h-screen py-10">
+    <div className="bg-gradient-to-b from-blue-200 to-blue-400 min-h-screen py-10 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Shopping Cart</h1>
         <div className="text-white h-full w-full xl:flex">
-          <div className="text-white xl:w-[66%] p-4">
+          <div className="text-white xl:w-[60%] p-4">
             <div className="flex justify-between items-center px-2">
               <div className="text-black font-bold text-xl">
                 Items - {state?.length}
@@ -140,7 +140,7 @@ function Cart() {
             </div>
           </div>
 
-          <div className="mb-12 text-white max-h-[25rem] rounded-md bg-slate-800 xl:w-[34%] p-5 xl:translate-x-14 xl:translate-y-8">
+          <div className="mb-12 text-white max-h-[25rem] rounded-md bg-slate-800 xl:w-[34%] p-5  xl:translate-x-14 xl:translate-y-8 ">
             <div className="flex items-center p-2 text-2xl font-semibold">
               Bill Details
             </div>
@@ -189,20 +189,20 @@ function Cart() {
           Previous Orders
         </div>
         <div className="text-white w-full text-2xl text-left mt-2">
-          <div className="container m-auto sm:grid grid-cols-3 gap-4 py-2 px-6 flex flex-col">
+          <div className="container m-auto md:grid grid-cols-3 gap-4 py-2 px-6 flex flex-col">
             {previousOrders.map((order) => (
               <div
                 key={order.id}
-                className="flex max-w-[18rem] rounded-lg bg-white shadow-md dark:bg-slate-700"
+                className="flex max-w-[18rem] rounded-lg bg-white shadow-md dark:bg-slate-700 "
               >
-                <div className="relative overflow-hidden bg-cover bg-no-repeat">
+                <div className="relative overflow-hidden bg-cover bg-no-repeat min-w-[3rem]">
                   <img
                     className="rounded-t-lg h-full"
                     src={order.imageURL}
                     alt=""
                   />
                 </div>
-                <div className="p-6 flex flex-col flex-start items-center justify-around">
+                <div className="p-2 flex flex-col flex-start items-center justify-around ">
                   <p className="text-base text-neutral-600 dark:text-neutral-200 text-center font-semibold">
                     {order.title}
                   </p>
