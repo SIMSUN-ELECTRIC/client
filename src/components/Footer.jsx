@@ -5,15 +5,15 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const Footer = () => {
   return (
     <>
-      <footer className='-translate-y-20 '>
+      <footer className='-translate-y-20 bg-[#161D24]'>
   <div className="content ">
     <div className="left box">
       <div className="upper">
         <div className="topic1">About Us</div>
-        <div><Link to="#">Our Company</Link></div>
-        <div><Link to="#">Our Team</Link></div>
-        <div><Link to="#">Our Success Story</Link></div>
-        <div><Link to="#">News</Link></div>
+        <div><Link to="/about/ourcompany">Our Company</Link></div>
+        <div><Link to="/about/ourteam">Our Team</Link></div>
+        <div><Link to="/about/ourcompanysuccess">Our Success Story</Link></div>
+        <div><Link to="/about/news">News</Link></div>
       </div>
       <div className="lower">
         <div className="topic">Contact us</div>
@@ -62,24 +62,24 @@ const Footer = () => {
     </div>
     <div className="middle box">
       <div className="topic">Services</div>
-      <div><Link to="#">New Installation Services</Link></div>
-      <div><Link to="#">Annual Maintenance Services</Link></div>
-      <div><Link to="#">Breakdown Services</Link></div>
+      <div><Link to="/services/NewInstallationServices">New Installation Services</Link></div>
+      <div><Link to="/services/AnnualMaintainenceServices">Annual Maintenance Services</Link></div>
+      <div><Link to="/services/BreakdownServices">Breakdown Services</Link></div>
     </div>
     <div className="middle box">
       <div className="topic">Product</div>
-      <div><Link to="#">Lift</Link></div>
-      <div><Link to="#">Escalator</Link></div>
-      <div><Link to="#">Lift Spare Parts</Link></div>
-      <div><Link to="#">Escalator Spare Parts</Link></div>
+      <div><Link to="/product/lift">Lift</Link></div>
+      <div><Link to="/product/esclator">Escalator</Link></div>
+      <div><Link to="/product/LiftSparePart">Lift Spare Parts</Link></div>
+      <div><Link to="/product/EsclatorSparePart">Escalator Spare Parts</Link></div>
     </div>
     <div className="middle box">
       <div className="topic">Customer Services</div>
-      <div><Link to="#">Your Orders</Link></div>
-      <div><Link to="#">Returns &amp; Refunds</Link></div>
-      <div><Link to="#">Manage Addresses</Link></div>
-      <div><Link to="#">Payment Settings</Link></div>
-      <div><Link to="#">Account Settings</Link></div>
+      <div><Link to="/customerservices/YourOrders">Your Orders</Link></div>
+      <div><Link to="/customerservices/ReturnandRefunds">Returns &amp; Refunds</Link></div>
+      <div><Link to="/customerservices/ManageAddress">Manage Addresses</Link></div>
+      <div><Link to="/customerservices/PaymentSetting">Payment Settings</Link></div>
+      <div><Link to="/customerservices/AccountSetting">Account Settings</Link></div>
     </div>
     <div className="right box">
       <div className="topic">Subscribe us</div>
@@ -99,7 +99,6 @@ const Footer = () => {
     <p>Copyright © 2023  All rights reserved Simsun Electric Pvt Ltd Designed by <Link to="https://teksila.in/">Teksila.in</Link></p>
   </div>
 </footer>
-
     </>
   )
 }

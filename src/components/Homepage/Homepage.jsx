@@ -16,7 +16,7 @@ const Homepage = () => {
   return (
     <>
       <div className=" h-[28rem]  sm:h-[28rem] sm:flex">
-         <div className="   w-full flex flex-col bg-[#555A5C] items-center justify-center p-10">
+         <div className="   w-full flex flex-col bg-[#202b35] items-center justify-center p-10">
             <div className="sm:text-5xl text-white  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
               Welcome to Simsun Electric
             </div>
@@ -25,7 +25,7 @@ const Homepage = () => {
               important to us that our clients and team members have a strong
               foundation trust in each other.
             </div>
-            <Link to='/about/ourcompany' className="bg-red-500 mt-10 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+            <Link to='/about/ourcompany' className="bg-[#D7ADAE] mt-10 hover:bg-red-400 text-black font-bold py-2 px-4 rounded-full">
               Explore Now!
             </Link>
           </div>
@@ -35,7 +35,7 @@ const Homepage = () => {
       <div className="bg-[#D7ADAE]">
         <div className="heading ">
           <h1 className="font-bold">About Simsun</h1>
-          <p className="text-xl sm:text-center text-left">
+          <p className="text-xl sm:text-center text-left text-red">
             The birth of SimSun Electric was founded in December 2016 after 2
             years of elevator and escalator project installation experience{" "}
              all over the Rajasthan. The possibilities of SimSun Electric
