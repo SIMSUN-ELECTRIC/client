@@ -31,16 +31,16 @@ const OurCompany = () => {
             </div>
           </div>
         </div>
-        {/* <div className="cardinfra">
-          <div className="qkiflexkaamkare sm:m-16 m-5">
+        <div className="cardinfra ">
+          <div className="qkiflexkaamkare sm:m-16 m-5 ">
             <div className="cardinner">
-              <div className="img" style={{ order: 2 }}>
+              {/* <div className="img" style={{ order: 2 }}>
                 <img
                   src="./industryimg/exfin presentation  final_page-0005.jpg"
                   alt
-                />
-              </div>
-              <div className="textinfra">
+                /> */}
+              {/* </div> */}
+              <div className="textinfra ">
                 <h1 className="text-4xl">Our Branches</h1>
                 <p className="text-left">
                   We also have our branch office in Ranchi, Aurangabad from
@@ -51,17 +51,17 @@ const OurCompany = () => {
                 <h3 className="text-2xl font-bold">Aurangabad : </h3>
                 <br />
                 <p className="text-left translate-x-2 text-xl">
-                Old G. T Road, Malti Complex Above Canara Bank, Aurangabad -
-                824101. (Bihar)
+                  Old G. T Road, Malti Complex Above Canara Bank, Aurangabad -
+                  824101. (Bihar)
 
                 </p>
                 <br />
                 <br />
-                <h3 className="text-2xl font-bold">Dehri On Shone Branch:</h3>
+                <h3 className="text-2xl font-bold">Dehri On Sone Branch:</h3>
                 <br />
                 <p className="text-left translate-x-2 text-xl">
-                Ground Floor, Hari Apartment, Near Hotel Urvashi, Gandhi Nagar,
-                Rohtas - 821307. (Bihar)
+                  Ground Floor, Hari Apartment, Near Hotel Urvashi, Gandhi Nagar,
+                  Rohtas - 821307. (Bihar)
 
                 </p>
                 <br />
@@ -69,16 +69,16 @@ const OurCompany = () => {
                 <h3 className="text-2xl font-bold">Ranchi Branch:</h3>
                 <br />
                 <p className="text-left translate-x-2 text-xl">
-                3rd floor, Apsara Hotel Circular Road, Lalpur Ranchi 834001
-                (Jharkhand)
-                  </p>
+                  3rd floor, Apsara Hotel Circular Road, Lalpur Ranchi 834001
+                  (Jharkhand)
+                </p>
                 <br />
                 <br />
                 <h3 className="text-2xl font-bold">Raniganj Branch:</h3>
                 <br />
                 <p className="text-left translate-x-2 text-xl">
-                Ramalaya Bhawan, Inside Jayswal Cold Storage Near TDB College
-                Main Gate Raniganj - 713347(WB)
+                  Ramalaya Bhawan, Inside Jayswal Cold Storage Near TDB College
+                  Main Gate Raniganj - 713347(WB)
                 </p>
                 <br />
                 <br />
@@ -86,7 +86,7 @@ const OurCompany = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

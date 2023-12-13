@@ -13,7 +13,7 @@ const News = () => {
   <section className=" sm:grid p-0 flex flex-col justify-center items-center cards-wrapper">
     <div className="card-grid-space">
       <div className="num">01</div>
-     <Link to="#" className="card  bg-slate-400" >
+     <Link to="#" className="card  bg-[#364554]" >
          <div>
           <h1>News Heading</h1>
           <p className='pSame'>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>
@@ -26,7 +26,7 @@ const News = () => {
     </div>
     <div className="card-grid-space ">
         <div className="num">02</div>
-        <Link to="#" className="card  bg-slate-400" >
+        <Link to="#" className="card  bg-[#364554]" >
            <div>
             <h1>News Heading</h1>
             <p className=''>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>
@@ -39,7 +39,7 @@ const News = () => {
       </div>
     <div className="card-grid-space ">
       <div className="num ">03</div>
-      <Link to="#" className="card  bg-slate-400">
+      <Link to="#" className="card  bg-[#364554]">
         <div >
           <h1>News Heading</h1>
           <p>Learn about some of the most common HTML tags…</p>
@@ -50,9 +50,9 @@ const News = () => {
         </div>
       </Link>
     </div>
-    <div className="card-grid-space">
+    <div className="card-grid-space mb-10">
       <div className="num">04</div>
-      <Link to className="card  bg-slate-400" >
+      <Link to className="card  bg-[#364554]" >
         <div>
           <h1>News Heading</h1>
           <p>Learn how to use links and images along with file paths…</p>
@@ -63,9 +63,9 @@ const News = () => {
         </div>
       </Link>
     </div>
-    <div className="card-grid-space">
+    <div className="card-grid-space mb-10">
         <div className="num">05</div>
-       <Link to="#" className="card  bg-slate-400" >
+       <Link to="#" className="card  bg-[#364554]" >
            <div>
             <h1>News Heading</h1>
             <p>The syntax of a language is how it works. How to actually write it. Learn HTML syntax…</p>

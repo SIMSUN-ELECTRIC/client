@@ -5,7 +5,7 @@ const OurCompanySuccess = () => {
     <div>
        <div className="bg-gray-100 min-h-screen">
       {/* Header */}
-      <header className="bg-[#D7ADAE] p-4">
+      <header className="bg-[#324252] p-4">
         <h1 className="text-3xl text-white font-semibold">Simsun Success</h1>
       </header>
 

@@ -84,7 +84,7 @@ const YourOrders = () => {
           </th>
         </tr>
       </thead>
-      <tbody className="bg-white divide-y divide-gray-200">
+      <tbody className="bg-[#596c7f] divide-y divide-gray-200">
         {orders.map((order) => (
           <tr key={order.id}>
             <td className="px-4 sm:px-6 py-3 whitespace-nowrap">{order.date}</td>

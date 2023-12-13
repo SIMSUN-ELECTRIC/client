@@ -73,7 +73,7 @@ export default function Header() {
 
 
             {/* first dropdown start here */}
-            <div className="relative md:mr-4 opacity-90">
+            <div className="relative md:mr-4 opacity-90 z-10">
               <button
                 type="button"
                 className="
@@ -173,7 +173,7 @@ export default function Header() {
             {/* first dropdown end here */}
 
             {/* second dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 ">
+            <div className="relative md:mr-4 opacity-90 z-10">
               <button
                 type="button"
                 className="
@@ -261,7 +261,7 @@ export default function Header() {
             {/* second dropdown end here */}
 
             {/* third dropdown start here */}
-            <div className="relative md:mr-4 opacity-90">
+            <div className="relative md:mr-4 opacity-90 z-10">
               <button
                 type="button"
                 className="
@@ -375,7 +375,7 @@ export default function Header() {
             </Link>
 
             {/* fourth dropdown start here */}
-            <div className="relative md:mr-4 opacity-90">
+            <div className="relative md:mr-4 opacity-90 z-10">
               <button
                 type="button"
                 className="
@@ -475,7 +475,7 @@ export default function Header() {
 
 
             {/* fifth dropdown start here */}
-            <div className="relative md:mr-4 opacity-90">
+            <div className="relative md:mr-4 opacity-90 z-10">
               <button
                 type="button"
                 className="
@@ -554,7 +554,7 @@ export default function Header() {
 
 
             {/* sixth dropdown start here */}
-            <div className="relative md:mr-4 opacity-90">
+            <div className="relative md:mr-4 opacity-90 z-10">
               <button
                 type="button"
                 className="

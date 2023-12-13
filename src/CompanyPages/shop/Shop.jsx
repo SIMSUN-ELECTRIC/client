@@ -76,7 +76,7 @@ const Shop = () => {
         {data?.map((product) => (
           <div
             key={product?._id}
-            className="bg-blue-100 hover:bg-blue-200 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            className="bg-[#9abfe3] text-center hover:bg-blue-200 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 mt-4 mb-5"
           >
             <img
               src={product.imageUrl}

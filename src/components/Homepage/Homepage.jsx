@@ -32,7 +32,7 @@ const Homepage = () => {
         
       </div>
 
-      <div className="bg-[#D7ADAE]">
+      <div className="">
         <div className="heading ">
           <h1 className="font-bold">About Simsun</h1>
           <p className="text-xl sm:text-center text-left text-red">
@@ -40,19 +40,16 @@ const Homepage = () => {
             years of elevator and escalator project installation experience{" "}
              all over the Rajasthan. The possibilities of SimSun Electric
             were built after left DMRC project in Dec 2014, and started work
-            with a small franchise of <br />
+            with a small franchise of 
             elevator and escalator energy in Jaipur.
           </p>
           <p className="text-2xl sm:text-center text-left">
             At there we found that everybody is moving on MW and large scale
             projects, that time we keep our focus to learning the Elevator and
-            Escalator
-             project work. We were started our work as a freelancer in the
+            Escalator project work. We were started our work as a freelancer in the
             industry by small works with different franchises in roof top
-            Backup, or net metering Projects.
-             And after all when we found that Elevator and Escalator roof
-            top market in Rajasthan rapidly growing,
-             then our ideas come into the reality and founded SimSun
+            Backup, or net metering Projects. And after all when we found that Elevator and Escalator roof
+            top market in Rajasthan rapidly growing, then our ideas come into the reality and founded SimSun
             Electric Dec 2016.
           </p>
         </div>
@@ -191,25 +188,25 @@ const Homepage = () => {
     <h2 className="title text-3xl">Our Products</h2>
     <div className="flex flex-wrap">
       <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-        <Link to="lift.html">
+        <Link to="/product/lift">
           <img src={lift1} alt="Lift" className="w-full rounded-md" />
           <h4 className="text-2xl mt-2 text-center ">Lift</h4>
         </Link>
       </div>
       <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-        <Link to="escalator.html">
+        <Link to="/product/esclator">
           <img src={lift7} alt="Escalator" className="w-full rounded-md" />
           <h4 className="text-2xl mt-2 text-center ">Escalator</h4>
         </Link>
       </div>
       <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-        <Link to="liftspareparts.html">
+        <Link to="/product/LiftSparePart">
           <img src={lift5} alt="Lift Spare Part" className="w-full rounded-md" />
           <h4 className="text-2xl mt-2 text-center ">Lift Spare Part</h4>
         </Link>
       </div>
       <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-        <Link to="escalatorspareparts.html">
+        <Link to="/product/EsclatorSparePart">
           <img src={lift4} alt="Escalator Spare Part" className="w-full rounded-md " />
           <h4 className="text-2xl mt-2 text-center ">Escalator Spare Part</h4>
         </Link>
