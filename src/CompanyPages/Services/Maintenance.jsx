@@ -60,8 +60,8 @@ const Maintenance = () => {
               className="w-full sm:max-h-[40rem] h-[45rem]"
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center mt-[20rem] md:mt-[10rem]">
-              <div className="p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10">
-                <h1 className="sm:text-6xl font-semibold text-white max-w-[65%] text-4xl ">
+              <div className="p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 md:mt-[4rem] ">
+                <h1 className="sm:text-6xl font-semibold text-white max-w-[85%] text-4xl ">
                   MAINTENANCE SERVICES FOR ELEVATORS AND ESCALATORS
                 </h1>
                 <p className="text-3xl text-white">

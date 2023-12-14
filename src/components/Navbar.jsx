@@ -22,17 +22,24 @@ export default function Header() {
 
   const [flyer5, setFlyer5] = React.useState(false);
   const [flyerTwo5, setFlyerTwo5] = React.useState(false);
-
+  function activateLasers() {
+    setFlyer(false);
+    setFlyer1(false);
+    setFlyer2(false);
+    setFlyer3(false);
+    setFlyer4(false);
+    setFlyer5(false);
+  }
   return (
-    <header class=" top-0 w-full  z-50 bg-[#161D24] flex justify-around">
-      <div class=" w-full  p-2  flex flex-wrap  flex-col sm:flex-row  sm:justify-normal sm:items-center   xl:bg-inherit    justify-around ">
-       <div className="flex flex-row  items-center justify-between  md:p-1  ">
+    <header class=" top-0 w-full  z-50 bg-[#161D24] flex justify-around" >
+      <div class=" w-full  p-2  flex flex-wrap  flex-col md:flex-row  md:justify-normal md:items-center   xl:bg-inherit    justify-around " >
+        <div className="flex flex-row  items-center justify-between  md:p-1  sm:ml-10 md:ml-2" >
           <Link
             to="/"
             class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 "
           >
             <div className=" rounded-full ">
-              <img src={Logo} alt="" className="sm:w-25 md:w-15 xl:w-16 w-16" />
+              <img src={Logo} alt="" className="sm:w-25 md:w-15 xl:w-16 w-16 " />
 
             </div>
           </Link>
@@ -62,7 +69,7 @@ export default function Header() {
         </div>
         <div
           className={
-            "md:flex items-center justify-center ml-85 flex-col w-full md:w-4/5 xl:w-[90%]   " +
+            "md:flex items-center justify-center ml-85 flex-col w-full md:w-4/5 xl:w-[90%]  " +
             (navbarOpen ? " block  flex-col   p-5" : " hidden")
           }
         >
@@ -73,13 +80,13 @@ export default function Header() {
 
 
             {/* first dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 z-10">
+            <div className="relative md:mr-4  z-10 opacity-100">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer(!flyer), setFlyerTwo(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (setFlyer(!flyer), setFlyerTwo(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">About Us</span>
                 <svg
@@ -104,22 +111,23 @@ export default function Header() {
                 onMouseLeave={() => setFlyer(false)}
                 className={
                   flyer
-                    ? "opacity-90 translate-y-0  transition ease-out duration-200 absolute z-20 -ml-5 mt-3   transform px-1 w-[13rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 bg-red lg:-translate-x-1/2"
-                    : "hidden opacity-0 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 "
+                    ? "opacity-100  translate-y-0  transition ease-out duration-200 absolute z-20 -ml-5 mt-3   transform px-1 w-[13rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 bg-red lg:-translate-x-1/2"
+                    : "hidden opacity-100 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 "
                 }
               >
-                <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap  bg-[#161D24] px-1 py-1 sm:gap-0 ">
+                <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden" >
+                  <div className="relative grid gap  bg-[#161D24] px-1 py-1 sm:gap-0 " onClick={activateLasers} >
+
                     <Link
                       to="/about/ourcompany"
                       className="-m-3  flex items-start rounded-lg hover:bg-gray-800 "
                     >
-                      <div className="ml-4 ">
+                      <div className="ml-4 " >
                         <p className="text-base font-medium text-white">
                           Our Company
                         </p>
-
                       </div>
+
                     </Link>
                     <Link
                       to="/about/ourteam"
@@ -173,13 +181,13 @@ export default function Header() {
             {/* first dropdown end here */}
 
             {/* second dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 z-10">
+            <div className="relative md:mr-4 opacity-100 z-10" >
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer1(!flyer1), setFlyerTwo1(false), setFlyer(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (setFlyer1(!flyer1), setFlyerTwo1(false), setFlyer(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Product</span>
                 <svg
@@ -204,12 +212,12 @@ export default function Header() {
                 onMouseLeave={() => setFlyer1(false)}
                 className={
                   flyer1
-                    ? "opacity-100   translate-y-0 transition ease-out duration-200 absolute z-20 -ml-4 mt-3   transform px-2 w-[15rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                    ? "opacity-100  translate-y-0 transition ease-out duration-200 absolute z-20 -ml-4 mt-3   transform px-2 w-[15rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                     : "hidden opacity-0 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-4 bg-[#161D24]  sm:gap-0  ">
+                  <div className="relative grid gap-4 bg-[#161D24]  sm:gap-0 " onClick={activateLasers}>
                     <Link
                       to="/product/lift"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -261,13 +269,13 @@ export default function Header() {
             {/* second dropdown end here */}
 
             {/* third dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 z-10">
+            <div className="relative md:mr-4 opacity-100 z-10">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer2(!flyer), setFlyerTwo2(false), setFlyer1(false), setFlyer(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (setFlyer2(!flyer), setFlyerTwo2(false), setFlyer1(false), setFlyer(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Services</span>
                 <svg
@@ -297,7 +305,7 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-4 bg-[#161D24] px-2 py-6 sm:gap-0 ">
+                  <div className="relative grid gap-4 bg-[#161D24] px-2 py-6 sm:gap-0 "onClick={activateLasers}>
                     <Link
                       to="/services/NewInstallationServices"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -375,13 +383,13 @@ export default function Header() {
             </Link>
 
             {/* fourth dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 z-10">
+            <div className="relative md:mr-4 opacity-100 z-10">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer3(!flyer), setFlyerTwo3(false), setFlyer1(false), setFlyer2(false), setFlyer(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (setFlyer3(!flyer), setFlyerTwo3(false), setFlyer1(false), setFlyer2(false), setFlyer(false), setFlyer4(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Customer Services</span>
                 <svg
@@ -411,7 +419,7 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 ">
+                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 " onClick={activateLasers}>
                     <Link
                       to="/customerservices/YourOrders"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -475,13 +483,13 @@ export default function Header() {
 
 
             {/* fifth dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 z-10">
+            <div className="relative md:mr-4 opacity-100 z-10">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer4(!flyer), setFlyerTwo4(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer(false), setFlyer5(false))}
+                onMouseOver={() => (setFlyer4(!flyer), setFlyerTwo4(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer(false), setFlyer5(false))}
               >
                 <span className=" text-xl">Register</span>
                 <svg
@@ -511,7 +519,7 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 ">
+                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 " onClick={activateLasers}>
                     <Link
                       to="/auth/consumerRegistration"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -554,13 +562,13 @@ export default function Header() {
 
 
             {/* sixth dropdown start here */}
-            <div className="relative md:mr-4 opacity-90 z-10">
+            <div className="relative md:mr-4 opacity-100 z-10">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseEnter={() => (setFlyer5(!flyer), setFlyerTwo5(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer(false))}
+                onMouseOver={() => (setFlyer5(!flyer), setFlyerTwo5(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer(false))}
               >
                 <span className=" text-xl">Login</span>
                 <svg
@@ -585,12 +593,12 @@ export default function Header() {
                 onMouseLeave={() => setFlyer5(false)}
                 className={
                   flyer5
-                    ? "opacity-100 translate-y-0 transition ease-out duration-200 absolute z-20 -ml-4 mt-3   transform px-2 w-[15rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                    : "hidden opacity-0 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                    ? "opacity-100 translate-y-0 transition ease-out duration-200 absolute z-20 -ml-4 mt-3   transform px-2 w-[15rem] max-w-sm sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 block"
+                    : "hidden opacity-0 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 "
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-6 sm:gap-0">
+                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-6 sm:gap-0" onClick={activateLasers}>
                     <Link
                       to="/auth/consumerLogin"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
