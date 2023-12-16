@@ -10,7 +10,7 @@ import lift8 from '../../../assets/img/lift8.jpg'
 import lift9 from '../../../assets/img/lift9.jpg'
 import lift1copy from '../../../assets/img/lift1copy.jpg'
 
-const EsclatorSparePart = () => {
+const EscalatorSparePart = () => {
   return (
    <>
     
@@ -19,7 +19,7 @@ const EsclatorSparePart = () => {
   <div className="row  flex sm:flex-row flex-col ">
     <div className="col-4  bg-[#f2f2f2]  gap-2">
       <img src={lift1} className="rounded-md"/>
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -37,7 +37,7 @@ const EsclatorSparePart = () => {
     </div>
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img className="rounded-md" src={lift4} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -55,7 +55,7 @@ const EsclatorSparePart = () => {
     </div>
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img className="rounded-md" src={lift5} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -73,7 +73,7 @@ const EsclatorSparePart = () => {
     </div>
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img className="rounded-md" src={lift7} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -93,7 +93,7 @@ const EsclatorSparePart = () => {
   <div className="row">
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img  className="rounded-md" src={lift8} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -111,7 +111,7 @@ const EsclatorSparePart = () => {
     </div>
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img className="rounded-md" src={lift9} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -129,7 +129,7 @@ const EsclatorSparePart = () => {
     </div>
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img className="rounded-md" src={lift1copy} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -147,7 +147,7 @@ const EsclatorSparePart = () => {
     </div>
      <div className="col-4  bg-[#f2f2f2]  rounded-md">
       <img className="rounded-md" src={lift4} />
-     <h4 className='text-3xl font-semibold'>Esclator Spare Part</h4>
+     <h4 className='text-3xl font-semibold'>Escalator Spare Part</h4>
       <div className="rating">
         <i className="fa fa-star" />
         <i className="fa fa-star" />
@@ -175,4 +175,4 @@ const EsclatorSparePart = () => {
   )
 }
 
-export default EsclatorSparePart
+export default EscalatorSparePart

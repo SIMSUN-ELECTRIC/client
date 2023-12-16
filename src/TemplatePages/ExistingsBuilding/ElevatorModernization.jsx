@@ -3,7 +3,7 @@ import React from "react";
 import BackgroundImg from "../../assets/img/lift1.jpg";
 import ImgBox from "../../assets/img/lift2.jpg";
 
-const ElevatorModerinazation = () => {
+const ElevatorModernization = () => {
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -53,7 +53,7 @@ const ElevatorModerinazation = () => {
   return (
     <>
       {/* section 1 */}
-      <div className="w-full sm:h-[40rem] relative min-h-screen">
+      <div className="w-full sm:h-[40rem] relative min-h-screen z-5">
         <img
           src={BackgroundImg}
           alt="Your Image"
@@ -81,7 +81,7 @@ const ElevatorModerinazation = () => {
       {/* section 1 end */}
       <div className="mt-1 flex justify-center items-center sm:mx-10 flex-col">
         {/* section 2 start  */}
-        {/* <div className="flex flex-col lg:flex-row">
+        <div className="flex flex-col lg:flex-row">
 
           <div className="w-full lg:w-1/2 p-4">
             <form></form>
@@ -119,7 +119,7 @@ const ElevatorModerinazation = () => {
               </div>
             </form>
           </div>
-        </div> */}
+        </div>
         {/* section 2 end here */}
 
         {/* section 3 */}
@@ -307,4 +307,4 @@ const ElevatorModerinazation = () => {
   );
 };
 
-export default ElevatorModerinazation;
+export default ElevatorModernization;

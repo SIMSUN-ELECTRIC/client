@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import logo1 from "../../assets/img/logo1.jpg";
 import NavLinks from "./NavLinks";
 import { IonIcon } from '@ionic/react';
-// import { close, menu } from 'react-ionicons/icons';
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -19,7 +17,7 @@ const Navbar = () => {
             class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 mr-10 "
           >
             <div className=" rounded-full ">
-              <img src={logo1} alt="" className=" w-20" />
+              <img src={logo1} alt="" className=" w-16" />
 
             </div>
           </Link>

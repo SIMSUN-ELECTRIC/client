@@ -7,9 +7,9 @@ import OurTeam from './CompanyPages/OurTeam/OurTeam'
 import News from './CompanyPages/News/News'
 import OurCompanySuccess from './CompanyPages/OurCompanySuccess/OurCompanySuccess'
 import Lift from './CompanyPages/Product/Lift/Lift'
-import Esclator from './CompanyPages/Product/Esclator/Esclator'
+import Escalator from './CompanyPages/Product/Escalator/Escalator'
 import LiftSparePart from './CompanyPages/Product/LiftSparePart/LiftSparePart'
-import EsclatorSparePart from './CompanyPages/Product/EsclatorSparePart/EsclatorSparePart'
+import EscalatorSparePart from './CompanyPages/Product/EscalatorSparePart/EscalatorSparePart'
 import NewInstallationServices from './CompanyPages/Services/NewInstallationServices'
 import AnnualMaintainenceServices from './CompanyPages/Services/AnnualMaintainenceServices'
 import BreakdownServices from './CompanyPages/Services/BreakdownServices'
@@ -27,7 +27,7 @@ import AdminLogin from './Auth/AdminLogin'
 import ContactUs from './components/ContactUs'
 import Cart from './components/Cart'
 import Maintenance from './CompanyPages/Services/Maintenance'
-import ElevatorModerinazation from './TemplatePages/ExistingsBuilding/ElevatorModerinazation'
+import ElevatorModernization from './TemplatePages/ExistingsBuilding/ElevatorModernization'
 import EscalatorAutowalkModernization from './CompanyPages/Services/EscalatorAutowalkModernization'
 import AddProduct from './CompanyPages/Product/AddProduct/AddProduct'
 
@@ -46,16 +46,16 @@ function App() {
           <Route path='/about/ourcompanysuccess' element={<OurCompanySuccess/>}/>
 
           <Route path='/product/lift' element={<Lift/>}/>
-          <Route path='/product/esclator' element={<Esclator/>}/>
+          <Route path='/product/escalator' element={<Escalator/>}/>
           <Route path='/product/LiftSparePart' element={<LiftSparePart/>}/>
-          <Route path='/product/EsclatorSparePart' element={<EsclatorSparePart/>}/>
+          <Route path='/product/EscalatorSparePart' element={<EscalatorSparePart/>}/>
           <Route path='/addProduct' element={<AddProduct/>}/>
 
           <Route path='/services/NewInstallationServices' element={<NewInstallationServices/>}/>
           <Route path='/services/AnnualMaintainenceServices' element={<AnnualMaintainenceServices/>}/>
           <Route path='/services/BreakdownServices' element={<BreakdownServices/>}/>
           <Route path='/services/Maintenance' element={<Maintenance/>}/>
-          <Route path='/services/ElevatorModerinazation' element={<ElevatorModerinazation/>}/>
+          <Route path='/services/ElevatorModernization' element={<ElevatorModernization/>}/>
           <Route path='/services/EscalatorAutowalkModernization' element={<EscalatorAutowalkModernization/>}/>
         
           <Route path='/shop' element={<Shop/>}/>

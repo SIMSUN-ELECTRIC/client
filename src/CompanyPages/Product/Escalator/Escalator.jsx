@@ -7,7 +7,7 @@ import axios from "axios";
 
 import lift1 from '../../../assets/img/lift1.jpg'
 
-const Esclator = () => {
+const Escalator = () => {
   const fetcher = async (...args) => {
     const res = await axios.get(...args);
     console.log(res?.data?.result)
@@ -15,7 +15,7 @@ const Esclator = () => {
   };
 
   const { data, error, isLoading } = useSWR(
-    "https://shy-ruby-gosling-sari.cyclic.app/api/product/Esclator",
+    "https://shy-ruby-gosling-sari.cyclic.app/api/product/Escalator",
     fetcher
   );
   return (
@@ -26,7 +26,7 @@ const Esclator = () => {
           style={{ textAlign: "center", fontWeight: "bolder" }}
           className="mt-4"
         >
-          <strong className="text-3xl mt-4">Esclator</strong>
+          <strong className="text-3xl mt-4">Escalators</strong>
         </h1>
         <div className="h-[500px]">
         </div>
@@ -71,4 +71,4 @@ const Esclator = () => {
   )
 }
 
-export default Esclator
+export default Escalator

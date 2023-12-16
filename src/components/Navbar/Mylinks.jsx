@@ -9,7 +9,7 @@ export const links = [
           { name: "Our Company", link: "/about/ourcompany" },
           { name: "Our Team", link: "/about/ourteam" },
           { name: "Our Success Story", link: "/about/ourcompanysuccess" },
-          { name: "News & Reference", link: "/about/news" },
+          { name: "News & References", link: "/about/news" },
           { name: "Add Product", link: "/addProduct" },
         ],
       },
@@ -22,10 +22,10 @@ export const links = [
       {
         Head: "Product",
         sublink: [
-          { name: "Lift", link: "/product/lift" },
-          { name: "Esclators", link: "/product/esclator" },
+          { name: "Lifts", link: "/product/lift" },
+          { name: "Escalators", link: "/product/escalator" },
           { name: "Lift Spare Parts", link: "/product/LiftSparePart" },
-          { name: "Escalator Spare Parts", link: "/product/EsclatorSparePart" },
+          { name: "Escalator Spare Parts", link: "/product/EscalatorSparePart" },
         ],
       },
     ],
@@ -37,25 +37,25 @@ export const links = [
       {
         Head: "Services",
         sublink: [
-          { name: "New Installation Serivces", link: "/services/NewInstallationServices" },
+          { name: "New Installation Services", link: "/services/NewInstallationServices" },
           { name: "Annual Maintainence Services", link: "/services/AnnualMaintainenceServices" },
-          { name: "Breakdwon Services", link: "/services/BreakdownServices" },
-          { name: "Elevator Moderinazation", link: "/services/ElevatorModerinazation" },
+          { name: "Breakdown Services", link: "/services/BreakdownServices" },
+          { name: "Elevator Modernization", link: "/services/ElevatorModernization" },
           { name: "Elevator Walk", link: "/services/EscalatorAutowalkModernization" },
         ],
       },
     ],
   },
   {
-    name: "Coustomer Serivces",
+    name: "Customer Services",
     submenu: true,
     sublinks: [
       {
-        Head: "Coustomer Serivces",
+        Head: "Customer Services",
         sublink: [
-          { name: "Your order", link: "/customerservices/YourOrders" },
+          { name: "Your Orders", link: "/customerservices/YourOrders" },
           { name: "Return & Refunds", link: "/customerservices/ReturnandRefunds" },
-          { name: "Manage Address", link: "/customerservices/ManageAddress" },
+          { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
           { name: "Payment Setting", link: "/customerservices/PaymentSetting" },
           { name: "Account Setting", link: "/customerservices/AccountSetting" },
         ],
@@ -69,8 +69,8 @@ export const links = [
       {
         Head: "Register",
         sublink: [
-          { name: "Cousumer Registration", link: "/auth/consumerRegistration" },
-          { name: "Engneer Registration", link: "/auth/engineerRegistration" },
+          { name: "Consumer Registration", link: "/auth/consumerRegistration" },
+          { name: "Engineer Registration", link: "/auth/engineerRegistration" },
           { name: "Admin Registration", link: "/auth/adminRegistration" },
 
         ],
@@ -84,9 +84,9 @@ export const links = [
       {
         Head: "Login",
         sublink: [
-          { name: "Cousumer login", link: "/auth/consumerLogin" },
-          { name: "Engneer login", link: "/auth/EngineerLogin" },
-          { name: "Admin login", link: "/auth/AdminLogin" },
+          { name: "Consumer Login", link: "/auth/consumerLogin" },
+          { name: "Engineer Login", link: "/auth/EngineerLogin" },
+          { name: "Admin Login", link: "/auth/AdminLogin" },
         ],
       },
     ],

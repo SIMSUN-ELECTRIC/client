@@ -16,7 +16,7 @@ const Homepage = () => {
   return (
     <>
       <div className=" h-[28rem]  sm:h-[28rem] sm:flex">
-         <div className="   w-full flex flex-col bg-[#202b35] items-center justify-center p-10">
+         <div className=" w-full flex flex-col bg-[#202b35] items-center justify-center p-10 bg-cover " style={{ backgroundImage: `url(${lift5})` }}>
             <div className="sm:text-5xl text-white  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
               Welcome to Simsun Electric
             </div>
