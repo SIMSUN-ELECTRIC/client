@@ -16,11 +16,11 @@ const Homepage = () => {
   return (
     <>
       <div className=" h-[28rem]  sm:h-[28rem] sm:flex">
-         <div className=" w-full flex flex-col bg-[#202b35] items-center justify-center p-10 bg-cover " style={{ backgroundImage: `url(${lift5})` }}>
-            <div className="sm:text-5xl text-white  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
+         <div className=" w-full flex flex-col bg-[#202b35] items-center justify-center p-10 bg-cover  " style={{ backgroundImage: `url(${lift1})` }}>
+            <div className="sm:text-5xl text-[#202b35]  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
               Welcome to Simsun Electric
             </div>
-            <div className="text-white sm:text-2xl text-sm mt-5 sm:mt-0 text-center   ">
+            <div className=" sm:text-2xl text-sm mt-5 sm:mt-0 text-center  text-[#0d1115] ">
               We Believe this is the key of any successful relationship and it's
               important to us that our clients and team members have a strong
               foundation trust in each other.

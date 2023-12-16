@@ -10,18 +10,18 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav className="bg-[#161D24] text-white ">
-      <div className="flex items-center font-medium justify-around ">
-        <div className="z-50 p-5 md:w-auto w-full flex justify-between ">
+      <div className="flex items-center font-medium justify-evenly ">
+        <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem]">
           <Link
             to="/"
-            class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 mr-10 "
+            class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
           >
-            <div className=" rounded-full ">
-              <img src={logo1} alt="" className=" w-16" />
+            <div className=" rounded-full  ">
+              <img src={logo1} alt="" className="w-16" />
 
             </div>
           </Link>
-          <div className="text-3xl md:hidden " onClick={() => setOpen(!open)}>
+          <div className="text-3xl md:hidden mt-3.5 " onClick={() => setOpen(!open)}>
            
             {
               open ? <RxCross2 /> : <IoMdMenu />
@@ -31,23 +31,23 @@ const Navbar = () => {
         </div>
         <ul className="md:flex md:flex-row md:flex-wrap md:mt-[2rem] md:mb-[2rem] hidden items-center gap-3 font-[Poppins]">
           <NavLinks />
-          <div className="mt-[1.2rem]">
+          <div className="">
             <li>
-              <Link to="/ContactUs" class=" hover:text-red-400 text-xl cursor-pointer text-gray-300   font-xl ">
+              <Link to="/ContactUs" class=" hover:text-red-400 text-xl cursor-pointer text-gray-300   font-xl mr-3.5">
                 Contact Us
               </Link>
             </li>
           </div>
-          <div className="mt-[1.2rem]">
+          <div className="">
             <li>
-              <Link to="/shop" class=" text-xl cursor-pointer text-gray-300 hover:text-red-400 font-medium ">
+              <Link to="/shop" class=" text-xl cursor-pointer text-gray-300 hover:text-red-400 font-medium mr-3.5">
                 Shop
               </Link>
             </li>
           </div>
-          <div className="mt-[1.2rem]">
+          <div className="">
             <li>
-              <Link to="/Cart" class=" text-xl cursor-pointer  text-gray-300 hover:text-red-400 font-medium ">
+              <Link to="/Cart" class=" text-xl cursor-pointer  text-gray-300 hover:text-red-400 font-medium mr-3.5">
                 Cart
               </Link>
             </li>
