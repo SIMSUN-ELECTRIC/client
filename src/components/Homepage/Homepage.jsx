@@ -5,6 +5,9 @@ import lift1 from "../../assets/img/lift1.jpg";
 import lift4 from "../../assets/img/lift4.jpg";
 import lift5 from "../../assets/img/lift5.jpg";
 import lift7 from "../../assets/img/lift7.jpg";
+
+import lift15 from "../../assets/img/lift15.jpg";
+
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -16,11 +19,11 @@ const Homepage = () => {
   return (
     <>
       <div className=" h-[28rem]  sm:h-[28rem] sm:flex">
-         <div className=" w-full flex flex-col bg-[#202b35] items-center justify-center p-10 bg-cover  " style={{ backgroundImage: `url(${lift1})` }}>
-            <div className="sm:text-5xl text-[#202b35]  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
+         <div className=" w-full flex flex-col bg-[#202b35] items-center justify-center p-10 bg-cover" style={{ backgroundImage: `url(${lift15})`,}}>
+            <div className="sm:text-5xl text-white  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
               Welcome to Simsun Electric
             </div>
-            <div className=" sm:text-2xl text-sm mt-5 sm:mt-0 text-center  text-[#0d1115] ">
+            <div className=" sm:text-2xl text-sm mt-5 sm:mt-0 text-center  text-white drop-shadow-[2px_2px_var(--tw-shadow-color)] shadow-[#202b35]">
               We Believe this is the key of any successful relationship and it's
               important to us that our clients and team members have a strong
               foundation trust in each other.

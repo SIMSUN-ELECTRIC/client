@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo1 from "../../assets/img/logo1.jpg";
+import logo1 from "../../assets/img/logo2.jpeg";
 import NavLinks from "./NavLinks";
 import { IonIcon } from '@ionic/react';
 import { IoMdMenu } from "react-icons/io";
@@ -11,25 +11,27 @@ const Navbar = () => {
   return (
     <nav className="bg-[#161D24] text-white ">
       <div className="flex items-center font-medium justify-evenly ">
-        <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem]">
+        <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem] -ml-10">
+
           <Link
             to="/"
-            class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
+            class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400  overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
           >
-            <div className=" rounded-full  ">
-              <img src={logo1} alt="" className="w-16" />
+            {/* <h1 className="text-xl ">SIMSUN ELECTRIC</h1> */}
+            {/* <div className="   ">
+              <img src={logo1} alt="" className="w-10" />
 
-            </div>
+            </div> */}
           </Link>
           <div className="text-3xl md:hidden mt-3.5 " onClick={() => setOpen(!open)}>
-           
+
             {
               open ? <RxCross2 /> : <IoMdMenu />
             }
-            
+
           </div>
         </div>
-        <ul className="md:flex md:flex-row md:flex-wrap md:mt-[2rem] md:mb-[2rem] hidden items-center gap-3 font-[Poppins]">
+        <ul className="md:flex md:flex-row md:flex-wrap md:mt-[1rem] md:mb-[1rem] hidden items-center gap-3 font-[Poppins]">
           <NavLinks />
           <div className="">
             <li>

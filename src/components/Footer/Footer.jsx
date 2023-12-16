@@ -2,18 +2,24 @@ import React from "react";
 import ItemsContainer from "./ItemsContainer";
 import SocialIcons from "./SocialIcons";
 import { Link } from "react-router-dom";
+import logo1 from "../../assets/img/logo2.jpeg";
 
 
 const Footer = () => {
   return (
     <footer className="bg-[#161D24] text-white">
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-7">
-        <h1
-          className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold
-         md:w-2/5"
-        >
-          <span className="text-red-500 ">Free</span> Subscribe Us
-        </h1>
+      <div className="md:flex md:justify-between md:items-center  sm:px-4 px-4 bg-[#ffffff19] py-4">
+        <div className="">
+          <h1
+            className="text-4xl font-blod "
+          >
+            <span className="text-red-500 ">Free</span> Subscribe Us
+          </h1>
+        </div>
+        <div className=" ">
+          <img src={logo1} alt="" className="w-20 rounded-full " />
+
+        </div>
         <div>
           <input
             type="text"
@@ -32,14 +38,15 @@ const Footer = () => {
       <ItemsContainer />
       <div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10
-      text-center pt-2 text-gray-400 text-sm pb-8"
+      text-center pt-2 text-gray-400 text-sm pb-0"
       >
         <span>Copyright © 2023 All rights reserved </span>
-        <span>Simsun Electric Pvt Ltd Designed by 
-        <Link to="https://teksila.in/" className="text-red-400 ml-4">Teksila.in</Link>
-        
+        <span>Simsun Electric Pvt Ltd Designed by
+          <Link to="https://teksila.in/" className="text-red-400 ml-4">Teksila.in</Link>
+
         </span>
         <SocialIcons />
+
       </div>
     </footer>
   );
