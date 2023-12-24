@@ -39,7 +39,7 @@ const NavLinks = () => {
                     mt-1  rotate-45"
                     ></div>
                   </div>
-                  <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20 opacity-95">
+                  <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20 ">
                     {link.sublinks.map((mysublinks) => (
                       <div>
                         {/* <h1 className="text-lg font-semibold">

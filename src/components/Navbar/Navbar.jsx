@@ -1,27 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo1 from "../../assets/img/logo2.jpeg";
 import NavLinks from "./NavLinks";
 import { IonIcon } from '@ionic/react';
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logo from '../../assets/img/logo1.jpg'
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-[#161D24] text-white ">
+    <nav className="bg-[#161D24] text-white fixed w-full opacity-95 z-10">
       <div className="flex items-center font-medium justify-evenly ">
         <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem] -ml-10">
 
           <Link
             to="/"
-            class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400  overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
-          >
-            {/* <h1 className="text-xl ">SIMSUN ELECTRIC</h1> */}
-            {/* <div className="   ">
-              <img src={logo1} alt="" className="w-10" />
+            class="flex text-3xl  border md:translate-x-10  justify-center items-center ml-10   overflow-hidden font-medium mb-0 md:mb-0 mr-0 ">
+             <div className="flext justify-start   ">
+              <img src={logo} alt="" className="w-10" />
 
-            </div> */}
+            </div>
           </Link>
           <div className="text-3xl md:hidden mt-3.5 " onClick={() => setOpen(!open)}>
 
@@ -64,22 +61,23 @@ const Navbar = () => {
         duration-500 ${open ? "left-0" : "left-[-100%] "}
         `}
         >
+        
           <NavLinks />
-          <div className="mt-5">
+          <div className="mt-2">
 
             <li>
-              <Link to="/ContactUs" class="mr-5 cursor-pointer text-gray-300 text-xl hover:text-red-400 font-semibold mt-7">
+              <Link to="/ContactUs" class="ml-5 cursor-pointer text-gray-300 text-xl hover:text-red-400 font-semibold mt-7">
                 Contact Us
               </Link>
             </li>
           </div>
-          <div className="mt-5">
-            <Link to="/Cart" class="mr-5 cursor-pointer text-xl text-gray-300 hover:text-red-400 font-semibold ">
+          <div className="mt-2">
+            <Link to="/Cart" class="ml-5 cursor-pointer text-xl text-gray-300 hover:text-red-400 font-semibold ">
               Cart
             </Link>
           </div>
-          <div className="mt-5">
-            <Link to="/shop" class="mr-5 cursor-pointer text-xl text-gray-300 hover:text-red-400 font-semibold ">
+          <div className="mt-2">
+            <Link to="/shop" class="ml-5 cursor-pointer text-xl text-gray-300 hover:text-red-400 font-semibold ">
               Shop
             </Link>
           </div>

@@ -6,7 +6,7 @@ const OurCompany = () => {
     <>
       <div>
         <div className="cardinfra " >
-          <div className="qkiflexkaamkare sm:m-16">
+          <div className="qkiflexkaamkare ">
             <div className="cardinner ">
               <div className="imgg ">
                 <iframe
