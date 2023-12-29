@@ -8,7 +8,7 @@ import logo from '../../assets/img/logo1.jpg'
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-[#161D24] text-white fixed w-full opacity-95 z-10">
+    <nav className="bg-[#161D24] text-white  w-full opacity-95 z-10">
       <div className="flex items-center font-medium justify-evenly ">
         <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem] -ml-10">
 

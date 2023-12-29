@@ -16,7 +16,7 @@ const Footer = () => {
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
-        <div className=" ">
+        <div className="sm:my-0 my-3  ">
           <img src={logo1} alt="" className="w-20 rounded-full " />
 
         </div>

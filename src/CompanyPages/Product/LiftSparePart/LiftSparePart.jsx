@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Lift/Lift.css'
+// import '../Lift/Lift.css'
 
 import lift1 from '../../../assets/img/lift1.jpg'
 import lift4 from '../../../assets/img/lift4.jpg'

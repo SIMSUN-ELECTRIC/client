@@ -58,9 +58,9 @@ const Homepage = () => {
 
       <div className="w-full text-center flex flex-col ">
         <h1 className="text-black text-4xl font-bold ">WHY CHOOSE US</h1>
-        <div className="flex flex-row mt-6 justify-center ">
-          <div className=" flex flex-col m-4 hover:bg-[#202b35]">
-            <div className="flex justify-center ">
+        <div className="flex flex-row mt-6 justify-center md:flex-nowrap flex-wrap">
+          <div className=" flex flex-col m-4  p-4  hover:bg-[#202b35] group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+            <div className="flex justify-center group-hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -77,15 +77,15 @@ const Homepage = () => {
               </svg>
             </div>
 
-            <h2 className="text-black text-2xl font-bold">Wide Range of Products</h2>
-            <p className="text-black text-xl">
+            <h2 className="text-black text-2xl font-bold group-hover:text-white">Wide Range of Products</h2>
+            <p className="text-black text-xl group-hover:text-white">
               Explore our extensive selection of electronics, including
               smartphones, laptops, smart home devices, gaming consoles, and
               more.
             </p>
           </div>
-          <div className="flex flex-col">
-            <div className=" flex justify-center">
+          <div className="flex flex-col p-4 hover:bg-[#202b35] group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+            <div className=" flex justify-center group-hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -102,15 +102,15 @@ const Homepage = () => {
               </svg>
             </div>
 
-            <h2 className="text-black text-2xl font-bold">Quality Assurance</h2>
-            <p className="text-black">
+            <h2 className="text-black text-2xl font-bold group-hover:text-white">Quality Assurance</h2>
+            <p className="text-black text-xl group-hover:text-white">
               We believe in delivering only the highest quality products from
               trusted brands. Our team carefully selects each item in our
               catalog to ensure reliability and performance.
             </p>
           </div>
-          <div className="flex flex-col">
-            <div className="flex justify-center ">
+          <div className="flex flex-col p-4 hover:bg-[#202b35] group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+            <div className="flex justify-center group-hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -127,15 +127,15 @@ const Homepage = () => {
               </svg>
             </div>
 
-            <h2 className="text-black text-2xl font-bold">Competitive Pricing</h2>
-            <p className="text-black">
+            <h2 className="text-black text-2xl font-bold group-hover:text-white">Competitive Pricing</h2>
+            <p className="text-black text-xl group-hover:text-white">
               We offer competitive prices to ensure you get the best value for
               your money. Plus, don't miss out on our exclusive deals and
               promotions.
             </p>
           </div>
-          <div className="flex flex-col">
-            <div className="flex justify-center">
+          <div className="flex flex-col p-4 hover:bg-[#202b35] group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+            <div className="flex justify-center group-hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -152,8 +152,8 @@ const Homepage = () => {
               </svg>
             </div>
 
-            <h2 className="text-black text-2xl font-bold">Secure Shopping</h2>
-            <p className="text-black">
+            <h2 className="text-black text-2xl font-bold group-hover:text-white">Secure Shopping</h2>
+            <p className="text-black text-xl group-hover:text-white">
               Shop with confidence knowing that your data is protected with
               state-of-the-art security measures. Your privacy and security
               are our top priorities.
@@ -163,12 +163,12 @@ const Homepage = () => {
       </div>
 
 
-        <section className="w-full flex flex-row">
-          <div className="flex m-auto ">
-            <img src={Esc} width="600px" />
+        <section className="w-full flex mt-[2rem] bg-[#202b35]  p-8">
+          <div className="w-[45%] flex justify-center">
+            <img src={Esc} width="" className=" hover:scale-110 ease-linear duration-500" />
           </div>
-          <div className="flex w-1/2">
-            <p className="flex text-black text-lg">
+          <div className="flex w-[52%] ">
+            <p className=" text-white text-xl">
               At there we found that everybody is moving on MW and large scale
               projects, that time we keep our focus to learning the Elevator and
               Escalator project work. We were started our work as a freelancer

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Lift.css";
+// import "./Lift.css";
 
 import useSWR, { mutate } from "swr";
 import axios from "axios";

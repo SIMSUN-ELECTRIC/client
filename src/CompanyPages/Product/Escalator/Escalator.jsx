@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Lift/Lift.css'
+// import '../Lift/Lift.css'
 
 
 import useSWR, { mutate } from "swr";
