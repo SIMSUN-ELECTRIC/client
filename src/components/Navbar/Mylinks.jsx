@@ -25,7 +25,10 @@ export const links = [
           { name: "Lifts", link: "/product/lift" },
           { name: "Escalators", link: "/product/escalator" },
           { name: "Lift Spare Parts", link: "/product/LiftSparePart" },
-          { name: "Escalator Spare Parts", link: "/product/EscalatorSparePart" },
+          {
+            name: "Escalator Spare Parts",
+            link: "/product/EscalatorSparePart",
+          },
         ],
       },
     ],
@@ -37,11 +40,23 @@ export const links = [
       {
         Head: "Services",
         sublink: [
-          { name: "New Installation Services", link: "/services/NewInstallationServices" },
-          { name: "Annual Maintainence Services", link: "/services/AnnualMaintainenceServices" },
+          {
+            name: "New Installation Services",
+            link: "/services/NewInstallationServices",
+          },
+          {
+            name: "Annual Maintainence Services",
+            link: "/services/AnnualMaintainenceServices",
+          },
           { name: "Breakdown Services", link: "/services/BreakdownServices" },
-          { name: "Elevator Modernization", link: "/services/ElevatorModernization" },
-          { name: "Elevator Walk", link: "/services/EscalatorAutowalkModernization" },
+          {
+            name: "Elevator Modernization",
+            link: "/services/ElevatorModernization",
+          },
+          {
+            name: "Elevator Walk",
+            link: "/services/EscalatorAutowalkModernization",
+          },
         ],
       },
     ],
@@ -54,7 +69,10 @@ export const links = [
         Head: "Customer Services",
         sublink: [
           { name: "Your Orders", link: "/customerservices/YourOrders" },
-          { name: "Return & Refunds", link: "/customerservices/ReturnandRefunds" },
+          {
+            name: "Return & Refunds",
+            link: "/customerservices/ReturnandRefunds",
+          },
           { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
           { name: "Payment Setting", link: "/customerservices/PaymentSetting" },
           { name: "Account Setting", link: "/customerservices/AccountSetting" },
@@ -72,7 +90,6 @@ export const links = [
           { name: "Consumer Registration", link: "/auth/consumerRegistration" },
           { name: "Engineer Registration", link: "/auth/engineerRegistration" },
           { name: "Admin Registration", link: "/auth/adminRegistration" },
-
         ],
       },
     ],
@@ -91,5 +108,4 @@ export const links = [
       },
     ],
   },
-  
 ];
