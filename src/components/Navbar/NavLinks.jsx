@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./Mylinks";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
@@ -61,14 +61,10 @@ const NavLinks = () => {
             )}
           </div>
           {/* Mobile menus */}
-          <div
-            className={`
-            ${heading === link.name ? "md:hidden" : "hidden"}
-          `}
-          >
+          <div className={`${heading === link.name ? "md:hidden" : "hidden"}`}>
             {/* sublinks */}
             {link.sublinks.map((slinks) => (
-              <div>
+              <div key={slinks.Head}>
                 <div>
                   <h1
                     onClick={() =>
@@ -76,29 +72,20 @@ const NavLinks = () => {
                         ? setSubHeading(slinks.Head)
                         : setSubHeading("")
                     }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center "
+                    className="font-semibold md:pr-0 pr-5 flex justify-between items-center"
                   >
-                    {slinks.Head}
-
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
-                      {subHeading == slinks.Head ? (
-                        <FaAngleUp />
-                      ) : (
-                        <FaAngleDown />
-                      )}
-                    </span>
+                    {/* {slinks.Head} */}
+                    <ul className="pl-10">
+                      {slinks.sublink.map((slink) => (
+                        <li
+                          key={slink.name}
+                          className="py-2 flex flex-direction-col"
+                        >
+                          <Link to={slink.link}>{slink.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
                   </h1>
-                  <div
-                    className={`${
-                      subHeading === slinks.Head ? "md:hidden" : "hidden"
-                    }`}
-                  >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14">
-                        <Link to={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
-                  </div>
                 </div>
               </div>
             ))}
