@@ -8,7 +8,7 @@ import logo from "../../assets/img/logo1.jpg";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-[#161D24] text-white  w-full opacity-95 z-10">
+    <nav className="bg-[#161D24] text-white  w-full opacity-95 z-20">
       <div className="flex items-center font-medium justify-evenly ">
         <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem] -ml-10">
           <Link
@@ -62,7 +62,7 @@ const Navbar = () => {
 
         {/* Mobile nav */}
         <ul
-          className={`
+          className={`z-20 
         md:hidden bg-[#161D24] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%] "}
         `}
@@ -73,6 +73,7 @@ const Navbar = () => {
               <Link
                 to="/ContactUs"
                 class="ml-5 cursor-pointer text-gray-300 text-xl hover:text-red-400 font-semibold mt-7"
+                onClick={() => setOpen(!open)}
               >
                 Contact Us
               </Link>
@@ -82,6 +83,7 @@ const Navbar = () => {
             <Link
               to="/Cart"
               class="ml-5 cursor-pointer text-xl text-gray-300 hover:text-red-400 font-semibold "
+              onClick={() => setOpen(!open)}
             >
               Cart
             </Link>
@@ -90,6 +92,7 @@ const Navbar = () => {
             <Link
               to="/shop"
               class="ml-5 cursor-pointer text-xl text-gray-300 hover:text-red-400 font-semibold "
+              onClick={() => setOpen(!open)}
             >
               Shop
             </Link>

@@ -5,10 +5,10 @@ const OurCompany = () => {
   return (
     <>
       <div>
-        <div className="cardinfra " >
+        <div className="cardinfra ">
           <div className="qkiflexkaamkare ">
             <div className="cardinner ">
-              <div className="imgg ">
+              {/* <div className="imgg ">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17124.219485667665!2d88.33768204388784!3d22.576551611280404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02777b6e77a7b1%3A0xc2b5321759b6d987!2sHMP%20House!5e0!3m2!1sen!2sin!4v1686565788904!5m2!1sen!2sin"
                   width={500}
@@ -18,9 +18,8 @@ const OurCompany = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className=""
-
                 />
-              </div>
+              </div> */}
               <div className="textinfraa">
                 <h1 className="text-4xl">OFFICE LOCATIONS</h1>
                 <p className="text-2xl">
@@ -40,7 +39,7 @@ const OurCompany = () => {
                   alt
                 /> */}
               {/* </div> */}
-              <div className="textinfra ">
+              {/* <div className="textinfra ">
                 <h1 className="text-4xl">Our Branches</h1>
                 <p className="text-left">
                   We also have our branch office in Ranchi, Aurangabad from
@@ -83,7 +82,7 @@ const OurCompany = () => {
                 <br />
                 <br />
                 <p />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

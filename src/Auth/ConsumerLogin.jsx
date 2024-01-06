@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ const ConsumerLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const ConsumerLogin = () => {
       if (response.status === 200) {
         // Registration was successful
         const json = response.data;
-        dispatch(logIn(json))
+        dispatch(logIn(json));
         console.log(json);
         navigate("/");
       } else {
@@ -38,10 +38,8 @@ const ConsumerLogin = () => {
     }
   };
 
-  
-
   return (
-    <section className="gradient-form h-full ">
+    <section className="gradient-form h-full z-10">
       <div className="container h-full p-10">
         <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
           <div className="w-full">
@@ -69,8 +67,8 @@ const ConsumerLogin = () => {
                         >
                           Your Email
                         </label>
-                        <div className="relative mb-6">
-                          <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                        <div className="flex">
+                          <div className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                             <svg
                               className="w-4 h-4 text-gray-500 dark:text-gray-400"
                               aria-hidden="true"
@@ -85,10 +83,10 @@ const ConsumerLogin = () => {
                           <input
                             type="text"
                             id="input-group-1"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="xyz@gmail.com"
                             value={email}
-                            onChange={(e) =>setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
                         <label
@@ -115,7 +113,7 @@ const ConsumerLogin = () => {
                             className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder=""
                             value={password}
-                            onChange={(e) =>setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
                         </div>
                       </div>
@@ -137,22 +135,25 @@ const ConsumerLogin = () => {
                         </button>
                         {/*Forgot password link*/}
                         <Link to="/auth/consumerRegistration">
-                        Doesn't have an acount?
+                          Doesn't have an acount?
                         </Link>
                         {/* <a href="/auth/consumerRegistration">Doesn't have an acount?</a> */}
                       </div>
                       {/*Register button*/}
                       <div className="flex items-center justify-between pb-6">
-                        <p className="mb-0 mr-2 text-black">Create new account</p>
+                        <p className="mb-0 mr-2 text-black">
+                          Create new account
+                        </p>
                         {/* <Link  */}
-                        <Link to="/auth/consumerRegistration"
+                        <Link
+                          to="/auth/consumerRegistration"
                           type="button"
                           className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                           data-te-ripple-init
                           data-te-ripple-color="light"
                         >
                           Register
-                        {/* </button> */}
+                          {/* </button> */}
                         </Link>
                       </div>
                     </form>

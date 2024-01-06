@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,11 +21,11 @@ const AdminLogin = () => {
           password,
         }
       );
-        console.log(response.status)
+      console.log(response.status);
       if (response.status == 200) {
         // Registration was successful
         const json = response.data;
-        dispatch(logIn(json))
+        dispatch(logIn(json));
         console.log(json);
         navigate("/addProduct");
       } else {
@@ -38,7 +38,7 @@ const AdminLogin = () => {
   };
   return (
     <div
-      className="bg-no-repeat bg-cover bg-center relative"
+      className="bg-no-repeat bg-cover bg-center relative z-[-10]"
       style={{
         backgroundImage:
           "url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80)",
@@ -46,7 +46,7 @@ const AdminLogin = () => {
     >
       <div className="sm:absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0" />
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
-        <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
+        <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-0">
           <div className="self-start hidden lg:flex flex-col  text-white">
             <h1 className="mb-3 font-bold text-5xl"> Welcome back admin </h1>
             <p className="pr-3 text-3xl">

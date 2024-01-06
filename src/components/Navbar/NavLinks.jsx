@@ -9,7 +9,7 @@ const NavLinks = () => {
     <>
       {links.map((link) => (
         <div>
-          <div className=" text-left md:cursor-pointer group mt-1 ml-5">
+          <div className=" text-left md:cursor-pointer group mt-1 ml-5 ">
             <h1
               className=" flex  justify-between items-center md:pr-0 pr-5 group hover:text-red-400  text-xl"
               onClick={() => {
@@ -81,7 +81,14 @@ const NavLinks = () => {
                           key={slink.name}
                           className="py-2 flex flex-direction-col"
                         >
-                          <Link to={slink.link}>{slink.name}</Link>
+                          <Link
+                            to={slink.link}
+                            onClick={() => {
+                              setOpen(!open);
+                            }}
+                          >
+                            {slink.name}
+                          </Link>
                         </li>
                       ))}
                     </ul>

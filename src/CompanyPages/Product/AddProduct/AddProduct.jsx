@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import  axios  from 'axios';
+import axios from "axios";
 
 const AddProduct = () => {
   const [prodName, setProdName] = useState("");
@@ -19,20 +19,23 @@ const AddProduct = () => {
     }
   }, []);
 
-  const handleSubmit = async(e) => {
-    e.preventDefault()
-    console.log(category)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(category);
     try {
       let formData = new FormData();
-      formData.append('file',file);
-      formData.append('prodName',prodName);
-      formData.append('prodDescp',prodDescp);
-      formData.append('price',price);
-      formData.append('category',category);
+      formData.append("file", file);
+      formData.append("prodName", prodName);
+      formData.append("prodDescp", prodDescp);
+      formData.append("price", price);
+      formData.append("category", category);
 
-      const res = await axios.post('http://127.0.0.1:5000/api/submitProduct',formData)
+      const res = await axios.post(
+        "http://127.0.0.1:5000/api/submitProduct",
+        formData
+      );
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
