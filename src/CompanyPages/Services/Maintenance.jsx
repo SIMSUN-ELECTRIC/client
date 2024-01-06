@@ -51,7 +51,7 @@ const Maintenance = () => {
 
   return (
     <>
-      <div className="mt-1 flex justify-center items-center sm:mx-10 flex-col">
+      <div className="mt-16 flex justify-center items-center sm:mx-10 flex-col">
         <div className=" w-full h-[40rem] ">
           <div className="relative min-h-screen">
             <img

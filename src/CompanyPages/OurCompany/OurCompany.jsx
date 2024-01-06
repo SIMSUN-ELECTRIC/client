@@ -4,8 +4,28 @@ import React from "react";
 const OurCompany = () => {
   return (
     <>
+      <div className="w-full flex flex-col text-center mt-16">
+        <h1 className="text-black font-bold text-5xl">About Simsun</h1>
+        <p className="text-black text-xl mt-4 mx-8">
+          The birth of SimSun Electric was founded in December 2016 after 2
+          years of elevator and escalator project installation experience all
+          over the Rajasthan. The possibilities of SimSun Electric were built
+          after left DMRC project in Dec 2014, and started work with a small
+          franchise of elevator and escalator energy in Jaipur.
+        </p>
+        <p className=" text-black text-xl mx-8">
+          At there we found that everybody is moving on MW and large scale
+          projects, that time we keep our focus to learning the Elevator and
+          Escalator project work. We were started our work as a freelancer in
+          the industry by small works with different franchises in roof top
+          Backup, or net metering Projects. And after all when we found that
+          Elevator and Escalator roof top market in Rajasthan rapidly growing,
+          then our ideas come into the reality and founded SimSun Electric Dec
+          2016.
+        </p>
+      </div>
       <div>
-        <div className="cardinfra ">
+        <div className="m-12 ">
           <div className="qkiflexkaamkare ">
             <div className="cardinner ">
               {/* <div className="imgg ">
@@ -22,7 +42,7 @@ const OurCompany = () => {
               </div> */}
               <div className="textinfraa">
                 <h1 className="text-4xl">OFFICE LOCATIONS</h1>
-                <p className="text-2xl">
+                <p className="text-2xl mt-4">
                   Flat No. T-1,104,1st Floor,Tower-1 Plot No. GH o1/A,Sector
                   16C, Exotica Dreamville,Greater Noida, U.P.201203
                 </p>

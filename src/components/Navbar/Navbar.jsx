@@ -8,7 +8,7 @@ import logo from "../../assets/img/logo1.jpg";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-[#161D24] text-white  w-full opacity-95 z-20">
+    <nav className="bg-[#161D24] text-white  w-full opacity-100 top-0 fixed m-0 z-20">
       <div className="flex items-center font-medium justify-evenly ">
         <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem] -ml-10">
           <Link
@@ -20,24 +20,19 @@ const Navbar = () => {
             </div>
           </Link>
           <div
-            className="text-3xl md:hidden mt-3.5 "
+            className="text-3xl md:hidden mt-3.5 z-30"
             onClick={() => setOpen(!open)}
           >
-            {open ? <RxCross2 /> : <IoMdMenu />}
+            {open ? (
+              <RxCross2 className="z-50" />
+            ) : (
+              <IoMdMenu className="z-50" />
+            )}
           </div>
         </div>
         <ul className="md:flex md:flex-row md:flex-wrap md:mt-[1rem] md:mb-[1rem] hidden items-center gap-3 font-[Poppins]">
           <NavLinks />
-          <div className="">
-            <li>
-              <Link
-                to="/ContactUs"
-                class=" hover:text-red-400 text-xl cursor-pointer text-gray-300   font-xl mr-3.5"
-              >
-                Contact Us
-              </Link>
-            </li>
-          </div>
+
           <div className="">
             <li>
               <Link
@@ -58,27 +53,27 @@ const Navbar = () => {
               </Link>
             </li>
           </div>
-        </ul>
-
-        {/* Mobile nav */}
-        <ul
-          className={`z-50 
-        md:hidden bg-[#161D24] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
-        duration-500 ${open ? "left-0" : "left-[-100%] "}
-        `}
-        >
-          <NavLinks />
-          <div className="mt-2">
+          <div className="">
             <li>
               <Link
                 to="/ContactUs"
-                class="ml-5 cursor-pointer text-gray-300 text-xl hover:text-red-400 font-semibold mt-7"
-                onClick={() => setOpen(!open)}
+                class=" hover:text-red-400 text-xl cursor-pointer text-gray-300   font-xl mr-3.5"
               >
                 Contact Us
               </Link>
             </li>
           </div>
+        </ul>
+
+        {/* Mobile nav */}
+        <ul
+          className={`z-20 
+        md:hidden bg-[#161D24] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
+        duration-500 ${open ? "left-0" : "left-[-100%] "}
+        `}
+        >
+          <NavLinks />
+          <div className="mt-2"></div>
           <div className="mt-2">
             <Link
               to="/Cart"
@@ -97,6 +92,15 @@ const Navbar = () => {
               Shop
             </Link>
           </div>
+          <li>
+            <Link
+              to="/ContactUs"
+              class="ml-5 cursor-pointer text-gray-300 text-xl hover:text-red-400 font-semibold mt-7"
+              onClick={() => setOpen(!open)}
+            >
+              Contact Us
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

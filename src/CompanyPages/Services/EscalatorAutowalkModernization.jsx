@@ -4,20 +4,20 @@ import BackgroundImg from "../../assets/img/lift2.jpg";
 const EscalatorAutowalkModernization = () => {
   return (
     <>
-      <div className="mt-1 flex justify-center items-center sm:mx-10 flex-col">
+      <div className="mt-20 flex justify-center items-center sm:mx-10 flex-col">
         {/* section 1 start */}
-        <div className=" w-full h-[40rem] mb-2">
-          <div className=" min-h-screen ">
+        <div className=" w-full h-[35rem] mb-2">
+          <div className=" min-h-screen mx-2">
             <div
-              className="w-full sm:max-h-[40rem] h-[45rem]"
+              className="w-full sm:max-h-[35rem] h-[35rem]"
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${BackgroundImg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center  mt-[24rem]">
-              <div className="m-12 p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
+            <div className="absolute inset-0 flex flex-col justify-center items-center  mt-[20rem]">
+              <div className="mx-12 p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
                 <h1 className="sm:text-6xl font-semibold  text-white sm:max-w-[65%] text-4xl max-w-full">
                   ESCALATOR MODERNIZATION
                 </h1>

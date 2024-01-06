@@ -49,10 +49,10 @@ export const links = [
             link: "/services/AnnualMaintainenceServices",
           },
           { name: "Breakdown Services", link: "/services/BreakdownServices" },
-          {
-            name: "Elevator Modernization",
-            link: "/services/ElevatorModernization",
-          },
+          // {
+          //   name: "Elevator Modernization",
+          //   link: "/services/ElevatorModernization",
+          // },
           {
             name: "Elevator Walk",
             link: "/services/EscalatorAutowalkModernization",

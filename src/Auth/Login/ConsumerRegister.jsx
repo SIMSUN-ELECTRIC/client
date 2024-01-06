@@ -1,23 +1,25 @@
-import React, { useState } from "react";
-import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 const ConsumerRegister = () => {
-  const [fullName, setFullName] = useState("")
-  const [userName, setUserName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
+  const [fullName, setFullName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleConsumerRegister = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/consumerRegister", {
-        fullName,
-        userName,
-        email,
-        password
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/consumerRegister",
+        {
+          fullName,
+          userName,
+          email,
+          password,
+        }
+      );
 
       if (response.status === 200) {
         // Registration was successful
@@ -35,7 +37,7 @@ const ConsumerRegister = () => {
 
   return (
     <>
-      <div className="h-screen md:flex text-center">
+      <div className="mt-16 h-screen md:flex text-center">
         <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden ">
           <div>
             <h1 className="text-white font-bold text-5xl font-sans">Simsun</h1>
@@ -168,9 +170,7 @@ const ConsumerRegister = () => {
             {/* <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
               Have an account ?
             </span> */}
-            <Link to="/auth/consumerLogin" >
-              Have an account ?
-            </Link>
+            <Link to="/auth/consumerLogin">Have an account ?</Link>
           </form>
         </div>
       </div>
