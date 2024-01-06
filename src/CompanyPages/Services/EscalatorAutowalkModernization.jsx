@@ -7,14 +7,17 @@ const EscalatorAutowalkModernization = () => {
       <div className="mt-1 flex justify-center items-center sm:mx-10 flex-col">
         {/* section 1 start */}
         <div className=" w-full h-[40rem] mb-2">
-          <div className="relative min-h-screen">
-            <img
-              src={BackgroundImg}
-              alt="Your Image"
+          <div className=" min-h-screen ">
+            <div
               className="w-full sm:max-h-[40rem] h-[45rem]"
-            />
-            <div className="absolute inset-0 flex flex-col justify-center items-center  mt-[19rem]">
-              <div className=" p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${BackgroundImg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center  mt-[24rem]">
+              <div className="m-12 p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
                 <h1 className="sm:text-6xl font-semibold  text-white sm:max-w-[65%] text-4xl max-w-full">
                   ESCALATOR MODERNIZATION
                 </h1>
@@ -35,7 +38,9 @@ const EscalatorAutowalkModernization = () => {
         {/* section 2 start */}
         <div className="sm:mt-7 mt-32 flex flex-col justify-center items-center w-full">
           <div className="text-center">
-            <h2 className="text-3xl font-semibold">Why modernize with SIMSUN?</h2>
+            <h2 className="text-3xl font-semibold">
+              Why modernize with SIMSUN?
+            </h2>
             <div className="border-b-2 border-blue-500 mx-auto mt-2 w-80" />
           </div>
           <div className="flex flex-wrap justify-around mt-4  w-full">
@@ -329,40 +334,45 @@ const EscalatorAutowalkModernization = () => {
           </div>
         </div>
         {/* section 6 end */}
-
       </div>
-        {/* section 7 start */}
-            <div className="  flex flex-col justify-center items-center ">
-                <button className="mt-28 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[90%] sm:w-full md:w-[40%]">
-            <span className="sm:text-2xl text-xl relative px-10 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
-                Read more about our moderinazation process.
-            </span>
-            <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-full h-full bg-white rounded-l-full rotate-90 transition-all duration-300 ease-in opacity-0 group-hover:opacity-100 dark:group-hover:rotate-90 dark:group-hover:opacity-100 flex justify-center items-center">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-full h-full -rotate-90 text-white bg-blue-500"
-                >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-                </svg>
-            </span>
-                </button>
-                <div className="mt-8 text-xl sm:text-3xl mb-2 ">
-                Benefits of escalator modernization
-                </div>
-                <div className="border-4 border-gray-500 w-2/3 sm:w-[20%]"></div>
-                <div className="border flex justify-center items-center text-center mt-8 sm:w-2/3 w-[90%] text-2xl mb-20">
-                Escalator modernization ensures that your escalators continue to be energy efficient, reliable, and up to date with the latest escalator safety features. The truss may last as long as your building, but it is important to consider escalator modernization because chain components and drive components can wear and become outdated. Autowalk modernization also ensures that steps, balustrades, and lighting maintain a fresh, modern appearance.
-                </div>
-             </div>
-        {/* section 7 end */}
+      {/* section 7 start */}
+      <div className="  flex flex-col justify-center items-center ">
+        <button className="mt-28 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[90%] sm:w-full md:w-[40%]">
+          <span className="sm:text-2xl text-xl relative px-10 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
+            Read more about our moderinazation process.
+          </span>
+          <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-full h-full bg-white rounded-l-full rotate-90 transition-all duration-300 ease-in opacity-0 group-hover:opacity-100 dark:group-hover:rotate-90 dark:group-hover:opacity-100 flex justify-center items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-full h-full -rotate-90 text-white bg-blue-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </span>
+        </button>
+        <div className="mt-8 text-xl sm:text-3xl mb-2 ">
+          Benefits of escalator modernization
+        </div>
+        <div className="border-4 border-gray-500 w-2/3 sm:w-[20%]"></div>
+        <div className="border flex justify-center items-center text-center mt-8 sm:w-2/3 w-[90%] text-2xl mb-20">
+          Escalator modernization ensures that your escalators continue to be
+          energy efficient, reliable, and up to date with the latest escalator
+          safety features. The truss may last as long as your building, but it
+          is important to consider escalator modernization because chain
+          components and drive components can wear and become outdated. Autowalk
+          modernization also ensures that steps, balustrades, and lighting
+          maintain a fresh, modern appearance.
+        </div>
+      </div>
+      {/* section 7 end */}
     </>
   );
 };

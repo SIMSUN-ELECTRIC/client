@@ -16,7 +16,7 @@ const Navbar = () => {
             class="flex text-3xl  border md:translate-x-10  justify-center items-center ml-10   overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
           >
             <div className="flext justify-start   ">
-              <img src={logo} alt="" className="w-10" />
+              <img src={logo} alt="" className="w-12" />
             </div>
           </Link>
           <div
@@ -62,7 +62,7 @@ const Navbar = () => {
 
         {/* Mobile nav */}
         <ul
-          className={`z-20 
+          className={`z-50 
         md:hidden bg-[#161D24] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%] "}
         `}
