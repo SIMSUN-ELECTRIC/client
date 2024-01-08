@@ -24,6 +24,7 @@ export const links = [
         sublink: [
           { name: "Lifts", link: "/product/lift" },
           { name: "Escalators", link: "/product/escalator" },
+          { name: "Travellator", link: "/product/Travellator" },
           { name: "Lift Spare Parts", link: "/product/LiftSparePart" },
           {
             name: "Escalator Spare Parts",

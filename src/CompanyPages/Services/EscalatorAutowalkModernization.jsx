@@ -16,12 +16,12 @@ const EscalatorAutowalkModernization = () => {
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center  mt-[20rem]">
+            <div className="absolute inset-0 flex flex-col justify-center items-center lg:mt-[20rem]">
               <div className="mx-12 p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
-                <h1 className="sm:text-6xl font-semibold  text-white sm:max-w-[65%] text-4xl max-w-full">
+                <h1 className="sm:text-6xl font-semibold mt-16 text-white sm:max-w-[65%] text-4xl max-w-full">
                   ESCALATOR MODERNIZATION
                 </h1>
-                <p className="text-xl sm:text-3xl text-white">
+                <p className="mt-8 text-xl sm:text-3xl text-white">
                   If you're starting to face problems with your escalators, our
                   modernization solutions will increase their lifespan, giving
                   you the flexibility of replacing the entire installation or
@@ -81,13 +81,9 @@ const EscalatorAutowalkModernization = () => {
         {/* section 3 start */}
         <div className=" w-full sm:h-[40rem] h-[60rem]">
           <div className="relative min-h-screen">
-            <img
-              src={BackgroundImg}
-              alt="Your Image"
-              className="w-full sm:max-h-[40rem] h-[60rem]"
-            />
-            <div className="absolute inset-0 flex flex-col justify-center items-center">
-              <div className="  p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full">
+            <div className="w-full sm:max-h-[40rem] h-[60rem]  bg-[#202b35]" />
+            <div className="mt-16 absolute inset-0 flex flex-col justify-center items-center">
+              <div className="  p-4 rounded-lg shadow-white shadow-md text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full">
                 <h1 className="sm:text-4xl font-semibold  text-white  text-4xl max-w-full mb-10">
                   OUR ESCALATOR MODERNIZATION SOLUTIONS
                 </h1>
@@ -151,11 +147,7 @@ const EscalatorAutowalkModernization = () => {
         {/* section 4 start  */}
         <div className=" w-full sm:h-[40rem] h-[80rem] mt-36 sm:mt-0">
           <div className="relative min-h-screen">
-            <img
-              src={BackgroundImg}
-              alt="Your Image"
-              className="w-full sm:max-h-[40rem] h-[80rem]"
-            />
+            <div className=" bg-[#202b35] w-full sm:max-h-[40rem] h-[80rem]" />
             <div className="absolute inset-0 flex flex-col justify-center items-center">
               <div className="  p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full  bg-white">
                 <h1 className="sm:text-4xl font-semibold   text-4xl max-w-full mb-10 text-black">

@@ -6,65 +6,125 @@ import lift7 from "../../assets/img/lift7.jpg";
 import lift15 from "../../assets/img/lift15.jpg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 const Homepage = () => {
   const state = useSelector((state) => state.user);
   console.log("from here");
   console.log(state);
 
+  const [index, setIndex] = useState(0);
+  const images = [lift15, lift1, lift4, lift7];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const ImageComponent = images[index];
+
   return (
     <>
-      <div className=" h-[28rem]  sm:h-[28rem] sm:flex ">
+      <div className="h-[28rem] sm:h-[28rem] sm:flex relative">
         <div
-          className=" w-full flex flex-col bg-[#202b35] items-center justify-center p-10 bg-cover bg-center"
+          className="mt-16 absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-[#202b35] bg-cover bg-center transition-opacity duration-1000"
           style={{
-            backgroundImage: ` linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),url(${lift15})`,
+            backgroundImage: `linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)), url(${ImageComponent})`,
           }}
         >
-          <div className="sm:text-5xl text-white  text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
+          <div className="sm:text-5xl text-white text-3xl text-center uppercase font-bold sm:mb-10 mt-24 sm:mt-0">
             Welcome to Simsun Electric
           </div>
-
           <div className="sm:text-3xl text-base mt-5 sm:mt-0 text-center text-white p-4 rounded-lg">
             We believe this is the key to any successful relationship, and it's
             important to us that our clients and team members have a strong
             foundation of trust in each other.
           </div>
-
           <Link
             to="/about/ourcompany"
-            className="bg-[#D7ADAE] mt-10 hover:bg-red-400 text-black font-bold py-2 px-4 rounded-full"
+            className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 mt-10 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
           >
             Explore Now!
           </Link>
         </div>
       </div>
 
-      <div className="w-full flex flex-col text-center mt-16">
-        <h1 className="text-black font-bold text-5xl">About Simsun</h1>
-        <p className="text-black text-xl mt-4 mx-8">
-          The birth of SimSun Electric was founded in December 2016 after 2
-          years of elevator and escalator project installation experience all
-          over the Rajasthan. The possibilities of SimSun Electric were built
-          after left DMRC project in Dec 2014, and started work with a small
-          franchise of elevator and escalator energy in Jaipur.
-        </p>
-        <p className=" text-black text-xl mx-8">
-          At there we found that everybody is moving on MW and large scale
-          projects, that time we keep our focus to learning the Elevator and
-          Escalator project work. We were started our work as a freelancer in
-          the industry by small works with different franchises in roof top
-          Backup, or net metering Projects. And after all when we found that
-          Elevator and Escalator roof top market in Rajasthan rapidly growing,
-          then our ideas come into the reality and founded SimSun Electric Dec
-          2016.
-        </p>
-      </div>
+      <section className="mt-8 md:mt-16 w-full flex flex-col md:flex-row p-4 md:p-8">
+        <div className="w-full md:w-[60%] mt-8 md:mt-16 md:order-2">
+          <h1 className="text-black font-bold text-4xl md:text-5xl mx-4 md:mx-8 text-center md:text-left">
+            About Simsun
+          </h1>
+          <p className="text-black text-lg md:text-xl mt-4 mx-4 md:mx-8 text-center md:text-left">
+            The birth of SimSun Electric was founded in December 2016 after 2
+            years of elevator and escalator project installation experience all
+            over Rajasthan. The possibilities of SimSun Electric were built
+            after leaving the DMRC project in Dec 2014 and started working with
+            a small franchise of elevator and escalator energy in Jaipur.
+          </p>
+          <p className="text-black text-lg md:text-xl mx-4 md:mx-8 text-center md:text-left">
+            At that time, we found that everybody is moving on MW and
+            large-scale projects. We kept our focus on learning about elevator
+            and escalator project work. We started our work as freelancers in
+            the industry by doing small works with different franchises in
+            rooftop backup or net metering projects. When we observed that the
+            elevator and escalator rooftop market in Rajasthan was rapidly
+            growing, our ideas became a reality, and SimSun Electric was founded
+            in Dec 2016.
+          </p>
+        </div>
+        <div className="mt-8 md:mt-16 w-full md:w-[40%] mx-2 md:mx-4 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-2 md:order-1">
+          <div className="flex justify-center items-center">
+            <img
+              src={Esc}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift1}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift4}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift7}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift15}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift5}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
 
       <div className="w-full text-center flex flex-col mt-12">
         <h1 className="text-black text-4xl font-bold">WHY CHOOSE US</h1>
         <div className="flex flex-row mt-4 justify-center md:flex-nowrap flex-wrap mx-8">
-          <div className="flex flex-col m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+          <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
             <div className="flex justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +132,7 @@ const Homepage = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-14 h-14"
+                className="w-14 h-14 "
               >
                 <path
                   strokeLinecap="round"
@@ -89,7 +149,7 @@ const Homepage = () => {
               more.
             </p>
           </div>
-          <div className="flex flex-col m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+          <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
             <div className=" flex justify-center text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +176,7 @@ const Homepage = () => {
               catalog to ensure reliability and performance.
             </p>
           </div>
-          <div className="flex flex-col m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+          <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
             <div className=" flex justify-center text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +203,7 @@ const Homepage = () => {
               promotions.
             </p>
           </div>
-          <div className="flex flex-col m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
+          <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
             <div className=" flex justify-center text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
