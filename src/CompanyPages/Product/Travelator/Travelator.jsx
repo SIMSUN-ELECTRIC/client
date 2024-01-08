@@ -11,7 +11,7 @@ const travelator = () => {
     <>
       <div className="mt-16 container mx-auto py-8">
         <h1 className="text-center font-bold text-4xl mb-8">
-          travelator PRODUCTS
+          TRAVELATOR PRODUCTS
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
           <div className="bg-gray-100 rounded-lg  overflow-hidden shadow-md transition duration-300  hover:scale-105">
