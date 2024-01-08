@@ -6,22 +6,22 @@ import lift8 from "../../../assets/img/lift8.jpg";
 import lift9 from "../../../assets/img/lift9.jpg";
 import lift1copy from "../../../assets/img/lift1copy.jpg";
 
-const Travellator = () => {
+const travelator = () => {
   return (
     <>
       <div className="mt-16 container mx-auto py-8">
         <h1 className="text-center font-bold text-4xl mb-8">
-          TRAVELLATOR PRODUCTS
+          travelator PRODUCTS
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
           <div className="bg-gray-100 rounded-lg  overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift1}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover z-[-100]"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -37,11 +37,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift4}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -58,11 +58,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift5}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -79,11 +79,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift7}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -100,11 +100,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift8}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -121,11 +121,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift9}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -142,11 +142,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift1copy}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -163,11 +163,11 @@ const Travellator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift4}
-              alt="Travellator Part"
+              alt="travelator Part"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">Travellator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
               <div className="flex items-center mb-2">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -189,4 +189,4 @@ const Travellator = () => {
   );
 };
 
-export default Travellator;
+export default travelator;

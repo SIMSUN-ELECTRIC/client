@@ -29,7 +29,7 @@ import Maintenance from "./CompanyPages/Services/Maintenance";
 import ElevatorModernization from "./TemplatePages/ExistingsBuilding/ElevatorModernization";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./CompanyPages/Product/AddProduct/AddProduct";
-import Travellator from "./CompanyPages/Product/Travellator/Travellator";
+import Travelator from "./CompanyPages/Product/Travelator/Travelator";
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
 
           <Route path="/product/lift" element={<Lift />} />
           <Route path="/product/escalator" element={<Escalator />} />
-          <Route path="/product/Travellator" element={<Travellator />} />
+          <Route path="/product/travelator" element={<Travelator />} />
           <Route path="/product/LiftSparePart" element={<LiftSparePart />} />
           <Route
             path="/product/EscalatorSparePart"
