@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 
 function Cart() {
   // Static data for previous orders
-  const state = useSelector(state => state.cart)
-  console.log(state)
+  const state = useSelector((state) => state.cart);
+  console.log(state);
   const previousOrders = [
     {
       id: 1,
@@ -49,7 +49,7 @@ function Cart() {
   const email = "user@example.com";
 
   return (
-    <div className="bg-gradient-to-b from-blue-200 to-blue-400 min-h-screen py-10 overflow-x-hidden">
+    <div className="mt-16 bg-gradient-to-b from-blue-200 to-blue-400 min-h-screen py-10 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Shopping Cart</h1>
         <div className="text-white h-full w-full xl:flex">
@@ -63,13 +63,12 @@ function Cart() {
             <div className="md:grid grid-cols-3 gap-4 flex flex-col">
               {state?.map((order) => (
                 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                 
-                    <img
-                      className="p-8 rounded-t-lg w-full"
-                      src={order?.imageUrl || imageurl}
-                      alt="product image"
-                    />
-                 
+                  <img
+                    className="p-8 rounded-t-lg w-full"
+                    src={order?.imageUrl || imageurl}
+                    alt="product image"
+                  />
+
                   <div className="px-5 pb-5">
                     <a href="#">
                       <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -126,17 +125,15 @@ function Cart() {
                         5.0
                       </span>
                     </div>
-                    <p>{order?.descp?.slice(0,40)}...</p>
+                    <p>{order?.descp?.slice(0, 40)}...</p>
                     <div className="flex items-center justify-between">
                       <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                      ₹{order?.price}
+                        ₹{order?.price}
                       </span>
-                      
                     </div>
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
 
