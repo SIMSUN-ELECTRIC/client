@@ -31,7 +31,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -56,7 +56,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -81,7 +81,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -106,7 +106,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -131,7 +131,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -156,7 +156,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -181,7 +181,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -206,7 +206,7 @@ const EscalatorSparePart = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>

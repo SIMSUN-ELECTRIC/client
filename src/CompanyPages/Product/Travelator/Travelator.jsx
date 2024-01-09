@@ -17,11 +17,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg  overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift1}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover z-[-100]"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500 ">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -31,7 +31,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -39,11 +39,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift4}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -54,7 +54,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -62,11 +62,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift5}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -77,7 +77,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -85,11 +85,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift7}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -100,7 +100,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -108,11 +108,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift8}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -123,7 +123,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -131,11 +131,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift9}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -146,7 +146,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -154,11 +154,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift1copy}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -169,7 +169,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
@@ -177,11 +177,11 @@ const travelator = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift4}
-              alt="travelator Part"
+              alt="TravelatorPart"
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
+              <h4 className="text-xl font-semibold mb-2">Travelator Part</h4>
               <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
@@ -192,7 +192,7 @@ const travelator = () => {
               <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
                 $50.00
               </p>
-              <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
             </div>
