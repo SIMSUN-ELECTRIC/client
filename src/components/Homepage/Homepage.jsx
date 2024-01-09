@@ -255,7 +255,7 @@ const Homepage = () => {
         <div className="mt-12 w-full ">
           <h2 className="title text-4xl font-bold mx-4">Our Products</h2>
           <div className="flex flex-wrap mt-4">
-            <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+            <div className="w-full sm:w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
               <Link to="/product/lift">
                 <img
                   src={lift1}
@@ -265,8 +265,8 @@ const Homepage = () => {
                 <h4 className="text-2xl mt-2 text-center">Lift</h4>
               </Link>
             </div>
-            <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/esclator">
+            <div className="w-full sm:w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/escalator">
                 <img
                   src={lift7}
                   alt="Escalator"
@@ -275,7 +275,17 @@ const Homepage = () => {
                 <h4 className="text-2xl mt-2 text-center ">Escalator</h4>
               </Link>
             </div>
-            <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+            <div className="w-full sm:w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/travelator">
+                <img
+                  src={lift5}
+                  alt="travelator"
+                  className="w-full rounded-md"
+                />
+                <h4 className="text-2xl mt-2 text-center ">Travelator</h4>
+              </Link>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
               <Link to="/product/LiftSparePart">
                 <img
                   src={lift5}
@@ -285,8 +295,8 @@ const Homepage = () => {
                 <h4 className="text-2xl mt-2 text-center ">Lift Spare Part</h4>
               </Link>
             </div>
-            <div className="w-full sm:w-1/2 md:w-1/4 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/EsclatorSparePart">
+            <div className="w-full sm:w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/EscalatorSparePart">
                 <img
                   src={lift4}
                   alt="Escalator Spare Part"

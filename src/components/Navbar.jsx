@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from '../assets/img/logo1.jpg'
+import Logo from "../assets/img/logo1.jpg";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -12,7 +12,6 @@ export default function Header() {
 
   const [flyer2, setFlyer2] = React.useState(false);
   const [flyerTwo2, setFlyerTwo2] = React.useState(false);
-
 
   const [flyer3, setFlyer3] = React.useState(false);
   const [flyerTwo3, setFlyerTwo3] = React.useState(false);
@@ -31,16 +30,19 @@ export default function Header() {
     setFlyer5(false);
   }
   return (
-    <header class=" top-0 w-full  z-50 bg-[#161D24] flex justify-around" >
-      <div class=" w-full  p-2  flex flex-wrap  flex-col md:flex-row  md:justify-normal md:items-center   xl:bg-inherit    justify-around " >
-        <div className="flex flex-row  items-center justify-between  md:p-1  sm:ml-10 md:ml-2" >
+    <header class=" top-0 w-full  z-50 bg-[#161D24] flex justify-around">
+      <div class=" w-full  p-2  flex flex-wrap  flex-col md:flex-row  md:justify-normal md:items-center   xl:bg-inherit    justify-around ">
+        <div className="flex flex-row  items-center justify-between  md:p-1  sm:ml-10 md:ml-2">
           <Link
             to="/"
             class="flex text-3xl text-white border md:translate-x-10  justify-center items-center border-red-400 rounded-full overflow-hidden font-medium mb-4 md:mb-0 "
           >
             <div className=" rounded-full ">
-              <img src={Logo} alt="" className="sm:w-25 md:w-15 xl:w-16 w-16 " />
-
+              <img
+                src={Logo}
+                alt=""
+                className="sm:w-25 md:w-15 xl:w-16 w-16 "
+              />
             </div>
           </Link>
           <button
@@ -73,12 +75,7 @@ export default function Header() {
             (navbarOpen ? " block  flex-col   p-5" : " hidden")
           }
         >
-
           <div class="md:ml-auto md:mr-auto  font-4 pt-1 md:pl-14 pl-1 flex flex-wrap  md:text-base text-1xl md:justify-center sm:items-center   flex-col sm:flex-row ">
-
-
-
-
             {/* first dropdown start here */}
             <div className="relative md:mr-4  z-10 opacity-100">
               <button
@@ -86,7 +83,15 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseOver={() => (setFlyer(!flyer), setFlyerTwo(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (
+                  setFlyer(!flyer),
+                  setFlyerTwo(false),
+                  setFlyer1(false),
+                  setFlyer2(false),
+                  setFlyer3(false),
+                  setFlyer4(false),
+                  setFlyer5(false)
+                )}
               >
                 <span className=" text-xl">About Us</span>
                 <svg
@@ -115,19 +120,20 @@ export default function Header() {
                     : "hidden opacity-100 translate-y-1 absolute z-20 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 "
                 }
               >
-                <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden" >
-                  <div className="relative grid gap  bg-[#161D24] px-1 py-1 sm:gap-0 " onClick={activateLasers} >
-
+                <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
+                  <div
+                    className="relative grid gap  bg-[#161D24] px-1 py-1 sm:gap-0 "
+                    onClick={activateLasers}
+                  >
                     <Link
                       to="/about/ourcompany"
                       className="-m-3  flex items-start rounded-lg hover:bg-gray-800 "
                     >
-                      <div className="ml-4 " >
+                      <div className="ml-4 ">
                         <p className="text-base font-medium text-white">
                           Our Company
                         </p>
                       </div>
-
                     </Link>
                     <Link
                       to="/about/ourteam"
@@ -136,9 +142,7 @@ export default function Header() {
                       <div className="ml-4">
                         <p className="text-base font-medium text-white ">
                           Our Team
-
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -149,7 +153,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Our Success Story
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -160,7 +163,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           News & References
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -171,7 +173,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Add Product
                         </p>
-
                       </div>
                     </Link>
                   </div>
@@ -181,13 +182,21 @@ export default function Header() {
             {/* first dropdown end here */}
 
             {/* second dropdown start here */}
-            <div className="relative md:mr-4 opacity-100 z-10" >
+            <div className="relative md:mr-4 opacity-100 z-10">
               <button
                 type="button"
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseOver={() => (setFlyer1(!flyer1), setFlyerTwo1(false), setFlyer(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (
+                  setFlyer1(!flyer1),
+                  setFlyerTwo1(false),
+                  setFlyer(false),
+                  setFlyer2(false),
+                  setFlyer3(false),
+                  setFlyer4(false),
+                  setFlyer5(false)
+                )}
               >
                 <span className=" text-xl">Product</span>
                 <svg
@@ -217,27 +226,26 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-4 bg-[#161D24]  sm:gap-0 " onClick={activateLasers}>
+                  <div
+                    className="relative grid gap-4 bg-[#161D24]  sm:gap-0 "
+                    onClick={activateLasers}
+                  >
                     <Link
                       to="/product/lift"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
                     >
                       <div className="ml-4">
-                        <p className="text-base font-medium text-white">
-                          Lift
-                        </p>
-
+                        <p className="text-base font-medium text-white">Lift</p>
                       </div>
                     </Link>
                     <Link
-                      to="/product/esclator"
+                      to="/product/escalator"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                          Esclators
+                          Escalators
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -248,7 +256,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Lift Spare parts
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -259,7 +266,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Escalator spare parts
                         </p>
-
                       </div>
                     </Link>
                   </div>
@@ -275,7 +281,15 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseOver={() => (setFlyer2(!flyer), setFlyerTwo2(false), setFlyer1(false), setFlyer(false), setFlyer3(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (
+                  setFlyer2(!flyer),
+                  setFlyerTwo2(false),
+                  setFlyer1(false),
+                  setFlyer(false),
+                  setFlyer3(false),
+                  setFlyer4(false),
+                  setFlyer5(false)
+                )}
               >
                 <span className=" text-xl">Services</span>
                 <svg
@@ -305,7 +319,10 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-4 bg-[#161D24] px-2 py-6 sm:gap-0 "onClick={activateLasers}>
+                  <div
+                    className="relative grid gap-4 bg-[#161D24] px-2 py-6 sm:gap-0 "
+                    onClick={activateLasers}
+                  >
                     <Link
                       to="/services/NewInstallationServices"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -314,7 +331,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           New Installation Services
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -325,7 +341,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Annual Maintainence Services
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -336,7 +351,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Breakdown Services
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -347,7 +361,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Maintenance
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -358,7 +371,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Elevator Moderinazation
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -369,7 +381,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Elevator Walk
                         </p>
-
                       </div>
                     </Link>
                   </div>
@@ -378,7 +389,10 @@ export default function Header() {
             </div>
             {/* third dropdown end here */}
 
-            <Link to='/shop' className="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-medium ">
+            <Link
+              to="/shop"
+              className="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-medium "
+            >
               Shops
             </Link>
 
@@ -389,7 +403,15 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseOver={() => (setFlyer3(!flyer), setFlyerTwo3(false), setFlyer1(false), setFlyer2(false), setFlyer(false), setFlyer4(false), setFlyer5(false))}
+                onMouseOver={() => (
+                  setFlyer3(!flyer),
+                  setFlyerTwo3(false),
+                  setFlyer1(false),
+                  setFlyer2(false),
+                  setFlyer(false),
+                  setFlyer4(false),
+                  setFlyer5(false)
+                )}
               >
                 <span className=" text-xl">Customer Services</span>
                 <svg
@@ -419,7 +441,10 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 " onClick={activateLasers}>
+                  <div
+                    className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 "
+                    onClick={activateLasers}
+                  >
                     <Link
                       to="/customerservices/YourOrders"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -428,7 +453,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Your orders
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -439,7 +463,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Return & Refunds
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -450,7 +473,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Manage addresses
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -461,7 +483,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Payment Settings
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -472,7 +493,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Account Settings
                         </p>
-
                       </div>
                     </Link>
                   </div>
@@ -481,7 +501,6 @@ export default function Header() {
             </div>
             {/* fourth dropdown end here */}
 
-
             {/* fifth dropdown start here */}
             <div className="relative md:mr-4 opacity-100 z-10">
               <button
@@ -489,7 +508,15 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseOver={() => (setFlyer4(!flyer), setFlyerTwo4(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer(false), setFlyer5(false))}
+                onMouseOver={() => (
+                  setFlyer4(!flyer),
+                  setFlyerTwo4(false),
+                  setFlyer1(false),
+                  setFlyer2(false),
+                  setFlyer3(false),
+                  setFlyer(false),
+                  setFlyer5(false)
+                )}
               >
                 <span className=" text-xl">Register</span>
                 <svg
@@ -519,7 +546,10 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 " onClick={activateLasers}>
+                  <div
+                    className="relative grid gap-6 bg-[#161D24] px-2 py-4 sm:gap-0 "
+                    onClick={activateLasers}
+                  >
                     <Link
                       to="/auth/consumerRegistration"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -528,7 +558,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Consumer Registration
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -539,7 +568,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Engineer Registration
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -550,16 +578,13 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Admin Registration
                         </p>
-
                       </div>
                     </Link>
-
                   </div>
                 </div>
               </div>
             </div>
             {/* fifth dropdown end here */}
-
 
             {/* sixth dropdown start here */}
             <div className="relative md:mr-4 opacity-100 z-10">
@@ -568,7 +593,15 @@ export default function Header() {
                 className="
                    group rounded-md text-gray-300 inline-flex items-center text-base font-medium focus:outline-none pb-8'
                   "
-                onMouseOver={() => (setFlyer5(!flyer), setFlyerTwo5(false), setFlyer1(false), setFlyer2(false), setFlyer3(false), setFlyer4(false), setFlyer(false))}
+                onMouseOver={() => (
+                  setFlyer5(!flyer),
+                  setFlyerTwo5(false),
+                  setFlyer1(false),
+                  setFlyer2(false),
+                  setFlyer3(false),
+                  setFlyer4(false),
+                  setFlyer(false)
+                )}
               >
                 <span className=" text-xl">Login</span>
                 <svg
@@ -598,7 +631,10 @@ export default function Header() {
                 }
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black  ring-opacity-5 overflow-hidden">
-                  <div className="relative grid gap-6 bg-[#161D24] px-2 py-6 sm:gap-0" onClick={activateLasers}>
+                  <div
+                    className="relative grid gap-6 bg-[#161D24] px-2 py-6 sm:gap-0"
+                    onClick={activateLasers}
+                  >
                     <Link
                       to="/auth/consumerLogin"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
@@ -607,7 +643,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Consumer Login
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -618,7 +653,6 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Engineer Login
                         </p>
-
                       </div>
                     </Link>
                     <Link
@@ -629,27 +663,28 @@ export default function Header() {
                         <p className="text-base font-medium text-white">
                           Admin Login
                         </p>
-
                       </div>
                     </Link>
-
                   </div>
                 </div>
               </div>
             </div>
             {/* sixth dropdown end here */}
 
-
-            <Link to={'/ContactUs'} class="mr-5 cursor-pointer text-gray-300 text-xl hover:text-white font-semibold ">
+            <Link
+              to={"/ContactUs"}
+              class="mr-5 cursor-pointer text-gray-300 text-xl hover:text-white font-semibold "
+            >
               Contact Us
             </Link>
 
-            <Link to={'/Cart'} class="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-semibold ">
+            <Link
+              to={"/Cart"}
+              class="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-semibold "
+            >
               Cart
             </Link>
           </div>
-
-
         </div>
       </div>
     </header>

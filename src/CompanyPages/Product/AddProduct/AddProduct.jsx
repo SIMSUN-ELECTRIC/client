@@ -111,9 +111,9 @@ const AddProduct = () => {
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="Lift">Lift</option>
-                  <option value="Esclator">Escalator</option>
+                  <option value="Escalator">Escalator</option>
                   <option value="LiftSparePart">Lift Spare Part</option>
-                  <option value="EsclatorSparePart">
+                  <option value="EscalatorSparePart">
                     Escalator Spare Part
                   </option>
                 </select>
