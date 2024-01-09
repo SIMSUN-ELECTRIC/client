@@ -22,13 +22,15 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500 ">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -42,14 +44,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -63,14 +67,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -84,14 +90,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -105,14 +113,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -126,14 +136,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -147,14 +159,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -168,14 +182,16 @@ const travelator = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">travelator Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>

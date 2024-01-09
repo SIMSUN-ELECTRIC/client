@@ -14,7 +14,7 @@ const LiftSparePart = () => {
     <>
       <div className="mt-16 container mx-auto py-8">
         <h1 className="text-center font-bold text-4xl mb-8">ALL PRODUCTS</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
           <div className="bg-gray-100 rounded-lg  overflow-hidden shadow-md transition duration-300  hover:scale-105">
             <img
               src={lift1}
@@ -23,13 +23,15 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500 ">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -43,14 +45,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -64,14 +68,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -85,14 +91,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -106,14 +114,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -127,14 +137,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -148,14 +160,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>
@@ -169,14 +183,16 @@ const LiftSparePart = () => {
             />
             <div className="p-4">
               <h4 className="text-xl font-semibold mb-2">Lift Spare Part</h4>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-2 text-yellow-500">
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-o" />
               </div>
-              <p className="text-xl font-bold text-gray-800 mb-4">$50.00</p>
+              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
+                $50.00
+              </p>
               <button className="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Add to Cart
               </button>

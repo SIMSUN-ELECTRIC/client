@@ -75,8 +75,14 @@ export const links = [
             link: "/customerservices/ReturnandRefunds",
           },
           { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
-          { name: "Payment Setting", link: "/customerservices/PaymentSetting" },
-          { name: "Account Setting", link: "/customerservices/AccountSetting" },
+          {
+            name: "Payment Settings",
+            link: "/customerservices/PaymentSetting",
+          },
+          {
+            name: "Account Settings",
+            link: "/customerservices/AccountSetting",
+          },
         ],
       },
     ],
@@ -90,7 +96,6 @@ export const links = [
         sublink: [
           { name: "Consumer Registration", link: "/auth/consumerRegistration" },
           { name: "Engineer Registration", link: "/auth/engineerRegistration" },
-          { name: "Admin Registration", link: "/auth/adminRegistration" },
         ],
       },
     ],

@@ -5,13 +5,24 @@ export const PRODUCTS = [
   { name: "News", link: "/about/news" },
 ];
 export const RESOURCES = [
-  { name: "New Installation Services", link: "/services/NewInstallationServices" },
-  { name: "Annual Maintenance Services", link: "/services/AnnualMaintainenceServices" },
+  {
+    name: "New Installation Services",
+    link: "/services/NewInstallationServices",
+  },
+  {
+    name: "Annual Maintenance Services",
+    link: "/services/AnnualMaintainenceServices",
+  },
   { name: "Breakdown Services", link: "/services/BreakdownServices" },
+  {
+    name: "Elevator Walk",
+    link: "/services/EscalatorAutowalkModernization",
+  },
 ];
 export const COMPANY = [
   { name: "Lift", link: "/product/lift" },
-  { name: "Escalator", link: "/product/esclator" },
+  { name: "Escalators", link: "/product/escalator" },
+  { name: "Travelator", link: "/product/travelator" },
   { name: "Lift Spare Parts", link: "/product/LiftSparePart" },
   { name: "Escalator Spare Parts", link: "/product/EsclatorSparePart" },
 ];

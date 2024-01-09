@@ -38,14 +38,14 @@ const AdminLogin = () => {
   };
   return (
     <div
-      className="mt-16 bg-no-repeat bg-cover bg-center relative z-[-10]"
+      className="mt-16 bg-no-repeat bg-cover bg-center relative"
       style={{
         backgroundImage:
           "url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80)",
       }}
     >
       <div className="sm:absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0" />
-      <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
+      <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center mx-4">
         <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-0">
           <div className="self-start hidden lg:flex flex-col  text-white">
             <h1 className="mb-3 font-bold text-5xl"> Welcome back admin </h1>

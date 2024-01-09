@@ -1,33 +1,85 @@
-import React from "react";
-// import './OurCompany.css'
+import Esc from "../../assets/img/escalator1.jpg";
+import lift1 from "../../assets/img/lift1.jpg";
+import lift4 from "../../assets/img/lift4.jpg";
+import lift5 from "../../assets/img/lift5.jpg";
+import lift7 from "../../assets/img/lift7.jpg";
+import lift15 from "../../assets/img/lift15.jpg";
 
 const OurCompany = () => {
   return (
     <>
-      <div className="w-full flex flex-col text-center mt-16">
-        <h1 className="text-black font-bold text-5xl">About Simsun</h1>
-        <p className="text-black text-xl mt-4 mx-8">
-          The birth of SimSun Electric was founded in December 2016 after 2
-          years of elevator and escalator project installation experience all
-          over the Rajasthan. The possibilities of SimSun Electric were built
-          after left DMRC project in Dec 2014, and started work with a small
-          franchise of elevator and escalator energy in Jaipur.
-        </p>
-        <p className=" text-black text-xl mx-8">
-          At there we found that everybody is moving on MW and large scale
-          projects, that time we keep our focus to learning the Elevator and
-          Escalator project work. We were started our work as a freelancer in
-          the industry by small works with different franchises in roof top
-          Backup, or net metering Projects. And after all when we found that
-          Elevator and Escalator roof top market in Rajasthan rapidly growing,
-          then our ideas come into the reality and founded SimSun Electric Dec
-          2016.
-        </p>
-      </div>
+      <section className="mt-8 md:mt-8 w-full flex flex-col md:flex-row p-4 md:p-8">
+        <div className="w-full md:w-[60%] mt-8 md:mt-16 md:order-2">
+          <h1 className="text-black font-bold text-4xl md:text-5xl mx-4 md:mx-8 text-center md:text-left">
+            About Simsun
+          </h1>
+          <p className="text-black text-lg md:text-xl mt-4 mx-4 md:mx-8 text-center md:text-left">
+            The birth of Simsun Electric was founded in December 2016 after 2
+            years of elevator and escalator project installation experience all
+            over Rajasthan. The possibilities of SimSun Electric were built
+            after leaving the DMRC project in Dec 2014 and started working with
+            a small franchise of elevator and escalator energy in Jaipur.
+          </p>
+          <p className="text-black text-lg md:text-xl mx-4 md:mx-8 text-center md:text-left">
+            At that time, we found that everybody is moving on MW and
+            large-scale projects. We kept our focus on learning about elevator
+            and escalator project work. We started our work as freelancers in
+            the industry by doing small works with different franchises in
+            rooftop backup or net metering projects. When we observed that the
+            elevator and escalator rooftop market in Rajasthan was rapidly
+            growing, our ideas became a reality, and Simsun Electric was founded
+            in Dec 2016.
+          </p>
+        </div>
+        <div className="mt-8 md:mt-16 w-full md:w-[40%] mx-2 md:mx-4 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-2 md:order-1">
+          <div className="flex justify-center items-center">
+            <img
+              src={Esc}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift1}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift4}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift7}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift15}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <img
+              src={lift5}
+              alt="Your Alt Text"
+              className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
       <div>
         <div className="m-12 ">
           <div className="qkiflexkaamkare ">
-            <div className="cardinner ">
+            <div className=" flex flex-col ">
               {/* <div className="imgg ">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17124.219485667665!2d88.33768204388784!3d22.576551611280404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02777b6e77a7b1%3A0xc2b5321759b6d987!2sHMP%20House!5e0!3m2!1sen!2sin!4v1686565788904!5m2!1sen!2sin"

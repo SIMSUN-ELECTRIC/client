@@ -58,7 +58,7 @@ const Homepage = () => {
             About Simsun
           </h1>
           <p className="text-black text-lg md:text-xl mt-4 mx-4 md:mx-8 text-center md:text-left">
-            The birth of SimSun Electric was founded in December 2016 after 2
+            The birth of Simsun Electric was founded in December 2016 after 2
             years of elevator and escalator project installation experience all
             over Rajasthan. The possibilities of SimSun Electric were built
             after leaving the DMRC project in Dec 2014 and started working with
@@ -71,7 +71,7 @@ const Homepage = () => {
             the industry by doing small works with different franchises in
             rooftop backup or net metering projects. When we observed that the
             elevator and escalator rooftop market in Rajasthan was rapidly
-            growing, our ideas became a reality, and SimSun Electric was founded
+            growing, our ideas became a reality, and Simsun Electric was founded
             in Dec 2016.
           </p>
         </div>
