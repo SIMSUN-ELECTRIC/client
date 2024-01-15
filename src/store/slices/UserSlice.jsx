@@ -1,19 +1,28 @@
-import { createSlice} from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+
+// Load user state from localStorage if available
+const initialState = localStorage.getItem("userState")
+  ? JSON.parse(localStorage.getItem("userState"))
+  : { isAuthenticated: false };
 
 const UserSlice = createSlice({
-    name: "Users",
-    initialState: {},
-    reducers: {
-    
-        logIn(state,action){
-            // console.log("From userslice")
-            return  {...state,...action.payload}
-        },
-        logOut(state, action) {
-            return {}; 
-          },
-    }
-})
+  name: "Users",
+  initialState: initialState,
+  reducers: {
+    logIn(state, action) {
+      // Update the state with user information
+      const newState = { ...state, ...action.payload, isAuthenticated: true };
+      // Save the updated state to localStorage
+      localStorage.setItem("userState", JSON.stringify(newState));
+      return newState;
+    },
+    logOut(state, action) {
+      // Reset the state to an empty object
+      localStorage.removeItem("userState"); // Remove the user state from localStorage
+      return { isAuthenticated: false };
+    },
+  },
+});
 
-export { UserSlice } ;
-export const {logIn,logOut} = UserSlice.actions;
+export { UserSlice };
+export const { logIn, logOut } = UserSlice.actions;

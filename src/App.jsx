@@ -18,9 +18,9 @@ import ReturnandRefund from "./CompanyPages/customerServices/ReturnandRefund";
 import ManageAddress from "./CompanyPages/customerServices/ManageAddress";
 import PaymentSetting from "./CompanyPages/customerServices/PaymentSetting";
 import AccountSettings from "./CompanyPages/customerServices/AccountSetting";
-import ConsumerRegister from "./Auth/Login/ConsumerRegister";
+import ConsumerRegister from "./Auth/Signup/ConsumerRegister";
 import ConsumerLogin from "./Auth/ConsumerLogin";
-import EngineerRegister from "./Auth/Login/EngineerRegister";
+import EngineerRegister from "./Auth/Signup/EngineerRegister";
 import EngineerLogin from "./Auth/EngineerLogin";
 import AdminLogin from "./Auth/AdminLogin";
 import ContactUs from "./components/ContactUs";
@@ -30,6 +30,11 @@ import ElevatorModernization from "./TemplatePages/ExistingsBuilding/ElevatorMod
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./CompanyPages/Product/AddProduct/AddProduct";
 import Travelator from "./CompanyPages/Product/Travelator/Travelator";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ShippingAddress from "./components/Shipping";
+import UserProfile from "./Auth/UserProfile";
+import EngineerDetailsForm from "./components/EngineerForm";
 
 function App() {
   return (
@@ -110,11 +115,15 @@ function App() {
           <Route path="/auth/consumerLogin" element={<ConsumerLogin />} />
           <Route path="/auth/EngineerLogin" element={<EngineerLogin />} />
           <Route path="/auth/AdminLogin" element={<AdminLogin />} />
+          <Route path="/auth/UserProfile" element={<UserProfile />} />
 
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/EngineerDetails" element={<EngineerDetailsForm />} />
+          <Route path="/shipping" element={<ShippingAddress />} />
         </Route>
       </Routes>
+      <ToastContainer limit={1} />
     </>
   );
 }

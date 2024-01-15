@@ -3,8 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { logIn } from "../store/slices/UserSlice";
+import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ConsumerLogin = () => {
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,19 +29,23 @@ const ConsumerLogin = () => {
         }
       );
 
-      if (response.status === 200) {
-        // Registration was successful
+      if (response.status === 200 && response.data.success) {
         const json = response.data;
         dispatch(logIn(json));
         console.log(json);
         navigate("/");
       } else {
-        // Handle other status codes or errors here
-        console.error("Registration failed with status code:", response.status);
+        console.error("Login failed with status code:", response.status);
+        toast.error("Invalid email or password");
+        setEmail("");
+        setPassword("");
       }
     } catch (error) {
       // Handle network or other errors
-      console.error("Registration failed:", error.message);
+      console.error("Login failed:", error.message);
+      toast.error("Invalid email or password");
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -134,14 +145,14 @@ const ConsumerLogin = () => {
                           Login
                         </button>
                         {/*Forgot password link*/}
-                        <Link to="/auth/consumerRegistration">
+                        <Link to={`/auth/consumerRegistration`}>
                           Doesn't have an acount?
                         </Link>
                         {/* <a href="/auth/consumerRegistration">Doesn't have an acount?</a> */}
                       </div>
                       {/*Register button*/}
                       <div className="flex items-center justify-between pb-6">
-                        <p className="mb-0 mr-2 text-black">
+                        <p className="mb-0 mr-2 text-white">
                           Create new account
                         </p>
                         {/* <Link  */}

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { logIn } from "../store/slices/UserSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EngineerLogin = () => {
   const [email, setEmail] = useState("");
@@ -31,10 +33,16 @@ const EngineerLogin = () => {
       } else {
         // Handle other status codes or errors here
         console.error("Registration failed with status code:", response.status);
+        toast.error("Invalid email or password");
+        setEmail("");
+        setPassword("");
       }
     } catch (error) {
       // Handle network or other errors
       console.error("Registration failed:", error.message);
+      toast.error("Invalid email or password");
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -134,19 +142,23 @@ const EngineerLogin = () => {
                           Login
                         </button>
                         {/*Forgot password link*/}
-                        <a href="#!">Forgot password?</a>
+                        {/* <a href="#!">Forgot password?</a> */}
+                        <Link to={`/auth/consumerRegistration`}>
+                          Doesn't have an acount?
+                        </Link>
                       </div>
                       {/*Register button*/}
                       <div className="flex items-center justify-between pb-6">
-                        <p className="mb-0 mr-2">Doesn't have an account?</p>
-                        <button
+                        <p className="mb-0 mr-2">Create new account</p>
+                        <Link
+                          to="/auth/consumerRegistration"
                           type="button"
                           className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                           data-te-ripple-init
                           data-te-ripple-color="light"
                         >
                           Register
-                        </button>
+                        </Link>
                       </div>
                     </form>
                   </div>

@@ -1,11 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const ConsumerRegister = () => {
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleConsumerRegister = async (e) => {
     e.preventDefault();
@@ -25,13 +30,20 @@ const ConsumerRegister = () => {
         // Registration was successful
         const json = response.data;
         console.log(json);
+        navigate("/auth/consumerLogin");
       } else {
         // Handle other status codes or errors here
         console.error("Registration failed with status code:", response.status);
+        toast.error("Email or Username is already exist");
+        setEmail("");
+        setPassword("");
       }
     } catch (error) {
       // Handle network or other errors
       console.error("Registration failed:", error.message);
+      toast.error("Email or Username is already exist");
+      setEmail("");
+      setPassword("");
     }
   };
 

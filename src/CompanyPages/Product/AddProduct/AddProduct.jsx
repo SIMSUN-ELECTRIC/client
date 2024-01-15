@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -14,14 +14,17 @@ const AddProduct = () => {
   console.log(state?.userData?.isAdmin);
   const navigate = useNavigate();
   useEffect(() => {
+    console.log("Current state:", state);
+    console.log("Checking isAdmin:", state?.isAdmin);
+
     if (!state?.userData?.isAdmin) {
+      console.log("Redirecting to /auth/AdminLogin");
       navigate("/auth/AdminLogin");
     }
-  }, []);
+  }, [state]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(category);
     try {
       let formData = new FormData();
       formData.append("file", file);
@@ -31,11 +34,19 @@ const AddProduct = () => {
       formData.append("category", category);
 
       const res = await axios.post(
-        "http://127.0.0.1:5000/api/submitProduct",
+        "http://localhost:5000/api/submitProduct",
         formData
       );
+
+      // Check the response status
+      if (res.status === 200) {
+        console.log("Product added successfully!");
+        // Optionally, redirect the user or perform other actions.
+      } else {
+        console.error("Error adding product:", res.data);
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Error adding product:", error);
     }
   };
 

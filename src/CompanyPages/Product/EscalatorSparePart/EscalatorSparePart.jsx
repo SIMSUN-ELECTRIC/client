@@ -1,222 +1,113 @@
-import lift1 from "../../../assets/img/lift1.jpg";
-import lift4 from "../../../assets/img/lift4.jpg";
-import lift5 from "../../../assets/img/lift5.jpg";
-import lift7 from "../../../assets/img/lift7.jpg";
-import lift8 from "../../../assets/img/lift8.jpg";
-import lift9 from "../../../assets/img/lift9.jpg";
-import lift1copy from "../../../assets/img/lift1copy.jpg";
+// EscalatorSpareParts.js
 
-const EscalatorSparePart = () => {
+import { useEffect, useReducer } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../../store/slices/CartSlices";
+import axios from "axios";
+
+const productsReducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        products: action.payload,
+        error: null,
+        loading: false,
+      };
+    case "FETCH_ERROR":
+      return { ...state, error: action.payload, loading: false };
+    default:
+      return state;
+  }
+};
+
+const initialState = {
+  products: [],
+  loading: true,
+  error: null,
+};
+
+const EscalatorSpareParts = () => {
+  const dispatch = useDispatch();
+  const [state, dispatchProducts] = useReducer(productsReducer, initialState);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios.get("http://localhost:5000/api/products");
+        dispatchProducts({ type: "FETCH_SUCCESS", payload: result.data });
+      } catch (error) {
+        dispatchProducts({ type: "FETCH_ERROR", payload: error.message });
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleAddToCart = (product) => {
+    dispatch(
+      addItem({
+        id: product._id,
+        name: product.name,
+        price: product.price,
+      })
+    );
+  };
+
+  const liftProducts = state.products.filter(
+    (product) => product.category === "Escalator Spare Parts"
+  );
+
   return (
-    <>
-      <div className="mt-16 container mx-auto py-8">
-        <h1 className="text-center font-bold text-4xl mb-8">ALL PRODUCTS</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
-          <div className="bg-gray-100 rounded-lg  overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift1}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover z-[-100]"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500 ">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift4}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-half-o" />
-                <i className="fa fa-star-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift5}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-half-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift7}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift8}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-half-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift9}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-half-o" />
-                <i className="fa fa-star-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift1copy}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-half-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md transition duration-300  hover:scale-105">
-            <img
-              src={lift4}
-              alt="Escalator Spare Part"
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold mb-2">
-                Escalator Spare Part
-              </h4>
-              <div className="flex items-center mb-2 text-yellow-500">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-o" />
-              </div>
-              <p className="text-xl font-bold text-green-600 text-gray-800 mb-4">
-                $50.00
-              </p>
-              <button className="block w-full bg-black hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="mt-16 min-h-screen bg-gray-100 p-4">
+      <h1 className="text-3xl font-semibold text-center mb-8">
+        ESCALATOR SPARE PARTS
+      </h1>
 
-        <div className="row"></div>
+      {state.loading && <p>Loading...</p>}
+
+      {state.error && <p>Error: {state.error}</p>}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {liftProducts.map((product) => (
+          <div
+            key={product._id}
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
+          >
+            <div className="overflow-hidden rounded-t-lg">
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="w-full h-48 object-cover object-center transition-transform transform-gpu hover:scale-105"
+              />
+            </div>
+            <div className="p-4">
+              <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+              <p className="text-gray-600 mb-4">{product.description}</p>
+              <div className="flex items-center mb-2 text-yellow-500">
+                {[...Array(Math.floor(product.rating))].map((_, index) => (
+                  <i key={index} className="fa fa-star" />
+                ))}
+                {product.rating % 1 !== 0 && (
+                  <i key="half" className="fa fa-star-half-alt" />
+                )}
+                {[...Array(5 - Math.ceil(product.rating))].map((_, index) => (
+                  <i key={`empty-${index}`} className="fa fa-star-o" />
+                ))}
+              </div>
+              <p className="text-green-800 font-semibold">₹{product.price}</p>
+              <button
+                className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
+                onClick={() => handleAddToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default EscalatorSparePart;
+export default EscalatorSpareParts;

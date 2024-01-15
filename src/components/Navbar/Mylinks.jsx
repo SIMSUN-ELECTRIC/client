@@ -1,32 +1,38 @@
 export const links = [
   {
+    id: 1,
     name: "About Us",
     submenu: true,
     sublinks: [
       {
         Head: "About Us",
         sublink: [
-          { name: "Our Company", link: "/about/ourcompany" },
-          { name: "Our Team", link: "/about/ourteam" },
-          { name: "Our Success Story", link: "/about/ourcompanysuccess" },
-          { name: "News & References", link: "/about/news" },
-          { name: "Add Product", link: "/addProduct" },
+          { id: 11, name: "Our Company", link: "/about/ourcompany" },
+          { id: 12, name: "Our Team", link: "/about/ourteam" },
+          {
+            id: 13,
+            name: "Our Success Story",
+            link: "/about/ourcompanysuccess",
+          },
+          { id: 14, name: "News & References", link: "/about/news" },
         ],
       },
     ],
   },
   {
+    id: 2,
     name: "Product",
     submenu: true,
     sublinks: [
       {
         Head: "Product",
         sublink: [
-          { name: "Lifts", link: "/product/lift" },
-          { name: "Escalators", link: "/product/escalator" },
-          { name: "Travelator", link: "/product/travelator" },
-          { name: "Lift Spare Parts", link: "/product/LiftSparePart" },
+          { id: 21, name: "Lifts", link: "/product/lift" },
+          { id: 22, name: "Escalators", link: "/product/escalator" },
+          { id: 23, name: "Travelator", link: "/product/travelator" },
+          { id: 24, name: "Lift Spare Parts", link: "/product/LiftSparePart" },
           {
+            id: 25,
             name: "Escalator Spare Parts",
             link: "/product/EscalatorSparePart",
           },
@@ -35,6 +41,7 @@ export const links = [
     ],
   },
   {
+    id: 3,
     name: "Services",
     submenu: true,
     sublinks: [
@@ -42,19 +49,27 @@ export const links = [
         Head: "Services",
         sublink: [
           {
+            id: 31,
             name: "New Installation Services",
             link: "/services/NewInstallationServices",
           },
           {
+            id: 32,
             name: "Annual Maintainence Services",
             link: "/services/AnnualMaintainenceServices",
           },
-          { name: "Breakdown Services", link: "/services/BreakdownServices" },
+          {
+            id: 33,
+            name: "Breakdown Services",
+            link: "/services/BreakdownServices",
+          },
           // {
+          //   id: 34,
           //   name: "Elevator Modernization",
           //   link: "/services/ElevatorModernization",
           // },
           {
+            id: 35,
             name: "Elevator Walk",
             link: "/services/EscalatorAutowalkModernization",
           },
@@ -63,23 +78,31 @@ export const links = [
     ],
   },
   {
+    id: 4,
     name: "Customer Services",
     submenu: true,
     sublinks: [
       {
         Head: "Customer Services",
         sublink: [
-          { name: "Your Orders", link: "/customerservices/YourOrders" },
+          { id: 41, name: "Your Orders", link: "/customerservices/YourOrders" },
           {
+            id: 42,
             name: "Return & Refunds",
             link: "/customerservices/ReturnandRefunds",
           },
-          { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
           {
+            id: 43,
+            name: "Manage Addresses",
+            link: "/customerservices/ManageAddress",
+          },
+          {
+            id: 44,
             name: "Payment Settings",
             link: "/customerservices/PaymentSetting",
           },
           {
+            id: 45,
             name: "Account Settings",
             link: "/customerservices/AccountSetting",
           },
@@ -87,31 +110,41 @@ export const links = [
       },
     ],
   },
-  {
-    name: "Register",
-    submenu: true,
-    sublinks: [
-      {
-        Head: "Register",
-        sublink: [
-          { name: "Consumer Registration", link: "/auth/consumerRegistration" },
-          { name: "Engineer Registration", link: "/auth/engineerRegistration" },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Login",
-    submenu: true,
-    sublinks: [
-      {
-        Head: "Login",
-        sublink: [
-          { name: "Consumer Login", link: "/auth/consumerLogin" },
-          { name: "Engineer Login", link: "/auth/EngineerLogin" },
-          { name: "Admin Login", link: "/auth/AdminLogin" },
-        ],
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   name: "Register",
+  //   submenu: true,
+  //   sublinks: [
+  //     {
+  //       Head: "Register",
+  //       sublink: [
+  //         {
+  //           id: 51,
+  //           name: "Consumer Registration",
+  //           link: "/auth/consumerRegistration",
+  //         },
+  //         {
+  //           id: 52,
+  //           name: "Engineer Registration",
+  //           link: "/auth/engineerRegistration",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 6,
+  //   name: "Login",
+  //   submenu: true,
+  //   sublinks: [
+  //     {
+  //       Head: "Login",
+  //       sublink: [
+  //         { id: 61, name: "Consumer Login", link: "/auth/consumerLogin" },
+  //         { id: 62, name: "Engineer Login", link: "/auth/EngineerLogin" },
+  //         { id: 63, name: "Admin Login", link: "/auth/AdminLogin" },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];

@@ -1,11 +1,25 @@
-import React from "react";
 import imageurl from "../assets/img/lift2.jpg";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { removeItem, updateQuantity } from "../store/slices/CartSlices";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
+  const navigate = useNavigate();
   // Static data for previous orders
   const state = useSelector((state) => state.cart);
   console.log(state);
+
+  const states = useSelector((states) => states.user);
+  console.log(states?.userData?.isAdmin);
+  useEffect(() => {
+    console.log("Current state:", states);
+
+    if (!states?.isAuthenticated) {
+      navigate("/auth/consumerLogin");
+    }
+  }, [states]);
+
   const previousOrders = [
     {
       id: 1,
@@ -39,14 +53,37 @@ function Cart() {
     },
   ];
 
-  const handleClick = (e, id, title, price) => {
-    // Handle checkbox click
+  const dispatch = useDispatch();
+
+  const handleQuantityChange = (id, newQuantity) => {
+    dispatch(updateQuantity({ id, quantity: newQuantity }));
   };
 
-  // Static data for subTotal, id, and email
-  const subTotal = state?.reduce((acc, item) => acc + item.price, 0);
-  const id = 123;
-  const email = "user@example.com";
+  const handleDelete = (id) => {
+    dispatch(removeItem(id));
+  };
+
+  const subTotal = state.reduce((acc, item) => {
+    console.log("Item:", item.price);
+    if (item.price && item.quantity) {
+      return acc + item.price * item.quantity;
+    }
+    return acc;
+  }, 0);
+
+  const discount = 0; // You can add discount logic here if needed
+  const gst = 0.18 * subTotal;
+  const totalAmount = subTotal + gst - discount;
+
+  const customer = useSelector((customer) => customer.user);
+
+  const handlePayment = () => {
+    if (customer?.isAuthenticated) {
+      navigate("/shipping");
+    } else {
+      navigate("/auth/consumerLogin");
+    }
+  };
 
   return (
     <div className="mt-16 bg-gradient-to-b from-blue-200 to-blue-400 min-h-screen py-10 overflow-x-hidden">
@@ -61,13 +98,24 @@ function Cart() {
             </div>
 
             <div className="md:grid grid-cols-3 gap-4 flex flex-col">
-              {state?.map((order) => (
-                <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                  <img
-                    className="p-8 rounded-t-lg w-full"
-                    src={order?.imageUrl || imageurl}
-                    alt="product image"
-                  />
+              {state?.map((order, index) => (
+                <div
+                  key={index}
+                  className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                >
+                  <div className="flex ion justify-between mr-4">
+                    <img
+                      className="p-8 rounded-t-lg w-32 h-32"
+                      src={order?.imageUrl || imageurl}
+                      alt={order?.name}
+                    />
+                    <button
+                      className="bg-red-500 py-2 px-4 mt-10 rounded h-12"
+                      onClick={() => handleDelete(order.id)}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </button>
+                  </div>
 
                   <div className="px-5 pb-5">
                     <a href="#">
@@ -75,61 +123,39 @@ function Cart() {
                         {order?.name}
                       </h5>
                     </a>
-                    <div className="flex items-center mt-2.5 mb-5">
-                      <svg
-                        className="w-4 h-4 text-yellow-300 mr-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 mr-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 mr-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-yellow-300 mr-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <svg
-                        className="w-4 h-4 text-gray-200 dark:text-gray-600"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 22 20"
-                      >
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                      </svg>
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                        5.0
-                      </span>
-                    </div>
-                    <p>{order?.descp?.slice(0, 40)}...</p>
                     <div className="flex items-center justify-between">
                       <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                        ₹{order?.price}
+                        {order?.price}
                       </span>
+                      {/* Check if order.quantity is a valid number */}
+                      {typeof order.quantity === "number" &&
+                        order.quantity > 0 && (
+                          <div className="flex items-center space-x-2">
+                            <button
+                              className="text-gray-600 dark:text-white"
+                              onClick={() =>
+                                handleQuantityChange(
+                                  order.id,
+                                  order.quantity - 1
+                                )
+                              }
+                            >
+                              <i className="fas fa-minus-circle"></i>
+                            </button>
+                            <span>{order.quantity}</span>
+                            <button
+                              className="text-gray-600 dark:text-white"
+                              onClick={() =>
+                                handleQuantityChange(
+                                  order.id,
+                                  order.quantity + 1
+                                )
+                              }
+                            >
+                              <i className="fas fa-plus-circle"></i>
+                            </button>
+                          </div>
+                        )}
                     </div>
                   </div>
                 </div>
@@ -143,28 +169,25 @@ function Cart() {
             </div>
             <div className="flex justify-between items-center p-2">
               Subtotal
-              <span className="text-yellow-700">₹{subTotal}</span>
+              <span className="text-yellow-700">₹{subTotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center p-2">
               Total Discount
-              <span className="text-red-500">-₹0</span>
+              <span className="text-red-500">-₹{discount.toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center p-2">
               GST@18%
-              <span className="text-green-500">
-                ₹{(0.18 * subTotal).toFixed(2)}
-              </span>
+              <span className="text-green-500">₹{gst.toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center p-2">
               Total Amount
-              <span className="text-yellow-700">
-                ₹{subTotal + parseFloat((0.18 * subTotal).toFixed(2))}
-              </span>
+              <span className="text-yellow-700">₹{totalAmount.toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center p-2">
               <button
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full"
-                onClick={() => handlePayment(subTotal, id, email)}
+                onClick={handlePayment}
+                // onClick={() => handlePayment(subTotal, id, email)}
               >
                 Make Payment
               </button>

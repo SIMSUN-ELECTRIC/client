@@ -2,101 +2,82 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./Mylinks";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
+
+const SubLink = ({ slink }) => (
+  <li className="py-2 flex flex-direction-col">
+    <Link to={slink.link} className="hover:text-red-400">
+      {slink.name}
+    </Link>
+  </li>
+);
+
 const NavLinks = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
+
   return (
     <>
       {links.map((link) => (
-        <div>
-          <div className=" text-left md:cursor-pointer group mt-1 ml-5 ">
+        <div key={link.name}>
+          <div className="text-left md:cursor-pointer group ml-5">
             <h1
-              className=" flex  justify-between items-center md:pr-0 pr-5 group hover:text-red-400  text-xl"
+              className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
               onClick={() => {
-                heading !== link.name ? setHeading(link.name) : setHeading("");
+                setHeading((prevHeading) =>
+                  prevHeading === link.name ? "" : link.name
+                );
                 setSubHeading("");
               }}
             >
               {link.name}
-              {/* {
-                heading == link.name ? <FaAngleUp /> : <FaAngleDown />
-              } */}
               <span className="text-xl md:hidden inline">
-                {heading == link.name ? <FaAngleUp /> : <FaAngleDown />}
+                {heading === link.name ? <FaAngleUp /> : <FaAngleDown />}
               </span>
-              <span className="text-xl md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 group-hover:-mt-2 ">
+              <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                 <FaAngleDown />
               </span>
             </h1>
             {link.submenu && (
-              <div>
-                <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
-                  <div className="py-0">
-                    <div
-                      className="w-4 h-4 left-3 absolute 
-                    mt-1  rotate-45"
-                    ></div>
-                  </div>
-                  <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20 ">
-                    {link.sublinks.map((mysublinks) => (
-                      <div>
-                        {/* <h1 className="text-lg font-semibold">
-                          {mysublinks.Head}
-                        </h1> */}
-                        {mysublinks.sublink.map((slink) => (
-                          <li className="text-md text-white my-2">
-                            <Link
-                              to={slink.link}
-                              className="hover:text-red-400"
-                            >
-                              {slink.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+              <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                <div className="py-0">
+                  <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                </div>
+                <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                  {link.sublinks.map((mysublinks) => (
+                    <div key={mysublinks.Head}>
+                      {mysublinks.sublink.map((slink) => (
+                        <SubLink key={slink.name} slink={slink} />
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
           </div>
           {/* Mobile menus */}
-          <div className={`${heading === link.name ? "md:hidden" : "hidden"}`}>
-            {/* sublinks */}
-            {link.sublinks.map((slinks) => (
-              <div key={slinks.Head}>
-                <div>
-                  <h1
-                    onClick={() =>
-                      subHeading !== slinks.Head
-                        ? setSubHeading(slinks.Head)
-                        : setSubHeading("")
-                    }
-                    className="font-semibold md:pr-0 pr-5 flex justify-between items-center"
-                  >
-                    {/* {slinks.Head} */}
-                    <ul className="pl-10">
-                      {slinks.sublink.map((slink) => (
-                        <li
-                          key={slink.name}
-                          className="py-2 flex flex-direction-col"
-                        >
-                          <Link
-                            to={slink.link}
-                            onClick={() => {
-                              setOpen(!open);
-                            }}
-                          >
-                            {slink.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </h1>
-                </div>
+          {link.sublinks.map((slinks) => (
+            <div
+              key={slinks.Head}
+              className={`${heading === link.name ? "md:hidden" : "hidden"}`}
+            >
+              <div>
+                <h1
+                  onClick={() =>
+                    setSubHeading((prevSubHeading) =>
+                      prevSubHeading === slinks.Head ? "" : slinks.Head
+                    )
+                  }
+                  className="font-semibold md:pr-0 pr-5 flex justify-between items-center"
+                >
+                  <ul className="pl-10">
+                    {slinks.sublink.map((slink) => (
+                      <SubLink key={slink.name} slink={slink} />
+                    ))}
+                  </ul>
+                </h1>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       ))}
     </>

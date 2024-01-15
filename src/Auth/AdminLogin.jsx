@@ -1,6 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { logIn } from "../store/slices/UserSlice";
 import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
@@ -22,18 +24,24 @@ const AdminLogin = () => {
         }
       );
       console.log(response.status);
-      if (response.status == 200) {
+      if (response.status == 200 && response.data.success) {
         // Registration was successful
         const json = response.data;
         dispatch(logIn(json));
         console.log(json);
-        navigate("/addProduct");
+        navigate("/");
       } else {
+        toast.error("Invalid email or password");
         // Handle other status codes or errors here
         console.error("Registration failed with status code:", response.status);
+        setEmail("");
+        setPassword("");
       }
     } catch (error) {
       console.error("Registration failed:", error.message);
+      toast.error("Invalid email or password");
+      setEmail("");
+      setPassword("");
     }
   };
   return (
