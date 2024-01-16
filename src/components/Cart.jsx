@@ -1,5 +1,5 @@
 import imageurl from "../assets/img/lift2.jpg";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
@@ -19,39 +19,6 @@ function Cart() {
       navigate("/auth/consumerLogin");
     }
   }, [states]);
-
-  const previousOrders = [
-    {
-      id: 1,
-      title: "Course Title 1",
-      price: 49.99,
-      imageURL: imageurl,
-    },
-    {
-      id: 2,
-      title: "Course Title 2",
-      price: 29.99,
-      imageURL: imageurl,
-    },
-    {
-      id: 3,
-      title: "Course Title 3",
-      price: 39.99,
-      imageURL: imageurl,
-    },
-    {
-      id: 3,
-      title: "Course Title 3",
-      price: 39.99,
-      imageURL: imageurl,
-    },
-    {
-      id: 3,
-      title: "Course Title 3",
-      price: 39.99,
-      imageURL: imageurl,
-    },
-  ];
 
   const dispatch = useDispatch();
 
@@ -202,36 +169,6 @@ function Cart() {
                 Apply
               </button>
             </div>
-          </div>
-        </div>
-
-        <div className="text-white w-full text-2xl text-left mt-4">
-          Previous Orders
-        </div>
-        <div className="text-white w-full text-2xl text-left mt-2">
-          <div className="container m-auto md:grid grid-cols-3 gap-4 py-2 px-6 flex flex-col">
-            {previousOrders.map((order) => (
-              <div
-                key={order.id}
-                className="flex max-w-[18rem] rounded-lg bg-white shadow-md dark:bg-slate-700 "
-              >
-                <div className="relative overflow-hidden bg-cover bg-no-repeat min-w-[3rem]">
-                  <img
-                    className="rounded-t-lg h-full"
-                    src={order.imageURL}
-                    alt=""
-                  />
-                </div>
-                <div className="p-2 flex flex-col flex-start items-center justify-around ">
-                  <p className="text-base text-neutral-600 dark:text-neutral-200 text-center font-semibold">
-                    {order.title}
-                  </p>
-                  <p className="text-base text-neutral-600 dark:text-neutral-200 text-center font-semibold">
-                    ₹{order.price}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

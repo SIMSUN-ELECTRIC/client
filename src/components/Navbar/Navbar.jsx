@@ -54,6 +54,16 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="md:flex md:flex-row md:flex-wrap md:mt-[1rem] md:mb-[1rem] hidden items-center gap-3 font-[Poppins] mx-8">
+          <div className="">
+            <li>
+              <Link
+                to="/"
+                className="ml-2 text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5"
+              >
+                Home
+              </Link>
+            </li>
+          </div>
           <NavLinks />
 
           <div className="">
@@ -97,6 +107,19 @@ const Navbar = () => {
             </div>
           ) : null}
 
+          {user.userData?.isAdmin ? (
+            <div className="">
+              <li>
+                <Link
+                  to="/admin/productList"
+                  className=" text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5 relative "
+                >
+                  List
+                </Link>
+              </li>
+            </div>
+          ) : null}
+
           {user.userData?.isEngineer ? (
             <div className="">
               <li>
@@ -125,7 +148,8 @@ const Navbar = () => {
               <div>
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full text-xl rounded-md border border-white shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 "
+                  className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
+           rounded-md text-white md:w-auto w-full"
                   id="options-menu"
                   aria-haspopup="true"
                   aria-expanded="true"
@@ -138,7 +162,8 @@ const Navbar = () => {
               <div>
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full text-xl rounded-md border border-white shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 "
+                  className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
+           rounded-md text-white md:w-auto w-full "
                   id="options-menu"
                   aria-haspopup="true"
                   aria-expanded="true"
@@ -217,13 +242,23 @@ const Navbar = () => {
         duration-500 ${open ? "left-0" : "left-[-100%] "}
         `}
         >
+          <div className="">
+            <Link
+              to="/"
+              className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+              onClick={() => setOpen(!open)}
+            >
+              Home
+            </Link>
+          </div>
           <NavLinks />
           {user.isAuthenticated ? (
-            <div className="mt-2">
+            <div className="">
               <li>
                 <Link
                   to="/Cart"
                   className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold relative"
+                  onClick={() => setOpen(!open)}
                 >
                   Cart
                   {cartItems.length > 0 && (
@@ -237,11 +272,12 @@ const Navbar = () => {
           ) : null}
 
           {user.userData?.isAdmin ? (
-            <div className="mt-2">
+            <div className="">
               <li>
                 <Link
                   to="/addProduct"
                   className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                  onClick={() => setOpen(!open)}
                 >
                   Add Product
                 </Link>
@@ -249,12 +285,27 @@ const Navbar = () => {
             </div>
           ) : null}
 
+          {user.userData?.isAdmin ? (
+            <div className="">
+              <li>
+                <Link
+                  to="/admin/productList"
+                  className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                  onClick={() => setOpen(!open)}
+                >
+                  List
+                </Link>
+              </li>
+            </div>
+          ) : null}
+
           {user.userData?.isEngineer ? (
-            <div className="mt-2">
+            <div className="">
               <li>
                 <Link
                   to="/EngineerDetails"
                   className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                  onClick={() => setOpen(!open)}
                 >
                   Engineer form
                 </Link>
@@ -262,7 +313,7 @@ const Navbar = () => {
             </div>
           ) : null}
 
-          <div className="mt-2">
+          <div className="">
             <Link
               to="/shop"
               className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
@@ -271,7 +322,7 @@ const Navbar = () => {
               Shop
             </Link>
           </div>
-          <div className="mt-2">
+          <div className="">
             <Link
               to="/ContactUs"
               className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold mt-7"
@@ -281,24 +332,56 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="mx-5 mt-2 relative inline-block text-left">
-            <button
-              onClick={toggleDropdown}
-              className="font-semibold flex justify-between items-center text-xl"
-            >
-              Login
-            </button>
+            {user.isAuthenticated ? (
+              <div>
+                <button
+                  onClick={toggleDropdown}
+                  className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
+           rounded-md text-white md:w-auto w-full "
+                >
+                  {user.userData.userName}
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={toggleDropdown}
+                className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
+           rounded-md text-white md:w-auto w-full "
+              >
+                Login
+              </button>
+            )}
 
             {isOpen && (
-              <div className="-mx-8 origin-top-right absolute right-0 mt-2 w-full rounded-md  ring-1 ring-black ring-opacity-5 focus:outline-none sm:w-56">
-                <a href="/admin-login" className="dropdown-item">
-                  Admin Login
-                </a>
-                <a href="/user-login" className="dropdown-item">
-                  User Login
-                </a>
-                <a href="/customer-login" className="dropdown-item">
-                  Customer Login
-                </a>
+              <div className="-mx-6 origin-top-right absolute right-0  w-full rounded-md  ring-1 ring-black ring-opacity-5 focus:outline-none">
+                {user.isAuthenticated ? (
+                  <div>
+                    <a href="/auth/UserProfile" className="block dropdown-item">
+                      Profile
+                    </a>
+                    <div onClick={handleLogout} className="block dropdown-item">
+                      Logout
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-96">
+                    <a
+                      href="/auth/consumerLogin"
+                      className="block dropdown-item"
+                    >
+                      Customer Login
+                    </a>
+                    <a
+                      href="/auth/EngineerLogin"
+                      className="block dropdown-item"
+                    >
+                      Engineer Login
+                    </a>
+                    <a href="/auth/AdminLogin" className="block dropdown-item">
+                      Admin Login
+                    </a>
+                  </div>
+                )}
               </div>
             )}
           </div>

@@ -1,7 +1,8 @@
 // LiftSpareParts.js
 
 import { useEffect, useReducer } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addItem } from "../../../store/slices/CartSlices";
 import axios from "axios";
 
@@ -30,6 +31,7 @@ const initialState = {
 const LiftSpareParts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,17 +46,24 @@ const LiftSpareParts = () => {
     fetchData();
   }, []);
 
+  const customer = useSelector((customer) => customer.user);
+
   const handleAddToCart = (product) => {
-    dispatch(
-      addItem({
-        id: product._id,
-        name: product.name,
-        price: product.price,
-      })
-    );
+    if (!customer?.isAuthenticated) {
+      // Redirect to customer login page if not logged in
+      navigate("/auth/consumerLogin");
+    } else {
+      dispatch(
+        addItem({
+          id: product._id, // Use the actual product ID
+          name: product.name,
+          price: product.price,
+        })
+      );
+    }
   };
 
-  const liftProducts = state.products.filter(
+  const LiftSpareParts = state.products.filter(
     (product) => product.category === "Lift Spare Parts"
   );
 
@@ -69,7 +78,7 @@ const LiftSpareParts = () => {
       {state.error && <p>Error: {state.error}</p>}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {liftProducts.map((product) => (
+        {LiftSpareParts.map((product) => (
           <div
             key={product._id}
             className="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const YourOrders = () => {
   const orders = [
@@ -75,6 +78,15 @@ const YourOrders = () => {
       total: 250,
     },
   ];
+
+  const navigate = useNavigate();
+
+  const states = useSelector((states) => states.user);
+  useEffect(() => {
+    if (!states?.isAuthenticated) {
+      navigate("/auth/consumerLogin");
+    }
+  }, [states]);
 
   return (
     <>

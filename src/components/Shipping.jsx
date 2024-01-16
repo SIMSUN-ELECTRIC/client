@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ShippingAddress = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -25,6 +31,15 @@ const ShippingAddress = () => {
       country,
     });
   };
+
+  const customer = useSelector((customer) => customer.user);
+
+  useEffect(() => {
+    if (!customer?.isAuthenticated) {
+      // Redirect to customer login page if not logged in
+      navigate("/auth/consumerLogin");
+    }
+  }, [customer]);
 
   return (
     <div className="container bg-gray-400 mx-auto p-8">
@@ -156,7 +171,8 @@ const ShippingAddress = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+          className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
+           rounded-md text-white md:w-auto w-full"
         >
           Continue
         </button>

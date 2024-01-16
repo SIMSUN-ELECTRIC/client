@@ -13,42 +13,53 @@ const UserProfile = () => {
 
   return (
     <animated.div style={profileAnimation} className="container mx-auto mt-8">
-      <div className="mt-16 max-w-md mx-auto bg-white p-8 shadow-md rounded-md">
-        <h1 className="text-3xl font-bold mb-6">User Profile</h1>
-        {user.fullName ? (
-          <div className="mb-4">
-            <label className="block text-gray-600 font-semibold">
-              Full Name
-            </label>
-            <p className="text-gray-800">{user.fullName}</p>
+      <div className="mt-16 bg-gray-100 min-h-screen py-12">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-6 grid grid-cols-2 gap-6">
+            <div className="col-span-1">
+              <h2 className="text-xl font-semibold mb-4">
+                Personal Information
+              </h2>
+              {user.fullName ? (
+                <div className="mb-4">
+                  <label className="font-semibold">Full Name</label>
+                  <p className="ml-2 text-black">{user.fullName}</p>
+                </div>
+              ) : null}
+              <div className="mb-4">
+                <label className="font-semibold">Username:</label>
+                <p className="ml-2 text-black">{user.userName}</p>
+              </div>
+              <div className="mb-4">
+                <label className="font-semibold text-black">Email:</label>
+                <p className="ml-2 text-black">{user.email}</p>
+              </div>
+              {/* <div className="mb-4">
+                <label className="font-semibold text-black">Address:</label>
+                <p className="ml-2 text-black">
+                  Flat No. T-1, 104, 1st Floor, Tower-1, GH 01/A, Sector 16C,
+                  Exotica Dreamville, Greater Noida, U.P. 201203
+                </p>
+              </div> */}
+            </div>
+
+            <div className="col-span-1">
+              <h2 className="text-xl font-semibold mb-4">
+                Company Information
+              </h2>
+              <div className="mb-4">
+                <label className="font-semibold text-black">Company:</label>
+                <p className="ml-2 text-black">Simsun</p>
+              </div>
+              <div className="mb-4">
+                <label className="font-semibold text-black">
+                  Company Email:
+                </label>
+                <p className="ml-2 text-black">simsunelectricwork@gmail.com</p>
+              </div>
+            </div>
           </div>
-        ) : null}
-
-        <div className="mb-4">
-          <label className="block text-gray-600 font-semibold">Username</label>
-          <p className="text-gray-800">{user.userName}</p>
         </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-600 font-semibold">Email</label>
-          <p className="text-gray-800">{user.email}</p>
-        </div>
-
-        {/* <div className="mb-8">
-          <label className="block text-gray-600 font-semibold">
-            Phone Number
-          </label>
-          <p className="text-gray-800">{user.phoneNumber}</p>
-        </div> */}
-
-        {/* <button
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-          onClick={() => {
-            console.log("Edit Profile clicked");
-          }}
-        >
-          Edit Profile
-        </button> */}
       </div>
     </animated.div>
   );

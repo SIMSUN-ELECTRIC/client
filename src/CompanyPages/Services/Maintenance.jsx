@@ -51,20 +51,20 @@ const Maintenance = () => {
 
   return (
     <>
-      <div className="mt-16 flex justify-center items-center sm:mx-10 flex-col">
+      <div className="mt-16 flex justify-center items-center  flex-col">
         <div className=" w-full h-[40rem] ">
-          <div className="relative min-h-screen">
-            <img
-              src={BackgroundImg}
-              alt="Your Image"
-              className="w-full sm:max-h-[40rem] h-[45rem]"
-            />
-            <div className="absolute inset-0 flex flex-col justify-center items-center mt-[20rem] md:mt-[10rem]">
+          <div
+            className="relative top-0 left-0 w-full min-h-[600px] flex flex-col items-center justify-center bg-[#202b35] bg-cover bg-center transition-opacity duration-1000"
+            style={{
+              backgroundImage: `linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)), url(${BackgroundImg})`,
+            }}
+          >
+            <div className="absolute inset-0 flex flex-col justify-center mx-2 items-center md:mt-[10rem]">
               <div className="p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 md:mt-[4rem] ">
                 <h1 className="sm:text-6xl font-semibold text-white max-w-[85%] text-4xl ">
                   MAINTENANCE SERVICES FOR ELEVATORS AND ESCALATORS
                 </h1>
-                <p className="text-3xl text-white">
+                <p className="mt-12 text-3xl text-white">
                   We offer a wide range of intelligent and flexible maintenance
                   services that help keep your building moving 24/7
                 </p>

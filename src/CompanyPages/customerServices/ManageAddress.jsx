@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ManageAddress = () => {
   const [addresses, setAddresses] = useState([
@@ -163,6 +166,15 @@ const ManageAddress = () => {
       zip: "37201",
     },
   ]);
+
+  const navigate = useNavigate();
+
+  const states = useSelector((states) => states.user);
+  useEffect(() => {
+    if (!states?.isAuthenticated) {
+      navigate("/auth/consumerLogin");
+    }
+  }, [states]);
   return (
     <div className="mt-16 min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

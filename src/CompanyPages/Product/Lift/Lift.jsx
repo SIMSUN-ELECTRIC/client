@@ -1,7 +1,8 @@
 // LiftProducts.js
 
 import { useEffect, useReducer } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addItem } from "../../../store/slices/CartSlices";
 import axios from "axios";
 
@@ -30,6 +31,7 @@ const initialState = {
 const LiftProducts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,14 +46,21 @@ const LiftProducts = () => {
     fetchData();
   }, []);
 
+  const customer = useSelector((customer) => customer.user);
+
   const handleAddToCart = (product) => {
-    dispatch(
-      addItem({
-        id: product._id,
-        name: product.name,
-        price: product.price,
-      })
-    );
+    if (!customer?.isAuthenticated) {
+      // Redirect to customer login page if not logged in
+      navigate("/auth/consumerLogin");
+    } else {
+      dispatch(
+        addItem({
+          id: product._id, // Use the actual product ID
+          name: product.name,
+          price: product.price,
+        })
+      );
+    }
   };
 
   const liftProducts = state.products.filter(

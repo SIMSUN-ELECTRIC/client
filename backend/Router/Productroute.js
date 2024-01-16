@@ -1,83 +1,18 @@
-/* eslint-disable no-undef */
-// import express from "express";
-// import multer from "multer";
-// import ProductModel from "../Models/ProductModel.js";
-// import cloudinary from "cloudinary";
-
-// const router = express.Router();
-// const app = express();
-
-// const uploadMiddleWare = multer({ dest: "uploads/" });
-
-// cloudinary.config({
-//   cloud_name: process.env.CLOUD_NAME,
-//   api_key: process.env.CLOUD_API_KEY,
-//   api_secret: process.env.CLOUD_API_SECRET,
-// });
-
-// app.use("/uploads", express.static(__dirname + "/uploads"));
-
-// router.get("/allProduct", async (req, res) => {
-//   try {
-//     const product = await ProductModel.find();
-//     if (product) {
-//       res.status(200).json({ result: product });
-//     } else {
-//       res.status(201).json({ message: "Error in retrieving data" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ message: "Error in retrieving data from server" });
-//   }
-// });
-
-// router.post(
-//   "/submitProduct",
-//   uploadMiddleWare.single("file"),
-//   async (req, res) => {
-//     const { prodName, prodDescp, price, category } = req.body;
-//     console.log(prodName + " " + prodDescp + " " + price + " " + category);
-
-//     const { path } = req.file;
-//     cloudinary.uploader.upload(path, async function (error, result) {
-//       if (error) {
-//         console.error(error);
-//         return res.status(500).json({ error: "Upload failed" });
-//       }
-//       console.log(result.url);
-//       await ProductModel.create({
-//         name: prodName,
-//         descp: prodDescp,
-//         price,
-//         category,
-//         imageUrl: result.url,
-//       });
-//       res.status(200).json("File uploaded successfully");
-//     });
-//   }
-// );
-
-// router.get("/product/:name", async (req, res) => {
-//   const name = req.params.name;
-//   try {
-//     const product = await ProductModel.find({ category: name });
-//     if (product) {
-//       res.status(200).json({ result: product });
-//     } else {
-//       res.status(201).json({ message: "Error in retrieving data" });
-//     }
-//   } catch (error) {
-//     res.status(500).json("Error in getting data by server");
-//   }
-// });
-
-// export default router;
-
 import express from "express";
 import multer from "multer";
 import Product from "../Models/ProductModel.js";
 import cloudinary from "cloudinary";
+import dotenv from "dotenv";
 
 const uploadMiddleWare = multer({ dest: "uploads/" });
+
+dotenv.config();
+
+console.log("Cloudinary Configuration:", {
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -110,31 +45,52 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Define the file upload route
+router.post("/upload", uploadMiddleWare.single("file"), async (req, res) => {
+  try {
+    const { path } = req.file;
+
+    // Upload file to Cloudinary
+    const result = await cloudinary.uploader.upload(path);
+
+    // Respond with the Cloudinary URL
+    res.status(200).json({ imageUrl: result.secure_url });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 router.post(
   "/submitProduct",
   uploadMiddleWare.single("file"),
   async (req, res) => {
     const { prodName, prodDescp, price, category } = req.body;
-    console.log(prodName + " " + prodDescp + " " + price + " " + category);
-
     const { path } = req.file;
-    cloudinary.uploader.upload(path, async function (error, result) {
-      if (error) {
-        console.error(error);
-        return res.status(500).json({ error: "Upload failed" });
-      }
-      console.log(result.url);
-      await ProductModel.create({
+
+    try {
+      // Upload file to Cloudinary
+      const result = await cloudinary.uploader.upload(path);
+
+      // Create a new product with the Cloudinary URL
+      const newProduct = new Product({
         name: prodName,
-        description: prodDescp,
+        description: prodDescp, // Make sure description is provided
         price,
         category,
-        imageUrl: result.url,
+        imageUrl: result.secure_url, // Use the Cloudinary URL
       });
-      res
-        .status(200)
-        .json({ message: "Product added successfully", imageUrl: result.url });
-    });
+
+      await newProduct.save();
+
+      res.status(200).json({
+        message: "Product added successfully",
+        imageUrl: result.secure_url,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   }
 );
 

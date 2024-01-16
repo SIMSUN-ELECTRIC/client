@@ -21,11 +21,11 @@ export const links = [
   },
   {
     id: 2,
-    name: "Product",
+    name: "Products",
     submenu: true,
     sublinks: [
       {
-        Head: "Product",
+        Head: "Products",
         sublink: [
           { id: 21, name: "Lifts", link: "/product/lift" },
           { id: 22, name: "Escalators", link: "/product/escalator" },
@@ -55,24 +55,29 @@ export const links = [
           },
           {
             id: 32,
+            name: "Maintainence",
+            link: "/services/Maintenance",
+          },
+          {
+            id: 33,
             name: "Annual Maintainence Services",
             link: "/services/AnnualMaintainenceServices",
           },
           {
-            id: 33,
+            id: 34,
             name: "Breakdown Services",
             link: "/services/BreakdownServices",
           },
+          {
+            id: 35,
+            name: "Elevator Modernization",
+            link: "/services/EscalatorAutowalkModernization",
+          },
           // {
-          //   id: 34,
+          //   id: 36,
           //   name: "Elevator Modernization",
           //   link: "/services/ElevatorModernization",
           // },
-          {
-            id: 35,
-            name: "Elevator Walk",
-            link: "/services/EscalatorAutowalkModernization",
-          },
         ],
       },
     ],
@@ -96,16 +101,11 @@ export const links = [
             name: "Manage Addresses",
             link: "/customerservices/ManageAddress",
           },
-          {
-            id: 44,
-            name: "Payment Settings",
-            link: "/customerservices/PaymentSetting",
-          },
-          {
-            id: 45,
-            name: "Account Settings",
-            link: "/customerservices/AccountSetting",
-          },
+          // {
+          //   id: 44,
+          //   name: "Payment Settings",
+          //   link: "/customerservices/PaymentSetting",
+          // },
         ],
       },
     ],

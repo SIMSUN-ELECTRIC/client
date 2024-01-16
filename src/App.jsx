@@ -16,8 +16,6 @@ import Shop from "./CompanyPages/shop/Shop";
 import YourOrders from "./CompanyPages/customerServices/YourOrders";
 import ReturnandRefund from "./CompanyPages/customerServices/ReturnandRefund";
 import ManageAddress from "./CompanyPages/customerServices/ManageAddress";
-import PaymentSetting from "./CompanyPages/customerServices/PaymentSetting";
-import AccountSettings from "./CompanyPages/customerServices/AccountSetting";
 import ConsumerRegister from "./Auth/Signup/ConsumerRegister";
 import ConsumerLogin from "./Auth/ConsumerLogin";
 import EngineerRegister from "./Auth/Signup/EngineerRegister";
@@ -28,13 +26,15 @@ import Cart from "./components/Cart";
 import Maintenance from "./CompanyPages/Services/Maintenance";
 import ElevatorModernization from "./TemplatePages/ExistingsBuilding/ElevatorModernization";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
-import AddProduct from "./CompanyPages/Product/AddProduct/AddProduct";
+import AddProduct from "./components/Admin/AddProduct";
 import Travelator from "./CompanyPages/Product/Travelator/Travelator";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ShippingAddress from "./components/Shipping";
 import UserProfile from "./Auth/UserProfile";
 import EngineerDetailsForm from "./components/EngineerForm";
+import ProductList from "./components/Admin/ProductList";
+import EditProduct from "./components/Admin/Edit";
 
 function App() {
   return (
@@ -95,15 +95,6 @@ function App() {
             element={<ManageAddress />}
           />
           <Route
-            path="/customerservices/PaymentSetting"
-            element={<PaymentSetting />}
-          />
-          <Route
-            path="/customerservices/AccountSetting"
-            element={<AccountSettings />}
-          />
-
-          <Route
             path="/auth/consumerRegistration"
             element={<ConsumerRegister />}
           />
@@ -121,6 +112,9 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/EngineerDetails" element={<EngineerDetailsForm />} />
           <Route path="/shipping" element={<ShippingAddress />} />
+
+          <Route path="/admin/productList" exact element={<ProductList />} />
+          <Route path="/admin/edit/:id" element={<EditProduct />} />
         </Route>
       </Routes>
       <ToastContainer limit={1} />
