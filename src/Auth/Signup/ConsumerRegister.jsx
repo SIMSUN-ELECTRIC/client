@@ -50,15 +50,15 @@ const ConsumerRegister = () => {
   return (
     <>
       <div className="mt-16 h-screen md:flex text-center">
-        <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden ">
-          <div>
+        <div className="relative overflow-hidden md:flex w-3/5 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden ">
+          <div className="flex flex-col items-center">
             <h1 className="text-white font-bold text-5xl font-sans">Simsun</h1>
-            <p className="text-white mt-1 text-4xl sm:-translate-x-4">
-              The most popular peer to peer business group
+            <p className="text-white text-4xl m-2 sm:-translate-x-4">
+              The most popular peer-to-peer business group
             </p>
             <button
               type="submit"
-              className="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2 ml-[15rem]"
+              className="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold"
             >
               Read More
             </button>
@@ -74,7 +74,7 @@ const ConsumerRegister = () => {
               Hello Again!
             </h1>
             <p className="text-sm sm:text-4xl font-normal text-gray-600 mb-7">
-              Welcome Back for Consumer Register
+              Welcome for Consumer Register
             </p>
             <div className="flex items-center   border-2 py-2 px-3 rounded-2xl mb-4">
               <svg
@@ -182,7 +182,9 @@ const ConsumerRegister = () => {
             {/* <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
               Have an account ?
             </span> */}
-            <Link to="/auth/consumerLogin">Have an account ?</Link>
+            <Link to="/auth/consumerLogin" className="hover:underline">
+              Already have an account ?
+            </Link>
           </form>
         </div>
       </div>

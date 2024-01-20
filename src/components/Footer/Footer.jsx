@@ -1,23 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ItemsContainer from "./ItemsContainer";
 import SocialIcons from "./SocialIcons";
 import { Link } from "react-router-dom";
-import logo1 from "../../assets/img/logo2.jpeg";
-import Feedback from "../Feedback";
 
 const Footer = () => {
+  //changes the copyright dynamically
+  const date = new Date().getFullYear();
+
+  //using IntersectionObserver this hook will determine whether we should hide or show footer
+  const [showFooter, setShowFooter] = useState(false);
+
+  //IntersectionObserver checks if the point at which we are ,is intersecting with the element position or not
+  const observer = new IntersectionObserver((enteries) => {
+    enteries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setShowFooter(true);
+      } else {
+        setShowFooter(false);
+      }
+    });
+  });
+
+  useEffect(() => {
+    const selectedClass = document.querySelectorAll(".footer-animation");
+    selectedClass.forEach((el) => observer.observe(el));
+  }, []);
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="mx-2 md:flex md:justify-between md:items-center  sm:px-4 px-4 bg-[#ffffff19] py-4">
-        <div className="">
-          <h1 className="text-4xl font-blod ">
+    <footer
+      className={`
+      bg-[#161D24] text-white section `}
+    >
+      <div
+        className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
+      >
+        <div className={` ${showFooter ? "show" : "footer-animation"}`}>
+          <h1 className=" items-center text-3xl md:text-4xl md:font-blod ">
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
-        <div className="sm:my-0 my-3  ">
-          <img src={logo1} alt="" className="w-20 rounded-full " />
-        </div>
-        <div>
+        <div
+          className={`sm:my-0 my-3 ${showFooter ? "show" : "footer-animation"}`}
+        ></div>
+        <div className={showFooter ? "show" : "footer-animation"}>
           <input
             type="text"
             placeholder="Enter Your Email"
@@ -26,28 +51,29 @@ const Footer = () => {
           />
           <button
             className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full"
+           rounded-md text-white md:w-auto "
           >
             Submit
           </button>
         </div>
       </div>
-      <div className="bg-white h-0.3px w-full "></div>
-      <Feedback />
-      <ItemsContainer />
+      <div>
+        <ItemsContainer class={showFooter ? "show" : "footer-animation"} />
+      </div>
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10
-      text-center pt-2 text-gray-400 text-sm pb-0"
+        className={`flex gap-10 justify-around px-5 text-sm text-gray-400 ${
+          showFooter ? "show" : "footer-animation"
+        }`}
       >
-        <span>Copyright © 2023 All rights reserved </span>
+        <span>Copyright © {date}. All Rights Reserved. </span>
         <span>
           Simsun Electric Pvt Ltd Designed by
-          <Link to="https://teksila.in/" className="text-red-400 ml-4">
+          <Link to="https://teksila.in/" className="text-red-400 ml-1">
             Teksila.in
           </Link>
         </span>
-        <SocialIcons />
       </div>
+      <SocialIcons />
     </footer>
   );
 };

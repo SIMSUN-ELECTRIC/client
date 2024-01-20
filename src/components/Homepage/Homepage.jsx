@@ -40,8 +40,8 @@ const Homepage = () => {
           </div>
           <div className="sm:text-3xl text-base mt-5 sm:mt-0 text-center text-white p-4 rounded-lg">
             We believe this is the key to any successful relationship, and it's
-            important to us that our clients and team members have a strong
-            foundation of trust in each other.
+            important to us <br /> that our clients and team members have a
+            strong foundation of trust in each other.
           </div>
           <Link
             to="/about/ourcompany"
