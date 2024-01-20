@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
   const [prodName, setProdName] = useState("");
@@ -51,12 +53,15 @@ const AddProduct = () => {
       // Check the response status
       if (res.status === 200) {
         console.log("Product added successfully!");
+        toast.success("Product added successfully");
         // Optionally, redirect the user or perform other actions.
       } else {
         console.error("Error adding product. Server response:", res);
+        toast.error("Error adding Product");
       }
     } catch (error) {
       console.error("Error adding product:", error);
+      toast.error("Error adding Product");
     }
   };
 

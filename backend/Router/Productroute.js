@@ -23,10 +23,28 @@ cloudinary.config({
 const router = express.Router();
 
 // Get all products
-router.get("/", async (req, res) => {
+router.get("/list", async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Get all products with pagination
+router.get("/", async (req, res) => {
+  try {
+    const { limit = 20, page = 1 } = req.query;
+
+    const totalProducts = await Product.countDocuments();
+    const totalPages = Math.ceil(totalProducts / limit);
+
+    const products = await Product.find()
+      .limit(parseInt(limit))
+      .skip((page - 1) * limit);
+
+    res.json({ products, totalPages });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }

@@ -34,7 +34,11 @@ import ShippingAddress from "./components/Shipping";
 import UserProfile from "./Auth/UserProfile";
 import EngineerDetailsForm from "./components/EngineerForm";
 import ProductList from "./components/Admin/ProductList";
-import EditProduct from "./components/Admin/Edit";
+import EditProduct from "./components/Admin/EditProduct";
+import AdminNewsList from "./components/Admin/NewsList";
+import AddNews from "./components/Admin/AddNews";
+import EditNews from "./components/Admin/EditNews";
+import FeedbackPage from "./components/Admin/FeedbackPage";
 
 function App() {
   return (
@@ -115,6 +119,12 @@ function App() {
 
           <Route path="/admin/productList" exact element={<ProductList />} />
           <Route path="/admin/edit/:id" element={<EditProduct />} />
+
+          <Route path="/admin/addnews" element={<AddNews />} />
+          <Route path="/admin/newsList" element={<AdminNewsList />} />
+          <Route path="/admin/newsedit/:id" element={<EditNews />} />
+
+          <Route path="/admin/feedback" element={<FeedbackPage />} />
         </Route>
       </Routes>
       <ToastContainer limit={1} />

@@ -97,7 +97,7 @@ const EditProduct = () => {
         imageUrl,
       });
 
-      toast.error("Product Updated Successfully");
+      toast.success("Product Updated Successfully");
       // Redirect to the admin panel after updating
       navigate("/admin/productList");
     } catch (error) {

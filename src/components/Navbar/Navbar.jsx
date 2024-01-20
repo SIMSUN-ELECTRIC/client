@@ -6,8 +6,10 @@ import NavLinks from "./NavLinks";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import logo from "../../assets/img/logo1.jpg";
+import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
 
 const Navbar = () => {
+  const [heading, setHeading] = useState("");
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   // console.log("user:", user.userData.userName);
@@ -65,7 +67,6 @@ const Navbar = () => {
             </li>
           </div>
           <NavLinks />
-
           <div className="">
             <li>
               <Link
@@ -95,31 +96,109 @@ const Navbar = () => {
           ) : null}
 
           {user.userData?.isAdmin ? (
-            <div className="">
-              <li>
-                <Link
-                  to="/addProduct"
-                  className=" text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5 relative "
-                >
-                  Add Product
-                </Link>
-              </li>
+            <div className="text-left md:cursor-pointer group ml-5">
+              <h1
+                className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                onClick={() => {
+                  setHeading((prevHeading) =>
+                    prevHeading === "Add" ? "" : "Add"
+                  );
+                  setSubHeading("");
+                }}
+              >
+                Add
+                <span className="text-xl md:hidden inline">
+                  {heading === "Add" ? <FaAngleUp /> : <FaAngleDown />}
+                </span>
+                <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                  <FaAngleDown />
+                </span>
+              </h1>
+              {
+                <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                  <div className="py-0">
+                    <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                  </div>
+                  <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                    <div>
+                      <li className="py-2 flex flex-direction-col">
+                        <Link
+                          to="/addProduct"
+                          className="block hover:text-red-400"
+                        >
+                          Add Product
+                        </Link>
+                      </li>
+                      <li className="py-2 flex flex-direction-col">
+                        <Link
+                          to="/admin/addnews"
+                          className="block hover:text-red-400"
+                        >
+                          Add News
+                        </Link>
+                      </li>
+                    </div>
+                  </div>
+                </div>
+              }
             </div>
           ) : null}
-
           {user.userData?.isAdmin ? (
-            <div className="">
-              <li>
-                <Link
-                  to="/admin/productList"
-                  className=" text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5 relative "
-                >
-                  List
-                </Link>
-              </li>
+            <div className="text-left md:cursor-pointer group ml-5">
+              <h1
+                className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                onClick={() => {
+                  setHeading((prevHeading) =>
+                    prevHeading === "List" ? "" : "List"
+                  );
+                  setSubHeading("");
+                }}
+              >
+                List
+                <span className="text-xl md:hidden inline">
+                  {heading === "List" ? <FaAngleUp /> : <FaAngleDown />}
+                </span>
+                <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                  <FaAngleDown />
+                </span>
+              </h1>
+              {
+                <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                  <div className="py-0">
+                    <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                  </div>
+                  <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                    <div>
+                      <li className="py-2 flex flex-direction-col">
+                        <Link
+                          to="/admin/productList"
+                          className="hover:text-red-400"
+                        >
+                          Product List
+                        </Link>
+                      </li>
+                      <li className="py-2 flex flex-direction-col">
+                        <Link
+                          to="/admin/newsList"
+                          className="hover:text-red-400"
+                        >
+                          News List
+                        </Link>
+                      </li>
+                      <li className="py-2 flex flex-direction-col">
+                        <Link
+                          to="/admin/feedback"
+                          className="hover:text-red-400"
+                        >
+                          Feedback List
+                        </Link>
+                      </li>
+                    </div>
+                  </div>
+                </div>
+              }
             </div>
           ) : null}
-
           {user.userData?.isEngineer ? (
             <div className="">
               <li>
@@ -132,7 +211,6 @@ const Navbar = () => {
               </li>
             </div>
           ) : null}
-
           <div className="">
             <li>
               <Link
