@@ -31,15 +31,15 @@ const Homepage = () => {
 
   return (
     <>
-      <div className=" flex flex-col items-center  w-full h-[1960px]">
+      <div className=" flex flex-col items-center  w-full h-auto">
         <div
           style={{ "--image-url": `url(${home})` }}
           className=" w-full h-[44.438rem] relative bg-[image:var(--image-url)] bg-cover bg-[50%_50%] flex flex-col items-center "
         >
-          <div className="relative w-fit mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[64px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
+          <div className="relative w-fit mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[40px] md:text-[64px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
             WELCOME TO SIMSUN ELECTRIC
           </div>
-          <div className="relative mt-5 text-white [font-family:'Poppins-Regular',Helvetica] font-extralight text-[28px] text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem]">
+          <div className="relative mt-5 text-white [font-family:'Poppins-Regular',Helvetica] font-extralight text-[18px] md:text-[28px] text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem]">
             We believe this is the key to any successful relationship, and
             it&#39;s important to us that our clients <br /> and team members
             have a strong foundation of trust in each other.
@@ -51,7 +51,7 @@ const Homepage = () => {
             Explore Now!
           </Link>
         </div>
-        <div className="relative mt-[6.25rem] p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col md:flex-row ">
+        <div className="relative mt-[6.25rem] p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col md:flex-row items-center md:place-items-start ">
           <div className="w-[90%] h-[420px] p-4 flex flex-col items-center justify-between">
             <img
               src={ImageComponent}
@@ -66,10 +66,10 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex flex-col px-5">
-            <h1 className="relative mt-[0.75rem]  [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[48px] tracking-[0] leading-[48px] whitespace-nowrap">
+            <h1 className="relative mt-[0.75rem]  [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[30px] md:text-[48px] tracking-[0] leading-[48px] whitespace-nowrap">
               About Simsun
             </h1>
-            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white text-[19.8px] tracking-[0] leading-[28px]">
+            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white  text-[12px] md:text-[19.8px] tracking-[0] leading-[28px]">
               The birth of Simsun Electric was founded in December 2016 after 2
               years of elevator and escalator project installation experience
               all over Rajasthan. The possibilities of SimSun Electric were
@@ -77,7 +77,7 @@ const Homepage = () => {
               working with a small franchise of elevator and escalator energy in
               Jaipur.
             </p>
-            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white text-[19.8px] tracking-[0] leading-[28px]">
+            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white text-[12px] md:text-[19.8px] tracking-[0] leading-[28px]">
               At that time, we found that everybody is moving on MW and
               large-scale projects. We kept our focus on learning about elevator
               and escalator project work. We started our work as freelancers in
@@ -202,7 +202,7 @@ const Homepage = () => {
           </div>
         </div>
 
-        <section className="w-full flex flex-col-reverse md:flex-row mt-[2rem] bg-[#202b35] p-8">
+        <section className="w-full flex flex-col-reverse md:flex-row mt-[2rem] bg-[#202b35] p-8 mb-10">
           <div className="flex md:w-[45%] justify-center order-2 md:order-1">
             <img src={Esc} alt="Your Alt Text" />
           </div>
