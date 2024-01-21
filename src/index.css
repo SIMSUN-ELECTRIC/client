@@ -3,43 +3,40 @@
 @tailwind utilities;
 
 .section {
-    display: grid;
-    align-content: center;
+  display: grid;
+  align-content: center;
 }
 
 .footer-animation {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(-100);
-    transition: all 1s;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100);
+  transition: all 1s;
 }
 
 .show {
-    opacity: 1;
-    filter: blur(0);
-    /* Adjust the blur value if needed */
-    transform: translateX(0);
-    transition-delay: 0.5;
-    /* Change translateX value to 0 */
+  opacity: 1;
+  filter: blur(0);
+  /* Adjust the blur value if needed */
+  transform: translateX(0);
+  transition-delay: 0.5;
+  /* Change translateX value to 0 */
 }
 
-@media (min-width:768px) {
-    .sticky {
-        width: 100%;
-        position: fixed;
-        top: 0;
-        transition: all 0.2s;
+@media (min-width: 768px) {
+  .sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    transition: all 0.2s;
+  }
 
-    }
-
-    .rounded-navbar {
-        margin-left: 10rem;
-        margin-top: 2rem;
-        margin-bottom: -3rem;
-        border-radius: 2% / 45%;
-        width: 80%;
-        transition: all 0.2s;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        ;
-    }
+  .rounded-navbar {
+    margin-top: 2rem;
+    margin-bottom: -3rem;
+    border-radius: 2% / 45%;
+    width: 80%;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }

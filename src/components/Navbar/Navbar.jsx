@@ -70,23 +70,23 @@ const Navbar = () => {
         </p>
       </div>
 
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 flex items-center justify-center">
         <nav
           ref={headerWidth}
-          className="bg-[#161D24] text-white  w-full h-20 opacity-100 top-0 fixed z-20"
+          className="bg-[#161D24] text-white  w-full h-auto opacity-100 top-0 fixed z-10 mx-auto"
         >
           <div className="flex items-center font-medium justify-between ">
-            <div className="z-50 p-1 md:w-auto w-full flex justify-between mr-[2rem] -ml-10">
+            <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0">
               <Link
                 to="/"
-                className="flex text-3xl  border md:translate-x-10  justify-center items-center ml-10   overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
+                className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
               >
                 <div className="flext justify-start   ">
-                  <img src={logo} alt="" className="w-12" />
+                  <img src={logo} alt="" className="h-12 w-12" />
                 </div>
-              </Link>
+              </Link> 
               <div
-                className="text-3xl md:hidden mt-3.5 z-30"
+                className="text-3xl lg:hidden mt-3.5 z-30"
                 onClick={() => setOpen(!open)}
               >
                 {open ? (
@@ -96,7 +96,7 @@ const Navbar = () => {
                 )}
               </div>
             </div>
-            <ul className="md:flex md:flex-row md:flex-wrap md:mt-[1rem] md:mb-[1rem] hidden items-center gap-3 font-[Poppins] mx-8">
+            <ul className="hidden lg:flex lg:flex-row lg:flex-wrap lg:mt-[1rem] lg:mb-[1rem] items-center gap-3 font-[Poppins] mx-8">
               <div className="">
                 <li>
                   <Link
@@ -357,7 +357,7 @@ const Navbar = () => {
             {/* Mobile nav */}
             <ul
               className={`z-20 
-        md:hidden bg-[#161D24] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
+        lg:hidden bg-[#161D24] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%] "}
         `}
             >
