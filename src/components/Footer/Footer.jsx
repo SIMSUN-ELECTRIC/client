@@ -18,31 +18,30 @@ const Footer = () => {
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
       >
         <div>
-          <h1 className=" items-center text-3xl md:text-4xl md:font-bold ">
+          <h1 className=" items-center text-xl md:text-4xl md:font-bold ">
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
         <div className={`sm:my-0 my-3 `}></div>
-        <div>
+        <div className="flex">
           <input
             type="text"
             placeholder="Enter Your Email"
             className="text-gray-800
-           sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
+           w-40 md:w-72  mr-1 lg:mb-0 py-2.5 rounded px-2 focus:outline-none"
           />
-          <button
-            className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto "
-          >
-            Submit
-          </button>
+          <div className="flex items-center">
+            <button className="bg-red-500 hover:bg-red-600 duration-300 rounded-md font-[Poppins] h-10 text-white w-20 text-lg ">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
       <div>
         <ItemsContainer />
       </div>
       <div
-        className={`flex gap-10 justify-around px-5 text-xs md:text-sm text-gray-400 `}
+        className={`flex gap-10 justify-around px-5 text-xxs md:text-sm text-gray-400 `}
       >
         <span>Copyright © {date}. All Rights Reserved. </span>
         <span>
