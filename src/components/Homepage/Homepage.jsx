@@ -3,6 +3,7 @@ import lift1 from "../../assets/img/lift1.jpg";
 import lift4 from "../../assets/img/lift4.jpg";
 import lift5 from "../../assets/img/lift5.jpg";
 import lift7 from "../../assets/img/lift7.jpg";
+import lift9 from "../../assets/img/lift9.jpg";
 import lift13 from "../../assets/img/lift13.jpeg";
 import lift14 from "../../assets/img/lift14.jpg";
 import lift15 from "../../assets/img/lift15.jpg";
@@ -34,7 +35,7 @@ const Homepage = () => {
       <div className=" flex flex-col items-center  w-full h-auto">
         <div
           style={{ "--image-url": `url(${home})` }}
-          className=" w-full h-[44.438rem] relative bg-[image:var(--image-url)] bg-cover bg-[50%_50%] flex flex-col items-center "
+          className=" w-full h-[44.438rem] relative bg-[image:var(--image-url)] bg-cover bg-[50%_50%] mr-0 flex flex-col items-center "
         >
           <div className="relative w-fit mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[40px] md:text-[64px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
             WELCOME TO SIMSUN ELECTRIC
@@ -224,6 +225,66 @@ const Homepage = () => {
             </p>
           </div>
         </section>
+      </div>
+
+      <div>
+        <div className="mt-12 w-full ">
+          <h2 className="title text-4xl font-bold mx-4">Our Products</h2>
+          <div className="flex flex-wrap mt-4">
+            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/lift">
+                <img
+                  src={lift1}
+                  alt="Lift"
+                  className=" sm:w-full rounded-md lg:max-h-full"
+                />
+                <h4 className="text-2xl mt-2 text-center">Lift</h4>
+              </Link>
+            </div>
+            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/escalator">
+                <img
+                  src={lift7}
+                  alt="Escalator"
+                  className="w-full rounded-md"
+                />
+                <h4 className="text-2xl mt-2 text-center ">Escalator</h4>
+              </Link>
+            </div>
+            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/travelator">
+                <img
+                  src={lift9}
+                  alt="travelator"
+                  className="w-full rounded-md"
+                />
+                <h4 className="text-2xl mt-2 text-center ">Travelator</h4>
+              </Link>
+            </div>
+            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/LiftSparePart">
+                <img
+                  src={lift5}
+                  alt="Lift Spare Part"
+                  className="w-full rounded-md"
+                />
+                <h4 className="text-2xl mt-2 text-center ">Lift Spare Part</h4>
+              </Link>
+            </div>
+            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
+              <Link to="/product/EscalatorSparePart">
+                <img
+                  src={lift4}
+                  alt="Escalator Spare Part"
+                  className="w-full rounded-md "
+                />
+                <h4 className="text-2xl mt-2 text-center ">
+                  Escalator Spare Part
+                </h4>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* <div className="bg-red-500">

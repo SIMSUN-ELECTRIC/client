@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="ml-4 md:ml-8 gap-3 flex text-black-800 flex-row justify-around">
+      <div className=" hidden  ml-4 md:ml-8 gap-3 md:flex text-black-800 flex-row justify-around">
         <p className="head-wel justify-start  hover:text-red-400">
           Simsun Electric Pvt Ltd
         </p>
@@ -81,21 +81,43 @@ const Navbar = () => {
                 to="/"
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
               >
-                <div className="flext justify-start   ">
+                <div className="flex justify-start   ">
                   <img src={logo} alt="" className="h-12 w-12" />
                 </div>
               </Link>
-              <div
-                className="text-3xl lg:hidden mt-3.5 z-30"
-                onClick={() => setOpen(!open)}
-              >
-                {open ? (
-                  <RxCross2 className="z-50" />
-                ) : (
-                  <IoMdMenu className="z-50" />
-                )}
+
+              <div className="flex mt-2">
+                <div className="flex lg:hidden  z-30 mx-5">
+                  <div>
+                    <Link
+                      to="/shop"
+                      className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                    >
+                      Shop
+                    </Link>
+                  </div>
+                  <div className="">
+                    <Link
+                      to="/ContactUs"
+                      className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold "
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
+                <div
+                  className="text-3xl lg:hidden z-30"
+                  onClick={() => setOpen(!open)}
+                >
+                  {open ? (
+                    <RxCross2 className="z-50" />
+                  ) : (
+                    <IoMdMenu className="z-50" />
+                  )}
+                </div>
               </div>
             </div>
+
             <ul className="hidden lg:flex lg:flex-row lg:flex-wrap lg:mt-[1rem] lg:mb-[1rem] items-center gap-3 font-[Poppins] mx-8">
               <div className="">
                 <li>
@@ -432,24 +454,6 @@ const Navbar = () => {
                 </div>
               ) : null}
 
-              <div className="">
-                <Link
-                  to="/shop"
-                  className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
-                  onClick={() => setOpen(!open)}
-                >
-                  Shop
-                </Link>
-              </div>
-              <div className="">
-                <Link
-                  to="/ContactUs"
-                  className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold mt-7"
-                  onClick={() => setOpen(!open)}
-                >
-                  Contact Us
-                </Link>
-              </div>
               <div className="mx-5 mt-2 relative inline-block text-left">
                 {user.isAuthenticated ? (
                   <div>

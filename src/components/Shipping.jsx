@@ -42,7 +42,7 @@ const ShippingAddress = () => {
   }, [customer]);
 
   return (
-    <div className="container bg-gray-400 mx-auto p-8">
+    <div className="container bg-gray-400 mx-auto p-8 mt-4">
       <h1 className="mt-12 text-3xl font-bold mb-6 text-center">
         Shipping Address
       </h1>

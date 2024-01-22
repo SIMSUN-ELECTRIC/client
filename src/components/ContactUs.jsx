@@ -2,12 +2,12 @@ import React from "react";
 
 function ContactUs() {
   return (
-    <div className="mt-16 bg-gray-100 min-h-screen py-10 ">
+    <div className="mt-24 bg-gray-100 min-h-screen py-10 ">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-semibold text-gray-800 mb-6">
           Contact Us
         </h1>
-        <div className="sm:grid grid-cols-1 md:grid-cols-2 gap-8 flex flex-col">
+        <div className="md:grid  md:grid-cols-2 gap-8 flex flex-col">
           <div className="bg-white p-6 rounded-lg shadow-md ">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Contact Information
