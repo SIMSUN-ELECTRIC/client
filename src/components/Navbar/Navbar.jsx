@@ -87,11 +87,11 @@ const Navbar = () => {
               </Link>
 
               <div className="flex mt-2">
-                <div className="flex lg:hidden  z-30 mx-5">
+                <div className="flex lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
                   <div>
                     <Link
                       to="/shop"
-                      className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                      className="ml-5 cursor-pointer text-md md:text-xl text-white hover:text-red-400 "
                     >
                       Shop
                     </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
                   <div className="">
                     <Link
                       to="/ContactUs"
-                      className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold "
+                      className="ml-5 cursor-pointer text-white text-md md:text-xl hover:text-red-400"
                     >
                       Contact Us
                     </Link>
