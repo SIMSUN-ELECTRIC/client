@@ -3,7 +3,7 @@ import React from "react";
 const BreakdownServices = () => {
   return (
     <>
-      <div className="mt-16 min-h-screen bg-gradient-to-b from-blue-500 to-blue-700 text-white font-sans">
+      <div className="mt-24 min-h-screen bg-gradient-to-b from-blue-500 to-blue-700 text-white font-sans">
         <header className="p-6 text-center">
           <h1 className="text-4xl font-semibold">Breakdown Services</h1>
           <p className="text-lg mt-2">Reliable Assistance When You Need It</p>

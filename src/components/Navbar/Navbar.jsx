@@ -35,7 +35,10 @@ const Navbar = () => {
   let headerWidth = useRef();
 
   const handleScroll = () => {
+<<<<<<< HEAD
     // console.log(headerWidth);
+=======
+>>>>>>> 7e88151882169c558dc1b17bd9a8c5f3f4c2c8c6
     if (window.scrollY >= 20) {
       headerWidth.current.classList.add("sticky");
       headerWidth.current.classList.remove("rounded-navbar");
@@ -55,7 +58,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className=" ml-8 gap-3 flex justify-around text-gray-800">
+      <div className=" hidden  ml-4 md:ml-8 gap-3 md:flex text-black-800 flex-row justify-around">
         <p className="head-wel justify-start  hover:text-red-400">
           Simsun Electric Pvt Ltd
         </p>
@@ -70,10 +73,10 @@ const Navbar = () => {
         </p>
       </div>
 
-      <div className="bg-gray-100 flex items-center justify-center">
+      <div className=" flex items-center justify-center">
         <nav
           ref={headerWidth}
-          className="bg-[#161D24] text-white  w-full h-auto opacity-100 top-0 fixed z-10 mx-auto"
+          className="bg-[#161D24] text-white md:sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
         >
           <div className="flex items-center font-medium justify-between ">
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0">
@@ -81,10 +84,11 @@ const Navbar = () => {
                 to="/"
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
               >
-                <div className="flext justify-start   ">
+                <div className="flex justify-start   ">
                   <img src={logo} alt="" className="h-12 w-12" />
                 </div>
               </Link>
+<<<<<<< HEAD
               <div
                 className="text-3xl lg:hidden mt-3.5 z-30"
                 onClick={() => setOpen(!open)}
@@ -94,8 +98,41 @@ const Navbar = () => {
                 ) : (
                   <IoMdMenu className="z-50" />
                 )}
+=======
+
+              <div className="flex mt-2">
+                <div className="flex lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
+                  <div>
+                    <Link
+                      to="/shop"
+                      className="ml-5 cursor-pointer text-md md:text-xl text-white hover:text-red-400 "
+                    >
+                      Shop
+                    </Link>
+                  </div>
+                  <div className="">
+                    <Link
+                      to="/ContactUs"
+                      className="ml-5 cursor-pointer text-white text-md md:text-xl hover:text-red-400"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
+                <div
+                  className="text-3xl lg:hidden z-30"
+                  onClick={() => setOpen(!open)}
+                >
+                  {open ? (
+                    <RxCross2 className="z-50" />
+                  ) : (
+                    <IoMdMenu className="z-50" />
+                  )}
+                </div>
+>>>>>>> 7e88151882169c558dc1b17bd9a8c5f3f4c2c8c6
               </div>
             </div>
+
             <ul className="hidden lg:flex lg:flex-row lg:flex-wrap lg:mt-[1rem] lg:mb-[1rem] items-center gap-3 font-[Poppins] mx-8">
               <div className="">
                 <li>
@@ -526,6 +563,7 @@ const Navbar = () => {
                 </div>
               ) : null}
 
+<<<<<<< HEAD
               <div className="">
                 <Link
                   to="/shop"
@@ -562,6 +600,8 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </div>
+=======
+>>>>>>> 7e88151882169c558dc1b17bd9a8c5f3f4c2c8c6
               <div className="mx-5 mt-2 relative inline-block text-left">
                 {user.isAuthenticated ? (
                   <div>

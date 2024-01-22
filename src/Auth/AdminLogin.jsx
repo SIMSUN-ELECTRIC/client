@@ -53,7 +53,7 @@ const AdminLogin = () => {
       }}
     >
       <div className="sm:absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0" />
-      <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center mx-4">
+      <div className="min-h-screen sm:flex sm:flex-row justify-center mx-4">
         <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-0">
           <div className="self-start hidden lg:flex flex-col  text-white">
             <h1 className="mb-3 font-bold text-5xl"> Welcome back admin </h1>

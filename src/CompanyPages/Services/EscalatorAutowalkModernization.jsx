@@ -4,7 +4,7 @@ import BackgroundImg from "../../assets/img/lift2.jpg";
 const EscalatorAutowalkModernization = () => {
   return (
     <>
-      <div className="mt-20 flex justify-center items-center sm:mx-10 flex-col">
+      <div className="mt-28 flex justify-center items-center sm:mx-10 flex-col">
         {/* section 1 start */}
         <div className=" w-full h-[35rem] mb-2">
           <div className=" min-h-screen mx-2">

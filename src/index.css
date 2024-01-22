@@ -7,22 +7,6 @@
   align-content: center;
 }
 
-.footer-animation {
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateX(-100);
-  transition: all 1s;
-}
-
-.show {
-  opacity: 1;
-  filter: blur(0);
-  /* Adjust the blur value if needed */
-  transform: translateX(0);
-  transition-delay: 0.5;
-  /* Change translateX value to 0 */
-}
-
 @media (min-width: 768px) {
   .sticky {
     width: 100%;

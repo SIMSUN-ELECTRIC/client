@@ -8,23 +8,6 @@ const Footer = () => {
   const date = new Date().getFullYear();
 
   //using IntersectionObserver this hook will determine whether we should hide or show footer
-  const [showFooter, setShowFooter] = useState(false);
-
-  //IntersectionObserver checks if the point at which we are ,is intersecting with the element position or not
-  const observer = new IntersectionObserver((enteries) => {
-    enteries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setShowFooter(true);
-      } else {
-        setShowFooter(false);
-      }
-    });
-  });
-
-  useEffect(() => {
-    const selectedClass = document.querySelectorAll(".footer-animation");
-    selectedClass.forEach((el) => observer.observe(el));
-  }, []);
 
   return (
     <footer
@@ -34,36 +17,31 @@ const Footer = () => {
       <div
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
       >
-        <div className={` ${showFooter ? "show" : "footer-animation"}`}>
-          <h1 className=" items-center text-3xl md:text-4xl md:font-blod ">
+        <div>
+          <h1 className=" items-center text-md sm:text-3xl md:font-bold ">
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
-        <div
-          className={`sm:my-0 my-3 ${showFooter ? "show" : "footer-animation"}`}
-        ></div>
-        <div className={showFooter ? "show" : "footer-animation"}>
+        <div className={`sm:my-0 my-3 `}></div>
+        <div className="flex">
           <input
             type="text"
             placeholder="Enter Your Email"
             className="text-gray-800
-           sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
+           w-28 sm:w-72 mr-1 lg:mb-0 py-2.5 text-sm sm:text-lg rounded px-2 focus:outline-none"
           />
-          <button
-            className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto "
-          >
-            Submit
-          </button>
+          <div className="flex items-center">
+            <button className="bg-red-500 hover:bg-red-600 duration-300 rounded-md font-[Poppins] h-10 text-white w-16 text-lg ">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
       <div>
-        <ItemsContainer class={showFooter ? "show" : "footer-animation"} />
+        <ItemsContainer />
       </div>
       <div
-        className={`flex gap-10 justify-around px-5 text-sm text-gray-400 ${
-          showFooter ? "show" : "footer-animation"
-        }`}
+        className={`flex gap-10 justify-around px-5 text-xxs md:text-sm text-gray-400 `}
       >
         <span>Copyright © {date}. All Rights Reserved. </span>
         <span>

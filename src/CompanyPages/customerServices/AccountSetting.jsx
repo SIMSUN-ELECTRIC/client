@@ -6,7 +6,7 @@ function AccountSettings() {
   console.log(state);
   return (
     <>
-      <div className="mt-16 bg-gray-100 min-h-screen py-12">
+      <div className="mt-24 bg-gray-100 min-h-screen py-12">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-6 grid grid-cols-2 gap-6">
             <div className="col-span-1">

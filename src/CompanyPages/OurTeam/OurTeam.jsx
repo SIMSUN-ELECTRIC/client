@@ -144,7 +144,7 @@ const OurTeam = () => {
 
   return (
     <>
-      <animated.section style={fadeIn} className="bg-purple-100 p-8">
+      <animated.section style={fadeIn} className="bg-purple-100 p-8 mt-4">
         <div className="team1">
           <h1 className="mt-16 text-center text-3xl font-bold text-purple-800 mx-auto">
             Our Team

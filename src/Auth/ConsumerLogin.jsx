@@ -50,7 +50,7 @@ const ConsumerLogin = () => {
   };
 
   return (
-    <section className="mt-16 gradient-form h-full z-10">
+    <section className="mt-16 gradient-form h-full z-10 flex justify-center">
       <div className="container h-full p-10">
         <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
           <div className="w-full">
@@ -62,12 +62,12 @@ const ConsumerLogin = () => {
                     {/*Logo*/}
                     <div className="text-center">
                       {/* <img className="mx-auto w-48" src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" alt="logo" /> */}
-                      <h4 className="mb-12 mt-1 pb-1 text-xl sm:text-2xl font-semibold text-white">
+                      <h4 className="mb-10 mt-1 pt-4 pb-1 text-xl sm:text-2xl font-semibold text-white">
                         We are The Simsun Team
                       </h4>
                     </div>
                     <form>
-                      <p className="mb-4 sm:text-2xl">
+                      <p className="mb-6 sm:text-2xl">
                         Please login to your consumer account
                       </p>
                       {/*Username input*/}

@@ -53,7 +53,7 @@ function Cart() {
   };
 
   return (
-    <div className="mt-16 bg-gradient-to-b from-blue-200 to-blue-400 min-h-screen py-10 overflow-x-hidden">
+    <div className="mt-16 bg-gradient-to-b from-blue-200 mt-4 to-blue-400 min-h-screen py-10 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Shopping Cart</h1>
         <div className="text-white h-full w-full xl:flex">

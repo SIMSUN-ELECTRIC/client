@@ -51,7 +51,7 @@ const Maintenance = () => {
 
   return (
     <>
-      <div className="mt-16 flex justify-center items-center  flex-col">
+      <div className="mt-28 flex justify-center items-center  flex-col">
         <div className=" w-full h-[40rem] ">
           <div
             className="relative top-0 left-0 w-full min-h-[600px] flex flex-col items-center justify-center bg-[#202b35] bg-cover bg-center transition-opacity duration-1000"
