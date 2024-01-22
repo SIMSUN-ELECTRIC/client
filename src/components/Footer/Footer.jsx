@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ItemsContainer from "./ItemsContainer";
 import SocialIcons from "./SocialIcons";
 import { Link } from "react-router-dom";
+import Feedback from "./Feedback";
 
 const Footer = () => {
   //changes the copyright dynamically
@@ -14,7 +15,8 @@ const Footer = () => {
       className={`
       bg-[#161D24] text-white section `}
     >
-      <div
+      <Feedback />
+      {/* <div
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
       >
         <div>
@@ -36,7 +38,7 @@ const Footer = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       <div>
         <ItemsContainer />
       </div>

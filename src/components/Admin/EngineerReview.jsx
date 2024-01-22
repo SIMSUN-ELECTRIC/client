@@ -1,5 +1,7 @@
 // AdminReviewPage.js
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const acceptEngineerRequest = async (engineerId) => {
@@ -30,6 +32,15 @@ const AdminReviewPage = () => {
   const [selectedEngineer, setSelectedEngineer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+
+  const state = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!state?.userData?.isAdmin) {
+      console.log("Redirecting to /auth/AdminLogin");
+      navigate("/auth/AdminLogin");
+    }
+  }, [state]);
 
   useEffect(() => {
     const fetchData = async () => {

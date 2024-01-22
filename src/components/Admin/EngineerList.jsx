@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const state = useSelector((state) => state.user);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!state?.userData?.isAdmin) {
+      console.log("Redirecting to /auth/AdminLogin");
+      navigate("/auth/AdminLogin");
+    }
+  }, [state]);
 
   useEffect(() => {
     // Fetch user data from the backend
