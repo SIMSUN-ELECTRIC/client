@@ -35,7 +35,7 @@ const Navbar = () => {
   let headerWidth = useRef();
 
   const handleScroll = () => {
-    console.log(headerWidth);
+    // console.log(headerWidth);
     if (window.scrollY >= 20) {
       headerWidth.current.classList.add("sticky");
       headerWidth.current.classList.remove("rounded-navbar");
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <div className="flext justify-start   ">
                   <img src={logo} alt="" className="h-12 w-12" />
                 </div>
-              </Link> 
+              </Link>
               <div
                 className="text-3xl lg:hidden mt-3.5 z-30"
                 onClick={() => setOpen(!open)}
@@ -240,6 +240,62 @@ const Navbar = () => {
                   }
                 </div>
               ) : null}
+              {user.userData?.isAdmin ? (
+                <div className="text-left md:cursor-pointer group ml-5">
+                  <h1
+                    className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                    onClick={() => {
+                      setHeading((prevHeading) =>
+                        prevHeading === "Add" ? "" : "Add"
+                      );
+                      setSubHeading("");
+                    }}
+                  >
+                    Users
+                    <span className="text-xl md:hidden inline">
+                      {heading === "Add" ? <FaAngleUp /> : <FaAngleDown />}
+                    </span>
+                    <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                      <FaAngleDown />
+                    </span>
+                  </h1>
+                  {
+                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                      <div className="py-0">
+                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                      </div>
+                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                        <div>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/UsersList"
+                              className="block hover:text-red-400"
+                            >
+                              Customers
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/EngineerList"
+                              className="block hover:text-red-400"
+                            >
+                              Engineers
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/EnginnerReview"
+                              className="block hover:text-red-400"
+                            >
+                              Engineers Request
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              ) : null}
               {user.userData?.isEngineer ? (
                 <div className="">
                   <li>
@@ -371,24 +427,6 @@ const Navbar = () => {
                 </Link>
               </div>
               <NavLinks />
-              {user.isAuthenticated ? (
-                <div className="">
-                  <li>
-                    <Link
-                      to="/Cart"
-                      className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold relative"
-                      onClick={() => setOpen(!open)}
-                    >
-                      Cart
-                      {cartItems.length > 0 && (
-                        <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-0 -mr-8">
-                          {totalQuantity}
-                        </span>
-                      )}
-                    </Link>
-                  </li>
-                </div>
-              ) : null}
 
               {user.userData?.isAdmin ? (
                 <div className="">
@@ -417,6 +455,62 @@ const Navbar = () => {
                   </li>
                 </div>
               ) : null}
+              {user.userData?.isAdmin ? (
+                <div className="text-left md:cursor-pointer group ml-5">
+                  <h1
+                    className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                    onClick={() => {
+                      setHeading((prevHeading) =>
+                        prevHeading === "Users" ? "" : "Users"
+                      );
+                      setSubHeading("");
+                    }}
+                  >
+                    Users
+                    <span className="text-xl md:hidden inline">
+                      {heading === "Users" ? <FaAngleUp /> : <FaAngleDown />}
+                    </span>
+                    <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                      <FaAngleDown />
+                    </span>
+                  </h1>
+                  {
+                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                      <div className="py-0">
+                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                      </div>
+                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                        <div>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/UsersList"
+                              className="block hover:text-red-400"
+                            >
+                              Customers
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/EngineerList"
+                              className="block hover:text-red-400"
+                            >
+                              Engineers
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/EnginnerReview"
+                              className="block hover:text-red-400"
+                            >
+                              Engineers Request
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              ) : null}
 
               {user.userData?.isEngineer ? (
                 <div className="">
@@ -441,6 +535,24 @@ const Navbar = () => {
                   Shop
                 </Link>
               </div>
+              {user.isAuthenticated ? (
+                <div className="">
+                  <li>
+                    <Link
+                      to="/Cart"
+                      className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold relative"
+                      onClick={() => setOpen(!open)}
+                    >
+                      Cart
+                      {cartItems.length > 0 && (
+                        <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-0 -mr-8">
+                          {totalQuantity}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                </div>
+              ) : null}
               <div className="">
                 <Link
                   to="/ContactUs"

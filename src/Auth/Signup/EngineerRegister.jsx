@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,9 +9,20 @@ const EngineerRegister = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [certificates, setCertificates] = useState(null);
+  const [certificates, setCertificates] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [experience, setExperience] = useState("");
+  const [field, setfield] = useState("");
+  const [whatsappNumber, setwhatsappNumber] = useState("");
+  const [location, setlocation] = useState("");
+  const [address, setaddress] = useState("");
+  const [pinCode, setpinCode] = useState("");
+  const [description, setdescription] = useState("");
+
   const navigate = useNavigate();
 
-  const handleEngineerRegister = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -19,172 +30,311 @@ const EngineerRegister = () => {
         "http://localhost:5000/api/EngineerRegister",
         {
           fullName,
-          userName,
           email,
           password,
+          userName,
+          phoneNumber,
+          experience,
+          certificates,
+          field,
+          whatsappNumber,
+          location,
+          address,
+          pinCode,
+          description,
         }
       );
 
       if (response.status === 200) {
-        // Registration was successful
         const json = response.data;
         console.log(json);
-        navigate("/auth/consumerLogin");
+        toast.success("Send to Admin, wait for approval you will get mail !");
+        navigate("/auth/EngineerLogin");
       } else {
-        // Handle other status codes or errors here
         console.error("Registration failed with status code:", response.status);
-        toast.error("Email or Username is already exist");
-        setEmail("");
-        setPassword("");
+        toast.error("Registration failed. Please try again.");
       }
     } catch (error) {
-      // Handle network or other errors
       console.error("Registration failed:", error.message);
-      toast.error("Email or Username is already exist");
-      setEmail("");
-      setPassword("");
+      toast.error("Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <>
-      <div className="mt-16 h-screen md:flex text-center">
-        <div className="relative overflow-hidden md:flex w-3/5 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden ">
-          <div className="flex flex-col items-center">
-            <h1 className="text-white font-bold text-5xl font-sans">Simsun</h1>
-            <p className="text-white text-4xl m-2 sm:-translate-x-4">
-              The most popular peer-to-peer business group
-            </p>
-            <button
-              type="submit"
-              className="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2 "
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="mt-24 w-full max-w-6xl p-6 bg-white rounded-md shadow-md">
+        <h1 className="text-2xl font-bold mb-4">Engineer Registration</h1>
+        <form onSubmit={handleSubmit} className="lg:flex lg:flex-wrap">
+          <div className="mb-4 lg:w-1/2 lg:pr-2">
+            <label
+              htmlFor="fullName"
+              className="block text-sm font-medium text-gray-700"
             >
-              Read More
-            </button>
+              Full Name<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
           </div>
-          <div className="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div className="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-        </div>
-        <div className="flex md:w-1/2  justify-center py-10 items-center ">
-          <form className="  xl:w-full xl:px-10 xl:mx-5">
-            <h1 className="text-gray-800 font-bold text-4xl mb-1">
-              Hello Again!
-            </h1>
-            <p className="text-sm sm:text-4xl font-normal text-gray-600 mb-7">
-              Welcome for Engineer Register
-            </p>
-            <div className="flex items-center   border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              <input
-                className="pl-2 outline-none border-none xl:w-full xl:h-10 xl:rounded-lg xl:ml-2 "
-                type="text"
-                name=""
-                id=""
-                placeholder="Full name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
-                />
-              </svg>
-              <input
-                className="pl-2 outline-none border-none xl:w-full xl:h-10 xl:rounded-lg xl:ml-2"
-                type="text"
-                name=""
-                id=""
-                placeholder="Username"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
-            </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                />
-              </svg>
-              <input
-                className="pl-2 outline-none border-none xl:w-full xl:h-10 xl:rounded-lg xl:ml-2"
-                type="text"
-                name=""
-                id=""
-                placeholder="Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              <input
-                className="pl-2 outline-none border-none xl:w-full xl:h-10 xl:rounded-lg xl:ml-2"
-                type="password"
-                name=""
-                id=""
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button
-              type="submit"
-              className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
-              onClick={handleEngineerRegister}
+
+          {/* Email */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
             >
-              Register
-            </button>
-            <Link to="/auth/EngineerLogin" className="hover:underline">
-              Already have an account ?
-            </Link>
-          </form>
+              Email<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="userName"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Username<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* Phone Number */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="phoneNumber"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Phone Number<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* Experience */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="experience"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Experience<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="experience"
+              name="experience"
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* Field */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="field"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Working Field<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="field"
+              name="field"
+              value={field}
+              onChange={(e) => setfield(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="degree"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Degree and Certificates
+              <span className="text-red-500">(paste links if any)</span>
+            </label>
+            <input
+              type="text"
+              id="degree"
+              name="degree"
+              value={field}
+              onChange={(e) => setCertificates(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+            {/* <input
+              type="file"
+              id="degree"
+              name="degree"
+              accept=".pdf"
+              onChange={(e) => setCertificates(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            /> */}
+          </div>
+
+          {/* WhatsApp Number */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="whatsappNumber"
+              className="block text-sm font-medium text-gray-700"
+            >
+              WhatsApp Number<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              id="whatsappNumber"
+              name="whatsappNumber"
+              value={whatsappNumber}
+              onChange={(e) => setwhatsappNumber(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* Location */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="location for working"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Location For Working<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={location}
+              onChange={(e) => setlocation(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* Address */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="address"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Address<span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="address"
+              name="address"
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            ></textarea>
+          </div>
+
+          {/* Pin Code */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="pinCode"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Pin Code<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="pinCode"
+              name="pinCode"
+              value={pinCode}
+              onChange={(e) => setpinCode(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="description"
+              className="block text-sm font-medium text-gray-700"
+            >
+              description<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              value={description}
+              onChange={(e) => setdescription(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+          >
+            Register
+          </button>
+        </form>
+        <div className="mt-4 text-center">
+          <Link
+            to="/auth/EngineerLogin"
+            className="text-blue-500 hover:underline"
+          >
+            Already have an account? Login here.
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

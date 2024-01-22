@@ -39,6 +39,9 @@ import AdminNewsList from "./components/Admin/NewsList";
 import AddNews from "./components/Admin/AddNews";
 import EditNews from "./components/Admin/EditNews";
 import FeedbackPage from "./components/Admin/FeedbackPage";
+import UsersList from "./components/Admin/UsersList";
+import EngineerList from "./components/Admin/EngineerList";
+import EngineerReview from "./components/Admin/EngineerReview";
 
 function App() {
   return (
@@ -123,6 +126,9 @@ function App() {
           <Route path="/admin/addnews" element={<AddNews />} />
           <Route path="/admin/newsList" element={<AdminNewsList />} />
           <Route path="/admin/newsedit/:id" element={<EditNews />} />
+          <Route path="/admin/UsersList" element={<UsersList />} />
+          <Route path="/admin/EngineerList" element={<EngineerList />} />
+          <Route path="/admin/EnginnerReview" element={<EngineerReview />} />
 
           <Route path="/admin/feedback" element={<FeedbackPage />} />
         </Route>
