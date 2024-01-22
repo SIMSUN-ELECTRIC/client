@@ -548,7 +548,6 @@ const Navbar = () => {
                 </div>
               ) : null}
 
-<<<<<<< HEAD
               <div className="">
                 <Link
                   to="/shop"
@@ -585,8 +584,6 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </div>
-=======
->>>>>>> 7e88151882169c558dc1b17bd9a8c5f3f4c2c8c6
               <div className="mx-5 mt-2 relative inline-block text-left">
                 {user.isAuthenticated ? (
                   <div>
