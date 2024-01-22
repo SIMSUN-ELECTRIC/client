@@ -37,7 +37,7 @@ const Homepage = () => {
           style={{ "--image-url": `url(${home})` }}
           className=" w-full h-[44.438rem] relative bg-[image:var(--image-url)] bg-cover bg-[50%_50%] mr-0 flex flex-col items-center "
         >
-          <div className="relative w-fit mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[40px] md:text-[64px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
+          <div className="relative w-fit mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[40px] md:text-[64px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
             WELCOME TO SIMSUN ELECTRIC
           </div>
           <div className="relative mt-5 text-white [font-family:'Poppins-Regular',Helvetica] font-extralight text-[18px] md:text-[28px] text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem]">
@@ -58,11 +58,11 @@ const Homepage = () => {
           </Link>
         </div>
         <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
-          <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-2 md:p-4 flex flex-col items-center justify-between">
+          <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-2 md:p-4 flex flex-col items-center justify-around md:justify-between">
             <img
               src={ImageComponent}
               alt="lift"
-              className="rounded-[25px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a] h-[90%] w-full"
+              className="rounded-[25px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a] h-[80%] md:h-[90%] w-full"
             />
             <div className="flex flex-col justify-between w-full h-[7%]">
               <div className="h-[8px]  relative w-full bg-gray-400 rounded-[50px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a]" />

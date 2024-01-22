@@ -69,7 +69,7 @@ const Navbar = () => {
         </p>
       </div>
 
-      <div className="bg-gray-100 flex items-center justify-center">
+      <div className=" flex items-center justify-center">
         <nav
           ref={headerWidth}
           className="bg-[#161D24] text-white md:sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
