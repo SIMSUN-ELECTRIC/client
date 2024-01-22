@@ -18,7 +18,7 @@ const Footer = () => {
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
       >
         <div>
-          <h1 className=" items-center text-sm sm:text-3xl md:font-bold ">
+          <h1 className=" items-center text-md sm:text-3xl md:font-bold ">
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
