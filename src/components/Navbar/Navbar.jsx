@@ -35,7 +35,6 @@ const Navbar = () => {
   let headerWidth = useRef();
 
   const handleScroll = () => {
-    console.log(headerWidth);
     if (window.scrollY >= 20) {
       headerWidth.current.classList.add("sticky");
       headerWidth.current.classList.remove("rounded-navbar");
@@ -73,7 +72,7 @@ const Navbar = () => {
       <div className="bg-gray-100 flex items-center justify-center">
         <nav
           ref={headerWidth}
-          className="bg-[#161D24] text-white  w-full h-auto opacity-100 top-0 fixed z-10 mx-auto"
+          className="bg-[#161D24] text-white md:sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
         >
           <div className="flex items-center font-medium justify-between ">
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0">
