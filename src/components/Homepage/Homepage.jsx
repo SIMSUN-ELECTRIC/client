@@ -40,9 +40,14 @@ const Homepage = () => {
             WELCOME TO SIMSUN ELECTRIC
           </div>
           <div className="relative mt-5 text-white [font-family:'Poppins-Regular',Helvetica] font-extralight text-[18px] md:text-[28px] text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem]">
-            We believe this is the key to any successful relationship, and
-            it&#39;s important to us that our clients <br /> and team members
-            have a strong foundation of trust in each other.
+            <p>
+              We believe this is the key to any successful relationship, and
+              it&#39;s important to us that our
+            </p>
+            <p>
+              clients and team members have a strong foundation of trust in each
+              other.
+            </p>
           </div>
           <Link
             to="/about/ourcompany"
@@ -51,8 +56,8 @@ const Homepage = () => {
             Explore Now!
           </Link>
         </div>
-        <div className="relative mt-[6.25rem] p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col md:flex-row items-center md:place-items-start ">
-          <div className="w-[90%] h-[420px] p-4 flex flex-col items-center justify-between">
+        <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
+          <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-2 md:p-4 flex flex-col items-center justify-between">
             <img
               src={ImageComponent}
               alt="lift"
@@ -65,11 +70,11 @@ const Homepage = () => {
               <div className="relative w-full h-[2px] bg-gray-400 rounded-[50px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a]" />
             </div>
           </div>
-          <div className="flex flex-col px-5">
-            <h1 className="relative mt-[0.75rem]  [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[30px] md:text-[48px] tracking-[0] leading-[48px] whitespace-nowrap">
+          <div className="flex flex-col px-2 md:px-5">
+            <h1 className="relative mt-[2rem] md:mt-[1.25rem]  [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[30px] md:text-[48px] tracking-[0] leading-[20px] md:leading-[48px] whitespace-nowrap">
               About Simsun
             </h1>
-            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white  text-[12px] md:text-[19.8px] tracking-[0] leading-[28px]">
+            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white  text-[12px] md:text-[19.8px] tracking-[0] leading-[20px] md:leading-[28px]">
               The birth of Simsun Electric was founded in December 2016 after 2
               years of elevator and escalator project installation experience
               all over Rajasthan. The possibilities of SimSun Electric were
@@ -77,7 +82,7 @@ const Homepage = () => {
               working with a small franchise of elevator and escalator energy in
               Jaipur.
             </p>
-            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white text-[12px] md:text-[19.8px] tracking-[0] leading-[28px]">
+            <p className="relative mt-3 self-stretch [font-family:'Poppins-Regular',Helvetica] font-normal text-white text-[12px] md:text-[19.8px] tracking-[0] leading-[20px] md:leading-[28px]">
               At that time, we found that everybody is moving on MW and
               large-scale projects. We kept our focus on learning about elevator
               and escalator project work. We started our work as freelancers in
@@ -207,7 +212,7 @@ const Homepage = () => {
             <img src={Esc} alt="Your Alt Text" />
           </div>
           <div className="flex md:w-[52%] order-1 md:order-2 mt-4 md:mt-0">
-            <p className="text-white text-xl">
+            <p className="text-white text-sm md:text-xl [font-family:'Poppins-Regular',Helvetica] font-normal">
               At there we found that everybody is moving on MW and large scale
               projects, that time we keep our focus to learning the Elevator and
               Escalator project work. We were started our work as a freelancer

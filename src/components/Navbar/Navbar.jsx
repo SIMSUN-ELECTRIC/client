@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className=" ml-8 gap-3 flex justify-around text-gray-800">
+      <div className="ml-4 md:ml-8 gap-3 flex text-black-800 flex-row justify-around">
         <p className="head-wel justify-start  hover:text-red-400">
           Simsun Electric Pvt Ltd
         </p>
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <div className="flext justify-start   ">
                   <img src={logo} alt="" className="h-12 w-12" />
                 </div>
-              </Link> 
+              </Link>
               <div
                 className="text-3xl lg:hidden mt-3.5 z-30"
                 onClick={() => setOpen(!open)}
