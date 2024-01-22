@@ -91,7 +91,7 @@ const Navbar = () => {
                   <div>
                     <Link
                       to="/shop"
-                      className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                      className="ml-5 cursor-pointer text-md text-white hover:text-red-400  "
                     >
                       Shop
                     </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
                   <div className="">
                     <Link
                       to="/ContactUs"
-                      className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold "
+                      className="ml-5 cursor-pointer text-white text-md hover:text-red-400 "
                     >
                       Contact Us
                     </Link>
