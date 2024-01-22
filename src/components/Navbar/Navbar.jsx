@@ -35,10 +35,7 @@ const Navbar = () => {
   let headerWidth = useRef();
 
   const handleScroll = () => {
-<<<<<<< HEAD
     // console.log(headerWidth);
-=======
->>>>>>> 7e88151882169c558dc1b17bd9a8c5f3f4c2c8c6
     if (window.scrollY >= 20) {
       headerWidth.current.classList.add("sticky");
       headerWidth.current.classList.remove("rounded-navbar");
@@ -88,17 +85,6 @@ const Navbar = () => {
                   <img src={logo} alt="" className="h-12 w-12" />
                 </div>
               </Link>
-<<<<<<< HEAD
-              <div
-                className="text-3xl lg:hidden mt-3.5 z-30"
-                onClick={() => setOpen(!open)}
-              >
-                {open ? (
-                  <RxCross2 className="z-50" />
-                ) : (
-                  <IoMdMenu className="z-50" />
-                )}
-=======
 
               <div className="flex mt-2">
                 <div className="flex lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
@@ -129,7 +115,6 @@ const Navbar = () => {
                     <IoMdMenu className="z-50" />
                   )}
                 </div>
->>>>>>> 7e88151882169c558dc1b17bd9a8c5f3f4c2c8c6
               </div>
             </div>
 
