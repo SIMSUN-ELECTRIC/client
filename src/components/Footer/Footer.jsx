@@ -18,7 +18,7 @@ const Footer = () => {
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
       >
         <div>
-          <h1 className=" items-center text-xl md:text-4xl md:font-bold ">
+          <h1 className=" items-center text-sm sm:text-3xl md:font-bold ">
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
@@ -28,10 +28,10 @@ const Footer = () => {
             type="text"
             placeholder="Enter Your Email"
             className="text-gray-800
-           w-40 md:w-72  mr-1 lg:mb-0 py-2.5 rounded px-2 focus:outline-none"
+           w-28 sm:w-72 mr-1 lg:mb-0 py-2.5 text-sm sm:text-lg rounded px-2 focus:outline-none"
           />
           <div className="flex items-center">
-            <button className="bg-red-500 hover:bg-red-600 duration-300 rounded-md font-[Poppins] h-10 text-white w-20 text-lg ">
+            <button className="bg-red-500 hover:bg-red-600 duration-300 rounded-md font-[Poppins] h-10 text-white w-16 text-lg ">
               Submit
             </button>
           </div>

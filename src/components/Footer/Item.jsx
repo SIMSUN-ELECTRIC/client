@@ -3,7 +3,7 @@ import React from "react";
 const Item = (props) => {
   return (
     <ul className="mr-5">
-      <h1 className="mb-1 font-semibold text-lg md:text-xl mr-4 ">
+      <h1 className="mb-1 font-semibold text-sm md:text-xl mr-4 ">
         {props.title}
       </h1>
       {props.Links.map((link) => (
