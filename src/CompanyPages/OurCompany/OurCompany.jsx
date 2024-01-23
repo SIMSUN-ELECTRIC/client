@@ -8,8 +8,8 @@ import lift15 from "../../assets/img/lift15.jpg";
 const OurCompany = () => {
   return (
     <>
-      <section className="mt-8 md:mt-8 w-full flex flex-col md:flex-row p-4 md:p-8">
-        <div className="w-full md:w-[60%] mt-8 md:mt-16 md:order-2">
+      <section className="md:mt-2 w-full flex flex-col md:flex-row p-4 md:p-8">
+        <div className="w-full md:w-[60%] mt-2 md:mt-16 md:order-2">
           <h1 className="text-black font-bold text-4xl md:text-5xl mx-4 md:mx-8 text-center md:text-left">
             About Simsun
           </h1>

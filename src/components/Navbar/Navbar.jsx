@@ -12,6 +12,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 
 const Navbar = () => {
   const [heading, setHeading] = useState("");
+
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   // console.log("user:", user.userData.userName);
@@ -35,25 +36,6 @@ const Navbar = () => {
   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   let headerWidth = useRef();
-
-  // const handleScroll = () => {
-  //   // console.log(headerWidth);
-  //   if (window.scrollY >= 20) {
-  //     headerWidth.current.classList.add("sticky");
-  //     headerWidth.current.classList.remove("rounded-navbar");
-  //   } else {
-  //     headerWidth.current.classList.add("rounded-navbar");
-  //     headerWidth.current.classList.remove("sticky");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   return (
     <header>
@@ -101,7 +83,7 @@ const Navbar = () => {
                       <div className="">
                         <Link to="/Cart">
                           <div className="flex gap-1">
-                            <HiOutlineShoppingCart className="z-50 text-2xl lg:hidden " />
+                            <HiOutlineShoppingCart className="z-5 text-2xl lg:hidden " />
 
                             <div>
                               {cartItems.length > 0 && (
@@ -114,9 +96,11 @@ const Navbar = () => {
                         </Link>
                       </div>
                     ) : (
-                      <Link to="/auth/consumerLogin">
-                        <HiOutlineShoppingCart className="z-50" />
-                      </Link>
+                      <div className="text-2xl lg:hidden z-30">
+                        <Link to="/auth/consumerLogin">
+                          <HiOutlineShoppingCart className="z-50" />
+                        </Link>
+                      </div>
                     )}
                   </div>
 
@@ -182,7 +166,6 @@ const Navbar = () => {
                       setHeading((prevHeading) =>
                         prevHeading === "Add" ? "" : "Add"
                       );
-                      setSubHeading("");
                     }}
                   >
                     Add
@@ -230,7 +213,6 @@ const Navbar = () => {
                       setHeading((prevHeading) =>
                         prevHeading === "List" ? "" : "List"
                       );
-                      setSubHeading("");
                     }}
                   >
                     List
@@ -284,9 +266,8 @@ const Navbar = () => {
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
-                        prevHeading === "Add" ? "" : "Add"
+                        prevHeading === "Users" ? "" : "Users"
                       );
-                      setSubHeading("");
                     }}
                   >
                     Users
@@ -472,9 +453,8 @@ const Navbar = () => {
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
-                        prevHeading === "List" ? "" : "List"
+                        prevHeading === "Add" ? "" : "Add"
                       );
-                      setSubHeading("");
                     }}
                   >
                     Add
@@ -523,7 +503,6 @@ const Navbar = () => {
                       setHeading((prevHeading) =>
                         prevHeading === "List" ? "" : "List"
                       );
-                      setSubHeading("");
                     }}
                   >
                     List
@@ -579,7 +558,6 @@ const Navbar = () => {
                       setHeading((prevHeading) =>
                         prevHeading === "Users" ? "" : "Users"
                       );
-                      setSubHeading("");
                     }}
                   >
                     Users
@@ -591,7 +569,7 @@ const Navbar = () => {
                     </span>
                   </h1>
                   {
-                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                    <div className="absolute top-15  hidden group-hover:md:block hover:md:block z-10">
                       <div className="py-0">
                         <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
                       </div>
