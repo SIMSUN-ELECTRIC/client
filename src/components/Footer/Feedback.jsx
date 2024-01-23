@@ -1,5 +1,7 @@
 // FeedbackPage.jsx
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,31 +10,38 @@ const FeedbackPage = () => {
   const [feedback, setFeedback] = useState("");
   //   const [showForm, setShowForm] = useState(false);
 
+  const navigate = useNavigate();
+  const state = useSelector((state) => state.user);
   const sendFeedback = () => {
-    const serverEndpoint = "http://localhost:5000/api/feedbacks";
-    const errorMessage = "Error sending feedback. Please try again.";
+    if (!state?.isAuthenticated) {
+      navigate("/auth/consumerLogin");
+      toast.warn("For sending Feedback you should login");
+    } else {
+      const serverEndpoint = "http://localhost:5000/api/feedbacks";
+      const errorMessage = "Error sending feedback. Please try again.";
 
-    if (!feedback.trim()) {
-      toast.error("Feedback cannot be empty");
-      return;
-    }
+      if (!feedback.trim()) {
+        toast.error("Feedback cannot be empty");
+        return;
+      }
 
-    axios
-      .post(serverEndpoint, { feedbackText: feedback })
-      .then((response) => {
-        if (response.data.success) {
-          console.log("Feedback added:", response.data.feedback);
-          toast.success("Feedback sent successfully");
-          setFeedback(""); // Clear feedback input
-        } else {
+      axios
+        .post(serverEndpoint, { feedbackText: feedback })
+        .then((response) => {
+          if (response.data.success) {
+            console.log("Feedback added:", response.data.feedback);
+            toast.success("Feedback sent successfully");
+            setFeedback(""); // Clear feedback input
+          } else {
+            toast.error(errorMessage);
+            console.error("Error adding feedback:", response.data);
+          }
+        })
+        .catch((error) => {
           toast.error(errorMessage);
-          console.error("Error adding feedback:", response.data);
-        }
-      })
-      .catch((error) => {
-        toast.error(errorMessage);
-        console.error("Error sending feedback:", error);
-      });
+          console.error("Error sending feedback:", error);
+        });
+    }
   };
 
   return (

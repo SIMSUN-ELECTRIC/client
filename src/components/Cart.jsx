@@ -1,4 +1,3 @@
-import imageurl from "../assets/img/lift2.jpg";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity } from "../store/slices/CartSlices";
@@ -11,7 +10,6 @@ function Cart() {
   console.log(state);
 
   const states = useSelector((states) => states.user);
-  console.log(states?.userData?.isAdmin);
   useEffect(() => {
     console.log("Current state:", states);
 
@@ -73,7 +71,7 @@ function Cart() {
                   <div className="flex ion justify-between mr-4">
                     <img
                       className="p-8 rounded-t-lg w-32 h-32"
-                      src={order?.imageUrl || imageurl}
+                      src={order?.imageUrl}
                       alt={order?.name}
                     />
                     <button
