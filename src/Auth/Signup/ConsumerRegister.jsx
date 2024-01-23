@@ -50,7 +50,7 @@ const ConsumerRegister = () => {
   return (
     <>
       <div className="mt-16 h-screen md:flex text-center">
-        <div className="relative overflow-hidden md:flex w-3/5 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden ">
+        <div className="relative overflow-hidden md:flex w-3/5 bg-gradient-to-tr from-blue-800 to-purple-700 justify-around items-center hidden ">
           <div className="flex flex-col items-center">
             <h1 className="text-white font-bold text-5xl font-sans">Simsun</h1>
             <p className="text-white text-4xl m-2 sm:-translate-x-4">
