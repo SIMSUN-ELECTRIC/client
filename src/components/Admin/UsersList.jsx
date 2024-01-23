@@ -33,9 +33,11 @@ const UsersList = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
-      <div>
-        <h2 className="mt-24 text-2xl font-bold">Customer Users</h2>
+    <div className="container mx-auto  mt-4 md:mt-24 justify-center">
+      <div className="flex flex-col justify-center">
+        <div className="flex justify-center mb-2">
+          <h2 className=" text-2xl font-bold ">Customer Users</h2>
+        </div>
         <ul>
           {users.consumers &&
             users.consumers.map((user) => (
@@ -43,10 +45,14 @@ const UsersList = () => {
                 key={user._id}
                 className="user-item flex justify-between items-center p-4 border bg-white hover:bg-gray-100 transition duration-300"
               >
-                <div className="user-info">
-                  <strong>Name:</strong> {user.fullName}
+                <div className="user-info grid grid-rows-2 ">
+                  <div>
+                    <strong>Name:</strong> {user.fullName}
+                  </div>
                   <br />
-                  <strong>Email:</strong> {user.email}
+                  <div>
+                    <strong>Email:</strong> {user.email}
+                  </div>
                 </div>
                 <button
                   className="details-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"

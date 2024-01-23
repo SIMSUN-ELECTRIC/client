@@ -33,9 +33,11 @@ const UsersList = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
-      <div>
-        <h2 className="mt-24 text-2xl font-bold">Engineer Details</h2>
+    <div className="container mx-auto  mt-4 md:mt-24 justify-center">
+      <div className="flex flex-col justify-center">
+        <div className="flex justify-center mb-2">
+          <h2 className=" text-2xl font-bold ">Engineer Details</h2>
+        </div>
         <ul>
           {users.engineers &&
             users.engineers.map((user) => (

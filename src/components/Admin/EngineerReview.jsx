@@ -90,35 +90,37 @@ const AdminReviewPage = () => {
 
   return (
     <>
-      <div className="container mx-auto mt-8">
-        <h1 className="mt-24 text-2xl font-bold mb-4">
-          Engineer Registration Requests
-        </h1>
-        <ul>
+      <div className="container mx-auto mt-4 md:mt-24">
+        <div className="flex justify-center">
+          <h1 className=" text-xl md:text-2xl font-bold mb-4">
+            Engineer Registration Requests
+          </h1>
+        </div>
+        <ul className="flex flex-col justify-around mx-10 ">
           {engineers.map((engineer) => (
             <li
               key={engineer._id}
-              className="mb-4 border p-4 rounded-md flex justify-between items-center p-4 border bg-white hover:bg-gray-100 transition duration-300"
+              className="mb-4 rounded-md flex flex-col lg:grid lg:grid-cols-4 items-center p-5 lg:pl-44 border bg-white hover:bg-gray-100 transition duration-300"
             >
               <p>Name: {engineer.fullName}</p>
               <p>Email: {engineer.email}</p>
               {/* Add more details as needed */}
-              <div className="flex mt-2">
+              <div className="flex m-2 ">
                 <button
-                  className="bg-green-500 text-white py-2 px-4 rounded-md mr-2"
+                  className="bg-green-500 text-white w-fit text-xs sm:text-lg flex py-2 px-4 rounded-md mr-2"
                   onClick={() => handleApprove(engineer._id)}
                 >
                   Approve
                 </button>
                 <button
-                  className="bg-red-500 text-white py-2 px-4 rounded-md"
+                  className="bg-red-500 text-white w-fit text-xs sm:text-lg flex py-2 px-4 rounded-md"
                   onClick={() => handleReject(engineer._id)}
                 >
                   Reject
                 </button>
               </div>
               <button
-                className="details-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
+                className="details-button bg-blue-500 w-fit text-xs sm:text-lg text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
                 onClick={() => openDetailsModal(engineer)}
               >
                 See Details
