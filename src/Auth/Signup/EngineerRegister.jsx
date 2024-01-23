@@ -63,14 +63,19 @@ const EngineerRegister = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="mt-24 w-full max-w-6xl p-6 bg-white rounded-md shadow-md">
-        <h1 className="text-2xl font-bold mb-4">Engineer Registration</h1>
-        <form onSubmit={handleSubmit} className="lg:flex lg:flex-wrap">
-          <div className="mb-4 lg:w-1/2 lg:pr-2">
+    <div className="flex justify-center items-center min-h-screen h-auto bg-gray-100">
+      <div className="mt-24 mb-24 mx-6 lg:mx-[6rem] w-full max-w-5xl p-1 lg:p-6 bg-white rounded-md shadow-md flex flex-col ">
+        <h1 className="text-2xl lg:text-3xl pl-6 font-bold mt-3 mb-2 lg:mb-4">
+          Engineer Registration
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="lg:flex lg:flex-wrap p-6 h-auto [font-family: 'Inter', sans-serif]"
+        >
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="fullName"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Full Name<span className="text-red-500">*</span>
             </label>
@@ -89,7 +94,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Email<span className="text-red-500">*</span>
             </label>
@@ -107,7 +112,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Password<span className="text-red-500">*</span>
             </label>
@@ -125,7 +130,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="userName"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Username<span className="text-red-500">*</span>
             </label>
@@ -144,7 +149,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="phoneNumber"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Phone Number<span className="text-red-500">*</span>
             </label>
@@ -163,7 +168,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="experience"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Experience<span className="text-red-500">*</span>
             </label>
@@ -182,7 +187,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="field"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Working Field<span className="text-red-500">*</span>
             </label>
@@ -200,7 +205,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="degree"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Degree and Certificates
               <span className="text-red-500">(paste links if any)</span>
@@ -229,7 +234,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="whatsappNumber"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               WhatsApp Number<span className="text-red-500">*</span>
             </label>
@@ -248,7 +253,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="location for working"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Location For Working<span className="text-red-500">*</span>
             </label>
@@ -267,7 +272,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="address"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Address<span className="text-red-500">*</span>
             </label>
@@ -285,7 +290,7 @@ const EngineerRegister = () => {
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="pinCode"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
               Pin Code<span className="text-red-500">*</span>
             </label>
@@ -300,12 +305,12 @@ const EngineerRegister = () => {
             />
           </div>
 
-          <div className="mb-4 lg:w-1/2 lg:pl-2">
+          <div className="mb-4 lg:w-full lg:h-[2rem] lg:pl-2">
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-md font-medium text-gray-600"
             >
-              description<span className="text-red-500">*</span>
+              Description<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -313,24 +318,25 @@ const EngineerRegister = () => {
               name="description"
               value={description}
               onChange={(e) => setdescription(e.target.value)}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              className="mt-1 p-2 w-full h-[70px] border rounded-md focus:outline-none focus:border-blue-500"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+            className="w-full bg-blue-500 text-white mt:[1rem] lg:mt-[4rem] py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
           >
             Register
           </button>
         </form>
-        <div className="mt-4 text-center">
+        <div className="mt-0 text-center">
           <Link
             to="/auth/EngineerLogin"
-            className="text-blue-500 hover:underline"
+            className="text-gray-500 opacity-75 hover:underline hover:opacity-100"
           >
-            Already have an account? Login here.
+            Already have an account?
+            <span className="text-blue-500"> Login here</span>
           </Link>
         </div>
       </div>
