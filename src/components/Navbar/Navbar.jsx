@@ -466,29 +466,32 @@ const Navbar = () => {
                     </span>
                   </h1>
                   {
-                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
-                      <div className="py-0">
-                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
-                      </div>
-                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
-                        <div>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/addProduct"
-                              className="block hover:text-red-400"
-                            >
-                              Add Product
-                            </Link>
-                          </li>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/addnews"
-                              className="block hover:text-red-400"
-                            >
-                              Add News
-                            </Link>
-                          </li>
-                        </div>
+                    <div
+                      className={`${
+                        heading === "Add" ? "md:hidden" : "hidden"
+                      }`}
+                    >
+                      <div>
+                        <h1 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                          <ul className="pl-4">
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/addProduct"
+                                className="block hover:text-red-400"
+                              >
+                                Add Product
+                              </Link>
+                            </li>
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/addnews"
+                                className="block hover:text-red-400"
+                              >
+                                Add News
+                              </Link>
+                            </li>
+                          </ul>
+                        </h1>
                       </div>
                     </div>
                   }
@@ -514,37 +517,40 @@ const Navbar = () => {
                     </span>
                   </h1>
                   {
-                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
-                      <div className="py-0">
-                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
-                      </div>
-                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
-                        <div>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/productList"
-                              className="hover:text-red-400"
-                            >
-                              Product List
-                            </Link>
-                          </li>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/newsList"
-                              className="hover:text-red-400"
-                            >
-                              News List
-                            </Link>
-                          </li>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/feedback"
-                              className="hover:text-red-400"
-                            >
-                              Feedback List
-                            </Link>
-                          </li>
-                        </div>
+                    <div
+                      className={`${
+                        heading === "List" ? "md:hidden" : "hidden"
+                      }`}
+                    >
+                      <div>
+                        <h1 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                          <ul className="pl-4">
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/productList"
+                                className="hover:text-red-400"
+                              >
+                                Product List
+                              </Link>
+                            </li>
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/newsList"
+                                className="hover:text-red-400"
+                              >
+                                News List
+                              </Link>
+                            </li>
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/feedback"
+                                className="hover:text-red-400"
+                              >
+                                Feedback List
+                              </Link>
+                            </li>
+                          </ul>
+                        </h1>
                       </div>
                     </div>
                   }
@@ -569,37 +575,40 @@ const Navbar = () => {
                     </span>
                   </h1>
                   {
-                    <div className="absolute top-15  hidden group-hover:md:block hover:md:block z-10">
-                      <div className="py-0">
-                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
-                      </div>
-                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
-                        <div>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/UsersList"
-                              className="block hover:text-red-400"
-                            >
-                              Customers
-                            </Link>
-                          </li>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/EngineerList"
-                              className="block hover:text-red-400"
-                            >
-                              Engineers
-                            </Link>
-                          </li>
-                          <li className="py-2 flex flex-direction-col">
-                            <Link
-                              to="/admin/EnginnerReview"
-                              className="block hover:text-red-400"
-                            >
-                              Engineers Request
-                            </Link>
-                          </li>
-                        </div>
+                    <div
+                      className={`${
+                        heading === "Users" ? "md:hidden" : "hidden"
+                      }`}
+                    >
+                      <div>
+                        <h1 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                          <ul className="pl-4">
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/UsersList"
+                                className="block hover:text-red-400"
+                              >
+                                Customers
+                              </Link>
+                            </li>
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/EngineerList"
+                                className="block hover:text-red-400"
+                              >
+                                Engineers
+                              </Link>
+                            </li>
+                            <li className="py-2 flex flex-direction-col">
+                              <Link
+                                to="/admin/EnginnerReview"
+                                className="block hover:text-red-400"
+                              >
+                                Engineers Request
+                              </Link>
+                            </li>
+                          </ul>
+                        </h1>
                       </div>
                     </div>
                   }

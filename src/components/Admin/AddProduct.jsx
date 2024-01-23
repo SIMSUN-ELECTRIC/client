@@ -69,6 +69,7 @@ const AddProduct = () => {
     <>
       <div className="mt-16 flex justify-center items-center p-16 w-full">
         <form className=" max-w-lg bg-gradient-to-br from-blue-500 via-blue-600 to-blue-900 rounded-md p-10">
+          <h1 className="flex justify-center text-3xl mb-4">Add Product</h1>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
