@@ -82,34 +82,34 @@ export const links = [
       },
     ],
   },
-  {
-    id: 4,
-    name: "Customer Services",
-    submenu: true,
-    sublinks: [
-      {
-        Head: "Customer Services",
-        sublink: [
-          { id: 41, name: "Your Orders", link: "/customerservices/YourOrders" },
-          {
-            id: 42,
-            name: "Return & Refunds",
-            link: "/customerservices/ReturnandRefunds",
-          },
-          {
-            id: 43,
-            name: "Manage Addresses",
-            link: "/customerservices/ManageAddress",
-          },
-          // {
-          //   id: 44,
-          //   name: "Payment Settings",
-          //   link: "/customerservices/PaymentSetting",
-          // },
-        ],
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   name: "Customer Services",
+  //   submenu: true,
+  //   sublinks: [
+  //     {
+  //       Head: "Customer Services",
+  //       sublink: [
+  //         { id: 41, name: "Your Orders", link: "/customerservices/YourOrders" },
+  //         {
+  //           id: 42,
+  //           name: "Return & Refunds",
+  //           link: "/customerservices/ReturnandRefunds",
+  //         },
+  // {
+  //   id: 43,
+  //   name: "Manage Addresses",
+  //   link: "/customerservices/ManageAddress",
+  // },
+  // {
+  //   id: 44,
+  //   name: "Payment Settings",
+  //   link: "/customerservices/PaymentSetting",
+  // },
+  //       ],
+  //     },
+  //   ],
+  // },
   // {
   //   id: 5,
   //   name: "Register",

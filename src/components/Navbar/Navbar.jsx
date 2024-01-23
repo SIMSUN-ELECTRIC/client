@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className=" hidden  ml-4 md:ml-8 gap-3 md:flex text-black-800 flex-row justify-around">
+      {/* <div className=" hidden  ml-4 md:ml-8 gap-3 md:flex text-black-800 flex-row justify-around">
         <p className="head-wel justify-start  hover:text-red-400">
           Simsun Electric Pvt Ltd
         </p>
@@ -52,7 +52,7 @@ const Navbar = () => {
             simsunelectricwork@gmail.com
           </a>
         </p>
-      </div>
+      </div> */}
 
       <div className=" flex items-center justify-center">
         <nav
@@ -385,6 +385,14 @@ const Navbar = () => {
                           >
                             Profile
                           </a>
+                          <a
+                            href="/customerservices/YourOrders"
+                            className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
+                            role="menuitem"
+                          >
+                            Your Orders
+                          </a>
+
                           <div
                             className="dropdown-item block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
                             onClick={handleLogout}
@@ -478,6 +486,7 @@ const Navbar = () => {
                               <Link
                                 to="/addProduct"
                                 className="block hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Add Product
                               </Link>
@@ -486,6 +495,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/addnews"
                                 className="block hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Add News
                               </Link>
@@ -529,6 +539,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/productList"
                                 className="hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Product List
                               </Link>
@@ -537,6 +548,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/newsList"
                                 className="hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 News List
                               </Link>
@@ -545,6 +557,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/feedback"
                                 className="hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Feedback List
                               </Link>
@@ -587,6 +600,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/UsersList"
                                 className="block hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Customers
                               </Link>
@@ -595,6 +609,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/EngineerList"
                                 className="block hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Engineers
                               </Link>
@@ -603,6 +618,7 @@ const Navbar = () => {
                               <Link
                                 to="/admin/EnginnerReview"
                                 className="block hover:text-red-400"
+                                onClick={() => setOpen(!open)}
                               >
                                 Engineers Request
                               </Link>
@@ -612,20 +628,6 @@ const Navbar = () => {
                       </div>
                     </div>
                   }
-                </div>
-              ) : null}
-
-              {user.userData?.isEngineer ? (
-                <div className="">
-                  <li>
-                    <Link
-                      to="/EngineerDetails"
-                      className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
-                      onClick={() => setOpen(!open)}
-                    >
-                      Engineer form
-                    </Link>
-                  </li>
                 </div>
               ) : null}
 
@@ -642,7 +644,10 @@ const Navbar = () => {
                 {user.isAuthenticated ? (
                   <div>
                     <button
-                      onClick={toggleDropdown}
+                      onClick={() => {
+                        toggleDropdown();
+                        setOpen(!open);
+                      }}
                       className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full "
                     >
@@ -651,7 +656,10 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <button
-                    onClick={toggleDropdown}
+                    onClick={() => {
+                      toggleDropdown();
+                      setOpen(!open);
+                    }}
                     className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full "
                   >
@@ -666,12 +674,23 @@ const Navbar = () => {
                         <a
                           href="/auth/UserProfile"
                           className="block dropdown-item"
+                          onClick={() => setOpen(!open)}
                         >
                           Profile
                         </a>
+                        <a
+                          href="/customerservices/YourOrders"
+                          className="block w-96 dropdown-item"
+                          onClick={() => setOpen(!open)}
+                        >
+                          Your Orders
+                        </a>
                         <div
-                          onClick={handleLogout}
                           className="block dropdown-item"
+                          onClick={() => {
+                            handleLogout();
+                            setOpen(!open);
+                          }}
                         >
                           Logout
                         </div>
@@ -681,18 +700,21 @@ const Navbar = () => {
                         <a
                           href="/auth/consumerLogin"
                           className="block dropdown-item"
+                          onClick={() => setOpen(!open)}
                         >
                           Customer Login
                         </a>
                         <a
                           href="/auth/EngineerLogin"
                           className="block dropdown-item"
+                          onClick={() => setOpen(!open)}
                         >
                           Engineer Login
                         </a>
                         <a
                           href="/auth/AdminLogin"
                           className="block dropdown-item"
+                          onClick={() => setOpen(!open)}
                         >
                           Admin Login
                         </a>

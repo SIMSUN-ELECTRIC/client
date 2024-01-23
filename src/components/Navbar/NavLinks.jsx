@@ -5,7 +5,11 @@ import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
 
 const SubLink = ({ slink }) => (
   <li className="py-2 flex flex-direction-col">
-    <Link to={slink.link} className="hover:text-red-400">
+    <Link
+      to={slink.link}
+      className="hover:text-red-400"
+      onClick={() => setOpen(!open)}
+    >
       {slink.name}
     </Link>
   </li>
