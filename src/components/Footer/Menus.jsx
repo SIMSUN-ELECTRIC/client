@@ -34,8 +34,8 @@ export const SUPPORT = [
   { name: "Your Orders", link: "/customerservices/YourOrders" },
   { name: "Returns & Refunds", link: "/customerservices/ReturnandRefunds" },
   { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
-  { name: "Payment Settings", link: "/customerservices/PaymentSetting" },
-  { name: "Account Settings", link: "/customerservices/AccountSetting" },
+  // { name: "Payment Settings", link: "/customerservices/PaymentSetting" },
+  // { name: "Account Settings", link: "/customerservices/AccountSetting" },
 ];
 
 export const Icons = [

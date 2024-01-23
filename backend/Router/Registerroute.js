@@ -8,20 +8,20 @@ import nodemailer from "nodemailer";
 const salt = bcrypt.genSaltSync(10);
 const router = express.Router();
 
-// const transporter = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: process.env.EMAIL_USERNAME,
-//     pass: process.env.EMAIL_PASSWORD,
-//   },
-// });
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "natureloveliness@gmail.com",
-    pass: "lome yuzs nstz wpjh",
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: "xyz@gmail.com",
+//     pass: "abc def ghi xyz",
+//   },
+// });
 
 router.get("/getUsers", async (req, res) => {
   try {
@@ -100,10 +100,8 @@ router.post("/EngineerRegister", async (req, res) => {
     // Notify admin about the new engineer request
     const adminEmail = process.env.ADMIN_EMAIL;
     const mailOptions = {
-      // from: process.env.EMAIL_USERNAME,
-      // to: adminEmail,
-      from: "natureloveliness@gmail.com",
-      to: "ai.sigmarules@gmail.com",
+      from: process.env.EMAIL_USERNAME,
+      to: adminEmail,
       subject: "New Engineer Registration Request",
       text: `Hello Admin,\n\nA new engineer registration request has been received. Please log in to the admin panel to review and take action.`,
     };
@@ -134,8 +132,7 @@ router.post("/acceptEngineerRequest", async (req, res) => {
 
     // Send email to the engineer about approval
     const mailOptions = {
-      // from: process.env.EMAIL_USERNAME,
-      from: "natureloveliness@gmail.com",
+      from: process.env.EMAIL_USERNAME,
       to: engineer.email,
       subject: "Engineer Registration Approved",
       text: `Hello ${engineer.fullName},\n\nYour engineer registration request has been approved. You are now a registered engineer.`,
@@ -164,8 +161,7 @@ router.post("/rejectEngineerRequest", async (req, res) => {
 
     // Send email to the engineer about rejection
     const mailOptions = {
-      // from: process.env.EMAIL_USERNAME,
-      from: "natureloveliness@gmail.com",
+      from: process.env.EMAIL_USERNAME,
       to: engineer.email,
       subject: "Engineer Registration Rejected",
       text: `Hello ${engineer.fullName},\n\nYour engineer registration request has been rejected. Please contact the admin for further details.`,

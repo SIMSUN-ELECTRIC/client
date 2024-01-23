@@ -24,7 +24,6 @@ import AdminLogin from "./Auth/AdminLogin";
 import ContactUs from "./components/ContactUs";
 import Cart from "./components/Cart";
 import Maintenance from "./CompanyPages/Services/Maintenance";
-import ElevatorModernization from "./TemplatePages/ExistingsBuilding/ElevatorModernization";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./components/Admin/AddProduct";
 import Travelator from "./CompanyPages/Product/Travelator/Travelator";
@@ -32,7 +31,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ShippingAddress from "./components/Shipping";
 import UserProfile from "./Auth/UserProfile";
-import EngineerDetailsForm from "./components/EngineerForm";
 import ProductList from "./components/Admin/ProductList";
 import EditProduct from "./components/Admin/EditProduct";
 import AdminNewsList from "./components/Admin/NewsList";
@@ -82,10 +80,6 @@ function App() {
           />
           <Route path="/services/Maintenance" element={<Maintenance />} />
           <Route
-            path="/services/ElevatorModernization"
-            element={<ElevatorModernization />}
-          />
-          <Route
             path="/services/EscalatorAutowalkModernization"
             element={<EscalatorAutowalkModernization />}
           />
@@ -117,7 +111,6 @@ function App() {
 
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/EngineerDetails" element={<EngineerDetailsForm />} />
           <Route path="/shipping" element={<ShippingAddress />} />
 
           <Route path="/admin/productList" exact element={<ProductList />} />
