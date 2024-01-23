@@ -90,7 +90,7 @@ const YourOrders = () => {
 
   return (
     <>
-      <div className="mt-24 container mx-auto p-4">
+      <div className="mt-0 md:mt-20  container mx-auto p-4">
         <h1 className="text-3xl font-semibold mb-4">Previous Orders</h1>
         <div className="bg-white rounded-lg shadow overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">

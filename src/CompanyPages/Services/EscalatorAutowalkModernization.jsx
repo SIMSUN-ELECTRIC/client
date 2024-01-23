@@ -4,7 +4,7 @@ import BackgroundImg from "../../assets/img/lift2.jpg";
 const EscalatorAutowalkModernization = () => {
   return (
     <>
-      <div className="mt-28 flex justify-center items-center sm:mx-10 flex-col">
+      <div className="mt-0 md:mt-16  flex justify-center items-center sm:mx-10 flex-col">
         {/* section 1 start */}
         <div className=" w-full h-[35rem] mb-2">
           <div className=" min-h-screen mx-2">
@@ -18,7 +18,7 @@ const EscalatorAutowalkModernization = () => {
             ></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center lg:mt-[20rem]">
               <div className="mx-12 p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
-                <h1 className="sm:text-6xl font-semibold mt-16 text-white sm:max-w-[65%] text-4xl max-w-full">
+                <h1 className="sm:text-6xl font-semibold mt-24 text-white sm:max-w-[65%] text-4xl max-w-full">
                   ESCALATOR MODERNIZATION
                 </h1>
                 <p className="mt-8 text-xl sm:text-3xl text-white">

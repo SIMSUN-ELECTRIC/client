@@ -3,7 +3,7 @@ import React from "react";
 const ReturnandRefund = () => {
   return (
     <>
-      <div className="mt-24 container mx-auto p-4">
+      <div className="mt-0 md:mt-16  container mx-auto p-4">
         <h1 className="text-3xl font-semibold  mb-4">Returns and Refunds</h1>
 
         <div className="bg-white p-6 rounded-lg shadow-md">

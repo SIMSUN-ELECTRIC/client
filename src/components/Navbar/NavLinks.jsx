@@ -19,7 +19,7 @@ const NavLinks = () => {
     <>
       {links.map((link) => (
         <div key={link.name}>
-          <div className="text-left md:cursor-pointer group ml-5">
+          <div className="text-left cursor-pointer group ml-5">
             <h1
               className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
               onClick={() => {

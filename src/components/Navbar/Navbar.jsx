@@ -7,6 +7,8 @@ import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import logo from "../../assets/img/logo1.jpg";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 
 const Navbar = () => {
   const [heading, setHeading] = useState("");
@@ -34,24 +36,24 @@ const Navbar = () => {
 
   let headerWidth = useRef();
 
-  const handleScroll = () => {
-    // console.log(headerWidth);
-    if (window.scrollY >= 20) {
-      headerWidth.current.classList.add("sticky");
-      headerWidth.current.classList.remove("rounded-navbar");
-    } else {
-      headerWidth.current.classList.add("rounded-navbar");
-      headerWidth.current.classList.remove("sticky");
-    }
-  };
+  // const handleScroll = () => {
+  //   // console.log(headerWidth);
+  //   if (window.scrollY >= 20) {
+  //     headerWidth.current.classList.add("sticky");
+  //     headerWidth.current.classList.remove("rounded-navbar");
+  //   } else {
+  //     headerWidth.current.classList.add("rounded-navbar");
+  //     headerWidth.current.classList.remove("sticky");
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <header>
@@ -73,7 +75,7 @@ const Navbar = () => {
       <div className=" flex items-center justify-center">
         <nav
           ref={headerWidth}
-          className="bg-[#161D24] text-white md:sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
+          className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
         >
           <div className="flex items-center font-medium justify-between ">
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0">
@@ -86,34 +88,48 @@ const Navbar = () => {
                 </div>
               </Link>
 
-              <div className="flex mt-2">
-                <div className="flex lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
-                  <div>
-                    <Link
-                      to="/shop"
-                      className="ml-5 cursor-pointer text-md md:text-xl text-white hover:text-red-400 "
-                    >
-                      Shop
+              <div className="flex">
+                <div className="flex items-center gap-6 lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
+                  <div className="text-2xl lg:hidden z-30">
+                    <Link to="/shop">
+                      <HiOutlineShoppingBag className="z-50" />
                     </Link>
                   </div>
+
                   <div className="">
-                    <Link
-                      to="/ContactUs"
-                      className="ml-5 cursor-pointer text-white text-md md:text-xl hover:text-red-400"
-                    >
-                      Contact Us
-                    </Link>
+                    {user.isAuthenticated ? (
+                      <div className="">
+                        <Link to="/Cart">
+                          <div className="flex gap-1">
+                            <HiOutlineShoppingCart className="z-50 text-2xl lg:hidden " />
+
+                            <div>
+                              {cartItems.length > 0 && (
+                                <span className="bg-red-500 w-4 text-white px-1 py-0 rounded-full align-top ">
+                                  {totalQuantity}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    ) : (
+                      <Link to="/auth/consumerLogin">
+                        <HiOutlineShoppingCart className="z-50" />
+                      </Link>
+                    )}
                   </div>
-                </div>
-                <div
-                  className="text-3xl lg:hidden z-30"
-                  onClick={() => setOpen(!open)}
-                >
-                  {open ? (
-                    <RxCross2 className="z-50" />
-                  ) : (
-                    <IoMdMenu className="z-50" />
-                  )}
+
+                  <div
+                    className="text-3xl lg:hidden z-30"
+                    onClick={() => setOpen(!open)}
+                  >
+                    {open ? (
+                      <RxCross2 className="z-50" />
+                    ) : (
+                      <IoMdMenu className="z-50" />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -159,7 +175,7 @@ const Navbar = () => {
               ) : null}
 
               {user.userData?.isAdmin ? (
-                <div className="text-left md:cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5">
                   <h1
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -207,7 +223,7 @@ const Navbar = () => {
                 </div>
               ) : null}
               {user.userData?.isAdmin ? (
-                <div className="text-left md:cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5">
                   <h1
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -263,7 +279,7 @@ const Navbar = () => {
                 </div>
               ) : null}
               {user.userData?.isAdmin ? (
-                <div className="text-left md:cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5">
                   <h1
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -451,34 +467,112 @@ const Navbar = () => {
               <NavLinks />
 
               {user.userData?.isAdmin ? (
-                <div className="">
-                  <li>
-                    <Link
-                      to="/addProduct"
-                      className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
-                      onClick={() => setOpen(!open)}
-                    >
-                      Add Product
-                    </Link>
-                  </li>
+                <div className="text-left cursor-pointer group ml-5">
+                  <h1
+                    className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                    onClick={() => {
+                      setHeading((prevHeading) =>
+                        prevHeading === "List" ? "" : "List"
+                      );
+                      setSubHeading("");
+                    }}
+                  >
+                    Add
+                    <span className="text-xl md:hidden inline">
+                      {heading === "Add" ? <FaAngleUp /> : <FaAngleDown />}
+                    </span>
+                    <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                      <FaAngleDown />
+                    </span>
+                  </h1>
+                  {
+                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                      <div className="py-0">
+                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                      </div>
+                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                        <div>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/addProduct"
+                              className="block hover:text-red-400"
+                            >
+                              Add Product
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/addnews"
+                              className="block hover:text-red-400"
+                            >
+                              Add News
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                  }
                 </div>
               ) : null}
 
               {user.userData?.isAdmin ? (
-                <div className="">
-                  <li>
-                    <Link
-                      to="/admin/productList"
-                      className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
-                      onClick={() => setOpen(!open)}
-                    >
-                      List
-                    </Link>
-                  </li>
+                <div className="text-left cursor-pointer group ml-5">
+                  <h1
+                    className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                    onClick={() => {
+                      setHeading((prevHeading) =>
+                        prevHeading === "List" ? "" : "List"
+                      );
+                      setSubHeading("");
+                    }}
+                  >
+                    List
+                    <span className="text-xl md:hidden inline">
+                      {heading === "List" ? <FaAngleUp /> : <FaAngleDown />}
+                    </span>
+                    <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                      <FaAngleDown />
+                    </span>
+                  </h1>
+                  {
+                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                      <div className="py-0">
+                        <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                      </div>
+                      <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                        <div>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/productList"
+                              className="hover:text-red-400"
+                            >
+                              Product List
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/newsList"
+                              className="hover:text-red-400"
+                            >
+                              News List
+                            </Link>
+                          </li>
+                          <li className="py-2 flex flex-direction-col">
+                            <Link
+                              to="/admin/feedback"
+                              className="hover:text-red-400"
+                            >
+                              Feedback List
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                  }
                 </div>
               ) : null}
               {user.userData?.isAdmin ? (
-                <div className="text-left md:cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5">
                   <h1
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -548,33 +642,6 @@ const Navbar = () => {
                 </div>
               ) : null}
 
-              <div className="">
-                <Link
-                  to="/shop"
-                  className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
-                  onClick={() => setOpen(!open)}
-                >
-                  Shop
-                </Link>
-              </div>
-              {user.isAuthenticated ? (
-                <div className="">
-                  <li>
-                    <Link
-                      to="/Cart"
-                      className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold relative"
-                      onClick={() => setOpen(!open)}
-                    >
-                      Cart
-                      {cartItems.length > 0 && (
-                        <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-0 -mr-8">
-                          {totalQuantity}
-                        </span>
-                      )}
-                    </Link>
-                  </li>
-                </div>
-              ) : null}
               <div className="">
                 <Link
                   to="/ContactUs"
