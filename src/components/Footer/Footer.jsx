@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
 import ItemsContainer from "./ItemsContainer";
+import { useSelector } from "react-redux";
 import SocialIcons from "./SocialIcons";
 import { Link } from "react-router-dom";
 import Feedback from "./Feedback";
 
 const Footer = () => {
+  const user = useSelector((state) => state.user);
   //changes the copyright dynamically
   const date = new Date().getFullYear();
 
@@ -15,7 +16,8 @@ const Footer = () => {
       className={`
       bg-[#161D24] text-white section `}
     >
-      <Feedback />
+      {user.isAuthenticated ? <Feedback /> : null}
+
       {/* <div
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
       >

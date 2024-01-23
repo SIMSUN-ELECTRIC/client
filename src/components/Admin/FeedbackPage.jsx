@@ -1,9 +1,19 @@
 // FeedbackPage.js
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const FeedbackPage = () => {
   const [feedbacks, setFeedbacks] = useState([]);
+
+  const state = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!state?.userData?.isAdmin) {
+      navigate("/auth/AdminLogin");
+    }
+  }, [state]);
 
   useEffect(() => {
     // Fetch feedbacks from the server
