@@ -1,5 +1,6 @@
 import React from "react";
 import BackgroundImg from "../../assets/img/lift2.jpg";
+import monte from "../../assets/img/monte.jpg"
 
 const EscalatorAutowalkModernization = () => {
   return (
@@ -9,9 +10,9 @@ const EscalatorAutowalkModernization = () => {
         <div className=" w-full h-[35rem] mb-2">
           <div className=" min-h-screen mx-2">
             <div
-              className="w-full sm:max-h-[35rem] h-[35rem]"
+              className="w-full aspect-video sm:max-h-[35rem] h-[35rem]"
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${BackgroundImg})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${monte})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}

@@ -17,7 +17,7 @@ const MaintenanceCarousal = () => {
         <h2>Carousel Example</h2>
         <Slider {...settings}>
           <div>
-            <div className="carousel-item">Item 1</div>
+            <div className="carousel-item ">Item 1</div>
           </div>
           <div>
             <div className="carousel-item">Item 2</div>
