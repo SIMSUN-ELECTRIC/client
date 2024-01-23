@@ -90,7 +90,7 @@ const AdminReviewPage = () => {
 
   return (
     <>
-      <div className="container mx-auto mt-4 md:mt-24">
+      <div className="container mx-auto mt-4 md:mt-32">
         <div className="flex justify-center">
           <h1 className=" text-xl md:text-2xl font-bold mb-4">
             Engineer Registration Requests
