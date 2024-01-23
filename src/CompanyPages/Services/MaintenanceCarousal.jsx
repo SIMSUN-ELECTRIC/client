@@ -13,7 +13,7 @@ const MaintenanceCarousal = () => {
   };
   return (
     <>
-      <div className="mt-28 bg-red-500">
+      <div className="mt-0 md:mt-16 bg-red-500">
         <h2>Carousel Example</h2>
         <Slider {...settings}>
           <div>

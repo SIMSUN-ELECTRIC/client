@@ -60,7 +60,7 @@ const AnnualMaintainenceServices = () => {
 
   return (
     <>
-      <div className="mt-24 min-h-screen bg-gray-100 p-4">
+      <div className="mt-0 md:mt-16 min-h-screen bg-gray-100 p-4">
         <h1 className="text-2xl font-semibold text-center mb-8">
           Annual Maintenance Services
         </h1>
