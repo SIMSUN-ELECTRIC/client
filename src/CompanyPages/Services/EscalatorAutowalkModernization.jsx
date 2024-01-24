@@ -1,14 +1,14 @@
 import React from "react";
 import BackgroundImg from "../../assets/img/lift2.jpg";
-import monte from "../../assets/img/monte.jpg"
+import monte from "../../assets/img/monte.jpg";
 
 const EscalatorAutowalkModernization = () => {
   return (
     <>
-      <div className="mt-0 md:mt-16  flex justify-center items-center sm:mx-10 flex-col">
+      <div className="mt-0 md:mt-16  flex justify-center items-center  flex-col">
         {/* section 1 start */}
         <div className=" w-full h-[35rem] mb-2">
-          <div className=" min-h-screen mx-2">
+          <div className=" min-h-screen ">
             <div
               className="w-full aspect-video sm:max-h-[35rem] h-[35rem]"
               style={{
@@ -17,12 +17,12 @@ const EscalatorAutowalkModernization = () => {
                 backgroundPosition: "center",
               }}
             ></div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center lg:mt-[20rem]">
-              <div className="mx-12 p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
-                <h1 className="sm:text-6xl font-semibold mt-24 text-white sm:max-w-[65%] text-4xl max-w-full">
+            <div className="absolute inset-0 flex flex-col  items-center lg:mt-1">
+              <div className="mx-1 p-7 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 ">
+                <h1 className="text-[1.3rem] md:text-[3.2rem] lg:text-[4rem] font-semibold mt-[14rem] md:mt-[18rem] lg:mt-[20rem] text-white w-full">
                   ESCALATOR MODERNIZATION
                 </h1>
-                <p className="mt-8 text-xl sm:text-3xl text-white">
+                <p className="mt-10 text-[0.85rem] px-6 md:text-[1.4rem] text-white">
                   If you're starting to face problems with your escalators, our
                   modernization solutions will increase their lifespan, giving
                   you the flexibility of replacing the entire installation or
@@ -37,14 +37,14 @@ const EscalatorAutowalkModernization = () => {
         {/* section 1 ends */}
 
         {/* section 2 start */}
-        <div className="sm:mt-7 mt-32 flex flex-col justify-center items-center w-full">
+        <div className="sm:mt-7 mt-11 flex flex-col justify-center items-center w-full">
           <div className="text-center">
             <h2 className="text-3xl font-semibold">
               Why modernize with SIMSUN?
             </h2>
             <div className="border-b-2 border-blue-500 mx-auto mt-2 w-80" />
           </div>
-          <div className="flex flex-wrap justify-around mt-4  w-full">
+          <div className="flex flex-wrap justify-around mt-4 mb-6 w-full">
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold text-center">
               <h1 className="text-6xl mb-8">1</h1>
               <div className=" sm:text-3xl mb-4">
@@ -83,9 +83,9 @@ const EscalatorAutowalkModernization = () => {
         <div className=" w-full sm:h-[40rem] h-[60rem]">
           <div className="relative min-h-screen">
             <div className="w-full sm:max-h-[40rem] h-[60rem]  bg-[#202b35]" />
-            <div className="mt-16 absolute inset-0 flex flex-col justify-center items-center">
-              <div className="  p-4 rounded-lg shadow-white shadow-md text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full">
-                <h1 className="sm:text-4xl font-semibold  text-white  text-4xl max-w-full mb-10">
+            <div className="mt-16 absolute inset-0 flex flex-col items-center">
+              <div className="  p-4 rounded-lg md:shadow-white shadow-sm text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full">
+                <h1 className="sm:text-4xl font-semibold p-[4rem] md:mt-[8rem] px-3 text-white md:text-3xl text-3xl w-full mb-10">
                   OUR ESCALATOR MODERNIZATION SOLUTIONS
                 </h1>
                 <div className="  bg-white   min-w-full flex flex-col sm:flex-row gap-4 sm:gap-0">
@@ -93,7 +93,7 @@ const EscalatorAutowalkModernization = () => {
                     <div className=" ">
                       <h1 className=" text-4xl">Full Replacement</h1>
                     </div>
-                    <div className="text-2xl my-4 ">
+                    <div className="text-2xl px-1 my-4 ">
                       Replace the entire installation, including or excluding
                       the truss.
                     </div>
@@ -146,17 +146,17 @@ const EscalatorAutowalkModernization = () => {
         {/* section 3 end */}
 
         {/* section 4 start  */}
-        <div className=" w-full sm:h-[40rem] h-[80rem] mt-36 sm:mt-0">
+        <div className=" w-full sm:h-[40rem] h-[80rem] mt-[18rem] sm:mt-0">
           <div className="relative min-h-screen">
             <div className=" bg-[#202b35] w-full sm:max-h-[40rem] h-[80rem]" />
             <div className="absolute inset-0 flex flex-col justify-center items-center">
               <div className="  p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full  bg-white">
-                <h1 className="sm:text-4xl font-semibold   text-4xl max-w-full mb-10 text-black">
+                <h1 className="sm:text-4xl font-semibold p-4 text-[1.6rem] max-w-full mb-10 text-black">
                   Tools and Downloads
                 </h1>
-                <div className="  bg-white   min-w-full flex flex-col sm:flex-row gap-4 sm:gap-0">
-                  <div className="border-2  p-10 hover:border-fuchsia-500  flex-1 ">
-                    <div className="text-2xl my-4 text-left flex">
+                <div className="  bg-white min-w-full flex flex-col sm:flex-row gap-4 sm:gap-0">
+                  <div className="border hover:border-2 hover:border-blue-500  p-10  flex-1 ">
+                    <div className="text-2xl my-4 text-left flex items-center">
                       ESCALATOR PLANNER
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -179,8 +179,8 @@ const EscalatorAutowalkModernization = () => {
                       models and CAD drawings for preliminary planning.
                     </div>
                   </div>
-                  <div className=" border hover:border-blue-500  p-10   flex-1 ">
-                    <div className="text-2xl my-4 text-left flex">
+                  <div className=" border hover:border-2  hover:border-fuchsia-500  p-10   flex-1 ">
+                    <div className="text-2xl my-4 text-left flex items-center">
                       SIMSUN Escalator InfoPack
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -202,8 +202,8 @@ const EscalatorAutowalkModernization = () => {
                       plan an escalator or autowalk.
                     </div>
                   </div>
-                  <div className="border  p-10  border-blue-500 flex-1 ">
-                    <div className="text-2xl my-4 text-left flex">
+                  <div className="border hover:border-2  p-10  hover:border-blue-500 flex-1 ">
+                    <div className="text-2xl my-4 text-left flex items-center">
                       ESCALATOR PLANNER
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +228,7 @@ const EscalatorAutowalkModernization = () => {
                   </div>
                 </div>
                 {/* section 5 start */}
-                <button className="mt-28 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-full sm:w-full md:w-[30%]">
+                <button className="mt-16 relative inline-flex items-center justify-center p-0.5 mb-20 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-full sm:w-full md:w-[30%]">
                   <span className="text-2xl relative px-10 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
                     More tools and download
                   </span>
@@ -258,13 +258,15 @@ const EscalatorAutowalkModernization = () => {
         {/* section 4 end */}
 
         {/* section 6 start */}
-        <div className="sm:mt-7 mt-32 flex flex-col justify-center items-center w-full">
+        <div className="sm:mt-11 mt-32 flex flex-col justify-center items-center w-full">
           <div className="text-center">
-            <h2 className="text-3xl font-semibold">How can we help you?</h2>
-            <div className="border-b-2 border-blue-500 mx-auto mt-2 w-80" />
+            <h2 className="text-2xl md:text-3xl font-semibold">
+              How can we help you?
+            </h2>
+            <div className="border-b-2 border-blue-500 mx-auto mt-2 w-80%" />
           </div>
           <div className="flex flex-wrap justify-around mt-4  w-full">
-            <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
+            <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] hover:transform transition ease-in-out delay-120 hover:-translate-y-2 hover:scale-110 duration-300 flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
               <h1 className="text-3xl text-blue-700">PLANNING</h1>
 
               <div className="border">
@@ -284,7 +286,7 @@ const EscalatorAutowalkModernization = () => {
                 </svg>
               </div>
             </div>
-            <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
+            <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] transition ease-in-out delay-120 hover:-translate-y-2 hover:scale-110 duration-300 flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
               <h1 className="text-3xl text-blue-700">INSTALLATION</h1>
 
               <div className="border">
@@ -304,7 +306,7 @@ const EscalatorAutowalkModernization = () => {
                 </svg>
               </div>
             </div>
-            <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
+            <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] transition ease-in-out delay-120 hover:-translate-y-2 hover:scale-110 duration-300 flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
               <h1 className="text-3xl text-blue-700">COMPLETION</h1>
 
               <div className="border">
@@ -330,7 +332,7 @@ const EscalatorAutowalkModernization = () => {
       </div>
       {/* section 7 start */}
       <div className="  flex flex-col justify-center items-center ">
-        <button className="mt-28 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[90%] sm:w-full md:w-[40%]">
+        <button className="mt-[3rem] relative inline-flex items-center justify-center p-0.5 mb-4 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[90%] sm:w-full md:w-[40%]">
           <span className="sm:text-2xl text-xl relative px-10 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
             Read more about our moderinazation process.
           </span>
@@ -354,8 +356,8 @@ const EscalatorAutowalkModernization = () => {
         <div className="mt-8 text-xl sm:text-3xl mb-2 ">
           Benefits of escalator modernization
         </div>
-        <div className="border-4 border-gray-500 w-2/3 sm:w-[20%]"></div>
-        <div className="border flex justify-center items-center text-center mt-8 sm:w-2/3 w-[90%] text-2xl mb-20">
+        <div className="border-4 rounded-xl border-gray-500 w-2/3 sm:w-[20%]"></div>
+        <div className="border-2 flex justify-center items-center text-center mt-9 md:mt-8 p-4 sm:w-2/3 w-[90%] text-[14px] mb-20">
           Escalator modernization ensures that your escalators continue to be
           energy efficient, reliable, and up to date with the latest escalator
           safety features. The truss may last as long as your building, but it

@@ -128,7 +128,7 @@ const Maintenance = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white  transition-all delay-200 cursor-pointer m-4 mb-6 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex flex-col items-center min-h-[20rem] font-semibold text-center"
+                className="bg-white hover:scale-105 transition-all delay-200 cursor-pointer m-4 mb-6 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex flex-col items-center min-h-[20rem] font-semibold text-center"
               >
                 <img
                   src={service.imageUrl}
