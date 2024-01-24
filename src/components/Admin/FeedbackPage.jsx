@@ -35,7 +35,7 @@ const FeedbackPage = () => {
   };
 
   return (
-    <div className="mt-16 container mx-auto my-8 p-8 bg-gray-100 rounded shadow-lg">
+    <div className="md:mt-20 container mx-auto p-8 bg-gray-100 rounded shadow-lg">
       <h1 className="text-2xl font-bold mb-6">Admin Feedback Page</h1>
       {feedbacks.map((feedback) => (
         <div key={feedback._id} className="bg-white p-6 mb-4 rounded shadow-md">

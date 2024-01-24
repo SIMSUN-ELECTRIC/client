@@ -45,15 +45,17 @@ const NewsList = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mt-16 text-3xl font-semibold mb-4">News List</h1>
+    <div className="md:mt-24 container mx-auto p-4">
+      <div className="flex justify-center">
+        <h1 className=" text-3xl font-semibold mb-4">News List</h1>
+      </div>
 
       {newsList.loading && <p>Loading...</p>}
       {newsList.error && <p>Error: {newsList.error}</p>}
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300">
-          <thead>
-            <tr>
+        <table className="min-w-full bg-white border  border-gray-300">
+          <thead className="">
+            <tr className=" hidden md:grid border-b md:grid-cols-3 items-center md:gap-24">
               <th className="py-2 px-4 border-b">Title</th>
               <th className="py-2 px-4 border-b">Description</th>
               <th className="py-2 px-4 border-b">Actions</th>
@@ -61,25 +63,34 @@ const NewsList = () => {
           </thead>
           <tbody>
             {newsList.map((news) => (
-              <tr key={news._id}>
-                <td className="py-2 px-4 border-b">{news.title}</td>
-                <td className="py-2 px-4 border-b">{news.description}</td>
-                <td className="py-2 px-4 border-b">
-                  <div className="flex items-center">
-                    <Link
-                      to={`/admin/newsedit/${news._id}`}
-                      className="bg-blue-500 text-white py-1 px-2 rounded mr-2"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      onClick={() => handleDeleteNews(news._id)}
-                      className="bg-red-500 text-white py-1 px-2 rounded"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </td>
+              <tr
+                key={news._id}
+                className="flex flex-col justify-center md:grid border-b md:grid-cols-3 md:gap-24"
+              >
+                <div className="flex justify-center">
+                  <td className="py-2 px-4 font-bold">{news.title}</td>
+                </div>
+                <div className="flex justify-center">
+                  <td className="py-2 px-4 ">{news.description}</td>
+                </div>
+                <div className="flex justify-center">
+                  <td className="py-2 px-4 ">
+                    <div className="flex items-center border-b md:border-none">
+                      <Link
+                        to={`/admin/newsedit/${news._id}`}
+                        className="bg-blue-500 text-white py-1 px-2 rounded mr-2"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        onClick={() => handleDeleteNews(news._id)}
+                        className="bg-red-500 text-white py-1 px-2  rounded"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </div>
               </tr>
             ))}
           </tbody>

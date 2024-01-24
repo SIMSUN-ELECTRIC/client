@@ -50,7 +50,7 @@ const ConsumerLogin = () => {
   };
 
   return (
-    <section className=" gradient-form h-full z-10 flex justify-center">
+    <section className="md:mt-16 gradient-form h-full z-10 flex justify-center">
       <div className="container h-full p-10">
         <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
           <div className="w-full">

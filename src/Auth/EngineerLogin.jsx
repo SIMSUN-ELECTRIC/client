@@ -47,10 +47,9 @@ const EngineerLogin = () => {
   };
 
   return (
-    <section className=" gradient-form h-full flex justify-center">
+    <section className=" md:mt-16 gradient-form h-full flex justify-center">
       <div className="container h-full p-10">
         <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
-          src/Auth/EngineerLogin.jsx
           <div className="w-full">
             <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
               <div className="g-0 lg:flex lg:flex-wrap">
