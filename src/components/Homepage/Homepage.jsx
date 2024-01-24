@@ -1,4 +1,5 @@
 import Esc from "../../assets/img/escalator1.jpg";
+import esc1 from "../../assets/img/esc1.jpg";
 import lift1 from "../../assets/img/lift1.jpg";
 import lift4 from "../../assets/img/lift4.jpg";
 import lift5 from "../../assets/img/lift5.jpg";
@@ -19,43 +20,61 @@ const Homepage = () => {
 
   const [index, setIndex] = useState(0);
   const images = [lift15, lift13, lift14, Esc];
+  const mainImages = [home, esc1];
+  const [mainindex, setmainIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setmainIndex((prev) => (prev + 1) % mainImages.length);
     }, 10000);
 
     return () => clearInterval(interval);
   }, [images.length]);
 
   const ImageComponent = images[index];
+  const mainImage = mainImages[mainindex];
 
   return (
     <>
       <div className=" flex flex-col items-center  w-full h-auto">
         <div
-          style={{ "--image-url": `url(${home})` }}
-          className=" w-full h-[44.438rem] relative bg-[image:var(--image-url)] bg-cover bg-[50%_50%] mr-0 flex flex-col items-center "
+          style={{
+            "--image-url": `url(${mainImage})`,
+          }}
+          className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
         >
-          <div className="relative w-fit mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[40px] md:text-[64px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
-            WELCOME TO SIMSUN ELECTRIC
-          </div>
-          <div className="relative mt-5 text-white [font-family:'Poppins-Regular',Helvetica] font-extralight text-[18px] md:text-[28px] text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem]">
-            <p>
-              We believe this is the key to any successful relationship, and
-              it&#39;s important to us that our
-            </p>
-            <p>
-              clients and team members have a strong foundation of trust in each
-              other.
-            </p>
-          </div>
-          <Link
-            to="/about/ourcompany"
-            className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 mt-10 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg "
+          <div
+            className={`${
+              mainImage === esc1
+                ? " bg-black/60 text-violet-100 "
+                : "text-white"
+            } w-fit h-full`}
           >
-            Explore Now!
-          </Link>
+            <div className="relative mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-[40px] md:text-[60px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
+              WELCOME TO SIMSUN ELECTRIC
+            </div>
+            <div className="relative mt-8 [font-family:'Poppins-Regular',Helvetica] font-extralight text-2xl md:text-3xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
+              <p className="font-bold">ELEVATOR AND ESCALATOR PARTS</p>
+              <p className="mt-2">X</p>
+              <p className="mt-2">
+                Production and Sales Technology One-Stop Service
+              </p>
+              {/* <p>
+              We believe this is the key to any successful relationship, and
+              it's important to us that our clients and team members have a
+              strong foundation of trust in each other.
+            </p> */}
+            </div>
+            <div className="flex justify-center">
+              <Link
+                to="/about/ourcompany"
+                className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 mt-10 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg "
+              >
+                Explore Now!
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
           <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-2 md:p-4 flex flex-col items-center justify-around md:justify-between">
