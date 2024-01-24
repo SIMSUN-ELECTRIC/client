@@ -144,9 +144,12 @@ const OurTeam = () => {
 
   return (
     <>
-      <animated.section style={fadeIn} className="bg-purple-100 p-8 mt-4">
-        <div className="team1">
-          <h1 className="mt-16 text-center text-3xl font-bold text-purple-800 mx-auto">
+      <animated.section
+        style={fadeIn}
+        className="bg-purple-100 mt-0 md:mt-16  min-h-screen bg-gray-100 p-4"
+      >
+        <div className="team1 ">
+          <h1 className="text-4xl font-semibold text-center mb-2 mt-4 text-purple-800">
             Our Team
           </h1>
         </div>

@@ -73,7 +73,7 @@ const AddProduct = () => {
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
-                className="block uppercase dark:text-white tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block uppercase text-black tracking-wide text-gray-700 text-xs font-bold mb-2"
                 for="grid-first-name"
               >
                 Product
@@ -88,7 +88,7 @@ const AddProduct = () => {
             </div>
             <div className="w-full md:w-1/2 px-3">
               <label
-                className="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block text-black uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 for="grid-last-name"
               >
                 Price (in ₹)
@@ -103,7 +103,7 @@ const AddProduct = () => {
             </div>
           </div>
           <div className="flex flex-wrap -mx-3 mb-6 flex-col">
-            <label className="block mb-2 text-gray-700 text-md font-bold dark:text-white">
+            <label className="block text-black uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
               Product Description
             </label>
             <div className=" block ">
@@ -125,7 +125,7 @@ const AddProduct = () => {
           <div className="flex flex-wrap -mx-3 mb-2 ">
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0 ">
               <label
-                className="block uppercase dark:text-white tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block text-black uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 for="grid-state"
               >
                 Category
