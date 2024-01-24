@@ -1,5 +1,4 @@
 import React from "react";
-import BackgroundImg from "../../assets/img/lift2.jpg";
 import elevtor from "../../assets/img/elevetor.jpg";
 import business from "../../assets/img/business-clock.jpg";
 import maintainence from "../../assets/img/maintainence-plan.jpg";
@@ -8,6 +7,7 @@ import Service24hrs from "../../assets/img/24hrs-service.jpg";
 import elev from "../../assets/img/elev.jpg";
 import elveMaintain from "../../assets/img/elevetor-maintain.jpg";
 import MaintenanceCarousal from "./MaintenanceCarousal";
+import { Link } from "react-router-dom";
 const Maintenance = () => {
   const services = [
     {
@@ -90,25 +90,34 @@ const Maintenance = () => {
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
               <h1 className="text-3xl text-blue-700">Become a customer</h1>
 
-              <button className="text-blue-500 border border-blue-500  px-8 py-2 rounded-lg hover:scale-105 hover:bg-blue-500 hover:text-white flex justify-center items-center text-2xl cursor-pointer">
+              <Link
+                to="/ContactUs"
+                className="text-blue-500 border border-blue-500  px-8 py-2 rounded-lg hover:scale-105 hover:bg-blue-500 hover:text-white flex justify-center items-center text-2xl cursor-pointer"
+              >
                 Contact an Expert
-              </button>
+              </Link>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
               <h1 className="text-3xl text-blue-700">Ask us for a quote</h1>
 
-              <button className="text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white  px-8 py-2 rounded-lg hover:scale-105 flex justify-center items-center text-2xl cursor-pointer">
+              <a
+                href="mailto:simsunelectricwork@gmail.com"
+                className="text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white  px-8 py-2 rounded-lg hover:scale-105 flex justify-center items-center text-2xl cursor-pointer"
+              >
                 Request a quote
-              </button>
+              </a>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
               <h1 className="text-3xl text-blue-700">
                 Report a service need or incident
               </h1>
 
-              <button className="text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white px-8 py-2 rounded-lg hover:scale-105 flex justify-center items-center text-2xl cursor-pointer">
+              <a
+                href="mailto:simsunelectricwork@gmail.com"
+                className="text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white px-8 py-2 rounded-lg hover:scale-105 flex justify-center items-center text-2xl cursor-pointer"
+              >
                 Get in touch
-              </button>
+              </a>
             </div>
           </div>
         </div>

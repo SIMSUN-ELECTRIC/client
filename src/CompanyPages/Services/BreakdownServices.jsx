@@ -1,6 +1,11 @@
 import React from "react";
 
 const BreakdownServices = () => {
+  const phoneNumber = "+00790896767"; // Replace with your actual phone number
+
+  const handleCallNowClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
   return (
     <>
       <div className="mt-0 md:mt-16 min-h-screen bg-gradient-to-b from-blue-500 to-blue-700 text-white font-sans">
@@ -34,7 +39,7 @@ const BreakdownServices = () => {
           <p className="text-xl font-semibold mb-4">
             Contact us now for immediate assistance
           </p>
-          <button className="bg-yellow-500 text-blue-900 hover:bg-yellow-600 hover:text-white py-3 px-6 rounded-lg text-lg transition duration-300">
+          <button onClick={handleCallNowClick} className="bg-yellow-500 text-blue-900 hover:bg-yellow-600 hover:text-white py-3 px-6 rounded-lg text-lg transition duration-300">
             Call Now
           </button>
         </section>

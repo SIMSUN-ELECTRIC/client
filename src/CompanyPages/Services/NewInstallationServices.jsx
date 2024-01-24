@@ -1,29 +1,32 @@
 import React, { useState } from "react";
 
 const NewInstallationServices = () => {
-  const [requestResidential, setRequestResidential] = useState("");
-  const [installationResidential, setInstallationResidential] = useState("");
-  const [requestCommercial, setRequestCommercial] = useState("");
-  const [installationCommercial, setInstallationCommercial] = useState("");
-  const [requestResidential2, setRequestResidential2] = useState("");
-  const [installationResidential2, setInstallationResidential2] = useState("");
-  const [requestCommercial2, setRequestCommercial2] = useState("");
-  const [installationCommercial2, setInstallationCommercial2] = useState("");
+  const [showContactNumberResidential, setShowContactNumberResidential] =
+    useState(false);
 
-  const generateRequestResidential = () => {
-    setRequestResidential("101");
+  const [showContactNumberComercial, setShowContactNumberComercial] =
+    useState(false);
+
+  const [showContactNumberComercial2, setShowContactNumberComercial2] =
+    useState(false);
+
+  const [showContactNumberResidential2, setShowContactNumberResidential2] =
+    useState(false);
+
+  const handleGetContactClick4 = () => {
+    setShowContactNumberComercial2(!showContactNumberComercial2);
   };
 
-  const generateInstallationResidential = () => {
-    setInstallationResidential("201");
+  const handleGetContactClick3 = () => {
+    setShowContactNumberResidential2(!showContactNumberResidential2);
   };
 
-  const generateRequestCommercial = () => {
-    setRequestCommercial("102");
+  const handleGetContactClick2 = () => {
+    setShowContactNumberComercial(!showContactNumberComercial);
   };
 
-  const generateInstallationCommercial = () => {
-    setInstallationCommercial("202");
+  const handleGetContactClick = () => {
+    setShowContactNumberResidential(!showContactNumberResidential);
   };
 
   return (
@@ -43,17 +46,19 @@ const NewInstallationServices = () => {
             living space. From custom lighting solutions to smart home setups,
             we've got your electrical needs covered.
           </p>
-          <button
+          <a
+            href="mailto:simsunelectricwork@gmail.com"
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 mr-2"
-            onClick={generateRequestResidential}
           >
-            Request {requestResidential}
-          </button>
+            Request
+          </a>
           <button
+            onClick={handleGetContactClick}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 ml-2"
-            onClick={generateInstallationResidential}
           >
-            Installation {installationResidential}
+            {showContactNumberResidential
+              ? "Contact: +007-9089-6767"
+              : "Get Contact"}
           </button>
         </div>
 
@@ -68,17 +73,19 @@ const NewInstallationServices = () => {
             or manufacturing facility. Count on us for dependable electrical
             infrastructure.
           </p>
-          <button
+          <a
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 mr-2"
-            onClick={generateRequestCommercial}
+            href="mailto:simsunelectricwork@gmail.com"
           >
-            Request {requestCommercial}
-          </button>
+            Request
+          </a>
           <button
+            onClick={handleGetContactClick2}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 ml-2"
-            onClick={generateInstallationCommercial}
           >
-            Installation {installationCommercial}
+            {showContactNumberComercial
+              ? "Contact: +007-9089-6767"
+              : "Get Contact"}
           </button>
         </div>
 
@@ -92,17 +99,19 @@ const NewInstallationServices = () => {
             experienced electricians are here to help you with all your
             residential electrical needs.
           </p>
-          <button
+          <a
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 mr-2"
-            onClick={() => setRequestResidential2("103")}
+            href="mailto:simsunelectricwork@gmail.com"
           >
-            Request {requestResidential2}
-          </button>
+            Request
+          </a>
           <button
+            onClick={handleGetContactClick3}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 ml-2"
-            onClick={() => setInstallationResidential2("203")}
           >
-            Installation {installationResidential2}
+            {showContactNumberResidential2
+              ? "Contact: +007-9089-6767"
+              : "Get Contact"}
           </button>
         </div>
 
@@ -116,17 +125,19 @@ const NewInstallationServices = () => {
             solutions to meet the electrical requirements of your business,
             ensuring efficiency and reliability.
           </p>
-          <button
+          <a
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 mr-2"
-            onClick={() => setRequestCommercial2("104")}
+            href="mailto:simsunelectricwork@gmail.com"
           >
-            Request {requestCommercial2}
-          </button>
+            Request
+          </a>
           <button
+            onClick={handleGetContactClick4}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 ml-2"
-            onClick={() => setInstallationCommercial2("204")}
           >
-            Installation {installationCommercial2}
+            {showContactNumberComercial2
+              ? "Contact: +007-9089-6767"
+              : "Get Contact"}
           </button>
         </div>
       </div>
