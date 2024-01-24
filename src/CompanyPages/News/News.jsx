@@ -42,8 +42,8 @@ const NewsList = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 p-8 mt-6">
-      <div className="mt-16 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gray-200 p-8 ">
+      <div className="mt-0 md:mt-16 max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-black mb-8">Latest News</h1>
         <div className="grid gap-8">
           {news.map((item) => (
