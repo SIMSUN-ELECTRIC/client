@@ -146,9 +146,9 @@ const EscalatorAutowalkModernization = () => {
         {/* section 3 end */}
 
         {/* section 4 start  */}
-        <div className=" w-full sm:h-[40rem] h-[80rem] mt-[18rem] sm:mt-0">
+        <div className="relative w-full sm:h-[40rem] h-[55rem] mt-[10rem] sm:mt-0">
           <div className="relative min-h-screen">
-            <div className=" bg-[#202b35] w-full sm:max-h-[40rem] h-[80rem]" />
+            <div className=" bg-[#202b35] w-full sm:max-h-[35rem] h-[50rem]" />
             <div className="absolute inset-0 flex flex-col justify-center items-center">
               <div className="  p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full  bg-white">
                 <h1 className="sm:text-4xl font-semibold p-4 text-[1.6rem] max-w-full mb-10 text-black">
@@ -202,54 +202,9 @@ const EscalatorAutowalkModernization = () => {
                       plan an escalator or autowalk.
                     </div>
                   </div>
-                  <div className="border hover:border-2  p-10  hover:border-blue-500 flex-1 ">
-                    <div className="text-2xl my-4 text-left flex items-center">
-                      ESCALATOR PLANNER
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className=" h-6 w-6    "
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                        />
-                      </svg>
-                    </div>
-                    <div className="text-left">
-                      Escalator Planner helps you select the right product as
-                      well as create detailed specifications, BIM equipment
-                      models and CAD drawings for preliminary planning.
-                    </div>
-                  </div>
                 </div>
                 {/* section 5 start */}
-                <button className="mt-16 relative inline-flex items-center justify-center p-0.5 mb-20 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-full sm:w-full md:w-[30%]">
-                  <span className="text-2xl relative px-10 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
-                    More tools and download
-                  </span>
-                  <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-full h-full bg-white rounded-l-full rotate-90 transition-all duration-300 ease-in opacity-0 group-hover:opacity-100 dark:group-hover:rotate-90 dark:group-hover:opacity-100 flex justify-center items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="w-full h-full -rotate-90 text-white bg-blue-500"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                      />
-                    </svg>
-                    {/* <div>Give me</div> */}
-                  </span>
-                </button>
+
                 {/* section 5 end */}
               </div>
             </div>
@@ -258,7 +213,7 @@ const EscalatorAutowalkModernization = () => {
         {/* section 4 end */}
 
         {/* section 6 start */}
-        <div className="sm:mt-11 mt-32 flex flex-col justify-center items-center w-full">
+        <div className="sm:mt-11 mt-3 flex flex-col justify-center items-center w-full">
           <div className="text-center">
             <h2 className="text-2xl md:text-3xl font-semibold">
               How can we help you?
@@ -332,7 +287,7 @@ const EscalatorAutowalkModernization = () => {
       </div>
       {/* section 7 start */}
       <div className="  flex flex-col justify-center items-center ">
-        <button className="mt-[3rem] relative inline-flex items-center justify-center p-0.5 mb-4 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[90%] sm:w-full md:w-[40%]">
+        <button className="mt-[3rem] relative inline-flex items-center justify-center p-0.5 mb-4 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[80%] sm:w-full md:w-[40%]">
           <span className="sm:text-2xl text-xl relative px-10 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
             Read more about our moderinazation process.
           </span>
