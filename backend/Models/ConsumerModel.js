@@ -30,6 +30,14 @@ const ConsumerSchema = new Schema(
       required: true,
       unique: true,
     },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

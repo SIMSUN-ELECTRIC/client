@@ -87,6 +87,11 @@ const Shop = () => {
     product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
   );
 
+  const handleEnquiry = (product) => {
+    const mailto = `mailto:sales@example.com?subject=Product Enquiry - ${product.name}&body=Product Name: ${product.name}%0D%0ACategory: ${product.category}%0D%0ADescription: ${product.description}%0D%0AWrite Your Enquiry Here: `;
+    window.location.href = mailto;
+  };
+
   return (
     <div className="mt-0 md:mt-16 min-h-screen bg-gray-100 p-4">
       <h1 className="text-3xl font-semibold text-center mb-8">Shop</h1>
@@ -138,8 +143,13 @@ const Shop = () => {
                   ))}
                 </div>
               ) : null}
-
               <p className="text-green-800 font-semibold">₹{product.price}</p>
+              <button
+                className="block w-full  text-white py-2 mt-2 font-[Poppins] rounded bg-red-500 hover:bg-red-600 transition duration-300"
+                onClick={() => handleEnquiry(product)}
+              >
+                Enquire Now
+              </button>
               <button
                 className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
                 onClick={() => handleAddToCart(product)}

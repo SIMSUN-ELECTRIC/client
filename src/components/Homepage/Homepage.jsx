@@ -47,7 +47,7 @@ const Homepage = () => {
           <div
             className={`${
               mainImage === esc1
-                ? " bg-black/60 text-violet-100 "
+                ? " bg-black/60 w-100% text-violet-100 "
                 : "text-white"
             } w-fit h-full`}
           >

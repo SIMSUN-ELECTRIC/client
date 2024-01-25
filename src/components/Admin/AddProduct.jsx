@@ -9,6 +9,7 @@ const AddProduct = () => {
   const [prodName, setProdName] = useState("");
   const [prodDescp, setProdDescp] = useState("");
   const [price, setPrice] = useState(0);
+  const [rating, setRating] = useState(1);
   const [file, setFile] = useState();
   const [category, setCategory] = useState("Lift");
 
@@ -34,6 +35,7 @@ const AddProduct = () => {
       formData.append("prodName", prodName);
       formData.append("prodDescp", prodDescp);
       formData.append("price", price);
+      formData.append("rating", rating);
       formData.append("category", category);
 
       const res = await axios.post(
@@ -67,8 +69,8 @@ const AddProduct = () => {
 
   return (
     <>
-      <div className="md:mt-16 flex justify-center items-center p-16 w-full  bg-violet-700  ">
-        <form className=" max-w-lg  bg-gray-200  rounded-md p-10">
+      <div className="md:mt-16 flex justify-center items-center p-8 w-full  bg-violet-700  ">
+        <form className=" max-w-lg  bg-gray-200  rounded-md py-10 px-8">
           <h1 className="flex justify-center text-3xl mb-4">Add Product</h1>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -157,12 +159,27 @@ const AddProduct = () => {
                 </div>
               </div>
             </div>
+            <div className="w-full md:w-1/2 px-3">
+              <label
+                className="block text-black uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-last-name"
+              >
+                Rating (1-5)
+              </label>
+              <input
+                className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                type="number"
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+              />
+            </div>
           </div>
 
-          <div className=" flex justify-end">
+          <div className="mt-8 flex justify-end">
             <button
               type="button"
-              className="focus:outline-none text-white bg-violet-700 hover:bg-violet-800 focus:violet-4 focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
+              className="focus:outline-none text-white bg-violet-700 hover:bg-violet-800 focus:violet-4 focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2  dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
               onClick={handleSubmit}
             >
               Add Product

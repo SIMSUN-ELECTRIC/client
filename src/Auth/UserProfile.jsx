@@ -12,8 +12,8 @@ const UserProfile = () => {
   });
 
   return (
-    <animated.div style={profileAnimation} className="container mx-auto mt-8">
-      <div className="mt-16 bg-gray-100 min-h-screen py-12">
+    <animated.div style={profileAnimation} className="container mx-auto ">
+      <div className="mt-16 bg-gray-100 min-h-screen px-2">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-6 grid grid-cols-2 gap-6">
             <div className="col-span-1">
@@ -31,19 +31,58 @@ const UserProfile = () => {
                 <p className="ml-2 text-black">{user.userName}</p>
               </div>
               <div className="mb-4">
-                <label className="font-semibold text-black">Email:</label>
-                <p className="ml-2 text-black">{user.email}</p>
+                <label className="font-semibold text-black">
+                  Phone Number:
+                </label>
+                <p className="ml-2 text-black">{user.phoneNumber}</p>
               </div>
-              {/* <div className="mb-4">
+
+              {user.whatsappNumber ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">
+                    Whatsapp Number:
+                  </label>
+                  <p className="ml-2 text-black">{user.whatsappNumber}</p>
+                </div>
+              ) : null}
+
+              {user.field ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">Field:</label>
+                  <p className="ml-2 text-black">{user.field}</p>
+                </div>
+              ) : null}
+
+              {user.experience ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">
+                    Experience:
+                  </label>
+                  <p className="ml-2 text-black">{user.experience}</p>
+                </div>
+              ) : null}
+
+              {user.location ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">Location:</label>
+                  <p className="ml-2 text-black">{user.location}</p>
+                </div>
+              ) : null}
+
+              {user.pinCode ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">PinCode:</label>
+                  <p className="ml-2 text-black">{user.pinCode}</p>
+                </div>
+              ) : null}
+
+              <div className="mb-4">
                 <label className="font-semibold text-black">Address:</label>
-                <p className="ml-2 text-black">
-                  Flat No. T-1, 104, 1st Floor, Tower-1, GH 01/A, Sector 16C,
-                  Exotica Dreamville, Greater Noida, U.P. 201203
-                </p>
-              </div> */}
+                <p className="ml-2 text-black">{user.address}</p>
+              </div>
             </div>
 
-            <div className="col-span-1">
+            {/* <div className="col-span-1">
               <h2 className="text-xl font-semibold mb-4">
                 Company Information
               </h2>
@@ -57,7 +96,7 @@ const UserProfile = () => {
                 </label>
                 <p className="ml-2 text-black">simsunelectricwork@gmail.com</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -49,7 +49,6 @@ const UsersList = () => {
                   <div>
                     <strong>Name:</strong> {user.fullName}
                   </div>
-                  <br />
                   <div>
                     <strong>Email:</strong> {user.email}
                   </div>

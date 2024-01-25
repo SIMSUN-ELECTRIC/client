@@ -9,6 +9,8 @@ const ConsumerRegister = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setaddress] = useState("");
 
   const navigate = useNavigate();
 
@@ -23,6 +25,8 @@ const ConsumerRegister = () => {
           userName,
           email,
           password,
+          phoneNumber,
+          address,
         }
       );
 
@@ -31,6 +35,7 @@ const ConsumerRegister = () => {
         const json = response.data;
         console.log(json);
         navigate("/auth/consumerLogin");
+        toast.success("Successfully registered");
       } else {
         // Handle other status codes or errors here
         console.error("Registration failed with status code:", response.status);
@@ -44,13 +49,15 @@ const ConsumerRegister = () => {
       toast.error("Email or Username is already exist");
       setEmail("");
       setPassword("");
+      setPhoneNumber("");
+      setaddress("");
     }
   };
 
   return (
     <>
       <div className="mt-16 h-screen md:flex text-center">
-        <div className="relative overflow-hidden md:flex w-3/5 bg-gradient-to-tr from-blue-800 to-purple-700 justify-around items-center hidden ">
+        <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 justify-around items-center hidden ">
           <div className="flex flex-col items-center">
             <h1 className="text-white font-bold text-5xl font-sans">Simsun</h1>
             <p className="text-white text-4xl m-2 sm:-translate-x-4">
@@ -77,7 +84,7 @@ const ConsumerRegister = () => {
               <p className="text-2xl lg:text-3xl font-normal text-gray-600 mt-4  md:mt-2 mb-6">
                 Ready to create an account?
               </p>
-              <div className="flex items-center   border-2 py-2 px-3 rounded-2xl mb-4">
+              <div className="flex items-center  border-2 py-1 px-3 rounded-2xl mb-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -100,7 +107,7 @@ const ConsumerRegister = () => {
                   onChange={(e) => setFullName(e.target.value)}
                 />
               </div>
-              <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+              <div className="flex items-center border-2 py-1 px-3 rounded-2xl mb-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -125,7 +132,7 @@ const ConsumerRegister = () => {
                   onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
-              <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+              <div className="flex items-center border-2 py-1 px-3 rounded-2xl mb-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -150,7 +157,7 @@ const ConsumerRegister = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
+              <div className="flex items-center border-2 py-1 px-3 rounded-2xl mb-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -171,6 +178,48 @@ const ConsumerRegister = () => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="flex items-center border-2 py-1 px-3 rounded-2xl mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <input
+                  className="pl-2 outline-none border-none xl:w-full xl:h-10 xl:rounded-lg xl:ml-2"
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </div>
+              <div className="flex items-center border-2 py-1 px-3 rounded-2xl">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <input
+                  className="pl-2 outline-none border-none xl:w-full xl:h-10 xl:rounded-lg xl:ml-2"
+                  type="text"
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => setaddress(e.target.value)}
                 />
               </div>
               <button

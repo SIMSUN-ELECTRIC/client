@@ -40,24 +40,26 @@ const UsersList = () => {
         </div>
         <ul>
           {users.engineers &&
-            users.engineers.map((user) => (
-              <li
-                key={user._id}
-                className="user-item flex justify-between items-center p-4 border bg-white hover:bg-gray-100 transition duration-300"
-              >
-                <div className="user-info">
-                  <strong>Name:</strong> {user.fullName}
-                  <br />
-                  <strong>Email:</strong> {user.email}
-                </div>
-                <button
-                  className="details-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
-                  onClick={() => openDetailsModal(user)}
+            users.engineers
+              .filter((user) => user.isEngineer)
+              .map((user) => (
+                <li
+                  key={user._id}
+                  className="user-item flex justify-between items-center p-4 border bg-white hover:bg-gray-100 transition duration-300"
                 >
-                  See Details
-                </button>
-              </li>
-            ))}
+                  <div className="user-info">
+                    <strong>Name:</strong> {user.fullName}
+                    <br />
+                    <strong>Email:</strong> {user.email}
+                  </div>
+                  <button
+                    className="details-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
+                    onClick={() => openDetailsModal(user)}
+                  >
+                    See Details
+                  </button>
+                </li>
+              ))}
         </ul>
       </div>
 

@@ -36,7 +36,8 @@ router.get("/getUsers", async (req, res) => {
 });
 
 router.post("/consumerRegister", async (req, res) => {
-  const { userName, fullName, email, password } = req.body;
+  const { userName, fullName, email, password, phoneNumber, address } =
+    req.body;
 
   try {
     await ConsumerModel.create({
@@ -44,6 +45,8 @@ router.post("/consumerRegister", async (req, res) => {
       fullName,
       email,
       password: bcrypt.hashSync(password, salt),
+      address,
+      phoneNumber,
     });
 
     res.json({ message: "Registration successful!" });

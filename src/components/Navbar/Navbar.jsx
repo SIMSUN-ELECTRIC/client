@@ -646,7 +646,6 @@ const Navbar = () => {
                     <button
                       onClick={() => {
                         toggleDropdown();
-                        setOpen(!open);
                       }}
                       className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full "
@@ -658,7 +657,6 @@ const Navbar = () => {
                   <button
                     onClick={() => {
                       toggleDropdown();
-                      setOpen(!open);
                     }}
                     className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full "
