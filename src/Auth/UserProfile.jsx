@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useSpring, animated } from "react-spring";
+import profilebg from "../assets/img/profilebg.jpg";
 
 const UserProfile = () => {
   const user = useSelector((state) => state.user.userData);
@@ -12,29 +13,38 @@ const UserProfile = () => {
   });
 
   return (
-    <animated.div style={profileAnimation} className="container mx-auto ">
-      <div className="mt-16 bg-gray-100 min-h-screen px-2">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-6 grid grid-cols-2 gap-6">
-            <div className="col-span-1">
-              <h2 className="text-xl font-semibold mb-4">
+    <animated.div style={profileAnimation} className=" w-full">
+      <div
+        className="md:mt-20 bg-gray-100 min-h-screen py-12 w-full"
+        style={{ backgroundImage: `url(${profilebg})` }}
+      >
+        <div className="max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
+          <div
+            className="rounded-lg shadow-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-6"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.45)",
+              blur: "15px",
+              boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
+              font: "1em/1.168 Inter,sans-serif",
+            }}
+          >
+            <div className="col-span-1 p-4">
+              <h2 className="text-xl font-semibold mb-6">
                 Personal Information
               </h2>
               {user.fullName ? (
-                <div className="mb-4">
+                <div className="mb-6">
                   <label className="font-semibold">Full Name</label>
                   <p className="ml-2 text-black">{user.fullName}</p>
                 </div>
               ) : null}
-              <div className="mb-4">
+              <div className="mb-6">
                 <label className="font-semibold">Username:</label>
                 <p className="ml-2 text-black">{user.userName}</p>
               </div>
-              <div className="mb-4">
-                <label className="font-semibold text-black">
-                  Phone Number:
-                </label>
-                <p className="ml-2 text-black">{user.phoneNumber}</p>
+              <div className="mb-6">
+                <label className="font-semibold text-black">Email:</label>
+                <p className="ml-2 text-black">{user.email}</p>
               </div>
 
               {user.whatsappNumber ? (
@@ -76,13 +86,35 @@ const UserProfile = () => {
                 </div>
               ) : null}
 
-              <div className="mb-4">
-                <label className="font-semibold text-black">Address:</label>
-                <p className="ml-2 text-black">{user.address}</p>
-              </div>
+              {user.address ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">Address:</label>
+                  <p className="ml-2 text-black">{user.address}</p>
+                </div>
+              ) : null}
             </div>
+            <div className="col-span-1 p-4">
+              <h2 className="text-xl font-semibold mb-6">
+                Company Information
+              </h2>
+              <div className="mb-6">
+                <label className="font-semibold text-black">Company:</label>
+                <p className="ml-2 text-black">Simsun</p>
+              </div>
+              <div className="mb-6">
+                <label className="font-semibold text-black">
+                  Company Email:
+                </label>
+                <p className="ml-2 text-black">simsunelectricwork@gmail.com</p>
+              </div>
+              {user.address ? (
+                <div className="mb-4">
+                  <label className="font-semibold text-black">Address:</label>
+                  <p className="ml-2 text-black">{user.address}</p>
+                </div>
+              ) : null}
 
-            {/* <div className="col-span-1">
+              {/* <div className="col-span-1">
               <h2 className="text-xl font-semibold mb-4">
                 Company Information
               </h2>
@@ -97,6 +129,7 @@ const UserProfile = () => {
                 <p className="ml-2 text-black">simsunelectricwork@gmail.com</p>
               </div>
             </div> */}
+            </div>
           </div>
         </div>
       </div>
