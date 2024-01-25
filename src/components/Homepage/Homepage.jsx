@@ -117,7 +117,7 @@ const Homepage = () => {
         </div>
 
         <div className="w-full text-center flex flex-col mt-12">
-          <h1 className="text-black text-4xl font-bold">WHY CHOOSE US</h1>
+          <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
           <div className="flex flex-row mt-4 justify-center md:flex-nowrap flex-wrap mx-8">
             <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
               <div className="flex justify-center">

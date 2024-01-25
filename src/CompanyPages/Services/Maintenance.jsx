@@ -88,7 +88,7 @@ const Maintenance = () => {
           </div>
           <div className="flex flex-wrap justify-around mt-4  w-full">
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
-              <h1 className="text-3xl text-blue-700">Become a customer</h1>
+              <h2 className="text-3xl text-blue-700">Become a customer</h2>
 
               <Link
                 to="/ContactUs"
@@ -98,7 +98,7 @@ const Maintenance = () => {
               </Link>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
-              <h1 className="text-3xl text-blue-700">Ask us for a quote</h1>
+              <h2 className="text-3xl text-blue-700">Ask us for a quote</h2>
 
               <a
                 href="mailto:simsunelectricwork@gmail.com"
@@ -108,9 +108,9 @@ const Maintenance = () => {
               </a>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
-              <h1 className="text-3xl text-blue-700">
+              <h2 className="text-3xl text-blue-700">
                 Report a service need or incident
-              </h1>
+              </h2>
 
               <a
                 href="mailto:simsunelectricwork@gmail.com"
@@ -144,9 +144,9 @@ const Maintenance = () => {
                   alt={service.title}
                   className="w-full object-cover  mb-4"
                 />
-                <h1 className="text-2xl md:text-3xl text-blue-700">
+                <h2 className="text-2xl md:text-3xl text-blue-700">
                   {service.title}
-                </h1>
+                </h2>
 
                 <p className="text-gray-900 text-md md:text-xl mx-3 mt-2 mb-6">
                   {service.description}
@@ -203,9 +203,9 @@ const Maintenance = () => {
                   alt={service.title}
                   className="w-full object-cover  mb-4"
                 />
-                <h1 className="text-2xl md:text-3xl text-blue-700">
+                <h2 className="text-2xl md:text-3xl text-blue-700">
                   {service.title}
-                </h1>
+                </h2>
 
                 <p className="text-gray-900 text-md md:text-xl mx-3 mt-2 mb-6">
                   {service.description}

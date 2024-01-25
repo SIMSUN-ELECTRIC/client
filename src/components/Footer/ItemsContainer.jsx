@@ -9,7 +9,7 @@ const ItemsContainer = (props) => {
         <Link to="/">
           <img
             src={logo1}
-            alt=""
+            alt="logo img"
             className=" w-12  md:w-20 rounded-full items-center md:mr-5"
           />
         </Link>

@@ -93,7 +93,7 @@ const OurCompany = () => {
                 />
               </div> */}
               <div className="textinfraa">
-                <h1 className="text-4xl">OFFICE LOCATIONS</h1>
+                <h2 className="text-4xl">OFFICE LOCATIONS</h2>
                 <p className="text-2xl mt-4">
                   Flat No. T-1,104,1st Floor,Tower-1 Plot No. GH o1/A,Sector
                   16C, Exotica Dreamville,Greater Noida, U.P.201203
@@ -112,7 +112,7 @@ const OurCompany = () => {
                 /> */}
               {/* </div> */}
               {/* <div className="textinfra ">
-                <h1 className="text-4xl">Our Branches</h1>
+                <h2 className="text-4xl">Our Branches</h2>
                 <p className="text-left">
                   We also have our branch office in Ranchi, Aurangabad from
                   where we provide services to the clients

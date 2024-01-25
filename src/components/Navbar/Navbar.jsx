@@ -66,7 +66,7 @@ const Navbar = () => {
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
               >
                 <div className="flex justify-start   ">
-                  <img src={logo} alt="" className="h-12 w-12" />
+                  <img src={logo} alt="logo img" className="h-12 w-12" />
                 </div>
               </Link>
 
@@ -160,7 +160,7 @@ const Navbar = () => {
 
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">
-                  <h1
+                  <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
@@ -175,7 +175,7 @@ const Navbar = () => {
                     <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                       <FaAngleDown />
                     </span>
-                  </h1>
+                  </h2>
                   {
                     <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
                       <div className="py-0">
@@ -207,7 +207,7 @@ const Navbar = () => {
               ) : null}
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">
-                  <h1
+                  <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
@@ -222,7 +222,7 @@ const Navbar = () => {
                     <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                       <FaAngleDown />
                     </span>
-                  </h1>
+                  </h2>
                   {
                     <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
                       <div className="py-0">
@@ -262,7 +262,7 @@ const Navbar = () => {
               ) : null}
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">
-                  <h1
+                  <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
@@ -277,7 +277,7 @@ const Navbar = () => {
                     <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                       <FaAngleDown />
                     </span>
-                  </h1>
+                  </h2>
                   {
                     <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
                       <div className="py-0">
@@ -457,7 +457,7 @@ const Navbar = () => {
 
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">
-                  <h1
+                  <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
@@ -472,7 +472,7 @@ const Navbar = () => {
                     <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                       <FaAngleDown />
                     </span>
-                  </h1>
+                  </h2>
                   {
                     <div
                       className={`${
@@ -480,7 +480,7 @@ const Navbar = () => {
                       }`}
                     >
                       <div>
-                        <h1 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                        <h2 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
                           <ul className="pl-4">
                             <li className="py-2 flex flex-direction-col">
                               <Link
@@ -501,7 +501,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                           </ul>
-                        </h1>
+                        </h2>
                       </div>
                     </div>
                   }
@@ -510,7 +510,7 @@ const Navbar = () => {
 
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">
-                  <h1
+                  <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
@@ -525,7 +525,7 @@ const Navbar = () => {
                     <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                       <FaAngleDown />
                     </span>
-                  </h1>
+                  </h2>
                   {
                     <div
                       className={`${
@@ -533,7 +533,7 @@ const Navbar = () => {
                       }`}
                     >
                       <div>
-                        <h1 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                        <h2 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
                           <ul className="pl-4">
                             <li className="py-2 flex flex-direction-col">
                               <Link
@@ -563,7 +563,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                           </ul>
-                        </h1>
+                        </h2>
                       </div>
                     </div>
                   }
@@ -571,7 +571,7 @@ const Navbar = () => {
               ) : null}
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">
-                  <h1
+                  <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
                       setHeading((prevHeading) =>
@@ -586,7 +586,7 @@ const Navbar = () => {
                     <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                       <FaAngleDown />
                     </span>
-                  </h1>
+                  </h2>
                   {
                     <div
                       className={`${
@@ -594,7 +594,7 @@ const Navbar = () => {
                       }`}
                     >
                       <div>
-                        <h1 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                        <h2 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
                           <ul className="pl-4">
                             <li className="py-2 flex flex-direction-col">
                               <Link
@@ -624,7 +624,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                           </ul>
-                        </h1>
+                        </h2>
                       </div>
                     </div>
                   }

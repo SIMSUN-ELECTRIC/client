@@ -46,7 +46,7 @@ const EscalatorAutowalkModernization = () => {
           </div>
           <div className="flex flex-wrap justify-around mt-4 mb-6 w-full">
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold text-center">
-              <h1 className="text-6xl mb-8">1</h1>
+              <h2 className="text-6xl mb-8">1</h2>
               <div className=" sm:text-3xl mb-4">
                 AN INVESTMENT THAT PAYS OFF
               </div>
@@ -57,7 +57,7 @@ const EscalatorAutowalkModernization = () => {
               </p>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold text-center">
-              <h1 className="text-6xl mb-8">2</h1>
+              <h2 className="text-6xl mb-8">2</h2>
               <div className=" sm:text-3xl mb-4">HAPPIER BUILDING USERS</div>
               <p className="text-black">
                 Update escalator safety features, reliability, accessibility,
@@ -65,7 +65,7 @@ const EscalatorAutowalkModernization = () => {
               </p>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] flex  items-center justify-around flex-col min-h-[15rem] font-semibold text-center">
-              <h1 className="text-6xl mb-8">3</h1>
+              <h2 className="text-6xl mb-8">3</h2>
               <div className=" sm:text-3xl mb-4">
                 A HASSLE-FREE INSTALLATION PROCESS
               </div>
@@ -85,13 +85,13 @@ const EscalatorAutowalkModernization = () => {
             <div className="w-full sm:max-h-[40rem] h-[60rem]  bg-[#202b35]" />
             <div className="mt-16 absolute inset-0 flex flex-col items-center">
               <div className="  p-4 rounded-lg md:shadow-white shadow-sm text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full">
-                <h1 className="sm:text-4xl font-semibold p-[4rem] md:mt-[8rem] px-3 text-white md:text-3xl text-3xl w-full mb-10">
+                <h2 className="sm:text-4xl font-semibold p-[4rem] md:mt-[8rem] px-3 text-white md:text-3xl text-3xl w-full mb-10">
                   OUR ESCALATOR MODERNIZATION SOLUTIONS
-                </h1>
+                </h2>
                 <div className="  bg-white   min-w-full flex flex-col sm:flex-row gap-4 sm:gap-0">
                   <div className="border  p-10 hover:bg-blue-500 hover:text-white flex-1 ">
                     <div className=" ">
-                      <h1 className=" text-4xl">Full Replacement</h1>
+                      <h2 className=" text-4xl">Full Replacement</h2>
                     </div>
                     <div className="text-2xl px-1 my-4 ">
                       Replace the entire installation, including or excluding
@@ -116,7 +116,7 @@ const EscalatorAutowalkModernization = () => {
                   </div>
                   <div className="border  p-10 hover:bg-blue-500 hover:text-white flex-1 ">
                     <div className=" ">
-                      <h1 className=" text-4xl">Modular Moderinazation</h1>
+                      <h2 className=" text-4xl">Modular Moderinazation</h2>
                     </div>
                     <div className="text-2xl my-4 ">
                       Replace individual components or complete systems.
@@ -151,9 +151,9 @@ const EscalatorAutowalkModernization = () => {
             <div className=" bg-[#202b35] w-full sm:max-h-[35rem] h-[50rem]" />
             <div className="absolute inset-0 flex flex-col justify-center items-center">
               <div className="  p-4 rounded-lg shadow-lg text-center bg-transparent  flex justify-center items-center flex-col md:-translate-y-44 sm:-translate-y-24 -translate-y-10 sm:w-4/5 w-full  bg-white">
-                <h1 className="sm:text-4xl font-semibold p-4 text-[1.6rem] max-w-full mb-10 text-black">
+                <h2 className="sm:text-4xl font-semibold p-4 text-[1.6rem] max-w-full mb-10 text-black">
                   Tools and Downloads
-                </h1>
+                </h2>
                 <div className="  bg-white min-w-full flex flex-col sm:flex-row gap-4 sm:gap-0">
                   <div className="border hover:border-2 hover:border-blue-500  p-10  flex-1 ">
                     <div className="text-2xl my-4 text-left flex items-center">
@@ -222,7 +222,7 @@ const EscalatorAutowalkModernization = () => {
           </div>
           <div className="flex flex-wrap justify-around mt-4  w-full">
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] hover:transform transition ease-in-out delay-120 hover:-translate-y-2 hover:scale-110 duration-300 flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
-              <h1 className="text-3xl text-blue-700">PLANNING</h1>
+              <h2 className="text-3xl text-blue-700">PLANNING</h2>
 
               <div className="border">
                 <svg
@@ -242,7 +242,7 @@ const EscalatorAutowalkModernization = () => {
               </div>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] transition ease-in-out delay-120 hover:-translate-y-2 hover:scale-110 duration-300 flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
-              <h1 className="text-3xl text-blue-700">INSTALLATION</h1>
+              <h2 className="text-3xl text-blue-700">INSTALLATION</h2>
 
               <div className="border">
                 <svg
@@ -262,7 +262,7 @@ const EscalatorAutowalkModernization = () => {
               </div>
             </div>
             <div className="bg-white m-4 p-4 rounded-lg shadow-lg sm:w-[30%] w-[90%] transition ease-in-out delay-120 hover:-translate-y-2 hover:scale-110 duration-300 flex  items-center justify-around flex-col min-h-[15rem] font-semibold">
-              <h1 className="text-3xl text-blue-700">COMPLETION</h1>
+              <h2 className="text-3xl text-blue-700">COMPLETION</h2>
 
               <div className="border">
                 <svg

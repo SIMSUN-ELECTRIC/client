@@ -24,7 +24,7 @@ const NavLinks = () => {
       {links.map((link) => (
         <div key={link.name}>
           <div className="text-left cursor-pointer group ml-5">
-            <h1
+            <h2
               className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
               onClick={() => {
                 setHeading((prevHeading) =>
@@ -40,7 +40,7 @@ const NavLinks = () => {
               <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                 <FaAngleDown />
               </span>
-            </h1>
+            </h2>
             {link.submenu && (
               <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
                 <div className="py-0">
@@ -65,7 +65,7 @@ const NavLinks = () => {
               className={`${heading === link.name ? "md:hidden" : "hidden"}`}
             >
               <div>
-                <h1
+                <h2
                   onClick={() =>
                     setSubHeading((prevSubHeading) =>
                       prevSubHeading === slinks.Head ? "" : slinks.Head
@@ -78,7 +78,7 @@ const NavLinks = () => {
                       <SubLink key={slink.name} slink={slink} />
                     ))}
                   </ul>
-                </h1>
+                </h2>
               </div>
             </div>
           ))}

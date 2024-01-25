@@ -40,7 +40,7 @@ export default function Header() {
             <div className=" rounded-full ">
               <img
                 src={Logo}
-                alt=""
+                alt="logo"
                 className="sm:w-25 md:w-15 xl:w-16 w-16 "
               />
             </div>
