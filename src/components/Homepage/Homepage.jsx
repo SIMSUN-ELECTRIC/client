@@ -20,7 +20,7 @@ const Homepage = () => {
 
   const [index, setIndex] = useState(0);
   const images = [lift15, lift13, lift14, Esc];
-  const mainImages = [home, esc1];
+  const mainImages = [esc1, home];
   const [mainindex, setmainIndex] = useState(0);
 
   useEffect(() => {
@@ -49,17 +49,18 @@ const Homepage = () => {
               mainImage === esc1
                 ? " bg-black/60 w-100% text-violet-100 "
                 : "text-white"
-            } w-fit h-full`}
+            } w-full h-full`}
           >
-            <div className="relative mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-[40px] md:text-[60px] text-center tracking-[0] leading-[normal] mx-[3.375rem]">
-              WELCOME TO SIMSUN ELECTRIC
+            <div className="relative mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-3xl md:text-4xl text-center tracking-[0] leading-[normal] mx-8 mb-8">
+              WELCOME TO <p className="md:inline">SIMSUN ELECTRIC</p>
             </div>
-            <div className="relative mt-8 [font-family:'Poppins-Regular',Helvetica] font-extralight text-2xl md:text-3xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
-              <p className="font-bold">ELEVATOR AND ESCALATOR PARTS</p>
-              <p className="mt-2">X</p>
-              <p className="mt-2">
-                Production and Sales Technology One-Stop Service
+            <div className="relative [font-family:'Poppins-Regular',Helvetica] font-extralight text-xl md:text-2xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
+              <p className="mt-2 w-full text-xl md:text-3xl font-bold">
+                ELEVATOR AND ESCALATOR PARTS
               </p>
+              <p className="mt-2 w-full">X</p>
+              <p className="mt-2 w-full">Production and Sales</p>
+              <p className="mt-2 w-full">Technology One-Stop Services</p>
               {/* <p>
               We believe this is the key to any successful relationship, and
               it's important to us that our clients and team members have a
