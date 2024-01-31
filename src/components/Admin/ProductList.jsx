@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminPanel = () => {
   const [products, setProducts] = useState([]);
@@ -39,6 +41,7 @@ const AdminPanel = () => {
       );
       // Refresh the product list after deletion
       fetchProducts();
+      toast.success("Product deleted successfully");
     } catch (error) {
       console.error("Error deleting product:", error.message);
     }
