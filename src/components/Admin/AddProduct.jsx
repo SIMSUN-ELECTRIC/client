@@ -9,7 +9,7 @@ const AddProduct = () => {
   const [prodName, setProdName] = useState("");
   const [prodDescp, setProdDescp] = useState("");
   const [price, setPrice] = useState(0);
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(5);
   const [file, setFile] = useState();
   const [category, setCategory] = useState("Lift");
 
@@ -29,6 +29,11 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!prodName || !prodDescp || !price || !file || !category) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
     try {
       const formData = new FormData();
       formData.append("file", file); // Assuming 'file' is the selected file
@@ -39,7 +44,7 @@ const AddProduct = () => {
       formData.append("category", category);
 
       const res = await axios.post(
-        "https://simsun-backend.onrender.com/api/products/submitProduct",
+        "http://localhost:5000/api/products/submitProduct",
         formData,
         {
           headers: {
@@ -57,6 +62,14 @@ const AddProduct = () => {
         console.log("Product added successfully!");
         toast.success("Product added successfully");
         // Optionally, redirect the user or perform other actions.
+
+        // Reset all input fields to their initial state
+        setProdName("");
+        setProdDescp("");
+        setPrice(0);
+        setRating(5);
+        setFile(null);
+        setCategory("Lift");
       } else {
         console.error("Error adding product. Server response:", res);
         toast.error("Error adding Product");
