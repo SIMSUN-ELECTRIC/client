@@ -10,7 +10,9 @@ const NewsList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/news");
+        const response = await axios.get(
+          "https://simsun-backend.onrender.com/news"
+        );
         const totalNewsCount = response.data.length;
 
         setTotalPages(Math.floor(totalNewsCount / itemsPerPage) + 1);
@@ -26,7 +28,7 @@ const NewsList = () => {
     const fetchNews = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/news?limit=${itemsPerPage}&page=${currentPage}`
+          `https://simsun-backend.onrender.com/news?limit=${itemsPerPage}&page=${currentPage}`
         );
         setNews(response.data);
       } catch (error) {

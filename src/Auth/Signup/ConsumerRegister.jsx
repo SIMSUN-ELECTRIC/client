@@ -19,7 +19,7 @@ const ConsumerRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/consumerRegister",
+        "https://simsun-backend.onrender.com/api/consumerRegister",
         {
           fullName,
           userName,

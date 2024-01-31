@@ -20,7 +20,7 @@ const NewsForm = () => {
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:5000/news", { title, description })
+      .post("https://simsun-backend.onrender.com/news", { title, description })
       .then((response) => {
         console.log("News added:", response.data);
         // Show toast message

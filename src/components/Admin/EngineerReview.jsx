@@ -5,25 +5,33 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const acceptEngineerRequest = async (engineerId) => {
-  await axios.post("http://localhost:5000/api/acceptEngineerRequest", {
-    engineerId,
-  });
+  await axios.post(
+    "https://simsun-backend.onrender.com/api/acceptEngineerRequest",
+    {
+      engineerId,
+    }
+  );
 
   // TODO: Add logic to send an email to the engineer about approval
   // Example: await sendApprovalEmail(engineerId);
 };
 
 const rejectEngineerRequest = async (engineerId) => {
-  await axios.post("http://localhost:5000/api/rejectEngineerRequest", {
-    engineerId,
-  });
+  await axios.post(
+    "https://simsun-backend.onrender.com/api/rejectEngineerRequest",
+    {
+      engineerId,
+    }
+  );
 
   // TODO: Add logic to send an email to the engineer about rejection
   // Example: await sendRejectionEmail(engineerId);
 };
 
 const fetchEngineers = async () => {
-  const { data } = await axios.get("http://localhost:5000/api/getUsers");
+  const { data } = await axios.get(
+    "https://simsun-backend.onrender.com/api/getUsers"
+  );
   return data.engineers;
 };
 

@@ -17,7 +17,7 @@ const AdminLogin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/adminLogin",
+        "https://simsun-backend.onrender.com/api/adminLogin",
         {
           email,
           password,

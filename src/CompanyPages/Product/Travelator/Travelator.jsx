@@ -42,7 +42,7 @@ const TravelatorProducts = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          `http://localhost:5000/api/products?category=Travelator&limit=16&page=${state.currentPage}`
+          `https://simsun-backend.onrender.com/api/products?category=Travelator&limit=16&page=${state.currentPage}`
         );
         dispatchProducts({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (error) {

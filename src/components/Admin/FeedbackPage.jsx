@@ -17,15 +17,17 @@ const FeedbackPage = () => {
 
   useEffect(() => {
     // Fetch feedbacks from the server
-    axios.get("http://localhost:5000/api/feedbacks").then((response) => {
-      setFeedbacks(response.data);
-    });
+    axios
+      .get("https://simsun-backend.onrender.com/api/feedbacks")
+      .then((response) => {
+        setFeedbacks(response.data);
+      });
   }, []);
 
   const handleDeleteFeedback = (id) => {
     // Send a request to delete feedback by id
     axios
-      .delete(`http://localhost:5000/api/feedbacks/${id}`)
+      .delete(`https://simsun-backend.onrender.com/api/feedbacks/${id}`)
       .then((response) => {
         // Update the feedbacks state after successful deletion
         setFeedbacks((prevFeedbacks) =>

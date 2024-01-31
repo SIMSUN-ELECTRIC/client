@@ -19,7 +19,7 @@ const UsersList = () => {
   useEffect(() => {
     // Fetch user data from the backend
     axios
-      .get("http://localhost:5000/api/getUsers")
+      .get("https://simsun-backend.onrender.com/api/getUsers")
       .then((response) => setUsers(response.data))
       .catch((error) => console.error("Error fetching user data:", error));
   }, []);

@@ -24,7 +24,7 @@ const AdminPanel = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/products/list"
+        "https://simsun-backend.onrender.com/api/products/list"
       );
       setProducts(response.data);
     } catch (error) {
@@ -34,7 +34,9 @@ const AdminPanel = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${productId}`);
+      await axios.delete(
+        `https://simsun-backend.onrender.com/api/products/${productId}`
+      );
       // Refresh the product list after deletion
       fetchProducts();
     } catch (error) {

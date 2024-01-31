@@ -23,7 +23,9 @@ const NewsList = () => {
 
   const fetchNews = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/news");
+      const response = await axios.get(
+        "https://simsun-backend.onrender.com/news"
+      );
       setNewsList(response.data);
     } catch (error) {
       console.error("Error fetching news:", error.message);
@@ -34,7 +36,9 @@ const NewsList = () => {
   const handleDeleteNews = async (newsId) => {
     if (window.confirm("Are you sure you want to delete this news?")) {
       try {
-        await axios.delete(`http://localhost:5000/news/${newsId}`);
+        await axios.delete(
+          `https://simsun-backend.onrender.com/news/${newsId}`
+        );
         // Refresh the news list after deletion
         fetchNews();
       } catch (error) {

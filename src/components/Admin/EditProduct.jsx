@@ -23,7 +23,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/${id}`
+          `https://simsun-backend.onrender.com/api/products/${id}`
         );
         const existingProduct = response.data;
 
@@ -50,7 +50,7 @@ const EditProduct = () => {
   // const fetchProductDetails = async () => {
   //   try {
   //     const response = await axios.get(
-  //       `http://localhost:5000/api/products/${id}`
+  //       `https://simsun-backend.onrender.com/api/products/${id}`
   //     );
   //     setProduct(response.data);
   //   } catch (error) {
@@ -82,7 +82,7 @@ const EditProduct = () => {
         const formData = new FormData();
         formData.append("file", product.image);
         const result = await axios.post(
-          "http://localhost:5000/api/products/upload", // Create a new route for uploading files to Cloudinary
+          "https://simsun-backend.onrender.com/api/products/upload", // Create a new route for uploading files to Cloudinary
           formData
         );
 
@@ -92,10 +92,13 @@ const EditProduct = () => {
       }
 
       // Update the product details with the Cloudinary URL
-      await axios.put(`http://localhost:5000/api/products/${id}`, {
-        ...product,
-        imageUrl,
-      });
+      await axios.put(
+        `https://simsun-backend.onrender.com/api/products/${id}`,
+        {
+          ...product,
+          imageUrl,
+        }
+      );
 
       toast.success("Product Updated Successfully");
       // Redirect to the admin panel after updating
@@ -107,7 +110,7 @@ const EditProduct = () => {
 
   // const handleUpdateProduct = async () => {
   //   try {
-  //     await axios.put(`http://localhost:5000/api/products/${id}`, product);
+  //     await axios.put(`https://simsun-backend.onrender.com/api/products/${id}`, product);
   //     // Redirect to the admin panel after updating
   //     navigate("/admin");
   //   } catch (error) {

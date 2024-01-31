@@ -17,7 +17,9 @@ const EditNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/news/${id}`);
+        const response = await axios.get(
+          `https://simsun-backend.onrender.com/news/${id}`
+        );
         const existingNews = response.data;
 
         // Set the initial state with existing data
@@ -40,7 +42,7 @@ const EditNews = () => {
 
   const handleUpdateNews = async () => {
     try {
-      await axios.put(`http://localhost:5000/news/${id}`, news);
+      await axios.put(`https://simsun-backend.onrender.com/news/${id}`, news);
       toast.success("News Updated Successfully");
       navigate("/admin/newsList");
     } catch (error) {

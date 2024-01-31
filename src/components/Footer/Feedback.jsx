@@ -17,7 +17,8 @@ const FeedbackPage = () => {
       navigate("/auth/consumerLogin");
       toast.warn("For sending Feedback you should login");
     } else {
-      const serverEndpoint = "http://localhost:5000/api/feedbacks";
+      const serverEndpoint =
+        "https://simsun-backend.onrender.com/api/feedbacks";
       const errorMessage = "Error sending feedback. Please try again.";
 
       if (!feedback.trim()) {
