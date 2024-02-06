@@ -54,7 +54,9 @@ const Shop = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          `https://simsun-backend.onrender.com/api/products?limit=16&page=${state.currentPage}`
+          `https://simsun-backend.onrender.com/api/products?limit=${
+            category === "" ? 15 : 100
+          }&page=${state.currentPage}`
         );
         dispatchProducts({
           type: "FETCH_SUCCESS",
@@ -114,7 +116,7 @@ const Shop = () => {
           onClick={() => setOpen(!open)}
         >
           {open ? (
-            <RxCross2 className="z-50 md fixed top-6  left-28 xs:left-40 sm:left-64 md:left-80  " />
+            <RxCross2 className="z-50 md fixed top-6 left-40 sm:left-80  text-xl sm:text-3xl mt-1 sm:mt-0 ml-2" />
           ) : (
             <div className="flex items-center text-sm">
               <IoMdMenu className="z-50 text-3xl" />
@@ -148,7 +150,7 @@ const Shop = () => {
 
       <div className="flex w-full gap-10">
         <div
-          className={` z-20 md:z-0 md:w-1/2 lg:w-1/3 w-1/2 fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full lg:ml-10 bg-white min-h-screen  duration-500 ${
+          className={` z-20 md:z-0 w-1/2  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full lg:ml-10 bg-white min-h-screen  duration-500 ${
             open ? "left-0" : "left-[-100%] md:left-0"
           }`}
         >
@@ -166,6 +168,7 @@ const Shop = () => {
                     if (!myproduct.subMenu) {
                       setOpen(!open);
                       setCategory(myproduct.name);
+                      window.scrollTo(0, 0);
                     }
                   }}
                 >
@@ -197,6 +200,7 @@ const Shop = () => {
                               onClick={() => {
                                 setCategory(subcategory.name);
                                 setOpen(!open);
+                                window.scrollTo(0, 0);
                               }}
                             >
                               {subcategory.name}
