@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./Mylinks";
-import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
+import {
+  FaAngleUp,
+  FaAngleDown,
+  FaAngleLeft,
+  FaAngleRight,
+} from "react-icons/fa6";
 
 const SubLink = ({ slink }) => (
   <li className="py-2 flex flex-direction-col">
@@ -24,23 +29,46 @@ const NavLinks = () => {
       {links.map((link) => (
         <div key={link.name}>
           <div className="text-left cursor-pointer group ml-5">
-            <h2
-              className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
-              onClick={() => {
-                setHeading((prevHeading) =>
-                  prevHeading === link.name ? "" : link.name
-                );
-                setSubHeading("");
-              }}
-            >
-              {link.name}
-              <span className="text-xl md:hidden inline">
-                {heading === link.name ? <FaAngleUp /> : <FaAngleDown />}
-              </span>
-              <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
-                <FaAngleDown />
-              </span>
-            </h2>
+            {link.link != null ? (
+              <Link to={link.link}>
+                <h2
+                  className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                  onClick={() => {
+                    setHeading((prevHeading) =>
+                      prevHeading === link.name ? "" : link.name
+                    );
+                    setSubHeading("");
+                  }}
+                >
+                  {link.name}
+                  <span className="text-xl md:hidden inline">
+                    {heading === link.name ? <FaAngleUp /> : <FaAngleDown />}
+                  </span>
+                  <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                    <FaAngleDown />
+                  </span>
+                </h2>
+              </Link>
+            ) : (
+              <h2
+                className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                onClick={() => {
+                  setHeading((prevHeading) =>
+                    prevHeading === link.name ? "" : link.name
+                  );
+                  setSubHeading("");
+                }}
+              >
+                {link.name}
+                <span className="text-xl md:hidden inline">
+                  {heading === link.name ? <FaAngleUp /> : <FaAngleDown />}
+                </span>
+                <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                  <FaAngleDown />
+                </span>
+              </h2>
+            )}
+
             {link.submenu && (
               <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
                 <div className="py-0">
@@ -49,9 +77,10 @@ const NavLinks = () => {
                 <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
                   {link.sublinks.map((mysublinks) => (
                     <div key={mysublinks.Head}>
-                      {mysublinks.sublink.map((slink) => (
-                        <SubLink key={slink.name} slink={slink} />
-                      ))}
+                      {mysublinks.sublink.map((slink, index) => {
+                        if (index >= 10) return;
+                        return <SubLink key={slink.name} slink={slink} />;
+                      })}
                     </div>
                   ))}
                 </div>

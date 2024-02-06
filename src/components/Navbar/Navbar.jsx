@@ -453,6 +453,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </div>
+
               <NavLinks />
 
               {user.userData?.isAdmin ? (

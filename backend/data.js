@@ -66,6 +66,7 @@ const data = {
     { id: 3, name: "Travelator" },
     { id: 4, name: "Lift Spare Parts" },
     { id: 5, name: "Escalator Spare Parts" },
+    { id: 6, name: "BLT Elevator PCB" },
   ],
   products: [
     {
@@ -77,6 +78,53 @@ const data = {
       imageUrl: "../src/assets/img/escalator1.jpg",
       rating: 4.5,
       category: "Lift",
+      brand: "Brand1",
+    },
+    {
+      name: "Product 1",
+      description:
+        "Powerful motor designed for smooth and reliable lift operation.",
+      price: "19.99",
+      imageUrl:
+        "https://images-na.ssl-images-amazon.com/images/I/817-Vrzp+tL._AC_UL254_SR254,254_.jpg",
+      rating: 4.5,
+      category: "BLT Elevator PCB",
+      brand: "Brand1",
+    },
+    {
+      name: "Product 1",
+      description:
+        "Powerful motor designed for smooth and reliable lift operation.",
+      price: "19.99",
+      imageUrl:
+        "https://images-na.ssl-images-amazon.com/images/I/817-Vrzp+tL._AC_UL254_SR254,254_.jpg",
+      rating: 4.5,
+
+      category: "BLT Elevator PCB",
+      brand: "Brand1",
+    },
+    {
+      name: "Product 1",
+      description:
+        "Powerful motor designed for smooth and reliable lift operation.",
+      price: "19.99",
+      imageUrl:
+        "https://images-na.ssl-images-amazon.com/images/I/817-Vrzp+tL._AC_UL254_SR254,254_.jpg",
+      rating: 4.5,
+
+      category: "BLT Elevator PCB",
+      brand: "Brand1",
+    },
+    {
+      name: "Product 1",
+      description:
+        "Powerful motor designed for smooth and reliable lift operation.",
+      price: "19.99",
+      imageUrl:
+        "https://images-na.ssl-images-amazon.com/images/I/817-Vrzp+tL._AC_UL254_SR254,254_.jpg",
+      rating: 4.5,
+
+      category: "BLT Elevator PCB",
       brand: "Brand1",
     },
     {

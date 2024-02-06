@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import productCategories from "./productCategories";
 const AddProduct = () => {
   const [prodName, setProdName] = useState("");
   const [prodDescp, setProdDescp] = useState("");
@@ -152,13 +152,14 @@ const AddProduct = () => {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option value="Lift">Lift</option>
-                  <option value="Escalator">Escalator</option>
-                  <option value="Escalator">Travelator</option>
-                  <option value="LiftSparePart">Lift Spare Part</option>
-                  <option value="EscalatorSparePart">
-                    Escalator Spare Part
-                  </option>
+                  {productCategories.map((productCategory) => (
+                    <option
+                      key={productCategory.id}
+                      value={productCategory.name}
+                    >
+                      {productCategory.name}
+                    </option>
+                  ))}
                 </select>
 
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

@@ -22,19 +22,43 @@ export const links = [
   {
     id: 2,
     name: "Products",
+    link: "/products",
     submenu: true,
     sublinks: [
       {
         Head: "Products",
         sublink: [
-          { id: 21, name: "Lifts", link: "/product/lift" },
-          { id: 22, name: "Escalators", link: "/product/escalator" },
-          { id: 23, name: "Travelator", link: "/product/travelator" },
-          { id: 24, name: "Lift Spare Parts", link: "/product/LiftSparePart" },
+          //
+
+          {
+            id: 21,
+            name: "Lift",
+            link: "/product/lift",
+          },
+          {
+            id: 22,
+            name: "Escalator",
+            link: "/product/escalator",
+          },
+          {
+            id: 23,
+            name: "Travelator",
+            link: "/product/travelator",
+          },
+          {
+            id: 24,
+            name: "Lift Spare Parts",
+            link: "/product/LiftSparePart",
+          },
           {
             id: 25,
             name: "Escalator Spare Parts",
             link: "/product/EscalatorSparePart",
+          },
+          {
+            id: 26,
+            name: "Other Products",
+            link: "/shop",
           },
         ],
       },

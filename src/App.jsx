@@ -40,6 +40,7 @@ import FeedbackPage from "./components/Admin/FeedbackPage";
 import UsersList from "./components/Admin/UsersList";
 import EngineerList from "./components/Admin/EngineerList";
 import EngineerReview from "./components/Admin/EngineerReview";
+import Products from "./CompanyPages/Product/Products";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
             element={<EscalatorSparePart />}
           />
           <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/products" element={<Products />} />
 
           <Route
             path="/services/NewInstallationServices"
