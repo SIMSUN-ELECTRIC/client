@@ -91,43 +91,14 @@ const products = [
     name: "Elevator Switch & Sensor",
     link: "",
   },
-  {
-    id: 10,
-    subMenu: false,
-    name: "Elevator Door Knife",
-    link: "",
-  },
+
   {
     id: 11,
     subMenu: false,
     name: "Elevator Door Operator",
     link: "",
   },
-  {
-    id: 12,
-    name: "Electrical Series",
-    subMenu: true,
-    subCategories: [
-      { id: 27, name: "Elevator Module", link: "" },
-      { id: 28, name: "Elevator Contractor", link: "" },
-      { id: 29, name: "Elevator Encoder", link: "" },
-    ],
-  },
-  {
-    id: 13,
-    subMenu: false,
-    name: "Elevator COP & HOP",
-    link: "",
-  },
-  {
-    id: 14,
-    name: "Elevator Guide Shoe",
-    subMenu: true,
-    subCategories: [
-      { id: 30, name: "Guide Shoe", link: "" },
-      { id: 31, name: "Guide Shoe Busher", link: "" },
-    ],
-  },
+
   {
     id: 15,
     name: "Elevator Lock & Key",

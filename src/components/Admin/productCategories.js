@@ -16,21 +16,25 @@ const categories = [
     id: 3,
 
     name: "Elevator Inverter",
+    link: "",
   },
   {
     id: 4,
 
     name: "Elevator Traction Machine",
+    link: "",
   },
   {
     id: 5,
 
     name: "Elevator Light Curtain",
+    link: "",
   },
   {
     id: 6,
 
     name: "Elevator Service Tool",
+    link: "",
   },
   { id: 24, name: "Door Roller" },
   { id: 25, name: "Traction Wheel" },
@@ -39,30 +43,22 @@ const categories = [
     id: 8,
 
     name: "Elevator Button",
+    link: "",
   },
   {
     id: 9,
 
     name: "Elevator Switch & Sensor",
+    link: "",
   },
-  {
-    id: 10,
 
-    name: "Elevator Door Knife",
-  },
   {
     id: 11,
+
     name: "Elevator Door Operator",
+    link: "",
   },
-  { id: 27, name: "Elevator Module" },
-  { id: 28, name: "Elevator Contractor" },
-  { id: 29, name: "Elevator Encoder" },
-  {
-    id: 13,
-    name: "Elevator COP & HOP",
-  },
-  { id: 30, name: "Guide Shoe" },
-  { id: 31, name: "Guide Shoe Busher" },
+
   { id: 33, name: "Door Lock" },
   { id: 34, name: "Triangular Lock" },
   { id: 35, name: "Key" },

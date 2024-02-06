@@ -6,6 +6,8 @@ import products from "../Product/product";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaAngleRight, FaAnglesLeft } from "react-icons/fa6";
+import { IoMdMenu } from "react-icons/io";
+import { RxCross2 } from "react-icons/rx";
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -46,6 +48,7 @@ const Shop = () => {
   const navigate = useNavigate();
   const [heading, setHeading] = useState("");
   const [category, setCategory] = useState("");
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,8 +107,25 @@ const Shop = () => {
   };
 
   return (
-    <div className="mt-0 md:mt-16 min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-semibold text-center mb-8 mt-2">Shop</h1>
+    <div className="mt-0 md:mt-20 min-h-screen w-full bg-gray-100 p-4">
+      <div className="pt-10 flex w-full items-center gap-24 lg:justify-center mb-4 relative">
+        <div
+          className="text-3xl md:hidden z-30 "
+          onClick={() => setOpen(!open)}
+        >
+          {open ? (
+            <RxCross2 className="z-50 md fixed top-6  left-28 xs:left-40 sm:left-64 md:left-80  " />
+          ) : (
+            <div className="flex items-center text-sm">
+              <IoMdMenu className="z-50 text-3xl" />
+              Show Categories
+            </div>
+          )}
+        </div>
+        <h1 className="text-3xl hidden lg:block font-semibold text-center mb-8 mt-2 justify-self-center">
+          Shop
+        </h1>
+      </div>
       <div className="mb-4">
         {/* <input
           type="text"
@@ -127,7 +147,11 @@ const Shop = () => {
       {state.error && <p>Error: {state.error}</p>}
 
       <div className="flex w-full gap-10">
-        <div className=" md:w-1/2 lg:w-1/3  hidden md:flex flex-col h-full ml-10 bg-white">
+        <div
+          className={` z-20 md:z-0 md:w-1/2 lg:w-1/3 w-1/2 fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full lg:ml-10 bg-white min-h-screen  duration-500 ${
+            open ? "left-0" : "left-[-100%] md:left-0"
+          }`}
+        >
           <h2 className="text-xl font-semibold p-5 pl-5">Product groups</h2>
           <hr className="w-full" />
           <ul className="flex flex-col gap-10 mt-5 font-semibold p-5 pl-5">
@@ -139,6 +163,10 @@ const Shop = () => {
                     setHeading((prevHeading) =>
                       prevHeading === myproduct.name ? "" : myproduct.name
                     );
+                    if (!myproduct.subMenu) {
+                      setOpen(!open);
+                      setCategory(myproduct.name);
+                    }
                   }}
                 >
                   {myproduct.name}
@@ -157,17 +185,18 @@ const Shop = () => {
                         </span>
                       </div>
 
-                      <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                      <div className="absolute right-24 lg:top-15 hidden group-hover:block hover:block z-10 ">
                         <div className="py-0">
                           <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
                         </div>
-                        <div className="bg-[#161D24]/90 text-white p-4 flex flex-col rounded-xl -mr-20">
+                        <div className="bg-[#161D24]/90 text-white p-4 flex flex-col rounded-lg -mr-20">
                           {myproduct.subCategories.map((subcategory) => (
                             <li
                               key={subcategory.id}
                               className="hover:text-red-500"
                               onClick={() => {
                                 setCategory(subcategory.name);
+                                setOpen(!open);
                               }}
                             >
                               {subcategory.name}
@@ -182,7 +211,7 @@ const Shop = () => {
             ))}
           </ul>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 h-fit">
           {filteredProducts.map((product) => (
             <div
               key={product._id}

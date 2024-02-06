@@ -18,7 +18,11 @@ const productsReducer = (state, action) => {
             : action.payload.data.products.filter(
                 (product) => product.category === action.payload.category
               ),
-        totalPages: action.payload.data.totalPages,
+        totalPages:
+          action.payload.category === ""
+            ? action.payload.data.totalPages
+            : Math.floor(products.length / 10),
+        currentPage: 1,
         error: null,
         loading: false,
       };
