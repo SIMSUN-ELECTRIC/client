@@ -9,7 +9,7 @@ const uploadMiddleWare = multer({ dest: "uploads/" });
 dotenv.config();
 
 console.log("Cloudinary Configuration:", {
-  cloud_name: process.env.CLOUD_NAME,
+  cloud_name: "dyahywzfs",
   api_key: process.env.CLOUD_API_KEY,
   api_secret: process.env.CLOUD_API_SECRET,
 });

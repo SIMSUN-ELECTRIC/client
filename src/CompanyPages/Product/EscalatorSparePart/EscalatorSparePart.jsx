@@ -83,7 +83,7 @@ const EscalatorSpareParts = () => {
   return (
     <div className="mt-0 md:mt-16  min-h-screen bg-gray-100 p-4">
       <h1 className="text-3xl font-semibold text-center mb-8">
-        LIFT SPARE PARTS
+        Escalator SPARE PARTS
       </h1>
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
