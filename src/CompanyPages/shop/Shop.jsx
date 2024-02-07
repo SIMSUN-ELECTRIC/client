@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import products from "../Product/product";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaAngleRight, FaAnglesLeft } from "react-icons/fa6";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 
@@ -24,6 +24,8 @@ const productsReducer = (state, action) => {
         error: null,
         loading: false,
       };
+    case "SET_SEARCH_QUERY":
+      return { ...state, searchQuery: action.payload };
     case "FETCH_ERROR":
       return { ...state, error: action.payload, loading: false };
     case "SET_CURRENT_PAGE":
@@ -48,7 +50,8 @@ const Shop = () => {
   const navigate = useNavigate();
   const [heading, setHeading] = useState("");
   const [category, setCategory] = useState("");
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [subOpen, setSubOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -150,7 +153,7 @@ const Shop = () => {
 
       <div className="flex w-full gap-10">
         <div
-          className={` z-20 md:z-0 w-1/2  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full lg:ml-10 bg-white min-h-screen  duration-500 ${
+          className={` z-20 md:z-0 w-1/2 md:w-1/3  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full  bg-white min-h-screen  duration-500 ${
             open ? "left-0" : "left-[-100%] md:left-0"
           }`}
         >
@@ -168,8 +171,11 @@ const Shop = () => {
                     if (!myproduct.subMenu) {
                       setOpen(!open);
                       setCategory(myproduct.name);
-                      window.scrollTo(0, 0);
+                      window.scrollTo(0, 20);
                     }
+                    setSubOpen((prev) =>
+                      prev === myproduct.name ? "" : myproduct.name
+                    );
                   }}
                 >
                   {myproduct.name}
@@ -178,21 +184,31 @@ const Shop = () => {
                       <div>
                         <span className="text-xl md:hidden inline">
                           {heading === myproduct.name ? (
-                            <FaAnglesLeft />
+                            <FaAngleLeft />
                           ) : (
                             <FaAngleRight />
                           )}
                         </span>
-                        <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                        <span
+                          className={`text-xl md:mt-1 md:ml-2 hidden md:block  ${
+                            subOpen === myproduct.name
+                              ? "rotate-180 "
+                              : "hidden"
+                          }`}
+                        >
                           <FaAngleRight />
                         </span>
                       </div>
 
-                      <div className="absolute right-24 lg:top-15 hidden group-hover:block hover:block z-10 ">
+                      <div
+                        className={`absolute left-10 w-1/2  lg:top-15 z-30 duration-500  ${
+                          subOpen === myproduct.name ? "block " : "top-[-100%]"
+                        }`}
+                      >
                         <div className="py-0">
                           <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
                         </div>
-                        <div className="bg-[#161D24]/90 text-white p-4 flex flex-col rounded-lg -mr-20">
+                        <div className="bg-white text-black p-4 flex flex-col gap-10 border-2 border-black rounded-sm -mr-20 items-center">
                           {myproduct.subCategories.map((subcategory) => (
                             <li
                               key={subcategory.id}
