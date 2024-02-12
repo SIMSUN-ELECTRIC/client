@@ -12,6 +12,9 @@ import home from "../../assets/img/home-bg.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { fadeIn, slideIn } from "./motion";
+import Tilt from "react-parallax-tilt";
 
 const Homepage = () => {
   const state = useSelector((state) => state.user);
@@ -118,113 +121,140 @@ const Homepage = () => {
 
         <div className="w-full text-center flex flex-col mt-12">
           <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
-          <div className="flex flex-row mt-4 justify-center md:flex-nowrap flex-wrap mx-8">
-            <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
-              <div className="flex justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-14 h-14 "
+          <div className="flex flex-row mt-4 justify-center  flex-wrap mx-8">
+            <Tilt className="sm:w-[325px] h-[400px] w-full">
+              <motion.div variants={slideIn("right", "spring", 0.5 * 0, 0.75)}>
+                <div
+                  options={{ max: 45, scale: 1, speed: 450 }}
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                  />
-                </svg>
-              </div>
+                  <div className="flex justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-14 h-14 "
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                      />
+                    </svg>
+                  </div>
 
-              <h2 className="text-2xl font-semibold">Wide Range of Products</h2>
-              <p className="text-md mt-2">
-                Explore our extensive selection of electronics, including
-                smartphones, laptops, smart home devices, gaming consoles, and
-                more.
-              </p>
-            </div>
-            <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
-              <div className=" flex justify-center text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-14 h-14"
+                  <h2 className="text-2xl font-semibold ">
+                    Wide Range of Products
+                  </h2>
+                  <p className="text-md mt-2">
+                    Explore our extensive selection of electronics, including
+                    smartphones, laptops, smart home devices, gaming consoles,
+                    and more.
+                  </p>
+                </div>
+              </motion.div>
+            </Tilt>
+            <Tilt className="sm:w-[325px] h-[400px] w-full">
+              <motion.div variants={fadeIn("right", "spring", 0.5 * 1, 0.75)}>
+                <div
+                  options={{ max: 45, scale: 1, speed: 450 }}
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                  />
-                </svg>
-              </div>
+                  <div className=" flex justify-center text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-14 h-14"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                      />
+                    </svg>
+                  </div>
 
-              <h2 className=" text-2xl font-semibold text-white">
-                Quality Assurance
-              </h2>
-              <p className="text-md text-white mt-2">
-                We believe in delivering only the highest quality products from
-                trusted brands. Our team carefully selects each item in our
-                catalog to ensure reliability and performance.
-              </p>
-            </div>
-            <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
-              <div className=" flex justify-center text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-14 h-14"
+                  <h2 className=" text-2xl font-semibold text-white">
+                    Quality Assurance
+                  </h2>
+                  <p className="text-md text-white mt-2">
+                    We believe in delivering only the highest quality products
+                    from trusted brands. Our team carefully selects each item in
+                    our catalog to ensure reliability and performance.
+                  </p>
+                </div>
+              </motion.div>
+            </Tilt>
+            <Tilt className="sm:w-[325px] h-[400px] w-full">
+              <motion.div variants={fadeIn("right", "spring", 0.5 * 2, 0.75)}>
+                <div
+                  options={{ max: 45, scale: 1, speed: 450 }}
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                  />
-                </svg>
-              </div>
+                  <div className=" flex justify-center text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-14 h-14"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                      />
+                    </svg>
+                  </div>
 
-              <h2 className=" text-2xl font-semibold text-white">
-                Competitive Pricing
-              </h2>
-              <p className=" text-md text-white mt-2">
-                We offer competitive prices to ensure you get the best value for
-                your money. Plus, don't miss out on our exclusive deals and
-                promotions.
-              </p>
-            </div>
-            <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl">
-              <div className=" flex justify-center text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-14 h-14"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                  />
-                </svg>
-              </div>
+                  <h2 className=" text-2xl font-semibold text-white">
+                    Competitive Pricing
+                  </h2>
+                  <p className=" text-md text-white mt-2">
+                    We offer competitive prices to ensure you get the best value
+                    for your money. Plus, don't miss out on our exclusive deals
+                    and promotions.
+                  </p>
+                </div>
+              </motion.div>
+            </Tilt>
+            <Tilt className="sm:w-[325px]  w-full">
+              <motion.div variants={fadeIn("right", "spring", 0.5 * 3, 0.75)}>
+                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]">
+                  <div className=" flex justify-center text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-14 h-14"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                      />
+                    </svg>
+                  </div>
 
-              <h2 className=" text-2xl font-semibold text-white">
-                Secure Shopping
-              </h2>
-              <p className=" text-md text-white mt-2">
-                Shop with confidence knowing that your data is protected with
-                state-of-the-art security measures. Your privacy and security
-                are our top priorities.
-              </p>
-            </div>
+                  <h2 className=" text-2xl font-semibold text-white">
+                    Secure Shopping
+                  </h2>
+                  <p className=" text-md text-white mt-2">
+                    Shop with confidence knowing that your data is protected
+                    with state-of-the-art security measures. Your privacy and
+                    security are our top priorities.
+                  </p>
+                </div>
+              </motion.div>
+            </Tilt>
           </div>
         </div>
 
