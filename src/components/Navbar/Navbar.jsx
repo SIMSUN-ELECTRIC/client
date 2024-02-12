@@ -54,13 +54,13 @@ const Navbar = () => {
         </p>
       </div> */}
 
-      <div className=" flex items-center justify-center">
+      <div className=" flex items-center justify-center fixed w-full z-100 relative">
         <nav
           ref={headerWidth}
           className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
         >
           <div className="flex items-center font-medium justify-between ">
-            <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0">
+            <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0 ">
               <Link
                 to="/"
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "

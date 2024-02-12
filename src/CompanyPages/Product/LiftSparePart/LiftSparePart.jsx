@@ -42,7 +42,9 @@ const LiftSpareParts = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          `https://simsun-backend.onrender.com/api/products?category=Lift%20Spare%20Parts&limit=16&page=${state.currentPage}`
+          `https://simsun-backend.onrender.com/api/products?category=${encodeURIComponent(
+            category
+          )}&limit=all`
         );
         dispatchProducts({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (error) {

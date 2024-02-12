@@ -58,9 +58,10 @@ const Shop = () => {
       try {
         const result = await axios.get(
           `https://simsun-backend.onrender.com/api/products?limit=${
-            category === "" ? 15 : 100
+            category === "" ? 24 : "all"
           }&page=${state.currentPage}`
         );
+
         dispatchProducts({
           type: "FETCH_SUCCESS",
           payload: { data: result.data, category: category },
@@ -135,15 +136,12 @@ const Shop = () => {
   return (
     <div className="mt-0 md:mt-20 min-h-screen w-full bg-gray-100 p-4">
       <div className="pt-10 flex w-full items-center gap-24 lg:justify-center mb-4 relative">
-        <div
-          className="text-3xl md:hidden z-30 "
-          onClick={() => setOpen(!open)}
-        >
+        <div className="text-3xl md:hidden z-0 " onClick={() => setOpen(!open)}>
           {open ? (
             ""
           ) : (
-            <div className="flex flex-row gap-3 items-center text-[1rem] font-semibold">
-              <IoMdMenu className="z-50 text-3xl" />
+            <div className="flex flex-row gap-3 items-center cursor-pointer text-[1rem] z-[-10] font-semibold">
+              <IoMdMenu className="z-20 text-3xl font-semibold " />
               Show Categories
             </div>
           )}
