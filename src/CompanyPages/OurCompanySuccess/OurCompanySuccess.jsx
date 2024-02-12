@@ -5,7 +5,7 @@ const OurCompanySuccess = () => {
     <div className=" mt-0 md:mt-16  mb-2">
       <div className="bg-gray-100 min-h-screen  block sm:flex justify-center">
         {/* Header */}
-        <header className="bg-[#324252] p-4 flex items-center ">
+        <header className="bg-[#324252] p-4 flex items-center pt-28">
           <h1 className="text-3xl text-white font-semibold ">Simsun Success</h1>
         </header>
 

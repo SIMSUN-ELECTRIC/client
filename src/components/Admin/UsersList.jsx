@@ -33,7 +33,7 @@ const UsersList = () => {
   };
 
   return (
-    <div className="container mx-auto  md:mt-32 justify-center">
+    <div className="container mx-auto  md:mt-32 justify-center pt-28 md:pt-4">
       <div className="flex flex-col justify-center">
         <div className="flex justify-center mb-2">
           <h2 className=" text-2xl font-bold ">Customer Users</h2>

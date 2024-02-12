@@ -82,7 +82,7 @@ const AddProduct = () => {
 
   return (
     <>
-      <div className="md:mt-16 flex justify-center items-center p-8 w-full  bg-violet-700  ">
+      <div className="md:mt-16 flex justify-center items-center p-8 w-full  bg-violet-700 pt-28 md:pt-4 ">
         <form className=" max-w-lg  bg-gray-200  rounded-md py-10 px-8">
           <h1 className="flex justify-center text-3xl mb-4">Add Product</h1>
           <div className="flex flex-wrap -mx-3 mb-6">

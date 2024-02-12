@@ -15,7 +15,7 @@ const UserProfile = () => {
   return (
     <animated.div style={profileAnimation} className=" w-full">
       <div
-        className="md:mt-20 bg-gray-100 min-h-screen py-12 w-full"
+        className="md:mt-20 bg-gray-100 min-h-screen w-full pt-28 md:pt-8"
         style={{ backgroundImage: `url(${profilebg})` }}
       >
         <div className="max-w-xs sm:max-w-md md:max-w-3xl mx-auto">

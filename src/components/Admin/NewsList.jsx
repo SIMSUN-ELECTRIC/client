@@ -49,7 +49,7 @@ const NewsList = () => {
   };
 
   return (
-    <div className="md:mt-24 container mx-auto p-4">
+    <div className="md:mt-24 container mx-auto p-4 pt-28 md:pt-4">
       <div className="flex justify-center">
         <h1 className=" text-3xl font-semibold mb-4">News List</h1>
       </div>

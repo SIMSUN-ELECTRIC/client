@@ -63,7 +63,7 @@ const EngineerRegister = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen h-auto bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen h-auto bg-gray-100 pt-28 md:pt-4">
       <div className="mt-24 mb-24 mx-6 lg:mx-[6rem] w-full max-w-5xl p-1 lg:p-6 bg-white rounded-md shadow-md flex flex-col ">
         <h1 className="text-2xl lg:text-3xl pl-6 font-bold mt-3 mb-2 lg:mb-4">
           Engineer Registration

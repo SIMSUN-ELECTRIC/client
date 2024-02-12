@@ -54,7 +54,7 @@ const Navbar = () => {
         </p>
       </div> */}
 
-      <div className=" flex items-center justify-center fixed w-full z-100 relative">
+      <div className=" z-40 flex items-center justify-center fixed w-full ">
         <nav
           ref={headerWidth}
           className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"

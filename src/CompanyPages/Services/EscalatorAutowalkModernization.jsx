@@ -5,7 +5,7 @@ import monte from "../../assets/img/monte.jpg";
 const EscalatorAutowalkModernization = () => {
   return (
     <>
-      <div className="mt-0 md:mt-16  flex justify-center items-center  flex-col">
+      <div className="mt-0 md:mt-16  flex justify-center items-center  flex-col pt-28 md:pt-4">
         {/* section 1 start */}
         <div className=" w-full h-[35rem] mb-2">
           <div className=" min-h-screen ">

@@ -134,7 +134,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="mt-0 md:mt-20 min-h-screen w-full bg-gray-100 p-4">
+    <div className="mt-0 md:mt-20 min-h-screen w-full bg-gray-100 p-4 pt-28 md:pt-4">
       <div className="pt-10 flex w-full items-center gap-24 lg:justify-center mb-4 relative">
         <div className="text-3xl md:hidden z-0 " onClick={() => setOpen(!open)}>
           {open ? (
@@ -170,10 +170,10 @@ const Shop = () => {
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
 
-      <div className="flex w-full gap-4 lg:gap-10">
+      <div className="flex w-full gap-4 lg:gap-10 ">
         <div
           ref={menuRef}
-          className={` z-20 md:z-0 w-1/2 md:w-1/3  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full  bg-white min-h-screen  duration-500 ${
+          className={` z-50 md:z-0 w-1/2 md:w-1/3  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full  bg-white min-h-screen  duration-500 ${
             open ? "left-0" : "left-[-100%] md:left-0"
           }`}
         >
@@ -187,7 +187,7 @@ const Shop = () => {
             )}
           </h2>
           <hr className="w-full" />
-          <ul className="flex flex-col gap-5 mt-2 font-semibold p-2 lg:p-5">
+          <ul className="flex flex-col gap-5 font-semibold p-2 lg:p-5 ">
             {products.map((myproduct, index) => (
               <Link key={index} to={myproduct.link} className="w-full">
                 <h2

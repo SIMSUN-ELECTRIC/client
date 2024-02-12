@@ -31,7 +31,7 @@ const NewInstallationServices = () => {
 
   return (
     <>
-      <div className="mt-4 md:mt-20  mx-4 min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+      <div className=" md:mt-20  mx-4 min-h-screen bg-gray-100 flex flex-col items-center justify-center pt-24 md:pt-4">
         <div className="mt-4 bg-white p-8 rounded shadow-md mb-4 w-full md:w-1/2 lg:w-4/5">
           <h1 className="text-2xl font-semibold mb-4">Electric Installation</h1>
         </div>

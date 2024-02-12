@@ -83,7 +83,7 @@ const EscalatorSpareParts = () => {
   };
 
   return (
-    <div className="mt-0 md:mt-16  min-h-screen bg-gray-100 p-4">
+    <div className="mt-0 md:mt-16  min-h-screen bg-gray-100 p-4 pt-28 md:pt-4">
       <h1 className="text-3xl font-semibold text-center mb-8">
         Escalator SPARE PARTS
       </h1>

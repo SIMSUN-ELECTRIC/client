@@ -146,7 +146,7 @@ const OurTeam = () => {
     <>
       <animated.section
         style={fadeIn}
-        className="bg-purple-100 mt-0 md:mt-16  min-h-screen bg-gray-100 p-4"
+        className="bg-purple-100 mt-0 md:mt-16  min-h-screen pt-28 p-4"
       >
         <div className="team1 ">
           <h1 className="text-4xl font-semibold text-center mb-2 mt-4 text-purple-800">

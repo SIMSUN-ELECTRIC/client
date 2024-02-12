@@ -37,7 +37,7 @@ const NewsForm = () => {
   };
 
   return (
-    <div className="md:mt-16 flex justify-center items-center bg-blue-500 p-10">
+    <div className="md:mt-16 flex justify-center items-center bg-blue-500 p-10 pt-28 md:pt-4">
       <div className="w-full max-w-md bg-gray-100 p-8 rounded-md shadow-md ">
         <h2 className="text-2xl font-semibold mb-6 text-center">Add News</h2>
         <div className="mb-4">

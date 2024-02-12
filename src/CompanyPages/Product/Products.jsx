@@ -95,7 +95,7 @@ export default function Products() {
   const [heading, setHeading] = useState("");
 
   return (
-    <div className=" mt-0 md:mt-16 flex gap-10 w-full min-h-screen bg-gray-100 z-0">
+    <div className=" mt-0 md:mt-16 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-28">
       <div className=" md:w-1/2 lg:w-1/3 mt-10 hidden md:flex flex-col h-full ml-10 bg-white">
         <h2 className="text-xl font-semibold p-5 pl-5">Product groups</h2>
         <hr className="w-full" />
