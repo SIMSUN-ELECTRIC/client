@@ -37,6 +37,7 @@ const TravelatorProducts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
+  const category = "Travelator";
 
   useEffect(() => {
     const fetchData = async () => {

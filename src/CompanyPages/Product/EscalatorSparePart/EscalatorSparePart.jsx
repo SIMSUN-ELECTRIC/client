@@ -39,6 +39,7 @@ const EscalatorSpareParts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
+  const category = "Escalator Spare Parts";
 
   useEffect(() => {
     const fetchData = async () => {

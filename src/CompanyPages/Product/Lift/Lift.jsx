@@ -39,6 +39,7 @@ const LiftProducts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
+  const category = "Lift";
 
   useEffect(() => {
     const fetchData = async () => {

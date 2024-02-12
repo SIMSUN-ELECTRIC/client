@@ -39,6 +39,7 @@ const EscalatorProducts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
+  const category = "Escalator";
 
   useEffect(() => {
     const fetchData = async () => {
