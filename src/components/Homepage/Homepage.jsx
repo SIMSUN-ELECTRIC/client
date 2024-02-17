@@ -14,7 +14,9 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "./motion";
-import Tilt from "react-parallax-tilt";
+import "../../index.css";
+import { useInView } from "react-intersection-observer";
+// import div from "react-parallax-div";
 
 const Homepage = () => {
   const state = useSelector((state) => state.user);
@@ -38,6 +40,19 @@ const Homepage = () => {
   const ImageComponent = images[index];
   const mainImage = mainImages[mainindex];
 
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  const { ref, inView } = useInView({
+    threshold: 0.5, // Adjust as needed
+    triggerOnce: true, // Trigger animation once
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setIsAnimated(true);
+    }
+  }, [inView]);
+
   return (
     <>
       <div className=" flex flex-col items-center  w-full h-auto">
@@ -45,7 +60,7 @@ const Homepage = () => {
           style={{
             "--image-url": `url(${mainImage})`,
           }}
-          className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
+          className=" w-full h-[85vh] relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
         >
           <div
             className={`${
@@ -54,7 +69,7 @@ const Homepage = () => {
                 : "text-white"
             } w-full h-full`}
           >
-            <div className="relative mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-3xl md:text-4xl text-center tracking-[0] leading-[normal] mx-8 mb-8">
+            <div className="relative mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-3xl md:text-5xl text-center tracking-[0] leading-[normal] mx-8 mb-8">
               WELCOME TO <p className="md:inline">SIMSUN ELECTRIC</p>
             </div>
             <div className="relative [font-family:'Poppins-Regular',Helvetica] font-extralight text-xl md:text-2xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
@@ -81,7 +96,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
-          <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-2 md:p-4 flex flex-col items-center justify-around md:justify-between">
+          <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-0 md:p-4 flex flex-col items-center justify-around md:justify-between">
             <img
               src={ImageComponent}
               alt="lift"
@@ -119,14 +134,14 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className="w-full text-center flex flex-col mt-12">
+        <div className="w-full text-center flex flex-col mt-20">
           <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
           <div className="flex flex-row mt-4 justify-center  flex-wrap mx-8">
-            <Tilt className="sm:w-[325px] h-[400px] w-full">
-              <motion.div variants={slideIn("right", "spring", 0.5 * 0, 0.75)}>
+            <div className="sm:w-[325px] h-[400px] w-full">
+              <motion.div>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]"
                 >
                   <div className="flex justify-center">
                     <svg
@@ -155,12 +170,12 @@ const Homepage = () => {
                   </p>
                 </div>
               </motion.div>
-            </Tilt>
-            <Tilt className="sm:w-[325px] h-[400px] w-full">
+            </div>
+            <div className="sm:w-[325px] h-[400px] w-full">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 1, 0.75)}>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]"
                 >
                   <div className=" flex justify-center text-white">
                     <svg
@@ -189,12 +204,12 @@ const Homepage = () => {
                   </p>
                 </div>
               </motion.div>
-            </Tilt>
-            <Tilt className="sm:w-[325px] h-[400px] w-full">
+            </div>
+            <div className="sm:w-[325px] h-[400px] w-full">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 2, 0.75)}>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]"
                 >
                   <div className=" flex justify-center text-white">
                     <svg
@@ -223,10 +238,10 @@ const Homepage = () => {
                   </p>
                 </div>
               </motion.div>
-            </Tilt>
-            <Tilt className="sm:w-[325px]  w-full">
+            </div>
+            <div className="sm:w-[325px]  w-full">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 3, 0.75)}>
-                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-90 ease-in duration-500 hover:rounded-2xl h-[290px]">
+                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]">
                   <div className=" flex justify-center text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -254,16 +269,36 @@ const Homepage = () => {
                   </p>
                 </div>
               </motion.div>
-            </Tilt>
+            </div>
           </div>
         </div>
 
-        <section className="w-full flex flex-col-reverse md:flex-row mt-[2rem] bg-[#202b35] p-8 mb-10">
-          <div className="flex md:w-[45%] justify-center order-2 md:order-1">
-            <img src={Esc} alt="Your Alt Text" />
+        <section
+          ref={ref}
+          className="w-full  md:h-[35vh] flex flex-col-reverse md:flex-row mt-[2rem] space-x-2 bg-[#202b35] px-10 p-8 mb-10"
+        >
+          <div
+            className={`flex md:w-[35%] justify-center order-2 md:order-1 ${
+              isAnimated
+                ? "opacity-100 animate-left"
+                : "opacity-0 translate-x-[-20px]"
+            } transition-opacity duration-1000  ease-out
+            }`}
+          >
+            <img
+              src={Esc}
+              alt="Your Alt Text"
+              className="rounded-xl shadow-lg shadow-white/20 "
+            />
           </div>
-          <div className="flex md:w-[52%] order-1 md:order-2 mt-4 md:mt-0">
-            <p className="text-white text-sm md:text-xl [font-family:'Poppins-Regular',Helvetica] font-normal">
+          <div
+            className={`flex md:w-full p-2 order-1 md:order-2 mt-4 md:mt-0 ${
+              isAnimated
+                ? "opacity-100 animate-right"
+                : "opacity-0 translate-x-[20px]"
+            } transition-opacity duration-2000 ease-out}`}
+          >
+            <p className="text-white text-md text-justify lg:text-xl [font-family:'Poppins-Regular',Helvetica] font-normal">
               At there we found that everybody is moving on MW and large scale
               projects, that time we keep our focus to learning the Elevator and
               Escalator project work. We were started our work as a freelancer
@@ -278,8 +313,10 @@ const Homepage = () => {
       </div>
 
       <div>
-        <div className="mt-12 w-full ">
-          <h2 className="title text-4xl font-bold mx-4">Our Products</h2>
+        <div className="mt-12 mb-16 w-full ">
+          <h2 className="title text-4xl text-center font-bold mx-4">
+            Our Products
+          </h2>
           <div className="flex flex-wrap mt-4">
             <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
               <Link to="/product/lift">

@@ -1,40 +1,89 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function Cart() {
   const navigate = useNavigate();
-  // Static data for previous orders
-  const state = useSelector((state) => state.cart);
-  console.log(state);
-
-  const states = useSelector((states) => states.user);
-  useEffect(() => {
-    console.log("Current state:", states);
-
-    if (!states?.isAuthenticated) {
-      navigate("/auth/consumerLogin");
-    }
-  }, [states]);
-
   const dispatch = useDispatch();
+  const [cartData, setCartData] = useState([]);
+  const userId = useSelector((state) => state.user.userData._id);
 
-  const handleQuantityChange = (id, newQuantity) => {
-    dispatch(updateQuantity({ id, quantity: newQuantity }));
-  };
+  useEffect(() => {
+    fetchCartData();
+  }, [userId]);
 
-  const handleDelete = (id) => {
-    dispatch(removeItem(id));
-  };
-
-  const subTotal = state.reduce((acc, item) => {
-    console.log("Item:", item.price);
-    if (item.price && item.quantity) {
-      return acc + item.price * item.quantity;
+  const fetchCartData = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/Cart/${userId}`);
+      // console.log("this is res: ", response);
+      // console.log("this is userid", userId);
+      if (!response.ok) {
+        throw new Error("Failed to fetch cart data");
+      }
+      const data = await response.json();
+      // console.log("this is data we r fetching:", data.items);
+      setCartData(data.items);
+    } catch (error) {
+      console.error(error);
     }
-    return acc;
+  };
+
+  const handleQuantityChange = async (id, newQuantity) => {
+    try {
+      dispatch(updateQuantity({ id, quantity: newQuantity }));
+
+      await axios.put(
+        `http://localhost:5000/api/cart/updateQuantity/${userId}/${id}`,
+        {
+          quantity: newQuantity,
+        }
+      );
+
+      // Update the local cart data state
+      setCartData(prevCartData =>
+        prevCartData.map(item =>
+          item._id === id ? { ...item, quantity: newQuantity } : item
+        ))
+    } catch (error) {
+      console.error(error);
+    }
+    
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      // console.log("this is product", id);
+      const response = await axios.delete(
+        `http://localhost:5000/api/Cart/delete/${userId}/${id}`,
+        {}
+      );
+      // console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+    dispatch(removeItem(id));
+    // console.log(cartData);
+    setCartData((prev) => prev.filter((item) => item.productId._id != id));
+  };
+
+  // const subTotal = cartData.reduce((acc, order) => {
+  //   return (
+  //     acc +
+  //     order.items.reduce((itemAcc, item) => {
+  //       if (item.price && item.quantity) {
+  //         return itemAcc + item.price * item.quantity;
+  //       }
+  //       return itemAcc;
+  //     }, 0)
+  //   );
+  // }, 0);
+
+  const subTotal = cartData.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
   }, 0);
+
+  // const subTotal = 120;
 
   const discount = 0; // You can add discount logic here if needed
   const gst = 0.18 * subTotal;
@@ -58,62 +107,62 @@ function Cart() {
           <div className="text-white xl:w-[60%] p-4">
             <div className="flex justify-between items-center px-2">
               <div className="text-black font-bold text-xl">
-                Items - {state?.length}
+                Items -{cartData.length}
+                {/* {console.log("heelo", cartData)} */}
               </div>
             </div>
 
             <div className="md:grid grid-cols-3 gap-4 flex flex-col">
-              {state?.map((order, index) => (
+              {cartData.map((item, itemIndex) => (
                 <div
-                  key={index}
+                  key={itemIndex}
                   className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                   <div className="flex ion justify-between mr-4">
                     <img
                       className="p-8 rounded-t-lg w-32 h-32"
-                      src={order?.imageUrl}
-                      alt={order?.name}
+                      src={item.image}
+                      alt={item.name}
                     />
                     <button
                       className="bg-red-500 py-2 px-4 mt-10 rounded h-12"
-                      onClick={() => handleDelete(order.id)}
+                      onClick={() => handleDelete(item.productId._id)}
                     >
                       <i className="fas fa-trash"></i>
                     </button>
                   </div>
-
                   <div className="px-5 pb-5">
                     <a href="#">
                       <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {order?.name}
+                        {item.name}
                       </h5>
                     </a>
                     <div className="flex items-center justify-between">
                       <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                        {order?.price}
+                        {item.price}
                       </span>
-                      {/* Check if order.quantity is a valid number */}
-                      {typeof order.quantity === "number" &&
-                        order.quantity > 0 && (
+                      {/* Check if item.quantity is a valid number */}
+                      {typeof item.quantity === "number" &&
+                        item.quantity > 0 && (
                           <div className="flex items-center space-x-2">
                             <button
                               className="text-gray-600 dark:text-white"
                               onClick={() =>
                                 handleQuantityChange(
-                                  order.id,
-                                  order.quantity - 1
+                                  item._id,
+                                  item.quantity - 1
                                 )
                               }
                             >
                               <i className="fas fa-minus-circle"></i>
                             </button>
-                            <span>{order.quantity}</span>
+                            <span>{item.quantity}</span>
                             <button
                               className="text-gray-600 dark:text-white"
                               onClick={() =>
                                 handleQuantityChange(
-                                  order.id,
-                                  order.quantity + 1
+                                  item._id,
+                                  item.quantity + 1
                                 )
                               }
                             >

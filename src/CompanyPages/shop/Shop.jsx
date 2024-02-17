@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { useDispatchCart, useCart } from "../../store/contextReducer";
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -76,17 +77,26 @@ const Shop = () => {
 
   const customer = useSelector((customer) => customer.user);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = async (product) => {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
     } else {
-      dispatch(
-        addItem({
-          id: product._id,
-          name: product.name,
-          price: product.price,
-        })
-      );
+      console.log(product, customer.userData._id);
+
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/Cart/addItem",
+          {
+            productId: product._id,
+            productName: product.name,
+            productPrice: product.price,
+            productImg: product.imageUrl,
+            userId: customer.userData._id,
+          }
+        );
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

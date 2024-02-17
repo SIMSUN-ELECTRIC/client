@@ -10,6 +10,8 @@ import registerRouter from "./Router/Registerroute.js";
 import productRoutes from "./Router/Productroute.js";
 import newsroute from "./Router/Newsroute.js";
 import feedbackRouter from "./Router/Feedbackroute.js";
+import cartRoutes from "./Router/Cartroute.js";
+// import payment_route from "./Router/paymentRoute.js";
 
 dotenv.config();
 
@@ -27,9 +29,14 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
+// const paymentRoute = payment_route;
+
+// app.use("/", paymentRoute);
+
 app.use("/api/seed", seedRouter);
 app.use("/api/feedbacks", feedbackRouter);
 app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
 app.use("/api", loginRouter);
 app.use("/api", registerRouter);
 app.use("/", newsroute);

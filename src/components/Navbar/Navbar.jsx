@@ -32,8 +32,11 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart);
   const cart = useSelector((state) => state.cart);
 
+  console.log("cart items", cartItems);
+  console.log("cart length ", cart.length);
+
   // Calculate total quantity in the cart
-  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalQuantity = cart.length;
 
   let headerWidth = useRef();
 
@@ -85,13 +88,14 @@ const Navbar = () => {
                           <div className="flex gap-1">
                             <HiOutlineShoppingCart className="z-5 text-2xl lg:hidden " />
 
-                            <div>
+                            {/* <div>
                               {cartItems.length > 0 && (
                                 <span className="bg-red-500 w-4 text-white px-1 py-0 rounded-full align-top ">
                                   {totalQuantity}
+                                  
                                 </span>
                               )}
-                            </div>
+                            </div> */}
                           </div>
                         </Link>
                       </div>
@@ -150,7 +154,7 @@ const Navbar = () => {
                       Cart
                       {cartItems.length > 0 && (
                         <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-4 -mr-5">
-                          {totalQuantity}
+                          {/* {totalQuantity} */}
                         </span>
                       )}
                     </Link>
