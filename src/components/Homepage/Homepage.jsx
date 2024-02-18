@@ -1,9 +1,9 @@
 import Esc from "../../assets/img/escalator1.jpg";
 import esc1 from "../../assets/img/esc1.jpg";
-import lift1 from "../../assets/img/lift1.jpg";
-import lift4 from "../../assets/img/lift4.jpg";
-import lift5 from "../../assets/img/lift5.jpg";
-import lift7 from "../../assets/img/lift7.jpg";
+import e1 from "../../assets/img/e1.jpg";
+import e2 from "../../assets/img/e2.jpg";
+import e3 from "../../assets/img/e3.jpg";
+import e4 from "../../assets/img/e4.jpg";
 import lift9 from "../../assets/img/lift9.jpg";
 import lift13 from "../../assets/img/lift13.jpeg";
 import lift14 from "../../assets/img/lift14.jpg";
@@ -28,7 +28,7 @@ const Homepage = () => {
 
   const [index, setIndex] = useState(0);
   const images = [lift15, lift13, lift14, Esc];
-  const mainImages = [esc1, home];
+  const mainImages = [e1, e2, e3, e4];
   const [mainindex, setmainIndex] = useState(0);
 
   useEffect(() => {
@@ -65,36 +65,36 @@ const Homepage = () => {
           }}
           className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
         >
-          <div
-            className={`${
-              mainImage === esc1
-                ? " bg-black/60 w-100% text-violet-100 "
-                : "text-white"
-            } w-full h-full`}
-          >
-            <div className="relative mt-[10rem] md:mt-[14rem] [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-3xl md:text-5xl text-center tracking-[0] leading-[normal] mx-8 mb-8">
-              WELCOME TO <p className="md:inline">SIMSUN ELECTRIC</p>
-            </div>
-            <div className="relative [font-family:'Poppins-Regular',Helvetica] font-extralight text-xl md:text-2xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
-              <p className="mt-2 w-full text-xl md:text-3xl font-bold">
-                ELEVATOR AND ESCALATOR PARTS
-              </p>
-              <p className="mt-2 w-full">X</p>
-              <p className="mt-2 w-full">Production and Sales</p>
-              <p className="mt-2 w-full">Technology One-Stop Services</p>
-              {/* <p>
+          <div className=" mt-[10rem] md:mt-[14rem] bg-black/50 p-2 sm:p-8 relative flex flex-col justify-center items-center">
+            <div
+              className={`flex flex-col justify-center items-center ${
+                mainImage === esc1 ? " w-100% text-violet-100 " : "text-white"
+              } w-full h-full`}
+            >
+              <div className="relative [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-3xl md:text-5xl text-center tracking-[0] leading-[normal] mx-8 mb-8">
+                WELCOME TO <p className="md:inline">SIMSUN ELECTRIC</p>
+              </div>
+              <div className="relative [font-family:'Poppins-Regular',Helvetica] font-extralight text-xl md:text-2xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
+                <p className="mt-2 w-full text-xl md:text-3xl font-bold">
+                  ELEVATOR AND ESCALATOR PARTS
+                </p>
+                <p className="mt-2 w-full">X</p>
+                <p className="mt-2 w-full">Production and Sales</p>
+                <p className="mt-2 w-full">Technology One-Stop Services</p>
+                {/* <p>
               We believe this is the key to any successful relationship, and
               it's important to us that our clients and team members have a
               strong foundation of trust in each other.
             </p> */}
-            </div>
-            <div className="flex justify-center">
-              <Link
-                to="/about/ourcompany"
-                className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 mt-10 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg "
-              >
-                Explore Now!
-              </Link>
+              </div>
+              <div className="flex justify-center">
+                <Link
+                  to="/about/ourcompany"
+                  className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 mt-10 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg "
+                >
+                  Explore Now!
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@ const Homepage = () => {
                   <h2 className="text-2xl font-semibold ">
                     Wide Range of Products
                   </h2>
-                  <p className="text-md mt-2">
+                  <p className="text-[0.8rem] sm:text-md mt-2">
                     Explore our extensive selection of electronics, including
                     smartphones, laptops, smart home devices, gaming consoles,
                     and more.
@@ -200,7 +200,7 @@ const Homepage = () => {
                   <h2 className=" text-2xl font-semibold text-white">
                     Quality Assurance
                   </h2>
-                  <p className="text-md text-white mt-2">
+                  <p className="text-[0.8rem] sm:text-md text-white mt-2">
                     We believe in delivering only the highest quality products
                     from trusted brands. Our team carefully selects each item in
                     our catalog to ensure reliability and performance.
@@ -234,7 +234,7 @@ const Homepage = () => {
                   <h2 className=" text-2xl font-semibold text-white">
                     Competitive Pricing
                   </h2>
-                  <p className=" text-md text-white mt-2">
+                  <p className="text-[0.8rem] sm:text-md text-white mt-2">
                     We offer competitive prices to ensure you get the best value
                     for your money. Plus, don't miss out on our exclusive deals
                     and promotions.
@@ -265,7 +265,7 @@ const Homepage = () => {
                   <h2 className=" text-2xl font-semibold text-white">
                     Secure Shopping
                   </h2>
-                  <p className=" text-md text-white mt-2">
+                  <p className=" text-[0.8rem] sm:text-md text-white mt-2">
                     Shop with confidence knowing that your data is protected
                     with state-of-the-art security measures. Your privacy and
                     security are our top priorities.
@@ -316,7 +316,7 @@ const Homepage = () => {
       </div>
 
       <div>
-        <div className="mt-12 mb-16 w-full ">
+        <div className="mt-12 mb-11 w-full flex flex-col items-center ">
           <h2 className="title text-4xl text-center font-bold mx-4">
             Our Products
           </h2>
@@ -325,14 +325,19 @@ const Homepage = () => {
               <ProductCard key={index} index={index} {...product} />
             ))}
           </div>
+          <Link to="/products">
+            <button className="mt-1 border-2 bg-[#161D24] text-white p-3 text-lg md:text-xl  hover:scale-110  duration-300 rounded-md">
+              More Products
+            </button>
+          </Link>
         </div>
       </div>
 
-      <div className="w-full mb-2 flex flex-col items-center">
+      <div className="w-full mb-16 flex flex-col items-center">
         <h2 className="title text-4xl text-center font-bold mx-4">News</h2>
         <News />
-        <Link to="/about/news">
-          <button className="mt-5 border-2 bg-[#161D24] text-white p-3  hover:scale-110  duration-300 rounded-md">
+        <Link to="/about/news#top">
+          <button className="mt-5 border-2 bg-[#161D24] text-white p-3 text-lg md:text-xl hover:scale-110  duration-300 rounded-md">
             More News
           </button>
         </Link>

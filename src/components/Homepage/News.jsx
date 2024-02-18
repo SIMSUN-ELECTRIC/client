@@ -43,7 +43,7 @@ const News = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-around w-full mt-5 ">
+    <div id="top" className="flex px-6  flex-wrap justify-around w-full mt-5 ">
       {news.map((newS, index) => {
         if (index >= 4) return;
 
@@ -68,7 +68,7 @@ const News = () => {
         const day = date.getDate();
 
         return (
-          <div className="flex w-[40%] gap-2 items-center border-2 shadow-lg mb-2">
+          <div id="top" className=" flex w-full md:w-[40%] gap-2 items-center border-2 shadow-lg mb-2">
             <div className="w-1/3 md:w-1/4 flex flex-col justify-center items-center bg-[#161D24] text-white  ">
               <div className="text-3xl">
                 {day}

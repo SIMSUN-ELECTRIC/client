@@ -11,7 +11,7 @@ import productRoutes from "./Router/Productroute.js";
 import newsroute from "./Router/Newsroute.js";
 import feedbackRouter from "./Router/Feedbackroute.js";
 import cartRoutes from "./Router/Cartroute.js";
-// import payment_route from "./Router/paymentRoute.js";
+// import {paymentRoute} from "./Router/paymentRoute.js";
 
 dotenv.config();
 
@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-// const paymentRoute = payment_route;
+// const paymenttRoute = paymentRoute;
 
 // app.use("/", paymentRoute);
 

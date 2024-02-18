@@ -1,18 +1,19 @@
 const express = require("express");
-const payment_route = express();
+const paymentRoute = express();
 
 const bodyParser = require("body-parser");
-payment_route.use(bodyParser.json());
-payment_route.use(bodyParser.urlencoded({ extended: false }));
+paymentRoute.use(bodyParser.json());
+paymentRoute.use(bodyParser.urlencoded({ extended: false }));
 
 const path = require("path");
 
-payment_route.set("view engine", "ejs");
-payment_route.set("views", path.join(__dirname, "../views"));
+paymentRoute.set("view engine", "ejs");
+paymentRoute.set("views", path.join(__dirname, "../views"));
 
 const paymentController = require("../controllers/paymentController");
 
-payment_route.get("/api/cart/payment", paymentController.renderProductPage);
-payment_route.post("/createOrder", paymentController.createOrder);
+paymentRoute.get("/api/cart/payment", paymentController.renderProductPage);
+paymentRoute.post("/createOrder", paymentController.createOrder);
 
-module.exports = payment_route;
+// module.exports = paymentRoute;
+export default paymentRoute;

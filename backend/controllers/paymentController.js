@@ -10,7 +10,7 @@ const renderProductPage = async(req,res)=>{
 
     try {
         
-        res.render('/api/cart');
+        res.render('/api/shipping');
 
     } catch (error) {
         console.log(error.message);

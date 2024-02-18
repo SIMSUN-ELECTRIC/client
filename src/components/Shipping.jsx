@@ -41,6 +41,10 @@ const ShippingAddress = () => {
     }
   }, [customer]);
 
+  const handlePayment = async (e) => {
+    const response = await fetch;
+  };
+
   return (
     <div className="container bg-gray-400 mx-auto p-8 mt-4">
       <h1 className="mt-12 text-3xl font-bold mb-6 text-center">
@@ -173,6 +177,7 @@ const ShippingAddress = () => {
           type="submit"
           className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full"
+          onClick={handlePayment}
         >
           Continue
         </button>
