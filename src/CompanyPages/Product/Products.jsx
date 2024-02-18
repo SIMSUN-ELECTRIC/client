@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../store/slices/CartSlices";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import products from "./product";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaAngleRight, FaAnglesLeft } from "react-icons/fa6";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -41,20 +41,32 @@ const initialState = {
   error: null,
   totalPages: 1,
   currentPage: 1,
+  searchQuery: "",
 };
 export default function Products() {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
-
+  const [heading, setHeading] = useState("");
   const [category, setCategory] = useState("");
 
+  const [open, setOpen] = useState(false);
+  const [subOpen, setSubOpen] = useState(false);
+
+  const location = useLocation();
+  const { productCategory } = location.state || { productCategory: "" };
+
   useEffect(() => {
+    setCategory(productCategory);
+    console.log(category);
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          `https://simsun-backend.onrender.com/api/products?category=Lift%20Spare%20Parts&limit=15&page=${state.currentPage}`
+          `https://simsun-backend.onrender.com/api/products?limit=${
+            category === "" ? 24 : "all"
+          }&page=${state.currentPage}`
         );
+
         dispatchProducts({
           type: "FETCH_SUCCESS",
           payload: { data: result.data, category: category },
@@ -69,17 +81,26 @@ export default function Products() {
 
   const customer = useSelector((customer) => customer.user);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = async (product) => {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
     } else {
-      dispatch(
-        addItem({
-          id: product._id,
-          name: product.name,
-          price: product.price,
-        })
-      );
+      console.log(product, customer.userData._id);
+
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/Cart/addItem",
+          {
+            productId: product._id,
+            productName: product.name,
+            productPrice: product.price,
+            productImg: product.imageUrl,
+            userId: customer.userData._id,
+          }
+        );
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -87,26 +108,70 @@ export default function Products() {
     dispatchProducts({ type: "SET_CURRENT_PAGE", payload: page });
   };
 
+  const handleSearch = (event) => {
+    const searchQuery = event.target.value;
+    dispatchProducts({ type: "SET_SEARCH_QUERY", payload: searchQuery });
+    if (event.key === "Enter" || event.type === "click") {
+      const searchQuery = event.target.value;
+      dispatchProducts({ type: "SET_SEARCH_QUERY", payload: searchQuery });
+    }
+  };
+
+  const filteredProducts = state.products.filter((product) =>
+    product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+  );
+
   const handleEnquiry = (product) => {
     const mailto = `mailto:sales@example.com?subject=Product Enquiry - ${product.name}&body=Product Name: ${product.name}%0D%0ACategory: ${product.category}%0D%0ADescription: ${product.description}%0D%0AWrite Your Enquiry Here: `;
     window.location.href = mailto;
   };
 
-  const [heading, setHeading] = useState("");
+  const menuRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+        setSubOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
+
+  const handleCloseSidebar = () => {
+    setOpen(false);
+  };
   return (
     <div className=" mt-0 md:mt-16 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-28">
-      <div className=" md:w-1/2 lg:w-1/3 mt-10 hidden md:flex flex-col h-full ml-10 bg-white">
+      <div
+        ref={menuRef}
+        className={` z-50 md:z-0 w-1/2 md:w-1/3  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full  bg-white min-h-screen  duration-500 ${
+          open ? "left-0" : "left-[-100%] md:left-0"
+        }`}
+      >
         <h2 className="text-xl font-semibold p-5 pl-5">Product groups</h2>
         <hr className="w-full" />
         <ul className="flex flex-col gap-10 mt-5 font-semibold p-5 pl-5">
           {products.map((myproduct, index) => (
-            <Link key={index} to={myproduct.link}>
+            <Link key={index} to={myproduct.link} className="w-full">
               <h2
-                className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-md"
+                className="flex justify-between items-center md:pr-0 pr-5 group hover:bg-gray-200 px-2 py-2 text-sm lg:text-md bg-white w-full"
                 onClick={() => {
                   setHeading((prevHeading) =>
                     prevHeading === myproduct.name ? "" : myproduct.name
+                  );
+                  if (!myproduct.subMenu) {
+                    setOpen(!open);
+                    setCategory(myproduct.name);
+                    window.scrollTo(0, 20);
+                  }
+                  setSubOpen((prev) =>
+                    prev === myproduct.name ? "" : myproduct.name
                   );
                 }}
               >
@@ -114,29 +179,39 @@ export default function Products() {
                 {myproduct.subMenu && (
                   <div>
                     <div>
-                      <span className="text-xl md:hidden inline">
+                      <span className="text-md lg:text-xl md:hidden inline">
                         {heading === myproduct.name ? (
-                          <FaAnglesLeft />
+                          <FaAngleLeft />
                         ) : (
                           <FaAngleRight />
                         )}
                       </span>
-                      <span className="text-xl md:mt-1 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                      <span
+                        className={`text-md lg:text-xl md:mt-1 md:ml-1 hidden md:block  ${
+                          subOpen === myproduct.name ? "rotate-180 " : "hidden"
+                        }`}
+                      >
                         <FaAngleRight />
                       </span>
                     </div>
 
-                    <div className="absolute top-15 hidden group-hover:md:block hover:md:block z-10">
+                    <div
+                      className={`absolute min-[1400px]:left-10 left-3 min-[1400px]:w-1/2 w-[15%] lg:w-[30%] lg:top-15 z-30 duration-500  ${
+                        subOpen === myproduct.name ? "block " : "top-[-100%]"
+                      }`}
+                    >
                       <div className="py-0">
                         <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
                       </div>
-                      <div className="bg-[#161D24]/90 text-white p-4 flex flex-col rounded-xl -mr-20">
+                      <div className="bg-white text-black p-1 lg:p-4 flex flex-col gap-4 border-2 border-black/40 rounded-sm -mr-20 items-center">
                         {myproduct.subCategories.map((subcategory) => (
                           <li
                             key={subcategory.id}
-                            className="hover:text-red-500"
+                            className="hover:bg-gray-200 w-full py-1 lg:py-2 lg:px-2 px-[0.1rem] lg:pl-2"
                             onClick={() => {
                               setCategory(subcategory.name);
+                              setOpen(!open);
+                              window.scrollTo(0, 0);
                             }}
                           >
                             {subcategory.name}

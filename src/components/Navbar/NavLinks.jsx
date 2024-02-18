@@ -9,9 +9,15 @@ import {
 } from "react-icons/fa6";
 
 const SubLink = ({ slink }) => (
-  <li className="py-2 flex flex-direction-col">
+  <li className="py-2 flex flex-direction-col ">
+    {console.log(slink.productCategory)}
     <Link
-      to={slink.link}
+      to={{
+        pathname: slink.link,
+        state: {
+          productCategory: slink.productCategory,
+        },
+      }}
       className="hover:text-red-400"
       onClick={() => setOpen(!open)}
     >
@@ -74,11 +80,10 @@ const NavLinks = () => {
                 <div className="py-0">
                   <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
                 </div>
-                <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20">
+                <div className="bg-[#161D24] p-4 flex rounded-xl -mr-20 overflow-y-auto">
                   {link.sublinks.map((mysublinks) => (
                     <div key={mysublinks.Head}>
-                      {mysublinks.sublink.map((slink, index) => {
-                        if (index >= 10) return;
+                      {mysublinks.sublink.map((slink) => {
                         return <SubLink key={slink.name} slink={slink} />;
                       })}
                     </div>

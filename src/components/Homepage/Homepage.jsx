@@ -16,6 +16,9 @@ import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "./motion";
 import "../../index.css";
 import { useInView } from "react-intersection-observer";
+import ProductCard from "./ProductCard";
+import { products } from "./product";
+import News from "./News";
 // import div from "react-parallax-div";
 
 const Homepage = () => {
@@ -60,7 +63,7 @@ const Homepage = () => {
           style={{
             "--image-url": `url(${mainImage})`,
           }}
-          className=" w-full h-[85vh] relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
+          className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
         >
           <div
             className={`${
@@ -317,61 +320,22 @@ const Homepage = () => {
           <h2 className="title text-4xl text-center font-bold mx-4">
             Our Products
           </h2>
-          <div className="flex flex-wrap mt-4">
-            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/lift">
-                <img
-                  src={lift1}
-                  alt="Lift"
-                  className=" sm:w-full rounded-md lg:max-h-full"
-                />
-                <h4 className="text-2xl mt-2 text-center">Lift</h4>
-              </Link>
-            </div>
-            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/escalator">
-                <img
-                  src={lift7}
-                  alt="Escalator"
-                  className="w-full rounded-md"
-                />
-                <h4 className="text-2xl mt-2 text-center ">Escalator</h4>
-              </Link>
-            </div>
-            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/travelator">
-                <img
-                  src={lift9}
-                  alt="travelator"
-                  className="w-full rounded-md"
-                />
-                <h4 className="text-2xl mt-2 text-center ">Travelator</h4>
-              </Link>
-            </div>
-            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/LiftSparePart">
-                <img
-                  src={lift5}
-                  alt="Lift Spare Part"
-                  className="w-full rounded-md"
-                />
-                <h4 className="text-2xl mt-2 text-center ">Lift Spare Part</h4>
-              </Link>
-            </div>
-            <div className="w-1/2 md:w-1/5 p-4 hover:-translate-y-2 ease-in duration-300 cursor-pointer">
-              <Link to="/product/EscalatorSparePart">
-                <img
-                  src={lift4}
-                  alt="Escalator Spare Part"
-                  className="w-full rounded-md "
-                />
-                <h4 className="text-2xl mt-2 text-center ">
-                  Escalator Spare Part
-                </h4>
-              </Link>
-            </div>
+          <div className="flex flex-wrap mt-4 ">
+            {products.map((product, index) => (
+              <ProductCard key={index} index={index} {...product} />
+            ))}
           </div>
         </div>
+      </div>
+
+      <div className="w-full mb-2 flex flex-col items-center">
+        <h2 className="title text-4xl text-center font-bold mx-4">News</h2>
+        <News />
+        <Link to="/about/news">
+          <button className="mt-5 border-2 bg-[#161D24] text-white p-3  hover:scale-110  duration-300 rounded-md">
+            More News
+          </button>
+        </Link>
       </div>
 
       {/* <div className="bg-red-500">
