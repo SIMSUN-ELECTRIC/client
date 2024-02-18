@@ -148,22 +148,22 @@ const Navbar = () => {
                 <div className="">
                   <li>
                     <Link
-                      to="/Cart"
+                      to="/Inquiry"
                       className=" text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5 relative "
                     >
-                      Cart
-                      {cartItems.length > 0 && (
+                      Inquiry
+                      {/* {cartItems.length > 0 && (
                         <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-4 -mr-5">
-                          {/* {totalQuantity} */}
+                          {totalQuantity}
                         </span>
-                      )}
+                      )} */}
                     </Link>
                   </li>
                 </div>
               ) : null}
 
               {user.userData?.isAdmin ? (
-                <div className="text-left cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group">
                   <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {

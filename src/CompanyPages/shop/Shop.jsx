@@ -311,7 +311,7 @@ const Shop = () => {
                   className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
                   onClick={() => handleAddToCart(product)}
                 >
-                  Add to Cart
+                  Add to Inquiry
                 </button>
               </div>
             </div>

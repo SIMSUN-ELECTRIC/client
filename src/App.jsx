@@ -22,7 +22,7 @@ import EngineerRegister from "./Auth/Signup/EngineerRegister";
 import EngineerLogin from "./Auth/EngineerLogin";
 import AdminLogin from "./Auth/AdminLogin";
 import ContactUs from "./components/ContactUs";
-import Cart from "./components/Cart";
+import Inquiry from "./components/Inquiry";
 import Maintenance from "./CompanyPages/Services/Maintenance";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./components/Admin/AddProduct";
@@ -113,7 +113,7 @@ function App() {
           <Route path="/auth/UserProfile" element={<UserProfile />} />
 
           <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Inquiry" element={<Inquiry />} />
           <Route path="/shipping" element={<ShippingAddress />} />
 
           <Route path="/admin/productList" exact element={<ProductList />} />

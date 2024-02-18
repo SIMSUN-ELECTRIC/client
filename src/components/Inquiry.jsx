@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-function Cart() {
+import { faL } from "@fortawesome/free-solid-svg-icons";
+function Inquiry() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cartData, setCartData] = useState([]);
@@ -29,6 +30,21 @@ function Cart() {
     }
   };
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const wrapperRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setShowForm(false);
+    }
+  };
+
   const handleQuantityChange = async (id, newQuantity) => {
     try {
       dispatch(updateQuantity({ id, quantity: newQuantity }));
@@ -41,14 +57,14 @@ function Cart() {
       );
 
       // Update the local cart data state
-      setCartData(prevCartData =>
-        prevCartData.map(item =>
+      setCartData((prevCartData) =>
+        prevCartData.map((item) =>
           item._id === id ? { ...item, quantity: newQuantity } : item
-        ))
+        )
+      );
     } catch (error) {
       console.error(error);
     }
-    
   };
 
   const handleDelete = async (id) => {
@@ -99,10 +115,91 @@ function Cart() {
     }
   };
 
+  const [showForm, setShowForm] = useState(false);
+
+  const handleEnquiryClick = () => {
+    setShowForm(true);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    setShowForm(false);
+    // Handle form submission logic here
+    console.log("Shipping Address Submitted:", {
+      name,
+      phoneNumber,
+      email,
+      address,
+      enquiry,
+    });
+  };
+
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [enquiry, setEnquiry] = useState("");
+
   return (
     <div className="md:mt-16 bg-gradient-to-b from-blue-200  to-blue-400 min-h-screen py-10 overflow-x-hidden">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Shopping Cart</h1>
+        {showForm && (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-10">
+            <form
+              ref={wrapperRef}
+              // onSubmit={handleFormSubmit}
+              onSubmit={handleFormSubmit}
+              className="bg-white w-[80%] md:w-[50%] lg:w-[40%] h-[50%] flex flex-col items-center justify-around  p-8 rounded-lg"
+            >
+              {/* Form fields */}
+              <input
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                className="mb-4 h-[3rem] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="tel"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="mb-4 h-[3rem] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Phone Number"
+                required
+              />
+              <input
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                className="mb-4 h-[3rem] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="Address"
+                onChange={(e) => setAddress(e.target.value)}
+                className="mb-4 h-[3rem] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Address"
+                required
+              />
+              <input
+                type="text"
+                onChange={(e) => setEnquiry(e.target.value)}
+                className="mb-4 h-[3rem] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Enquiry Details"
+                required
+              />
+
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 rounded"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        )}
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          Products Inquiry
+        </h1>
         <div className="text-white h-full w-full xl:flex">
           <div className="text-white xl:w-[60%] p-4">
             <div className="flex justify-between items-center px-2">
@@ -177,7 +274,7 @@ function Cart() {
             </div>
           </div>
 
-          <div className="mb-12 text-white max-h-[25rem] rounded-md bg-slate-800 xl:w-[34%] p-5  xl:translate-x-14 xl:translate-y-8 ">
+          <div className="mb-12 text-white max-h-[25rem] rounded-md bg-slate-800 xl:w-[34%] p-5 space-y-3  xl:translate-x-14 xl:translate-y-8 ">
             <div className="flex items-center p-2 text-2xl font-semibold">
               Bill Details
             </div>
@@ -200,13 +297,13 @@ function Cart() {
             <div className="flex justify-between items-center p-2">
               <button
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full"
-                onClick={handlePayment}
-                // onClick={() => handlePayment(subTotal, id, email)}
+                onClick={handleEnquiryClick}
               >
-                Make Payment
+                Enquiry Products
               </button>
             </div>
-            <div className="flex justify-between items-center p-2">
+
+            {/* <div className="flex justify-between items-center p-2">
               <input
                 type="text"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[58%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -215,7 +312,7 @@ function Cart() {
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 rounded hidden xl:block w-[40%]">
                 Apply
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -223,4 +320,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Inquiry;

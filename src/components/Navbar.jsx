@@ -682,7 +682,7 @@ export default function Header() {
               to={"/Cart"}
               class="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-semibold "
             >
-              Cart
+              Inquiry
             </Link>
           </div>
         </div>
