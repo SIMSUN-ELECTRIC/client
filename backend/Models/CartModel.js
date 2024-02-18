@@ -33,6 +33,26 @@ const cartSchema = new Schema({
     required: true,
   },
   items: [cartItemSchema],
+  name: {
+    type: String,
+    required: false,
+  },
+  phone: {
+    type: String,
+    required: false,
+  },
+  email: {
+    type: String,
+    required: false,
+  },
+  inquiryDetails: {
+    type: String,
+    required: false,
+  },
+  address: {
+    type: String,
+    required: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

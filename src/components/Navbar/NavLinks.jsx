@@ -10,7 +10,7 @@ import {
 
 const SubLink = ({ slink }) => (
   <li className="py-2 flex flex-direction-col ">
-    {console.log(slink.productCategory)}
+    {/* {console.log(slink.productCategory)} */}
     <Link
       to={{
         pathname: slink.link,

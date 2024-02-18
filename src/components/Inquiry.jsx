@@ -117,28 +117,49 @@ function Inquiry() {
 
   const [showForm, setShowForm] = useState(false);
 
-  const handleEnquiryClick = () => {
-    setShowForm(true);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    setShowForm(false);
-    // Handle form submission logic here
-    console.log("Shipping Address Submitted:", {
-      name,
-      phoneNumber,
-      email,
-      address,
-      enquiry,
-    });
-  };
-
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [enquiry, setEnquiry] = useState("");
+  
+  const handleEnquiryClick = () => {
+    setShowForm(true);
+  };
+
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+  setShowForm(false);
+
+  try {
+    const response = await axios.put(
+      `http://localhost:5000/api/cart/inquiry/${userId}`,
+      {
+        name,
+        phoneNumber,
+        email,
+        address,
+        enquiry,
+      }
+    );
+
+    console.log("Form submitted successfully:", response.data);
+
+    // Optionally, you can reset the form fields after successful submission
+    setName("");
+    setPhoneNumber("");
+    setEmail("");
+    setAddress("");
+    setEnquiry("");
+
+    fetchCartData();
+  } catch (error) {
+    console.error("Error submitting form:", error);
+  }
+};
+
+
+  
 
   return (
     <div className="md:mt-16 bg-gradient-to-b from-blue-200  to-blue-400 min-h-screen py-10 overflow-x-hidden">

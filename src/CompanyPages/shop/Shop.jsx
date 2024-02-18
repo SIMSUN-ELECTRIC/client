@@ -92,6 +92,11 @@ const Shop = () => {
             productPrice: product.price,
             productImg: product.imageUrl,
             userId: customer.userData._id,
+            name: "",
+            phone: "",
+            email: "",
+            inquiryDetails: "",
+            address: "",
           }
         );
       } catch (error) {

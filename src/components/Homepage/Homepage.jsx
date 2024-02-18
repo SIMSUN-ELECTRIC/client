@@ -139,8 +139,8 @@ const Homepage = () => {
 
         <div className="w-full text-center flex flex-col mt-20">
           <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
-          <div className="flex flex-row mt-4 justify-center  flex-wrap mx-8">
-            <div className="sm:w-[325px] h-[400px] w-full">
+          <div className="flex flex-row mt-4 justify-center mx-8">
+            <div className="sm:w-[325px]  h-[400px] w-full">
               <motion.div>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}

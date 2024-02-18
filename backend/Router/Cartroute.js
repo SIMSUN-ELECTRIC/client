@@ -20,14 +20,41 @@ router.get("/:id", async (req, res) => {
 
 // Add item to cart
 router.post("/addItem", async (req, res) => {
-  const { userId, productId, productName, productPrice, productImg } = req.body;
-  console.log(req.body);
+  const {
+    userId,
+    productId,
+    productName,
+    productPrice,
+    productImg,
+    name,
+    phone,
+    email,
+    inquiryDetails,
+    address,
+  } = req.body;
+  // console.log(req.body);
 
   try {
     let cart = await Cart.findOne({ userId });
 
     if (!cart) {
-      cart = new Cart({ userId, items: [] });
+      // Create a new cart if it doesn't exist
+      cart = new Cart({
+        userId,
+        items: [],
+        name,
+        phone,
+        email,
+        inquiryDetails,
+        address,
+      });
+    } else {
+      // Update cart information if it exists
+      cart.name = name;
+      cart.phone = phone;
+      cart.email = email;
+      cart.inquiryDetails = inquiryDetails;
+      cart.address = address;
     }
 
     // Check if item already exists in cart
@@ -56,6 +83,7 @@ router.post("/addItem", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
 
 // Remove item from cart
 router.delete("/delete/:id/:product", async (req, res) => {
@@ -88,6 +116,30 @@ router.delete("/delete/:id/:product", async (req, res) => {
   }
 });
 
+router.put("/inquiry/:id", async (req, res) => {
+  const userId = req.params.id;
+  const { name, phoneNumber, email, address, enquiry } = req.body;
+  console.log("this is req body in inquiry:", req.body);
+  try {
+    let cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+
+    (cart.name = name.toString()),
+      (cart.phone = phoneNumber.toString()),
+      (cart.email = email.toString()),
+      (cart.inquiryDetails = enquiry.toString()),
+      (cart.address = address.toString()),
+      await cart.save();
+    res.status(201).json(cart);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ message: err.message });
+  }
+});
+
 router.put("/updateQuantity/:userId/:productId", async (req, res) => {
   const userId = req.params.userId;
   const productId = req.params.productId;
@@ -108,7 +160,7 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
       (item) => item._id.toString() === productId.toString()
     );
 
-    console.log("cart items",cart.items);
+    console.log("cart items", cart.items);
     if (itemIndex !== -1) {
       // Update the quantity of the item
       cart.items[itemIndex].quantity = quantity;
