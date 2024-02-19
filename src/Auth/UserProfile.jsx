@@ -4,6 +4,7 @@ import profilebg from "../assets/img/profilebg.jpg";
 
 const UserProfile = () => {
   const user = useSelector((state) => state.user.userData);
+  console.log("this is user", user);
 
   // Animation for the UserProfile component
   const profileAnimation = useSpring({

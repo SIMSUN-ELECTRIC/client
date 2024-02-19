@@ -28,7 +28,7 @@ const Homepage = () => {
 
   const [index, setIndex] = useState(0);
   const images = [lift15, lift13, lift14, Esc];
-  const mainImages = [e1, e4];
+  const mainImages = [e4];
   const [mainindex, setmainIndex] = useState(0);
 
   useEffect(() => {

@@ -19,6 +19,23 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/prevInquiry/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+console.log("user:",userId);
+    // Assuming you have a model named Inquiry to represent previous inquiries
+    // Fetch previous inquiries based on the user ID
+    const previousInquiries = await Cart.findOne({ userId }).populate("items.productId");
+
+    // Respond with the fetched inquiries
+    res.status(200).json(previousInquiries);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
 // Add item to cart
 router.post("/addItem", async (req, res) => {
   const {
@@ -224,4 +241,7 @@ router.post("/sendEmail/:id", async (req, res) => {
     res.status(500).json({ error: "Error sending email" });
   }
 });
+
+
+
 export default router;

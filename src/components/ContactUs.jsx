@@ -17,7 +17,7 @@ function ContactUs() {
             </p>
             <ul className="list-disc pl-5">
               <li className="mb-2">Email: simsunelectricwork@gmail.com</li>
-              <li className="mb-2">Phone: +007 9089 6767</li>
+              <li className="mb-2">Phone: +91-9718905221</li>
               <li className="mb-2">
                 Address: Flat No. T-1, 104, 1st Floor, Tower-1 No. GH 01/A,
                 Sector 16C, Exotica Dreamville, Greater Noida, U.P. 201203

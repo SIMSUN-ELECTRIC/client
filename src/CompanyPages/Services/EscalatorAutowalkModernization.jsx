@@ -181,7 +181,7 @@ const EscalatorAutowalkModernization = () => {
                   </div>
                   <div className=" border hover:border-2  hover:border-fuchsia-500  p-10   flex-1 ">
                     <div className="text-2xl my-4 text-left flex items-center">
-                      SIMSUN Escalator InfoPack
+                      SIMSUN ESCALATOR INFO PACK
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -213,7 +213,7 @@ const EscalatorAutowalkModernization = () => {
         {/* section 4 end */}
 
         {/* section 6 start */}
-        <div className="sm:mt-11 mt-3 flex flex-col justify-center items-center w-full">
+        <div className="sm:mt-5 mt-3 flex flex-col justify-center items-center w-full">
           <div className="text-center">
             <h2 className="text-2xl md:text-3xl font-semibold">
               How can we help you?

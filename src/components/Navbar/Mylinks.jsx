@@ -115,7 +115,7 @@ export const links = [
           },
           {
             id: 35,
-            name: "Elevator Modernization",
+            name: "Escalator Modernization",
             link: "/services/EscalatorAutowalkModernization",
           },
           // {
@@ -129,11 +129,11 @@ export const links = [
   },
   // {
   //   id: 4,
-  //   name: "Customer Services",
+  //   name: "Inquiry",
   //   submenu: true,
   //   sublinks: [
   //     {
-  //       Head: "Customer Services",
+  //       Head: "Inquiry",
   //       sublink: [
   //         { id: 41, name: "Your Orders", link: "/customerservices/YourOrders" },
   //         {
@@ -141,16 +141,16 @@ export const links = [
   //           name: "Return & Refunds",
   //           link: "/customerservices/ReturnandRefunds",
   //         },
-  // {
-  //   id: 43,
-  //   name: "Manage Addresses",
-  //   link: "/customerservices/ManageAddress",
-  // },
-  // {
-  //   id: 44,
-  //   name: "Payment Settings",
-  //   link: "/customerservices/PaymentSetting",
-  // },
+  //         {
+  //           id: 43,
+  //           name: "Manage Addresses",
+  //           link: "/customerservices/ManageAddress",
+  //         },
+  //         {
+  //           id: 44,
+  //           name: "Payment Settings",
+  //           link: "/customerservices/PaymentSetting",
+  //         },
   //       ],
   //     },
   //   ],
