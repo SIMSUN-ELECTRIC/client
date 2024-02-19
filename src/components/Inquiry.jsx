@@ -122,44 +122,57 @@ function Inquiry() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [enquiry, setEnquiry] = useState("");
-  
+
   const handleEnquiryClick = () => {
     setShowForm(true);
   };
 
-const handleFormSubmit = async (event) => {
-  event.preventDefault();
-  setShowForm(false);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    setShowForm(false);
 
-  try {
-    const response = await axios.put(
-      `http://localhost:5000/api/cart/inquiry/${userId}`,
-      {
-        name,
-        phoneNumber,
-        email,
-        address,
-        enquiry,
-      }
-    );
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/api/cart/inquiry/${userId}`,
+        {
+          name,
+          phoneNumber,
+          email,
+          address,
+          enquiry,
+        }
+      );
 
-    console.log("Form submitted successfully:", response.data);
+      console.log("Form submitted successfully:", response.data);
 
-    // Optionally, you can reset the form fields after successful submission
-    setName("");
-    setPhoneNumber("");
-    setEmail("");
-    setAddress("");
-    setEnquiry("");
+      // Optionally, you can reset the form fields after successful submission
+      setName("");
+      setPhoneNumber("");
+      setEmail("");
+      setAddress("");
+      setEnquiry("");
 
-    fetchCartData();
-  } catch (error) {
-    console.error("Error submitting form:", error);
-  }
-};
+      fetchCartData();
+      sendEmail();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
 
-
-  
+  const sendEmail = async () => {
+    try {
+      // Make HTTP POST request to your backend route for sending emails
+      const response = await axios.post(
+        `http://localhost:5000/api/cart/sendEmail/${userId}`,
+        {
+          userId: "user_id_here",
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error sending email: ", error);
+    }
+  };
 
   return (
     <div className="md:mt-16 bg-gradient-to-b from-blue-200  to-blue-400 min-h-screen py-10 overflow-x-hidden">

@@ -1,6 +1,7 @@
 // routes/cart.js
 import Cart from "../Models/CartModel.js";
 import express from "express";
+import nodemailer from "nodemailer";
 
 const router = express.Router();
 
@@ -83,7 +84,6 @@ router.post("/addItem", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-
 
 // Remove item from cart
 router.delete("/delete/:id/:product", async (req, res) => {
@@ -175,4 +175,53 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
   }
 });
 
+// send email
+router.post("/sendEmail/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Retrieve cart information for the user
+    const cart = await Cart.findOne({ userId }).populate("items.productId");
+    console.log("cart in email", cart);
+    // Compose email content
+    const emailContent = `
+            <h1>Cart Information</h1>
+            <p>User ID: ${cart.userId}</p>
+            <p>Name: ${cart.name}</p>
+            <p>Email: ${cart.email}</p>
+            <p>Phone: ${cart.phone}</p>
+            <p>Address: ${cart.address}</p>
+            <p>Inquiry: ${cart.inquiryDetails}</p>
+            <h2>Items:</h2>
+            <ul>
+                ${cart.items
+                  .map((item) => `<li>${item.name} - ${item.quantity}</li>`)
+                  .join("")}
+            </ul>
+        `;
+
+    // Create Nodemailer transporter
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    // Send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: process.env.EMAIL_USERNAME,
+      to: "goswami@gmail.com",
+      subject: "Cart Information",
+      html: emailContent,
+    });
+
+    console.log("Email sent: ", info.messageId);
+    res.status(200).json({ message: "Email sent successfully" });
+  } catch (error) {
+    console.error("Error sending email: ", error);
+    res.status(500).json({ error: "Error sending email" });
+  }
+});
 export default router;

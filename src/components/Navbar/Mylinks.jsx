@@ -30,6 +30,26 @@ export const links = [
         sublink: [
           //
 
+          { id: 17, name: "BLT Elevator PCB", link: "/products" },
+          { id: 18, name: "Sigma Elevator PCB", link: "/products" },
+          { id: 19, name: "KONE Elevator PCB", link: "/products" },
+          { id: 20, name: "Mitsubishi Elevator PCB", link: "/products" },
+          { id: 21, name: "Escalator Handrail", link: "/products" },
+          { id: 22, name: "Escalator Wheel", link: "/products" },
+          { id: 23, name: "Escalator Step", link: "/products" },
+          {
+            id: 3,
+            subMenu: false,
+            name: "Elevator Inverter",
+            link: "/products",
+          },
+          {
+            id: 4,
+            subMenu: false,
+            name: "Elevator Traction Machine",
+            link: "/products",
+          },
+
           {
             id: 21,
             name: "Lift",
@@ -60,25 +80,6 @@ export const links = [
             name: "Other Products",
             link: "/products",
             productCategory: "BLT Elevator PCB",
-          },
-          { id: 17, name: "BLT Elevator PCB", link: "/products" },
-          { id: 18, name: "Sigma Elevator PCB", link: "/products" },
-          { id: 19, name: "KONE Elevator PCB", link: "/products" },
-          { id: 20, name: "Mitsubishi Elevator PCB", link: "/products" },
-          { id: 21, name: "Escalator Handrail", link: "/products" },
-          { id: 22, name: "Escalator Wheel", link: "/products" },
-          { id: 23, name: "Escalator Step", link: "/products" },
-          {
-            id: 3,
-            subMenu: false,
-            name: "Elevator Inverter",
-            link: "/products",
-          },
-          {
-            id: 4,
-            subMenu: false,
-            name: "Elevator Traction Machine",
-            link: "/products",
           },
         ],
       },
