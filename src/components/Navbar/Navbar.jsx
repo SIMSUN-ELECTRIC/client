@@ -682,11 +682,11 @@ const Navbar = () => {
                           Profile
                         </a>
                         <a
-                          href="/customerservices/YourOrders"
+                          href="/customerservices/prevInquiry"
                           className="block w-96 dropdown-item"
                           onClick={() => setOpen(!open)}
                         >
-                          Your Orders
+                          Prev Inquiry
                         </a>
                         <div
                           className="block dropdown-item"

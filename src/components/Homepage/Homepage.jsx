@@ -19,6 +19,7 @@ import { useInView } from "react-intersection-observer";
 import ProductCard from "./ProductCard";
 import { products } from "./product";
 import News from "./News";
+
 // import div from "react-parallax-div";
 
 const Homepage = () => {
@@ -99,18 +100,18 @@ const Homepage = () => {
           </div>
         </div>
         <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
-          <div className=" md:w-[90%] h-[320px] md:h-[420px] pt-0 md:p-4 flex flex-col items-center justify-around md:justify-between">
+          <div className=" md:w-[90%] h-[320px] md:h-[400px] pt-0 md:p-4 flex flex-col items-center justify-around md:justify-between">
             <img
               src={ImageComponent}
               alt="lift"
-              className="rounded-[25px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a] h-[80%] md:h-[90%] w-full"
+              className="rounded-[25px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a] h-[80%] md:h-[95%] w-full"
             />
-            <div className="flex flex-col justify-between w-full h-[7%]">
+            {/* <div className="flex flex-col justify-between w-full h-[7%]">
               <div className="h-[8px]  relative w-full bg-gray-400 rounded-[50px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a]" />
               <div className="h-[4px] relative w-full bg-gray-400 rounded-[50px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a]" />
               <div className="relative w-full h-[2px] bg-gray-400 rounded-[50px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a]" />
               <div className="relative w-full h-[2px] bg-gray-400 rounded-[50px] shadow-[0px_2px_4px_-2px_#0000001a,0px_4px_6px_-1px_#0000001a]" />
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col px-2 md:px-5">
             <h1 className="relative mt-[2rem] md:mt-[1.25rem]  [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[30px] md:text-[48px] tracking-[0] leading-[20px] md:leading-[48px] whitespace-nowrap">

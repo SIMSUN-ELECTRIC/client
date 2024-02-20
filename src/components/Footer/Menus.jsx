@@ -24,15 +24,15 @@ export const RESOURCES = [
   },
 ];
 export const COMPANY = [
-  { name: "Lift", link: "/product/lift" },
-  { name: "Escalators", link: "/product/escalator" },
-  { name: "Travelator", link: "/product/travelator" },
-  { name: "Lift Spare Parts", link: "/product/LiftSparePart" },
-  { name: "Escalator Spare Parts", link: "/product/EsclatorSparePart" },
+  { name: "Elevator PCB", link: "/products" },
+  { name: "Elevetor Invertor", link: "/products" },
+  { name: "Elevetor Service Tool", link: "/products" },
+  { name: "Elevetor Wheel", link: "/products" },
+  { name: "Elevetor Button", link: "/products" },
 ];
 export const SUPPORT = [
-  { name: "Your Orders", link: "/customerservices/YourOrders" },
-  { name: "Returns & Refunds", link: "/customerservices/ReturnandRefunds" },
+  { name: "Products Inquiry", link: "/Inquiry" },
+  { name: "Prev Inquiry", link: "/customerservices/prevInquiry" },
   // { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
   // { name: "Payment Settings", link: "/customerservices/PaymentSetting" },
   // { name: "Account Settings", link: "/customerservices/AccountSetting" },

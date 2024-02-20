@@ -1,25 +1,5 @@
 const products = [
   {
-    id: 21,
-    name: "Lift",
-  },
-  {
-    id: 22,
-    name: "Escalator",
-  },
-  {
-    id: 23,
-    name: "Travelator",
-  },
-  {
-    id: 24,
-    name: "Lift Spare Parts",
-  },
-  {
-    id: 25,
-    name: "Escalator Spare Parts",
-  },
-  {
     id: 1,
     name: "Elevator PCB",
     subMenu: true,
@@ -113,6 +93,26 @@ const products = [
       { id: 37, name: "Speed Limiter", link: "" },
       { id: 38, name: "Oil Can", link: "" },
     ],
+  },
+  {
+    id: 21,
+    name: "Lift",
+  },
+  {
+    id: 22,
+    name: "Escalator",
+  },
+  {
+    id: 23,
+    name: "Travelator",
+  },
+  {
+    id: 24,
+    name: "Lift Spare Parts",
+  },
+  {
+    id: 25,
+    name: "Escalator Spare Parts",
   },
 ];
 

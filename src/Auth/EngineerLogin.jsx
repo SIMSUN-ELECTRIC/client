@@ -143,7 +143,7 @@ const EngineerLogin = () => {
                         </button>
                         {/*Forgot password link*/}
                         {/* <a href="#!">Forgot password?</a> */}
-                        <Link to={`/auth/consumerRegistration`}>
+                        <Link to={`/auth/engineerRegistration`}>
                           Doesn't have an acount?
                         </Link>
                       </div>

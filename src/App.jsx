@@ -13,7 +13,6 @@ import NewInstallationServices from "./CompanyPages/Services/NewInstallationServ
 import AnnualMaintainenceServices from "./CompanyPages/Services/AnnualMaintainenceServices";
 import BreakdownServices from "./CompanyPages/Services/BreakdownServices";
 import Shop from "./CompanyPages/shop/Shop";
-import YourOrders from "./CompanyPages/customerServices/YourOrders";
 import ReturnandRefund from "./CompanyPages/customerServices/ReturnandRefund";
 import ManageAddress from "./CompanyPages/customerServices/ManageAddress";
 import ConsumerRegister from "./Auth/Signup/ConsumerRegister";
@@ -23,7 +22,7 @@ import EngineerLogin from "./Auth/EngineerLogin";
 import AdminLogin from "./Auth/AdminLogin";
 import ContactUs from "./components/ContactUs";
 import Inquiry from "./components/Inquiry";
-import PrevInquiry from "./components/prevInquiry";
+import PrevInquiry from "./CompanyPages/customerServices/prevInquiry";
 import Maintenance from "./CompanyPages/Services/Maintenance";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./components/Admin/AddProduct";
@@ -89,8 +88,7 @@ function App() {
           />
 
           <Route path="/shop" element={<Shop />} />
-
-          <Route path="/customerservices/YourOrders" element={<YourOrders />} />
+          
           <Route
             path="/customerservices/ReturnandRefunds"
             element={<ReturnandRefund />}
