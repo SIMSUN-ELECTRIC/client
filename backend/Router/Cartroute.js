@@ -10,7 +10,9 @@ router.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
     console.log("id in backend", userId);
-    const cart = await Cart.findOne({ userId }).populate("items.productId");
+    const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
+      "items.productId"
+    );
     // console.log("cart data:", cart);
     res.json(cart);
   } catch (error) {
@@ -22,19 +24,21 @@ router.get("/:id", async (req, res) => {
 router.get("/prevInquiry/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-console.log("user:",userId);
+    console.log("User ID:", userId);
+
     // Assuming you have a model named Inquiry to represent previous inquiries
     // Fetch previous inquiries based on the user ID
-    const previousInquiries = await Cart.findOne({ userId }).populate("items.productId");
-
+    const previousInquiries = await Cart.find({ userId }).populate(
+      "items.productId"
+    );
+    console.log("this is previous Inquiries", previousInquiries);
     // Respond with the fetched inquiries
     res.status(200).json(previousInquiries);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
 
 // Add item to cart
 router.post("/addItem", async (req, res) => {
@@ -110,7 +114,7 @@ router.delete("/delete/:id/:product", async (req, res) => {
   console.log("User ID:", userId);
   console.log("product id: ", productId);
   try {
-    let cart = await Cart.findOne({ userId });
+    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 });
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
@@ -241,7 +245,5 @@ router.post("/sendEmail/:id", async (req, res) => {
     res.status(500).json({ error: "Error sending email" });
   }
 });
-
-
 
 export default router;

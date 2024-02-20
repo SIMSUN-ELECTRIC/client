@@ -64,19 +64,19 @@ const Homepage = () => {
           style={{
             "--image-url": `url(${mainImage})`,
           }}
-          className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center "
+          className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center justify-center "
         >
-          <div className=" mt-[10rem] md:mt-[14rem] bg-black/50 p-2 sm:p-8 relative flex flex-col justify-center items-center">
+          <div className=" mt-[8rem] md:mt-[8rem] bg-black/50 p-2 sm:p-8 relative flex flex-col justify-center items-center">
             <div
               className={`flex flex-col justify-center items-center ${
                 mainImage === esc1 ? " w-100% text-violet-100 " : "text-white"
               } w-full h-full`}
             >
-              <div className="relative [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-3xl md:text-5xl text-center tracking-[0] leading-[normal] mx-8 mb-8">
+              <div className="relative [font-family:'Poppins-SemiBold',Helvetica] font-semibold  text-2xl md:text-3xl lg:text-5xl text-center tracking-[0] leading-[normal] mx-8 md:mb-3">
                 WELCOME TO <p className="md:inline">SIMSUN ELECTRIC</p>
               </div>
-              <div className="relative [font-family:'Poppins-Regular',Helvetica] font-extralight text-xl md:text-2xl text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
-                <p className="mt-2 w-full text-xl md:text-3xl font-bold">
+              <div className="relative [font-family:'Poppins-Regular',Helvetica] font-extralight text-md md:text-2xl lg:text-[1.6rem] text-center tracking-[0] leading-[normal] self-stretch mx-[3.375rem] p-4">
+                <p className="mt-2 w-full md:text-2xl lg:text-[1.6rem] font-bold">
                   ELEVATOR AND ESCALATOR PARTS
                 </p>
                 <p className="mt-2 w-full">X</p>
@@ -91,7 +91,7 @@ const Homepage = () => {
               <div className="flex justify-center">
                 <Link
                   to="/about/ourcompany"
-                  className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 mt-10 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg "
+                  className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-red-500 hover:to-pink-600 md:mt-4 py-3 px-6 text-white font-bold rounded-full border-2 border-transparent hover:border-transparent hover:text-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg "
                 >
                   Explore Now!
                 </Link>
@@ -100,7 +100,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
-          <div className=" md:w-[90%] h-[320px] md:h-[400px] pt-0 md:p-4 flex flex-col items-center justify-around md:justify-between">
+          <div className=" md:w-[90%] w-[190px] sm:h-[220px] md:h-[400px] pt-0 md:p-4 flex flex-col items-center justify-around md:justify-between">
             <img
               src={ImageComponent}
               alt="lift"
@@ -140,12 +140,12 @@ const Homepage = () => {
 
         <div className="w-full text-center flex flex-col mt-20">
           <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
-          <div className="flex flex-row mt-4 justify-center mx-8">
-            <div className="sm:w-[325px]  h-[400px] w-full">
+          <div className="flex flex-row flex-wrap mt-4 justify-center mx-8">
+            <div className=" ">
               <motion.div>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]"
                 >
                   <div className="flex justify-center">
                     <svg
@@ -154,7 +154,7 @@ const Homepage = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-14 h-14 "
+                      className="sm:w-20 sm:h-20 w-14 h-14"
                     >
                       <path
                         strokeLinecap="round"
@@ -167,7 +167,7 @@ const Homepage = () => {
                   <h2 className="text-2xl font-semibold ">
                     Wide Range of Products
                   </h2>
-                  <p className="text-[0.8rem] sm:text-md mt-2">
+                  <p className="text-[0.8rem] sm:text-[1rem] mt-2">
                     Explore our extensive selection of electronics, including
                     smartphones, laptops, smart home devices, gaming consoles,
                     and more.
@@ -175,11 +175,11 @@ const Homepage = () => {
                 </div>
               </motion.div>
             </div>
-            <div className="sm:w-[325px] h-[400px] w-full">
+            <div className="">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 1, 0.75)}>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]"
                 >
                   <div className=" flex justify-center text-white">
                     <svg
@@ -188,7 +188,7 @@ const Homepage = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-14 h-14"
+                      className="sm:w-20 sm:h-20 w-14 h-14"
                     >
                       <path
                         strokeLinecap="round"
@@ -201,7 +201,7 @@ const Homepage = () => {
                   <h2 className=" text-2xl font-semibold text-white">
                     Quality Assurance
                   </h2>
-                  <p className="text-[0.8rem] sm:text-md text-white mt-2">
+                  <p className="text-[0.8rem] sm:text-[1rem] text-white mt-2">
                     We believe in delivering only the highest quality products
                     from trusted brands. Our team carefully selects each item in
                     our catalog to ensure reliability and performance.
@@ -209,11 +209,11 @@ const Homepage = () => {
                 </div>
               </motion.div>
             </div>
-            <div className="sm:w-[325px] h-[400px] w-full">
+            <div className="">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 2, 0.75)}>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]"
                 >
                   <div className=" flex justify-center text-white">
                     <svg
@@ -222,7 +222,7 @@ const Homepage = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-14 h-14"
+                      className="sm:w-20 sm:h-20 w-14 h-14"
                     >
                       <path
                         strokeLinecap="round"
@@ -235,7 +235,7 @@ const Homepage = () => {
                   <h2 className=" text-2xl font-semibold text-white">
                     Competitive Pricing
                   </h2>
-                  <p className="text-[0.8rem] sm:text-md text-white mt-2">
+                  <p className="text-[0.8rem] sm:text-[1rem] text-white mt-2">
                     We offer competitive prices to ensure you get the best value
                     for your money. Plus, don't miss out on our exclusive deals
                     and promotions.
@@ -243,9 +243,9 @@ const Homepage = () => {
                 </div>
               </motion.div>
             </div>
-            <div className="sm:w-[325px]  w-full">
+            <div className="">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 3, 0.75)}>
-                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl h-[290px]">
+                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]">
                   <div className=" flex justify-center text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +253,7 @@ const Homepage = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-14 h-14"
+                      className="sm:w-20 sm:h-20 w-14 h-14"
                     >
                       <path
                         strokeLinecap="round"
@@ -266,7 +266,7 @@ const Homepage = () => {
                   <h2 className=" text-2xl font-semibold text-white">
                     Secure Shopping
                   </h2>
-                  <p className=" text-[0.8rem] sm:text-md text-white mt-2">
+                  <p className=" text-[0.8rem] sm:text-[1rem] text-white mt-2">
                     Shop with confidence knowing that your data is protected
                     with state-of-the-art security measures. Your privacy and
                     security are our top priorities.

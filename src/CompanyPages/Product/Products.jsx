@@ -147,7 +147,7 @@ export default function Products() {
     setOpen(false);
   };
   return (
-    <div className=" mt-0 md:mt-16 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-28">
+    <div className=" mt-0 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-28">
       <div
         ref={menuRef}
         className={` z-50 md:z-0 w-1/2 md:w-1/3  fixed md:relative lg:flex top-0 md:top-0 overflow-y-auto flex-col h-full  bg-white min-h-screen  duration-500 ${
@@ -270,7 +270,7 @@ export default function Products() {
                   className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
                   onClick={() => handleAddToCart(product)}
                 >
-                  Add to Cart
+                  Add to Inquiry
                 </button>
                 <button
                   className="block w-full  text-white py-2 mt-2 font-[Poppins] rounded bg-red-500 hover:bg-red-600 transition duration-300"

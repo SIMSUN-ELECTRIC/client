@@ -5,10 +5,10 @@ import OurCompany from "./CompanyPages/OurCompany/OurCompany";
 import OurTeam from "./CompanyPages/OurTeam/OurTeam";
 import News from "./CompanyPages/News/News";
 import OurCompanySuccess from "./CompanyPages/OurCompanySuccess/OurCompanySuccess";
-import Lift from "./CompanyPages/Product/Lift/Lift";
-import Escalator from "./CompanyPages/Product/Escalator/Escalator";
-import LiftSparePart from "./CompanyPages/Product/LiftSparePart/LiftSparePart";
-import EscalatorSparePart from "./CompanyPages/Product/EscalatorSparePart/EscalatorSparePart";
+import ElevatorPCB from "./CompanyPages/Product/ElevatorPCB/ElevatorPCB";
+import Inverter from "./CompanyPages/Product/Inverter/Inverter";
+import ElevatorServiceTool from "./CompanyPages/Product/ElevatorServiceTool/ElevatorServiceTool";
+import ElevatorWheel from "./CompanyPages/Product/ElevatorWheel/ElevatorWheel";
 import NewInstallationServices from "./CompanyPages/Services/NewInstallationServices";
 import AnnualMaintainenceServices from "./CompanyPages/Services/AnnualMaintainenceServices";
 import BreakdownServices from "./CompanyPages/Services/BreakdownServices";
@@ -26,7 +26,7 @@ import PrevInquiry from "./CompanyPages/customerServices/prevInquiry";
 import Maintenance from "./CompanyPages/Services/Maintenance";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./components/Admin/AddProduct";
-import Travelator from "./CompanyPages/Product/Travelator/Travelator";
+import ElevatorButton from "./CompanyPages/Product/ElevatorButton/ElevatorButton";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ShippingAddress from "./components/Shipping";
@@ -58,14 +58,14 @@ function App() {
             element={<OurCompanySuccess />}
           />
 
-          <Route path="/product/lift" element={<Lift />} />
-          <Route path="/product/escalator" element={<Escalator />} />
-          <Route path="/product/travelator" element={<Travelator />} />
-          <Route path="/product/LiftSparePart" element={<LiftSparePart />} />
+          <Route path="/product/ELevatorPCB" element={<ElevatorPCB />} />
+          <Route path="/product/Inverter" element={<Inverter />} />
+          <Route path="/product/ElevatorButton" element={<ElevatorButton />} />
           <Route
-            path="/product/EscalatorSparePart"
-            element={<EscalatorSparePart />}
+            path="/product/ElevatorServiceTool"
+            element={<ElevatorServiceTool />}
           />
+          <Route path="/product/ElevatorWheel" element={<ElevatorWheel />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/products" element={<Products />} />
 
@@ -88,7 +88,7 @@ function App() {
           />
 
           <Route path="/shop" element={<Shop />} />
-          
+
           <Route
             path="/customerservices/ReturnandRefunds"
             element={<ReturnandRefund />}

@@ -12,7 +12,7 @@ const productsReducer = (state, action) => {
       return {
         ...state,
         products: action.payload.products.filter(
-          (product) => product.category === "Lift"
+          (product) => product.category === "BLT Elevator PCB"
         ),
         totalPages: action.payload.totalPages,
         error: null,
@@ -39,7 +39,7 @@ const LiftProducts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
-  const category = "Lift";
+  const category = "BLT Elevator PCB";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,9 +84,9 @@ const LiftProducts = () => {
   };
 
   return (
-    <div className="mt-0 md:mt-16  min-h-screen bg-gray-100 p-4 pt-28 md:pt-4">
+    <div className="mt-24 md:mt-24  min-h-screen bg-gray-100 p-4 pt-32 md:pt-4">
       <h1 className="text-3xl font-semibold text-center mb-8">
-        LIFT SPARE PARTS
+        BLT Elevator PCB
       </h1>
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
@@ -125,7 +125,7 @@ const LiftProducts = () => {
                 className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
                 onClick={() => handleAddToCart(product)}
               >
-                Add to Cart
+                Add to Inquiry
               </button>
               <button
                 className="block w-full  text-white py-2 mt-2 font-[Poppins] rounded bg-red-500 hover:bg-red-600 transition duration-300"

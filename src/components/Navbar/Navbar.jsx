@@ -390,11 +390,11 @@ const Navbar = () => {
                             Profile
                           </a>
                           <a
-                            href="/customerservices/YourOrders"
+                            href="/prevInquiry"
                             className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
                             role="menuitem"
                           >
-                            Your Orders
+                            Previous Inquiry
                           </a>
 
                           <div
@@ -682,11 +682,11 @@ const Navbar = () => {
                           Profile
                         </a>
                         <a
-                          href="/customerservices/prevInquiry"
+                          href="/prevInquiry"
                           className="block w-96 dropdown-item"
                           onClick={() => setOpen(!open)}
                         >
-                          Prev Inquiry
+                          Previous Inquiry
                         </a>
                         <div
                           className="block dropdown-item"

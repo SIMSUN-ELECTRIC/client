@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -6,10 +6,15 @@ import axios from "axios";
 const PrevInquiry = () => {
   const [inquiries, setInquiries] = useState([]);
   const [selectedInquiry, setSelectedInquiry] = useState(null);
-  const userId = useSelector((state) => state.user.userId);
+  const userId = useSelector((state) => state.user.userData._id);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     fetchInquiries();
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [userId]);
 
   const fetchInquiries = async () => {
@@ -20,10 +25,9 @@ const PrevInquiry = () => {
       if (response.status !== 200) {
         throw new Error("Failed to fetch inquiries");
       }
-      console.log("this is response", response);
       setInquiries(response.data);
     } catch (error) {
-      console.error("",error);
+      console.error("Request failed:", error);
     }
   };
 
@@ -35,13 +39,19 @@ const PrevInquiry = () => {
     setSelectedInquiry(null);
   };
 
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      closeDetailsModal();
+    }
+  };
+
   return (
     <div className="container mx-auto md:mt-32 justify-center pt-28 md:pt-4">
       <div className="flex flex-col justify-center">
         <div className="flex justify-center mb-2">
           <h2 className="text-2xl font-bold">Prev Inquiry</h2>
         </div>
-        <ul>
+        <ul className="list-disc">
           {inquiries.map((inquiry) => (
             <li
               key={inquiry._id}
@@ -53,6 +63,18 @@ const PrevInquiry = () => {
                 </div>
                 <div>
                   <strong>Email:</strong> {inquiry.email}
+                </div>
+                <div>
+                  <strong>Products:</strong>
+                  <ul className="list-disc pl-8">
+                    {inquiry.items.map((item, index) => (
+                      <li key={index}>
+                        <div className="font-semibold">{item.name}</div>
+                        <div>Price: {item.price}</div>
+                        <div>Quantity: {item.quantity}</div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
               <button
@@ -69,7 +91,10 @@ const PrevInquiry = () => {
       {/* Inquiry Details Modal */}
       {selectedInquiry && (
         <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-10">
-          <div className="inquiry-details-modal bg-white p-8 rounded shadow-lg w-96">
+          <div
+            ref={modalRef}
+            className="inquiry-details-modal bg-white p-8 rounded shadow-lg w-96"
+          >
             <h2 className="text-2xl font-bold mb-4">Inquiry Details</h2>
             <div className="mb-4">
               <strong>Name:</strong> {selectedInquiry.name}
@@ -80,7 +105,6 @@ const PrevInquiry = () => {
             <div className="mb-4">
               <strong>Inquiry:</strong> {selectedInquiry.inquiryDetails}
             </div>
-            {/* Add other inquiry details here */}
             <button
               className="close-modal bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300"
               onClick={closeDetailsModal}

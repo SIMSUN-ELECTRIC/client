@@ -5,28 +5,28 @@ import lift7 from "../../assets/img/lift7.jpg";
 import lift9 from "../../assets/img/lift9.jpg";
 const products = [
   {
-    name: "Lift",
-    link: "/product/lift",
+    name: "ELevator PCB",
+    link: "/product/ELevatorPCB",
     img: lift1,
   },
   {
-    name: "Escalator",
-    link: "/product/escalator",
+    name: "Elevator Inverter",
+    link: "/product/Inverter",
     img: lift7,
   },
   {
-    name: "Travelator",
-    link: "/product/travelator",
+    name: "Elevator Service Tool",
+    link: "/product/ElevatorServiceTool",
     img: lift9,
   },
   {
-    name: "Lift Spare Part",
-    link: "/product/LiftSparePart",
+    name: "Elevator Wheel",
+    link: "/product/ElevatorWheel",
     img: lift5,
   },
   {
-    name: "Escalator Spare Part",
-    link: "/product/EscalatorSparePart",
+    name: "Elevator Button",
+    link: "/product/ElevatorButton",
     img: lift4,
   },
 ];

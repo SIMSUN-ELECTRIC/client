@@ -149,7 +149,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="mt-0 md:mt-20 min-h-screen w-full bg-gray-100 p-4 pt-28 md:pt-4">
+    <div className="mt-0 md:mt-12 min-h-screen w-full bg-gray-100 p-4 pt-28 md:pt-4">
       <div className="pt-10 flex w-full items-center gap-24 lg:justify-center mb-4 relative">
         <div className="text-3xl md:hidden z-0 " onClick={() => setOpen(!open)}>
           {open ? (

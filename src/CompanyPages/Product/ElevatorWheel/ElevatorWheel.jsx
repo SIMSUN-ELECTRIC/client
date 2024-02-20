@@ -1,3 +1,5 @@
+// EscalatorSpareParts.js
+
 import React, { useEffect, useReducer } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../../store/slices/CartSlices";
@@ -10,7 +12,7 @@ const productsReducer = (state, action) => {
       return {
         ...state,
         products: action.payload.products.filter(
-          (product) => product.category === "Travelator"
+          (product) => product.category === "Door Roller"
         ),
         totalPages: action.payload.totalPages,
         error: null,
@@ -33,11 +35,11 @@ const initialState = {
   currentPage: 1,
 };
 
-const TravelatorProducts = () => {
+const EscalatorSpareParts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
-  const category = "Travelator";
+  const category = "Door Roller";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +56,7 @@ const TravelatorProducts = () => {
     };
 
     fetchData();
-  }, [state.currentPage]);
+  }, [state.currentPage, state.searchQuery]);
 
   const customer = useSelector((customer) => customer.user);
 
@@ -84,7 +86,7 @@ const TravelatorProducts = () => {
   return (
     <div className="mt-0 md:mt-16  min-h-screen bg-gray-100 p-4 pt-28 md:pt-4">
       <h1 className="text-3xl font-semibold text-center mb-8">
-        Travelator Products
+        Elevator Wheel
       </h1>
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
@@ -154,4 +156,4 @@ const TravelatorProducts = () => {
   );
 };
 
-export default TravelatorProducts;
+export default EscalatorSpareParts;

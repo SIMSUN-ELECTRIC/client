@@ -10,7 +10,7 @@ const productsReducer = (state, action) => {
       return {
         ...state,
         products: action.payload.products.filter(
-          (product) => product.category === "Lift Spare Parts"
+          (product) => product.category === "Elevator Button"
         ),
         totalPages: action.payload.totalPages,
         error: null,
@@ -33,11 +33,11 @@ const initialState = {
   currentPage: 1,
 };
 
-const LiftSpareParts = () => {
+const TravelatorProducts = () => {
   const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
-  const category = "Lift Spare Parts";
+  const category = "Elevator Button";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +54,7 @@ const LiftSpareParts = () => {
     };
 
     fetchData();
-  }, [state.currentPage, state.searchQuery]);
+  }, [state.currentPage]);
 
   const customer = useSelector((customer) => customer.user);
 
@@ -84,7 +84,7 @@ const LiftSpareParts = () => {
   return (
     <div className="mt-0 md:mt-16  min-h-screen bg-gray-100 p-4 pt-28 md:pt-4">
       <h1 className="text-3xl font-semibold text-center mb-8">
-        LIFT SPARE PARTS
+        Elevator Button
       </h1>
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
@@ -154,4 +154,4 @@ const LiftSpareParts = () => {
   );
 };
 
-export default LiftSpareParts;
+export default TravelatorProducts;

@@ -24,15 +24,15 @@ export const RESOURCES = [
   },
 ];
 export const COMPANY = [
-  { name: "Elevator PCB", link: "/products" },
-  { name: "Elevetor Invertor", link: "/products" },
-  { name: "Elevetor Service Tool", link: "/products" },
-  { name: "Elevetor Wheel", link: "/products" },
-  { name: "Elevetor Button", link: "/products" },
+  { name: "Elevator PCB", link: "/product/ELevatorPCB" },
+  { name: "Elevator Inverter", link: "/product/Inverter" },
+  { name: "Elevator Service Tool", link: "/product/ElevatorServiceTool" },
+  { name: "Elevator Wheel", link: "/product/ElevatorWheel" },
+  { name: "Elevator Button", link: "/product/ElevatorButton" },
 ];
 export const SUPPORT = [
-  { name: "Products Inquiry", link: "/Inquiry" },
-  { name: "Prev Inquiry", link: "/customerservices/prevInquiry" },
+  { name: "Inquiry", link: "/Inquiry" },
+  { name: "Previous  Inquiry", link: "/customerservices/prevInquiry" },
   // { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
   // { name: "Payment Settings", link: "/customerservices/PaymentSetting" },
   // { name: "Account Settings", link: "/customerservices/AccountSetting" },
