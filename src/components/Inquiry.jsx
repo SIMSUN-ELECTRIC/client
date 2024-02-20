@@ -23,8 +23,10 @@ function Inquiry() {
         throw new Error("Failed to fetch cart data");
       }
       const data = await response.json();
+      console.log("this is my data items: ", data);
       // console.log("this is data we r fetching:", data.items);
       setCartData(data.items);
+      console.log("this is cart data", cartData);
     } catch (error) {
       console.error(error);
     }

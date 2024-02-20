@@ -123,27 +123,32 @@ const Navbar = () => {
             </div>
 
             <ul className="hidden lg:flex lg:flex-row lg:flex-wrap lg:mt-[1rem] lg:mb-[1rem] items-center gap-3 font-[Poppins] mx-8">
-              <div className="">
-                <li>
-                  <Link
-                    to="/"
-                    className="ml-2 text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5"
-                  >
-                    Home
-                  </Link>
-                </li>
-              </div>
+              {user.userData?.isAdmin ? null : (
+                <div className="">
+                  <li>
+                    <Link
+                      to="/"
+                      className="ml-2 text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                </div>
+              )}
               <NavLinks />
-              <div className="">
-                <li>
-                  <Link
-                    to="/shop"
-                    className="ml-2 text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5"
-                  >
-                    Shop
-                  </Link>
-                </li>
-              </div>
+              {user.userData?.isAdmin ? null : (
+                <div className="">
+                  <li>
+                    <Link
+                      to="/shop"
+                      className="ml-2 text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5"
+                    >
+                      Shop
+                    </Link>
+                  </li>
+                </div>
+              )}
+
               {user.isAuthenticated ? (
                 <div className="">
                   <li>
@@ -161,7 +166,6 @@ const Navbar = () => {
                   </li>
                 </div>
               ) : null}
-
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group">
                   <h2
@@ -331,16 +335,19 @@ const Navbar = () => {
                   </li>
                 </div>
               ) : null}
-              <div className="">
-                <li>
-                  <Link
-                    to="/ContactUs"
-                    className=" hover:text-red-400 text-xl cursor-pointer text-white   font-xl mr-3.5"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-              </div>
+              {user.userData?.isAdmin ? null : (
+                <div className="">
+                  <li>
+                    <Link
+                      to="/ContactUs"
+                      className=" hover:text-red-400 text-xl cursor-pointer text-white   font-xl mr-3.5"
+                    >
+                      Contact Us
+                    </Link>
+                  </li>
+                </div>
+              )}
+
               <div className="relative inline-block text-left">
                 {user.isAuthenticated ? (
                   <div>
