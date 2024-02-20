@@ -41,14 +41,21 @@ import UsersList from "./components/Admin/UsersList";
 import EngineerList from "./components/Admin/EngineerList";
 import EngineerReview from "./components/Admin/EngineerReview";
 import Products from "./CompanyPages/Product/Products";
+import { useSelector } from "react-redux";
 // import { cartProvider } from "./store/contextReducer";
 
 function App() {
+  const userId = useSelector((state) => state.user.userData);
+  // console.log("userid in app", userId.isAdmin);
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
+          {userId.isAdmin ? (
+            <Route index element={<Products />} />
+          ) : (
+            <Route index element={<Homepage />} />
+          )}
 
           <Route path="/about/ourcompany" element={<OurCompany />} />
           <Route path="/about/ourteam" element={<OurTeam />} />
