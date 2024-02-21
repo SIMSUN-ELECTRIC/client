@@ -169,7 +169,7 @@ const Navbar = () => {
                   </li>
                 </div>
               ) : null}
-              {user.userData?.isAdmin ?  (
+              {user.userData?.isAdmin ? (
                 <div className="">
                   <li>
                     <Link
@@ -180,7 +180,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </div>
-              ):null}
+              ) : null}
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group">
                   <h2
