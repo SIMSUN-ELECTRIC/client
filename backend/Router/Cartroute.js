@@ -9,11 +9,11 @@ const router = express.Router();
 router.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log("id in backend", userId);
+    // console.log("id in backend", userId);
     const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
       "items"
     );
-    console.log("cart data:", cart);
+    // console.log("cart data:", cart);
     res.json(cart);
   } catch (error) {
     console.log(error);
@@ -24,14 +24,14 @@ router.get("/:id", async (req, res) => {
 router.get("/prevEnquiry/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log("User ID:", userId);
+    // console.log("User ID:", userId);
 
     // Assuming you have a model named Enquiry to represent previous inquiries
     // Fetch previous inquiries based on the user ID
     const previousInquiries = await Cart.find({ userId }).populate(
       "items.productId"
     );
-    console.log("this is previous Inquiries", previousInquiries);
+    // console.log("this is previous Inquiries", previousInquiries);
     // Respond with the fetched inquiries
     res.status(200).json(previousInquiries);
   } catch (error) {
@@ -44,7 +44,7 @@ router.get("/allInquiry/:id", async (req, res) => {
   try {
     // Fetch all previous inquiries
     const previousInquiries = await Cart.find().populate("items.productId");
-    console.log("Previous Inquiries:", previousInquiries);
+    // console.log("Previous Inquiries:", previousInquiries);
 
     // Respond with the fetched inquiries
     res.status(200).json(previousInquiries);
@@ -125,8 +125,8 @@ router.delete("/delete/:id/:product", async (req, res) => {
   const userId = req.params.id;
   const productId = req.params.product;
 
-  console.log("User ID:", userId);
-  console.log("Product ID to delete:", productId);
+  // console.log("User ID:", userId);
+  // console.log("Product ID to delete:", productId);
 
   try {
     let cart = await Cart.findOne({ userId }).populate("items.productId");
@@ -152,7 +152,7 @@ router.delete("/delete/:id/:product", async (req, res) => {
 router.put("/Enquiry/:id", async (req, res) => {
   const userId = req.params.id;
   const { name, phoneNumber, email, address, enquiry } = req.body;
-  console.log("this is req body in Enquiry:", req.body);
+  // console.log("this is req body in Enquiry:", req.body);
   try {
     let cart = await Cart.findOne({ userId });
 
@@ -178,9 +178,9 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
   const productId = req.params.productId;
   const { quantity } = req.body;
 
-  console.log("userid in put", userId);
-  console.log("productId in put", productId);
-  console.log("quantity in put", quantity);
+  // console.log("userid in put", userId);
+  // console.log("productId in put", productId);
+  // console.log("quantity in put", quantity);
   try {
     let cart = await Cart.findOne({ userId });
 
@@ -193,7 +193,7 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
       (item) => item._id.toString() === productId.toString()
     );
 
-    console.log("cart items", cart.items);
+    // console.log("cart items", cart.items);
     if (itemIndex !== -1) {
       // Update the quantity of the item
       cart.items[itemIndex].quantity = quantity;
@@ -215,7 +215,7 @@ router.post("/sendEmail/:id", async (req, res) => {
 
     // Retrieve cart information for the user
     const cart = await Cart.findOne({ userId }).populate("items.productId");
-    console.log("cart in email", cart);
+    // console.log("cart in email", cart);
     // Compose email content
     const emailContent = `
             <h1>Cart Information</h1>
@@ -250,7 +250,7 @@ router.post("/sendEmail/:id", async (req, res) => {
       html: emailContent,
     });
 
-    console.log("Email sent: ", info.messageId);
+    // console.log("Email sent: ", info.messageId);
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email: ", error);

@@ -32,8 +32,8 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart);
   const cart = useSelector((state) => state.cart);
 
-  console.log("cart items", cartItems);
-  console.log("cart length ", cart.length);
+  // console.log("cart items", cartItems);
+  // console.log("cart length ", cart.length);
 
   // Calculate total quantity in the cart
   const totalQuantity = cart.length;

@@ -24,8 +24,8 @@ import News from "./News";
 
 const Homepage = () => {
   const state = useSelector((state) => state.user);
-  console.log("from here");
-  console.log(state);
+  // console.log("from here");
+  // console.log(state);
 
   const [index, setIndex] = useState(0);
   const images = [lift15, lift13, lift14, Esc];
