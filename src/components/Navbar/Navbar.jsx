@@ -75,38 +75,41 @@ const Navbar = () => {
 
               <div className="flex">
                 <div className="flex items-center gap-6 lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
-                  <div className="text-2xl lg:hidden z-30">
-                    <Link to="/shop">
-                      <HiOutlineShoppingBag className="z-50" />
-                    </Link>
-                  </div>
+                  {user.userData?.isAdmin ? null : (
+                    <div className="text-2xl lg:hidden z-30">
+                      <Link to="/shop">
+                        <HiOutlineShoppingBag className="z-50" />
+                      </Link>
+                    </div>
+                  )}
 
-                  <div className="">
-                    {user.isAuthenticated ? (
-                      <div className="">
-                        <Link to="/Cart">
-                          <div className="flex gap-1">
-                            <HiOutlineShoppingCart className="z-5 text-2xl lg:hidden " />
+                  {user.userData?.isAdmin ? null : (
+                    <div className="">
+                      {user.isAuthenticated ? (
+                        <div className="">
+                          <Link to="/Enquiry">
+                            <div className="flex gap-1">
+                              <HiOutlineShoppingCart className="z-5 text-2xl lg:hidden " />
 
-                            {/* <div>
+                              {/* <div>
                               {cartItems.length > 0 && (
                                 <span className="bg-red-500 w-4 text-white px-1 py-0 rounded-full align-top ">
                                   {totalQuantity}
-                                  
                                 </span>
                               )}
                             </div> */}
-                          </div>
-                        </Link>
-                      </div>
-                    ) : (
-                      <div className="text-2xl lg:hidden z-30">
-                        <Link to="/auth/consumerLogin">
-                          <HiOutlineShoppingCart className="z-50" />
-                        </Link>
-                      </div>
-                    )}
-                  </div>
+                            </div>
+                          </Link>
+                        </div>
+                      ) : (
+                        <div className="text-2xl lg:hidden z-30">
+                          <Link to="/auth/consumerLogin">
+                            <HiOutlineShoppingCart className="z-50" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   <div
                     className="text-3xl lg:hidden z-30"
@@ -135,7 +138,7 @@ const Navbar = () => {
                   </li>
                 </div>
               )}
-              <NavLinks />
+              {user.userData?.isAdmin ? null : <NavLinks />}
               {user.userData?.isAdmin ? null : (
                 <div className="">
                   <li>
@@ -149,7 +152,7 @@ const Navbar = () => {
                 </div>
               )}
 
-              {user.isAuthenticated ? (
+              {user.userData?.isAdmin ? null : user.isAuthenticated ? (
                 <div className="">
                   <li>
                     <Link
@@ -166,6 +169,7 @@ const Navbar = () => {
                   </li>
                 </div>
               ) : null}
+
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group">
                   <h2
@@ -396,13 +400,15 @@ const Navbar = () => {
                           >
                             Profile
                           </a>
-                          <a
-                            href="/prevEnquiry"
-                            className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                            role="menuitem"
-                          >
-                            Previous Enquiry
-                          </a>
+                          {user.userData?.isAdmin ? null : (
+                            <a
+                              href="/prevEnquiry"
+                              className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
+                              role="menuitem"
+                            >
+                              Previous Enquiry
+                            </a>
+                          )}
 
                           <div
                             className="dropdown-item block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
@@ -688,13 +694,16 @@ const Navbar = () => {
                         >
                           Profile
                         </a>
-                        <a
-                          href="/prevEnquiry"
-                          className="block w-96 dropdown-item"
-                          onClick={() => setOpen(!open)}
-                        >
-                          Previous Enquiry
-                        </a>
+                        {user.userData?.isAdmin ? null : (
+                          <a
+                            href="/prevEnquiry"
+                            className="block w-96 dropdown-item"
+                            onClick={() => setOpen(!open)}
+                          >
+                            Previous Enquiry
+                          </a>
+                        )}
+
                         <div
                           className="block dropdown-item"
                           onClick={() => {
