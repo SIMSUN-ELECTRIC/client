@@ -24,7 +24,7 @@ function Enquiry() {
       }
       const data = await response.json();
       console.log("this is my data items: ", data);
-      // console.log("this is data we r fetching:", data.items);
+      console.log("this is data we r fetching:", data.items);
       setCartData(data.items);
       console.log("this is cart data", cartData);
     } catch (error) {
@@ -71,18 +71,21 @@ function Enquiry() {
 
   const handleDelete = async (id) => {
     try {
-      // console.log("this is product", id);
-      const response = await axios.delete(
-        `http://localhost:5000/api/Cart/delete/${userId}/${id}`,
-        {}
+      // Send a DELETE request to remove the item from the cart
+      await axios.delete(
+        `http://localhost:5000/api/Cart/delete/${userId}/${id}`
       );
-      // console.log(response.data);
+
+      // Dispatch the removeItem action to update the Redux store
+      dispatch(removeItem(id));
+
+      // Update the local cart data state by filtering out the deleted item
+      setCartData((prevCartData) =>
+        prevCartData.filter((item) => item._id !== id)
+      );
     } catch (error) {
-      console.log(error);
+      console.error("Error deleting item:", error);
     }
-    dispatch(removeItem(id));
-    // console.log(cartData);
-    setCartData((prev) => prev.filter((item) => item.productId._id != id));
   };
 
   // const subTotal = cartData.reduce((acc, order) => {
@@ -259,7 +262,7 @@ function Enquiry() {
                     />
                     <button
                       className="bg-red-500 py-2 px-4 mt-10 rounded h-12"
-                      onClick={() => handleDelete(item.productId._id)}
+                      onClick={() => handleDelete(item._id)}
                     >
                       <i className="fas fa-trash"></i>
                     </button>

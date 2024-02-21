@@ -11,9 +11,9 @@ router.get("/:id", async (req, res) => {
     const userId = req.params.id;
     console.log("id in backend", userId);
     const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
-      "items.productId"
+      "items"
     );
-    // console.log("cart data:", cart);
+    console.log("cart data:", cart);
     res.json(cart);
   } catch (error) {
     console.log(error);
@@ -126,21 +126,18 @@ router.delete("/delete/:id/:product", async (req, res) => {
   const productId = req.params.product;
 
   console.log("User ID:", userId);
-  console.log("product id: ", productId);
+  console.log("Product ID to delete:", productId);
+
   try {
-    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 });
+    let cart = await Cart.findOne({ userId }).populate("items.productId");
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
     }
 
-    // Extract the product ID from the request body
-    // const productId = req.body.productId;
-    console.log("Product ID to delete:", productId);
-
     // Filter out the item with the given product ID from the cart items
     cart.items = cart.items.filter(
-      (item) => item.productId.toString() !== productId
+      (item) => item.productId._id.toString() !== productId
     );
 
     await cart.save();
@@ -150,6 +147,7 @@ router.delete("/delete/:id/:product", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
 
 router.put("/Enquiry/:id", async (req, res) => {
   const userId = req.params.id;
