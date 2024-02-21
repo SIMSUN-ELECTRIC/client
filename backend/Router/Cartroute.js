@@ -40,6 +40,20 @@ router.get("/prevEnquiry/:id", async (req, res) => {
   }
 });
 
+router.get("/allInquiry/:id", async (req, res) => {
+  try {
+    // Fetch all previous inquiries
+    const previousInquiries = await Cart.find().populate("items.productId");
+    console.log("Previous Inquiries:", previousInquiries);
+
+    // Respond with the fetched inquiries
+    res.status(200).json(previousInquiries);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 // Add item to cart
 router.post("/addItem", async (req, res) => {
   const {

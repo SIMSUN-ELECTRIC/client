@@ -40,6 +40,7 @@ import FeedbackPage from "./components/Admin/FeedbackPage";
 import UsersList from "./components/Admin/UsersList";
 import EngineerList from "./components/Admin/EngineerList";
 import EngineerReview from "./components/Admin/EngineerReview";
+import AdminInquiry from "./components/Admin/AdminInquiry";
 import Products from "./CompanyPages/Product/Products";
 import { useSelector } from "react-redux";
 // import { cartProvider } from "./store/contextReducer";
@@ -51,8 +52,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          {/* {userId.isAdmin ? (
+            <Route index element={<AdminInquiry />} />
+          ) : (
+            <Route index element={<Homepage />} />
+          )} */}
           <Route index element={<Homepage />} />
-
+          <Route path="/AdminInquiry" element={<AdminInquiry />} />
           <Route path="/about/ourcompany" element={<OurCompany />} />
           <Route path="/about/ourteam" element={<OurTeam />} />
           <Route path="/about/news" element={<News />} />
@@ -121,7 +127,7 @@ function App() {
 
           <Route path="/admin/productList" exact element={<ProductList />} />
           <Route path="/admin/edit/:id" element={<EditProduct />} />
-
+          <Route path="/AdminInquiry" element={<AdminInquiry />} />
           <Route path="/admin/addnews" element={<AddNews />} />
           <Route path="/admin/newsList" element={<AdminNewsList />} />
           <Route path="/admin/newsedit/:id" element={<EditNews />} />

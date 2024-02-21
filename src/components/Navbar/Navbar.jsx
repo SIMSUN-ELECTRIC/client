@@ -169,7 +169,18 @@ const Navbar = () => {
                   </li>
                 </div>
               ) : null}
-
+              {user.userData?.isAdmin ?  (
+                <div className="">
+                  <li>
+                    <Link
+                      to="/AdminInquiry"
+                      className=" hover:text-red-400 text-xl cursor-pointer text-white   font-xl mr-3.5"
+                    >
+                      Customer Inquiry
+                    </Link>
+                  </li>
+                </div>
+              ):null}
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group">
                   <h2
