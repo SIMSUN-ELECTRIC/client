@@ -19,7 +19,7 @@ const UserProfile = () => {
         className="md:mt-20 bg-gray-100 min-h-screen w-full pt-28 md:pt-8"
         style={{ backgroundImage: `url(${profilebg})` }}
       >
-        <div className="max-w-xs sm:max-w-md md:max-w-3xl mx-auto">
+        <div className="max-w-xs sm:max-w-md md:max-w-3xl mx-auto p-2">
           <div
             className="rounded-lg shadow-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-6"
             style={{
