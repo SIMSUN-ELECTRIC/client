@@ -21,8 +21,8 @@ import EngineerRegister from "./Auth/Signup/EngineerRegister";
 import EngineerLogin from "./Auth/EngineerLogin";
 import AdminLogin from "./Auth/AdminLogin";
 import ContactUs from "./components/ContactUs";
-import Inquiry from "./components/Inquiry";
-import PrevInquiry from "./CompanyPages/customerServices/prevInquiry";
+import Enquiry from "./components/Enquiry";
+import PrevEnquiry from "./CompanyPages/customerServices/prevEnquiry";
 import Maintenance from "./CompanyPages/Services/Maintenance";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./components/Admin/AddProduct";
@@ -51,12 +51,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {userId.isAdmin ? (
-            <Route index element={<Products />} />
-          ) : (
-            <Route index element={<Homepage />} />
-          )}
-
+          <Route index element={<Homepage />} />
           <Route path="/about/ourcompany" element={<OurCompany />} />
           <Route path="/about/ourteam" element={<OurTeam />} />
           <Route path="/about/news" element={<News />} />
@@ -64,7 +59,6 @@ function App() {
             path="/about/ourcompanysuccess"
             element={<OurCompanySuccess />}
           />
-
           <Route path="/product/ELevatorPCB" element={<ElevatorPCB />} />
           <Route path="/product/Inverter" element={<Inverter />} />
           <Route path="/product/ElevatorButton" element={<ElevatorButton />} />
@@ -75,7 +69,6 @@ function App() {
           <Route path="/product/ElevatorWheel" element={<ElevatorWheel />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/products" element={<Products />} />
-
           <Route
             path="/services/NewInstallationServices"
             element={<NewInstallationServices />}
@@ -93,9 +86,7 @@ function App() {
             path="/services/EscalatorAutowalkModernization"
             element={<EscalatorAutowalkModernization />}
           />
-
           <Route path="/shop" element={<Shop />} />
-
           <Route
             path="/customerservices/ReturnandRefunds"
             element={<ReturnandRefund />}
@@ -112,27 +103,22 @@ function App() {
             path="/auth/engineerRegistration"
             element={<EngineerRegister />}
           />
-
           <Route path="/auth/consumerLogin" element={<ConsumerLogin />} />
           <Route path="/auth/EngineerLogin" element={<EngineerLogin />} />
           <Route path="/auth/AdminLogin" element={<AdminLogin />} />
           <Route path="/auth/UserProfile" element={<UserProfile />} />
-
           <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/Inquiry" element={<Inquiry />} />
-          <Route path="/prevInquiry" element={<PrevInquiry />} />
+          <Route path="/Enquiry" element={<Enquiry />} />
+          <Route path="/prevEnquiry" element={<PrevEnquiry />} />
           <Route path="/shipping" element={<ShippingAddress />} />
-
           <Route path="/admin/productList" exact element={<ProductList />} />
           <Route path="/admin/edit/:id" element={<EditProduct />} />
-
           <Route path="/admin/addnews" element={<AddNews />} />
           <Route path="/admin/newsList" element={<AdminNewsList />} />
           <Route path="/admin/newsedit/:id" element={<EditNews />} />
           <Route path="/admin/UsersList" element={<UsersList />} />
           <Route path="/admin/EngineerList" element={<EngineerList />} />
           <Route path="/admin/EnginnerReview" element={<EngineerReview />} />
-
           <Route path="/admin/feedback" element={<FeedbackPage />} />
         </Route>
       </Routes>

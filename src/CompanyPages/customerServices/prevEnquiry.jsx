@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const PrevInquiry = () => {
+const PrevEnquiry = () => {
   const [inquiries, setInquiries] = useState([]);
-  const [selectedInquiry, setSelectedInquiry] = useState(null);
+  const [selectedEnquiry, setSelectedEnquiry] = useState(null);
   const userId = useSelector((state) => state.user.userData._id);
   const modalRef = useRef(null);
 
@@ -20,7 +20,7 @@ const PrevInquiry = () => {
   const fetchInquiries = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/Cart/prevInquiry/${userId}`
+        `http://localhost:5000/api/Cart/prevEnquiry/${userId}`
       );
       if (response.status !== 200) {
         throw new Error("Failed to fetch inquiries");
@@ -31,12 +31,12 @@ const PrevInquiry = () => {
     }
   };
 
-  const openDetailsModal = (inquiry) => {
-    setSelectedInquiry(inquiry);
+  const openDetailsModal = (Enquiry) => {
+    setSelectedEnquiry(Enquiry);
   };
 
   const closeDetailsModal = () => {
-    setSelectedInquiry(null);
+    setSelectedEnquiry(null);
   };
 
   const handleClickOutside = (event) => {
@@ -49,25 +49,25 @@ const PrevInquiry = () => {
     <div className="container mx-auto md:mt-32 justify-center pt-28 md:pt-4">
       <div className="flex flex-col justify-center">
         <div className="flex justify-center mb-2">
-          <h2 className="text-2xl font-bold">Prev Inquiry</h2>
+          <h2 className="text-2xl font-bold">Prev Enquiry</h2>
         </div>
         <ul className="list-disc">
-          {inquiries.map((inquiry) => (
+          {inquiries.map((Enquiry) => (
             <li
-              key={inquiry._id}
+              key={Enquiry._id}
               className="user-item flex justify-between items-center p-4 border bg-white hover:bg-gray-100 transition duration-300"
             >
               <div className="user-info grid grid-rows-2">
                 <div>
-                  <strong>Name:</strong> {inquiry.name}
+                  <strong>Name:</strong> {Enquiry.name}
                 </div>
                 <div>
-                  <strong>Email:</strong> {inquiry.email}
+                  <strong>Email:</strong> {Enquiry.email}
                 </div>
                 <div>
                   <strong>Products:</strong>
                   <ul className="list-disc pl-8">
-                    {inquiry.items.map((item, index) => (
+                    {Enquiry.items.map((item, index) => (
                       <li key={index}>
                         <div className="font-semibold">{item.name}</div>
                         <div>Price: {item.price}</div>
@@ -79,7 +79,7 @@ const PrevInquiry = () => {
               </div>
               <button
                 className="details-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
-                onClick={() => openDetailsModal(inquiry)}
+                onClick={() => openDetailsModal(Enquiry)}
               >
                 See Details
               </button>
@@ -88,22 +88,22 @@ const PrevInquiry = () => {
         </ul>
       </div>
 
-      {/* Inquiry Details Modal */}
-      {selectedInquiry && (
+      {/* Enquiry Details Modal */}
+      {selectedEnquiry && (
         <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-10">
           <div
             ref={modalRef}
-            className="inquiry-details-modal bg-white p-8 rounded shadow-lg w-96"
+            className="Enquiry-details-modal bg-white p-8 rounded shadow-lg w-96"
           >
-            <h2 className="text-2xl font-bold mb-4">Inquiry Details</h2>
+            <h2 className="text-2xl font-bold mb-4">Enquiry Details</h2>
             <div className="mb-4">
-              <strong>Name:</strong> {selectedInquiry.name}
+              <strong>Name:</strong> {selectedEnquiry.name}
             </div>
             <div className="mb-4">
-              <strong>Email:</strong> {selectedInquiry.email}
+              <strong>Email:</strong> {selectedEnquiry.email}
             </div>
             <div className="mb-4">
-              <strong>Inquiry:</strong> {selectedInquiry.inquiryDetails}
+              <strong>Enquiry:</strong> {selectedEnquiry.EnquiryDetails}
             </div>
             <button
               className="close-modal bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300"
@@ -118,4 +118,4 @@ const PrevInquiry = () => {
   );
 };
 
-export default PrevInquiry;
+export default PrevEnquiry;

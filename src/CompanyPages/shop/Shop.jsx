@@ -95,7 +95,7 @@ const Shop = () => {
             name: "",
             phone: "",
             email: "",
-            inquiryDetails: "",
+            EnquiryDetails: "",
             address: "",
           }
         );
@@ -316,7 +316,7 @@ const Shop = () => {
                   className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
                   onClick={() => handleAddToCart(product)}
                 >
-                  Add to Inquiry
+                  Add to Enquiry
                 </button>
               </div>
             </div>

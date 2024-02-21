@@ -446,12 +446,12 @@ export default function Header() {
                     onClick={activateLasers}
                   >
                     <Link
-                      to="/customerservices/prevInquiry"
+                      to="/customerservices/prevEnquiry"
                       className="-m-3 flex items-start rounded-lg hover:bg-gray-800 "
                     >
                       <div className="ml-4">
                         <p className="text-base font-medium text-white">
-                          Prev Inquiry
+                          Prev Enquiry
                         </p>
                       </div>
                     </Link>
@@ -682,7 +682,7 @@ export default function Header() {
               to={"/Cart"}
               class="mr-5 cursor-pointer text-xl text-gray-300 hover:text-white font-semibold "
             >
-              Inquiry
+              Enquiry
             </Link>
           </div>
         </div>

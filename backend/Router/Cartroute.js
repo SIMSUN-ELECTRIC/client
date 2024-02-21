@@ -21,12 +21,12 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/prevInquiry/:id", async (req, res) => {
+router.get("/prevEnquiry/:id", async (req, res) => {
   try {
     const userId = req.params.id;
     console.log("User ID:", userId);
 
-    // Assuming you have a model named Inquiry to represent previous inquiries
+    // Assuming you have a model named Enquiry to represent previous inquiries
     // Fetch previous inquiries based on the user ID
     const previousInquiries = await Cart.find({ userId }).populate(
       "items.productId"
@@ -51,7 +51,7 @@ router.post("/addItem", async (req, res) => {
     name,
     phone,
     email,
-    inquiryDetails,
+    EnquiryDetails,
     address,
   } = req.body;
   // console.log(req.body);
@@ -67,7 +67,7 @@ router.post("/addItem", async (req, res) => {
         name,
         phone,
         email,
-        inquiryDetails,
+        EnquiryDetails,
         address,
       });
     } else {
@@ -75,7 +75,7 @@ router.post("/addItem", async (req, res) => {
       cart.name = name;
       cart.phone = phone;
       cart.email = email;
-      cart.inquiryDetails = inquiryDetails;
+      cart.EnquiryDetails = EnquiryDetails;
       cart.address = address;
     }
 
@@ -137,10 +137,10 @@ router.delete("/delete/:id/:product", async (req, res) => {
   }
 });
 
-router.put("/inquiry/:id", async (req, res) => {
+router.put("/Enquiry/:id", async (req, res) => {
   const userId = req.params.id;
   const { name, phoneNumber, email, address, enquiry } = req.body;
-  console.log("this is req body in inquiry:", req.body);
+  console.log("this is req body in Enquiry:", req.body);
   try {
     let cart = await Cart.findOne({ userId });
 
@@ -151,7 +151,7 @@ router.put("/inquiry/:id", async (req, res) => {
     (cart.name = name.toString()),
       (cart.phone = phoneNumber.toString()),
       (cart.email = email.toString()),
-      (cart.inquiryDetails = enquiry.toString()),
+      (cart.EnquiryDetails = enquiry.toString()),
       (cart.address = address.toString()),
       await cart.save();
     res.status(201).json(cart);
@@ -212,7 +212,7 @@ router.post("/sendEmail/:id", async (req, res) => {
             <p>Email: ${cart.email}</p>
             <p>Phone: ${cart.phone}</p>
             <p>Address: ${cart.address}</p>
-            <p>Inquiry: ${cart.inquiryDetails}</p>
+            <p>Enquiry: ${cart.EnquiryDetails}</p>
             <h2>Items:</h2>
             <ul>
                 ${cart.items

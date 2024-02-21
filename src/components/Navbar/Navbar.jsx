@@ -153,10 +153,10 @@ const Navbar = () => {
                 <div className="">
                   <li>
                     <Link
-                      to="/Inquiry"
+                      to="/Enquiry"
                       className=" text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5 relative "
                     >
-                      Inquiry
+                      Enquiry
                       {/* {cartItems.length > 0 && (
                         <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-4 -mr-5">
                           {totalQuantity}
@@ -397,11 +397,11 @@ const Navbar = () => {
                             Profile
                           </a>
                           <a
-                            href="/prevInquiry"
+                            href="/prevEnquiry"
                             className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
                             role="menuitem"
                           >
-                            Previous Inquiry
+                            Previous Enquiry
                           </a>
 
                           <div
@@ -689,11 +689,11 @@ const Navbar = () => {
                           Profile
                         </a>
                         <a
-                          href="/prevInquiry"
+                          href="/prevEnquiry"
                           className="block w-96 dropdown-item"
                           onClick={() => setOpen(!open)}
                         >
-                          Previous Inquiry
+                          Previous Enquiry
                         </a>
                         <div
                           className="block dropdown-item"

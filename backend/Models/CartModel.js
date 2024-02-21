@@ -45,7 +45,7 @@ const cartSchema = new Schema({
     type: String,
     required: false,
   },
-  inquiryDetails: {
+  EnquiryDetails: {
     type: String,
     required: false,
   },

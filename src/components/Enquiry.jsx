@@ -4,7 +4,7 @@ import { removeItem, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { faL } from "@fortawesome/free-solid-svg-icons";
-function Inquiry() {
+function Enquiry() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cartData, setCartData] = useState([]);
@@ -135,7 +135,7 @@ function Inquiry() {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/cart/inquiry/${userId}`,
+        `http://localhost:5000/api/cart/Enquiry/${userId}`,
         {
           name,
           phoneNumber,
@@ -234,7 +234,7 @@ function Inquiry() {
           </div>
         )}
         <h1 className="text-3xl font-bold text-gray-800 mb-6">
-          Products Inquiry
+          Products Enquiry
         </h1>
         <div className="text-white h-full w-full xl:flex">
           <div className="text-white xl:w-[60%] p-4">
@@ -356,4 +356,4 @@ function Inquiry() {
   );
 }
 
-export default Inquiry;
+export default Enquiry;

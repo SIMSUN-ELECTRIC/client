@@ -28,11 +28,11 @@ export const COMPANY = [
   { name: "Elevator Inverter", link: "/product/Inverter" },
   { name: "Elevator Service Tool", link: "/product/ElevatorServiceTool" },
   { name: "Elevator Wheel", link: "/product/ElevatorWheel" },
-  { name: "Elevator Button", link: "/product/ElevatorButton" },
+  { name: "Other Products", link: "/products" },
 ];
 export const SUPPORT = [
-  { name: "Inquiry", link: "/Inquiry" },
-  { name: "Previous  Inquiry", link: "/customerservices/prevInquiry" },
+  { name: "Enquiry", link: "/Enquiry" },
+  { name: "Previous  Enquiry", link: "/prevEnquiry" },
   // { name: "Manage Addresses", link: "/customerservices/ManageAddress" },
   // { name: "Payment Settings", link: "/customerservices/PaymentSetting" },
   // { name: "Account Settings", link: "/customerservices/AccountSetting" },

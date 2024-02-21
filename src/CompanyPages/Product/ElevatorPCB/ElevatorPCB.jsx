@@ -125,7 +125,7 @@ const LiftProducts = () => {
                 className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
                 onClick={() => handleAddToCart(product)}
               >
-                Add to Inquiry
+                Add to Enquiry
               </button>
               <button
                 className="block w-full  text-white py-2 mt-2 font-[Poppins] rounded bg-red-500 hover:bg-red-600 transition duration-300"
