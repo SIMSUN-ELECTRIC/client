@@ -176,7 +176,7 @@ const Navbar = () => {
                       to="/AdminInquiry"
                       className=" hover:text-red-400 text-xl cursor-pointer text-white   font-xl mr-3.5"
                     >
-                      Customer Inquiry
+                      Customer Enquiry
                     </Link>
                   </li>
                 </div>

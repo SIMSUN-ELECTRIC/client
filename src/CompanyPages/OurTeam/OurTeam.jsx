@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import Esc from "../../assets/img/escalator1.jpg";
+import founder from "../../assets/img/swaran.jpg";
 import { useSpring, animated } from "react-spring";
 
 const teamMembers = [
   {
     id: 1,
-    name: "John 1",
-    position: "Software Engineer",
-    image: Esc,
+    name: "Swaranjeet Singh",
+    position: "Founder",
+    image: founder,
     social: [
       { id: 1, icon: "twitter", link: "#" },
       { id: 2, icon: "linkedin", link: "#" },
@@ -160,14 +161,16 @@ const OurTeam = () => {
                 <img
                   src={member.image}
                   alt={`Team member ${member.name}`}
-                  className="rounded-full mx-auto mb-4 hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+                  className="rounded-full mx-auto mb-4 hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg w-40"
                 />
               </div>
-              <h3 className="text-2xl text-black font-semibold mb-2">
-                {member.name}
-              </h3>
-              <p className="text-2xl text-black mb-4">{member.position}</p>
-              <div className="flex space-x-4">
+              <div className="flex flex-col items-center">
+                <h3 className="text-2xl text-black font-semibold mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-2xl text-black mb-4">{member.position}</p>
+              </div>
+              <div className="flex justify-center space-x-4">
                 {member.social.map((socialItem) => (
                   <Link
                     key={socialItem.id}

@@ -140,7 +140,7 @@ const Homepage = () => {
 
         <div className="w-full text-center flex flex-col mt-20">
           <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
-          <div className="flex flex-row flex-wrap mt-4 justify-center mx-8">
+          <div className="flex xl:grid grid-cols-4 gap-2 flex-row flex-wrap mt-4 justify-center mx-8">
             <div className=" ">
               <motion.div>
                 <div
