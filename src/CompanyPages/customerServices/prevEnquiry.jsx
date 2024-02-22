@@ -50,7 +50,7 @@ const AdminInquiry = () => {
     <div className="container mx-auto md:mt-32 justify-center pt-28 md:pt-4 min-h-[45vh]">
       <div className="flex flex-col justify-center">
         <div className="flex justify-center mb-2">
-          <h2 className="text-2xl font-bold">Customer Inquiry</h2>
+          <h2 className="text-2xl font-bold">Customer Enquiry</h2>
         </div>
         <ul className="list-disc">
           {inquiries.map((inquiry) => (
@@ -97,7 +97,7 @@ const AdminInquiry = () => {
             ref={modalRef}
             className="inquiry-details-modal bg-white p-8 rounded shadow-lg w-96 overflow-y-auto max-h-full"
           >
-            <h2 className="text-2xl font-bold mb-4">Inquiry Details</h2>
+            <h2 className="text-2xl font-bold mb-4">Enquiry Details</h2>
             <div className="mb-4">
               <strong>Name:</strong> {selectedInquiry.name}
             </div>
@@ -105,7 +105,7 @@ const AdminInquiry = () => {
               <strong>Email:</strong> {selectedInquiry.email}
             </div>
             <div className="mb-4">
-              <strong>Inquiry:</strong> {selectedInquiry.inquiryDetails}
+              <strong>Enquiry:</strong> {selectedInquiry.inquiryDetails}
             </div>
             <div className="mb-4">
               <strong>Products:</strong>
