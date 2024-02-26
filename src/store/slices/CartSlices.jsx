@@ -1,58 +1,43 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-// Retrieve cart from local storage or use an empty array
-const getInitialCart = () => {
-  const storedCart = localStorage.getItem("cart");
-  return storedCart ? JSON.parse(storedCart) : [];
-};
+// Async action creator for removing an item from the cart
+export const removeItemAsync = createAsyncThunk(
+  "cart/removeItemAsync",
+  async (itemId, { rejectWithValue }) => {
+    try {
+      // Make DELETE request to your backend API
+      await axios.delete(`http://localhost:5000/api/cart/delete/${itemId}`);
+      return itemId; // Return itemId if deletion is successful
+    } catch (error) {
+      // Return error message if deletion fails
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
 
+// Define cart slice
 const cartSlice = createSlice({
   name: "cart",
-  initialState: getInitialCart(),
+  initialState: [],
   reducers: {
-    addItem: (state, action) => {
-      const existingItem = state.find((item) => item.id === action.payload.id);
-
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        state.push({ ...action.payload, quantity: 1 });
-      }
-
-      // Update local storage
-      localStorage.setItem("cart", JSON.stringify(state));
+    // Your other reducers
+  },
+  extraReducers: {
+    // Handling removeItemAsync fulfilled action
+    [removeItemAsync.fulfilled]: (state, action) => {
+      const itemIdToRemove = action.payload;
+      // Filter out the item from the state
+      return state.filter((item) => item.id !== itemIdToRemove);
     },
-    removeItem: (state, action) => {
-      const index = state.findIndex((item) => item.id === action.payload);
-
-      if (index !== -1) {
-        state.splice(index, 1);
-      }
-
-      // Update local storage
-      localStorage.setItem("cart", JSON.stringify(state));
-    },
-    updateQuantity: (state, action) => {
-      const { id, quantity } = action.payload;
-      const existingItem = state.find((item) => item.id === id);
-
-      if (existingItem) {
-        existingItem.quantity = quantity;
-
-        // Remove item if quantity becomes zero
-        if (quantity === 0) {
-          const index = state.findIndex((item) => item.id === id);
-          if (index !== -1) {
-            state.splice(index, 1);
-          }
-        }
-
-        // Update local storage
-        localStorage.setItem("cart", JSON.stringify(state));
-      }
+    // Handling removeItemAsync rejected action
+    [removeItemAsync.rejected]: (state, action) => {
+      // Handle error, show message to user, etc.
     },
   },
 });
 
-export const { addItem, removeItem, updateQuantity } = cartSlice.actions;
+// Export the async action creator and reducers
+// export { removeItemAsync };
+export const { addItem, updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

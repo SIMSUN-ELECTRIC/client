@@ -68,11 +68,12 @@ router.post("/addItem", async (req, res) => {
     EnquiryDetails,
     address,
   } = req.body;
-  // console.log(req.body);
 
   try {
-    let cart = await Cart.findOne({ userId });
-
+    let cart = await Cart.findOne({ userId }).populate(
+      "items"
+    );
+    // console.log("this is cart in backend:", cart);
     if (!cart) {
       // Create a new cart if it doesn't exist
       cart = new Cart({
@@ -91,6 +92,12 @@ router.post("/addItem", async (req, res) => {
       cart.email = email;
       cart.EnquiryDetails = EnquiryDetails;
       cart.address = address;
+    }
+
+    console.log(cart.items);
+
+    if (!cart.items) {
+      cart.items = [];
     }
 
     // Check if item already exists in cart
@@ -121,24 +128,21 @@ router.post("/addItem", async (req, res) => {
 });
 
 // Remove item from cart
-router.delete("/delete/:id/:product", async (req, res) => {
-  const userId = req.params.id;
-  const productId = req.params.product;
-
-  // console.log("User ID:", userId);
-  // console.log("Product ID to delete:", productId);
+router.delete("/delete/:userId/:productId", async (req, res) => {
+  const userId = req.params.userId;
+  const productId = req.params.productId;
 
   try {
-    let cart = await Cart.findOne({ userId }).populate("items.productId");
+    let cart = await Cart.findOne({ userId }).populate("items");
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
     }
 
     // Filter out the item with the given product ID from the cart items
-    cart.items = cart.items.filter(
-      (item) => item.productId._id.toString() !== productId
-    );
+    cart.items = cart.items.filter((item) => {
+      return item._id.toString() !== productId;
+    });
 
     await cart.save();
     res.json(cart);
@@ -154,7 +158,7 @@ router.put("/Enquiry/:id", async (req, res) => {
   const { name, phoneNumber, email, address, enquiry } = req.body;
   // console.log("this is req body in Enquiry:", req.body);
   try {
-    let cart = await Cart.findOne({ userId });
+    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 });
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
@@ -182,7 +186,7 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
   // console.log("productId in put", productId);
   // console.log("quantity in put", quantity);
   try {
-    let cart = await Cart.findOne({ userId });
+    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate("items");
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
@@ -214,7 +218,9 @@ router.post("/sendEmail/:id", async (req, res) => {
     const userId = req.params.id;
 
     // Retrieve cart information for the user
-    const cart = await Cart.findOne({ userId }).populate("items.productId");
+    const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
+      "items.productId"
+    );
     // console.log("cart in email", cart);
     // Compose email content
     const emailContent = `

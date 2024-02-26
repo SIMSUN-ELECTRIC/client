@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem, updateQuantity } from "../store/slices/CartSlices";
+import { removeItemAsync, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { faL } from "@fortawesome/free-solid-svg-icons";
@@ -69,22 +69,20 @@ function Enquiry() {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (productId) => {
     try {
-      // Send a DELETE request to remove the item from the cart
-      await axios.delete(
-        `http://localhost:5000/api/Cart/delete/${userId}/${id}`
+      const response = await axios.delete(
+        `http://localhost:5000/api/Cart/delete/${userId}/${productId}`
       );
-
-      // Dispatch the removeItem action to update the Redux store
-      dispatch(removeItem(id));
-
-      // Update the local cart data state by filtering out the deleted item
-      setCartData((prevCartData) =>
-        prevCartData.filter((item) => item._id !== id)
+      console.log(response.data); // Log response data if needed
+      dispatch(removeItemAsync(productId)); // Dispatch action to remove item from local state
+      // Update cartData in UI (if needed)
+      setCartData(
+        (prev) => prev.filter((item) => item._id !== productId) // Update the filter condition
       );
     } catch (error) {
       console.error("Error deleting item:", error);
+      // Handle error, show message to user, etc.
     }
   };
 
@@ -343,15 +341,15 @@ function Enquiry() {
             </div>
 
             {/* <div className="flex justify-between items-center p-2">
-              <input
-                type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[58%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Coupon Code"
-              />
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 rounded hidden xl:block w-[40%]">
-                Apply
-              </button>
-            </div> */}
+                <input
+                  type="text"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[58%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Coupon Code"
+                />
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 rounded hidden xl:block w-[40%]">
+                  Apply
+                </button>
+              </div> */}
           </div>
         </div>
       </div>
