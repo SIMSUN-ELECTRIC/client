@@ -1,5 +1,6 @@
 // routes/cart.js
 import Cart from "../Models/CartModel.js";
+import Enquiry from "../Models/EnquiryModel.js";
 import express from "express";
 import nodemailer from "nodemailer";
 
@@ -21,38 +22,81 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/prevEnquiry/:id", async (req, res) => {
+const transferDataToEnquiry = async (cartData) => {
   try {
-    const userId = req.params.id;
-    // console.log("User ID:", userId);
+    // Extract necessary fields from cartData
+    const { _id, items, name, phone, email, EnquiryDetails, address } =
+      cartData;
 
-    // Assuming you have a model named Enquiry to represent previous inquiries
-    // Fetch previous inquiries based on the user ID
-    const previousInquiries = await Cart.find({ userId }).populate(
-      "items.productId"
-    );
-    // console.log("this is previous Inquiries", previousInquiries);
-    // Respond with the fetched inquiries
-    res.status(200).json(previousInquiries);
+    // Create a new Enquiry object
+    const enquiry = new Enquiry({
+      userId: _id,
+      items,
+      name,
+      phone,
+      email,
+      EnquiryDetails,
+      address,
+    });
+
+    // Save the Enquiry object to the database
+    await enquiry.save();
+
+    console.log("Data transferred to Enquiry successfully");
   } catch (error) {
-    console.error(error);
+    console.error("Error transferring data to Enquiry:", error);
+  }
+};
+
+// Example route handler to transfer data from Cart to Enquiry
+router.post("/transferToEnquiry", async (req, res) => {
+  try {
+    // Retrieve cart data from the request body
+    const cartData = req.body;
+    console.log("data to transfer", cartData);
+
+    // Transfer cart data to Enquiry
+    await transferDataToEnquiry(cartData);
+
+    res.status(200).json({ message: "Data transferred successfully" });
+  } catch (error) {
+    console.error("Error transferring data:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-router.get("/allInquiry/:id", async (req, res) => {
-  try {
-    // Fetch all previous inquiries
-    const previousInquiries = await Cart.find().populate("items.productId");
-    // console.log("Previous Inquiries:", previousInquiries);
+// router.get("/prevEnquiry/:id", async (req, res) => {
+//   try {
+//     const userId = req.params.id;
+//     // console.log("User ID:", userId);
 
-    // Respond with the fetched inquiries
-    res.status(200).json(previousInquiries);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+//     // Assuming you have a model named Enquiry to represent previous inquiries
+//     // Fetch previous inquiries based on the user ID
+//     const previousInquiries = await Cart.find({ userId }).populate(
+//       "items.productId"
+//     );
+//     // console.log("this is previous Inquiries", previousInquiries);
+//     // Respond with the fetched inquiries
+//     res.status(200).json(previousInquiries);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
+
+// router.get("/allInquiry/:id", async (req, res) => {
+//   try {
+//     // Fetch all previous inquiries
+//     const previousInquiries = await Cart.find().populate("items.productId");
+//     // console.log("Previous Inquiries:", previousInquiries);
+
+//     // Respond with the fetched inquiries
+//     res.status(200).json(previousInquiries);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
 
 // Add item to cart
 router.post("/addItem", async (req, res) => {
@@ -70,9 +114,8 @@ router.post("/addItem", async (req, res) => {
   } = req.body;
 
   try {
-    let cart = await Cart.findOne({ userId }).populate(
-      "items"
-    );
+    let cart = await Cart.findOne({ userId }).populate("items");
+    let enquiry = await Enquiry.findOne({ userId }).populate("items");
     // console.log("this is cart in backend:", cart);
     if (!cart) {
       // Create a new cart if it doesn't exist
@@ -94,7 +137,7 @@ router.post("/addItem", async (req, res) => {
       cart.address = address;
     }
 
-    console.log(cart.items);
+    // console.log(cart.items);
 
     if (!cart.items) {
       cart.items = [];
@@ -133,7 +176,9 @@ router.delete("/delete/:userId/:productId", async (req, res) => {
   const productId = req.params.productId;
 
   try {
-    let cart = await Cart.findOne({ userId }).populate("items");
+    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
+      "items"
+    );
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
@@ -151,7 +196,6 @@ router.delete("/delete/:userId/:productId", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
 
 router.put("/Enquiry/:id", async (req, res) => {
   const userId = req.params.id;
@@ -184,9 +228,11 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
 
   // console.log("userid in put", userId);
   // console.log("productId in put", productId);
-  // console.log("quantity in put", quantity);
+  console.log("quantity in put", quantity);
   try {
-    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate("items");
+    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
+      "items"
+    );
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });

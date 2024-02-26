@@ -9,7 +9,8 @@ function Enquiry() {
   const dispatch = useDispatch();
   const [cartData, setCartData] = useState([]);
   const userId = useSelector((state) => state.user.userData._id);
-
+  const Id = useSelector((state) => state.user.userData);
+  console.log("heelo ", Id);
   useEffect(() => {
     fetchCartData();
   }, [userId]);
@@ -26,9 +27,26 @@ function Enquiry() {
       console.log("this is my data items: ", data);
       console.log("this is data we r fetching:", data.items);
       setCartData(data.items);
+
+      addToEnquiry(data, Id.fullName, Id.email, Id.address);
       console.log("this is cart data", cartData);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const addToEnquiry = async (enquiryData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/Cart/transferToEnquiry",
+        enquiryData,
+        name,
+        email,
+        address
+      );
+      console.log(response.data); // Handle success response
+    } catch (error) {
+      console.error(error); // Handle error
     }
   };
 
@@ -49,7 +67,7 @@ function Enquiry() {
 
   const handleQuantityChange = async (id, newQuantity) => {
     try {
-      dispatch(updateQuantity({ id, quantity: newQuantity }));
+      // dispatch(updateQuantity({ id, quantity: newQuantity }));
 
       await axios.put(
         `http://localhost:5000/api/cart/updateQuantity/${userId}/${id}`,

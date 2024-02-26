@@ -19,6 +19,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [cartData, setCartData] = useState([]);
+  const userId = useSelector((state) => state.user.userData);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -28,15 +30,28 @@ const Navbar = () => {
     navigate("/");
   };
 
-  // Use useSelector to get the cart items from Redux state
-  const cartItems = useSelector((state) => state.cart);
-  const cart = useSelector((state) => state.cart);
+  useEffect(() => {
+    fetchCartData();
+  }, [userId]);
 
-  // console.log("cart items", cartItems);
-  // console.log("cart length ", cart.length);
-
-  // Calculate total quantity in the cart
-  const totalQuantity = cart.length;
+  const fetchCartData = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/Cart/${userId._id}`);
+      // console.log("this is res: ", response);
+      // console.log("this is userid", userId);
+      if (!response.ok) {
+        throw new Error("Failed to fetch cart data");
+      }
+      const data = await response.json();
+      // console.log("this is my data items: ", data);
+      console.log("this is data we r fetching:", data.items);
+      setCartData(data.items);
+      console.log("this is cart data", cartData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const totalQuantity = cartData.length;
 
   let headerWidth = useRef();
 
@@ -91,13 +106,13 @@ const Navbar = () => {
                             <div className="flex gap-1">
                               <HiOutlineShoppingCart className="z-5 text-2xl lg:hidden " />
 
-                              {/* <div>
-                              {cartItems.length > 0 && (
-                                <span className="bg-red-500 w-4 text-white px-1 py-0 rounded-full align-top ">
-                                  {totalQuantity}
-                                </span>
-                              )}
-                            </div> */}
+                              <div>
+                                {cartData.length > 0 && (
+                                  <span className="bg-red-500 w-4 text-white px-1 py-0 rounded-full align-top ">
+                                    {totalQuantity}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                           </Link>
                         </div>
@@ -160,11 +175,11 @@ const Navbar = () => {
                       className=" text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5 relative "
                     >
                       Enquiry
-                      {/* {cartItems.length > 0 && (
+                      {cartData.length > 0 && (
                         <span className="bg-red-500 text-white px-2 py-0 rounded-full absolute top-0 right-0 -mt-4 -mr-5">
                           {totalQuantity}
                         </span>
-                      )} */}
+                      )}
                     </Link>
                   </li>
                 </div>

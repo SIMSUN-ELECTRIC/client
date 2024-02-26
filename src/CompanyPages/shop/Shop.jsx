@@ -78,6 +78,8 @@ const Shop = () => {
 
   const customer = useSelector((customer) => customer.user);
 
+  // console.log("hehehe", customer.userData.fullName);
+
   const handleAddToCart = async (product) => {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
@@ -93,11 +95,11 @@ const Shop = () => {
             productPrice: product.price,
             productImg: product.imageUrl,
             userId: customer.userData._id,
-            name: "",
-            phone: "",
-            email: "",
+            name: customer.userData.fullName,
+            phone: customer.userData.phoneNumber,
+            email: customer.userData.email,
             EnquiryDetails: "",
-            address: "",
+            address: customer.userData.address,
           }
         );
       } catch (error) {
