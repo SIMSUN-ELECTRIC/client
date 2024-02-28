@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Country, State, City } from "country-state-city";
@@ -11,7 +12,6 @@ const EngineerRegister = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [certificates, setCertificates] = useState(null);
   const [certificates, setCertificates] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [experience, setExperience] = useState("");
@@ -21,6 +21,7 @@ const EngineerRegister = () => {
   const [address, setaddress] = useState("");
   const [pinCode, setpinCode] = useState("");
   const [description, setdescription] = useState("");
+  // const [selectedCountry, setSelectedCountry] = useState("");
 
   const navigate = useNavigate();
 
@@ -54,7 +55,8 @@ const EngineerRegister = () => {
 
     try {
       const response = await axios.post(
-        "https://simsun-backend.onrender.com/api/EngineerRegister",
+        // "https://simsun-backend.onrender.com/api/EngineerRegister",
+        "http://localhost:5000/api/EngineerRegister",
         {
           fullName,
           email,
@@ -69,6 +71,8 @@ const EngineerRegister = () => {
           address,
           pinCode,
           description,
+          state: selectedState.name,
+          city: selectedCity,
         }
       );
 
@@ -246,15 +250,6 @@ const EngineerRegister = () => {
               className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
               required
             />
-            {/* <input
-              type="file"
-              id="degree"
-              name="degree"
-              accept=".pdf"
-              onChange={(e) => setCertificates(e.target.value)}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-              required
-            /> */}
           </div>
 
           {/* WhatsApp Number */}
@@ -295,45 +290,7 @@ const EngineerRegister = () => {
             />
           </div>
 
-          {/* Address */}
-          <div className="mb-4 lg:w-1/2 lg:pl-2">
-            <label
-              htmlFor="address"
-              className="block text-md font-medium text-gray-600"
-            >
-              Address<span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="address"
-              name="address"
-              value={address}
-              onChange={(e) => setaddress(e.target.value)}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-              required
-            ></textarea>
-          </div>
-
-          {/* Pin Code */}
-          <div className="mb-4 lg:w-1/2 lg:pl-2">
-            <label
-              htmlFor="pinCode"
-              className="block text-md font-medium text-gray-600"
-            >
-              Pin Code<span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="pinCode"
-              name="pinCode"
-              value={pinCode}
-              onChange={(e) => setpinCode(e.target.value)}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
-
           {/* States */}
-
           <div className="mb-4 lg:w-1/2 lg:pl-2">
             <label
               htmlFor="state"
@@ -378,6 +335,43 @@ const EngineerRegister = () => {
                 </option>
               ))}
             </select>
+          </div>
+
+          {/* Pin Code */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="pinCode"
+              className="block text-md font-medium text-gray-600"
+            >
+              Pin Code<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="pinCode"
+              name="pinCode"
+              value={pinCode}
+              onChange={(e) => setpinCode(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* Address */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="address"
+              className="block text-md font-medium text-gray-600"
+            >
+              Address<span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="address"
+              name="address"
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            ></textarea>
           </div>
 
           <div className="mb-4 lg:w-full lg:h-[2rem] lg:pl-2">

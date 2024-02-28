@@ -6,6 +6,8 @@ import axios from "axios";
 const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [emailQuery, setEmailQuery] = useState("");
+  const [nameQuery, setNameQuery] = useState("");
   const state = useSelector((state) => state.user);
 
   const navigate = useNavigate();
@@ -32,15 +34,48 @@ const UsersList = () => {
     setSelectedUser(null);
   };
 
+  const filteredUsers = users.consumers
+    ? users.consumers.filter((user) => {
+        const nameMatch =
+          !nameQuery ||
+          (user.fullName &&
+            user.fullName.toLowerCase().includes(nameQuery.toLowerCase()));
+        const emailMatch =
+          !emailQuery ||
+          (user.email &&
+            user.email.toLowerCase().includes(emailQuery.toLowerCase()));
+        return nameMatch && emailMatch;
+      })
+    : [];
+
   return (
     <div className="container mx-auto  md:mt-32 justify-center pt-28 md:pt-4">
       <div className="flex flex-col justify-center">
         <div className="flex justify-center mb-2">
           <h2 className=" text-2xl font-bold ">Customer Users</h2>
         </div>
+        {/* Search input fields */}
+        <div className="flex flex-col md:flex-row justify-center md:justify-between mb-4 mx-4">
+          <input
+            type="text"
+            placeholder="Search by Name"
+            value={nameQuery}
+            onChange={(e) => setNameQuery(e.target.value)}
+            className="p-2 border rounded mb-2 md:mb-0 md:mr-2"
+          />
+          <input
+            type="text"
+            placeholder="Search by email"
+            value={emailQuery}
+            onChange={(e) => setEmailQuery(e.target.value)}
+            className="p-2 border rounded mb-2 md:mb-0 md:mr-2"
+          />
+        </div>
         <ul>
-          {users.consumers &&
-            users.consumers.map((user) => (
+          {
+            // users.consumers &&
+            // users.consumers.map((user) => (
+            filteredUsers.map((user) => (
               <li
                 key={user._id}
                 className="user-item flex justify-between items-center p-4 border bg-white hover:bg-gray-100 transition duration-300"
@@ -60,7 +95,8 @@ const UsersList = () => {
                   See Details
                 </button>
               </li>
-            ))}
+            ))
+          }
         </ul>
       </div>
 

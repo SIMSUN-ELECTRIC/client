@@ -138,10 +138,9 @@ const AdminReviewPage = () => {
         </ul>
       </div>
       {selectedEngineer && (
-        <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="mt-12 user-details-modal bg-white p-8 rounded shadow-lg w-96">
+        <div className=" z-50 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="inquiry-details-modal bg-white p-8 rounded shadow-lg w-96 overflow-y-auto max-h-full">
             <h2 className="text-2xl font-bold mb-4">Engineer Details</h2>
-
             <div className="mb-4">
               <strong>Name:</strong> {selectedEngineer.fullName}
             </div>
@@ -161,7 +160,7 @@ const AdminReviewPage = () => {
               <strong>Field:</strong> {selectedEngineer.field}
             </div>
             <div className="mb-4">
-              <strong>Certificate:</strong> {selectedEngineer.certificate}
+              <strong>Certificate:</strong> {selectedEngineer.certificates}
             </div>
             <div className="mb-4">
               <strong>WhatsApp Number:</strong>{" "}
@@ -169,6 +168,12 @@ const AdminReviewPage = () => {
             </div>
             <div className="mb-4">
               <strong>Location:</strong> {selectedEngineer.location}
+            </div>
+            <div className="mb-4">
+              <strong>State:</strong> {selectedEngineer.state}
+            </div>
+            <div className="mb-4">
+              <strong>City:</strong> {selectedEngineer.city}
             </div>
             <div className="mb-4">
               <strong>Address:</strong> {selectedEngineer.address}
@@ -179,7 +184,6 @@ const AdminReviewPage = () => {
             <div className="mb-4">
               <strong>Description:</strong> {selectedEngineer.description}
             </div>
-
             <button
               className="close-modal bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300"
               onClick={closeDetailsModal}

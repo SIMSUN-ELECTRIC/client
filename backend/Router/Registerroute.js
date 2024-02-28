@@ -70,6 +70,8 @@ router.post("/EngineerRegister", async (req, res) => {
     whatsappNumber,
     location,
     pinCode,
+    state,
+    city,
     address,
     description,
   } = req.body;
@@ -96,6 +98,8 @@ router.post("/EngineerRegister", async (req, res) => {
       whatsappNumber,
       location,
       pinCode,
+      state,
+      city,
       address,
       description,
     });

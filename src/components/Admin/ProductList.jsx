@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AdminPanel = () => {
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     // Fetch products when the component mounts
@@ -47,9 +48,23 @@ const AdminPanel = () => {
     }
   };
 
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="container mx-auto p-4 pt-28 md:pt-4">
-      <h1 className="mt-16 text-3xl font-semibold mb-4">Admin Panel</h1>
+      <h1 className="mt-20 text-3xl font-semibold mb-4">Admin Panel</h1>
+
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search by Name"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="p-2 border rounded"
+        />
+      </div>
 
       {products.loading && <p>Loading...</p>}
       {products.error && <p>Error: {products.error}</p>}
@@ -66,7 +81,7 @@ const AdminPanel = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <tr key={product._id}>
                 <td className="py-2 px-4 border-b">{product.name}</td>
                 <td className="py-2 px-4 border-b">{product.description}</td>
