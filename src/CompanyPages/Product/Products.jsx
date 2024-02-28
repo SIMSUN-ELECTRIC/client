@@ -6,6 +6,7 @@ import products from "./product";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import Spinner from "../shop/Spinner.jsx";
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -231,7 +232,11 @@ export default function Products() {
         <h1 className="text-3xl font-semibold text-center mb-8">
           Our Products
         </h1>
-        {state.loading && <p>Loading...</p>}
+        {state.loading && (
+          <div className="w-full h-full flex items-center justify-center">
+            <Spinner />
+          </div>
+        )}
         {state.error && <p>Error: {state.error}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4">
           {state.products.map((product) => (
