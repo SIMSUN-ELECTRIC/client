@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeItemAsync, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 function Enquiry() {
   const navigate = useNavigate();
@@ -114,20 +116,6 @@ function Enquiry() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     setShowForm(false);
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:5000/api/Cart/transferToEnquiry",
-    //     enquiryData,
-    //     name,
-    //     email,
-    //     phoneNumber,
-    //     address,
-    //     enquiry
-    //   );
-    //   console.log(response.data); // Handle success response
-    // } catch (error) {
-    //   console.error(error); // Handle error
-    // }
 
     try {
       const responses = await fetch(`http://localhost:5000/api/Cart/${userId}`);
@@ -144,6 +132,7 @@ function Enquiry() {
       );
 
       console.log("Form submitted successfully:", response.data);
+      toast.success("Form submitted successfully");
 
       // Optionally, you can reset the form fields after successful submission
       setName("");
@@ -152,25 +141,34 @@ function Enquiry() {
       setAddress("");
       setEnquiry("");
 
+      sendEmail({ data, name, email, phoneNumber, address, enquiry, userId }); // Delete the array of items from the cart
+
+      // Delete the array of items from the cart
+      await axios.delete(
+        `http://localhost:5000/api/Cart/deleteItems/${userId}`
+      );
+      console.log("Items array deleted from cart successfully");
       fetchCartData();
-      sendEmail();
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
-  const sendEmail = async () => {
+  const sendEmail = async (enq) => {
     try {
       // Make HTTP POST request to your backend route for sending emails
       const response = await axios.post(
         `http://localhost:5000/api/cart/sendEmail/${userId}`,
         {
           userId: "user_id_here",
+          ...enq,
         }
       );
       console.log(response.data);
+      toast.success("Email sent successfully");
     } catch (error) {
       console.error("Error sending email: ", error);
+      toast.error("Error sending email");
     }
   };
 
