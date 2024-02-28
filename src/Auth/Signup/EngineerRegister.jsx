@@ -10,6 +10,8 @@ import {
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Country, State, City } from "country-state-city";
+import { useEffect } from "react";
 
 const EngineerRegister = () => {
   const [fullName, setFullName] = useState("");
@@ -30,6 +32,31 @@ const EngineerRegister = () => {
   const [selectedCity, setSelectedCity] = useState("");
 
   const navigate = useNavigate();
+
+  const [stateData, setStateDate] = useState([]);
+  const [selectedState, setSelectedState] = useState(null);
+  const [cities, setCities] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
+
+  useEffect(() => {
+    setStateDate(() => {
+      return State.getStatesOfCountry("IN");
+    });
+  }, []);
+
+  const handleStateChange = (event) => {
+    const selectedStateObject = stateData.find(
+      (state) => state.name === event.target.value
+    );
+    setSelectedState(selectedStateObject);
+  };
+
+  useEffect(() => {
+    selectedState &&
+      setCities(() => {
+        return City.getCitiesOfState("IN", selectedState.isoCode);
+      });
+  }, [selectedState]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -373,6 +400,54 @@ const EngineerRegister = () => {
               className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
               required
             />
+          </div>
+
+          {/* States */}
+
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="state"
+              className="block text-md font-medium text-gray-600"
+            >
+              State<span className="text-red-500">*</span>
+            </label>
+            <select
+              value={selectedState ? selectedState.name : ""}
+              onChange={handleStateChange}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+            >
+              <option value="">Select a State</option>
+              {stateData.map((state) => (
+                <option key={state.isoCode} value={state.name}>
+                  {state.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="city"
+              className="block text-md font-medium text-gray-600"
+            >
+              City<span className="text-red-500">*</span>
+            </label>
+            <select
+              name="city"
+              id="city"
+              value={selectedCity}
+              onChange={(e) => {
+                setSelectedCity(e.target.value);
+              }}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+            >
+              <option value="">Select a City</option>
+              {cities.map((city) => (
+                <option key={city.name} value={city.name}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="mb-4 lg:w-full lg:h-[2rem] lg:pl-2">
