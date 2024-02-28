@@ -52,7 +52,7 @@ const Navbar = () => {
 
   useEffect(() => {
     fetchCartData();
-  }, [userId]);
+  }, [userId, cartData]);
 
   const totalQuantity = cartData.length;
 

@@ -86,7 +86,7 @@ export default function Products() {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
     } else {
-      console.log(product, customer.userData._id);
+      // console.log(product, customer.userData._id);
 
       try {
         const response = await axios.post(
@@ -97,8 +97,14 @@ export default function Products() {
             productPrice: product.price,
             productImg: product.imageUrl,
             userId: customer.userData._id,
+            name: customer.userData.fullName,
+            phone: customer.userData.phoneNumber,
+            email: customer.userData.email,
+            EnquiryDetails: "",
+            address: customer.userData.address,
           }
         );
+        toast.success("Added to cart");
       } catch (error) {
         console.log(error);
       }

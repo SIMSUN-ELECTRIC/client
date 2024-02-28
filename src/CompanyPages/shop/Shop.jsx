@@ -10,6 +10,7 @@ import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatchCart, useCart } from "../../store/contextReducer";
 import Spinner from "./Spinner";
+import { toast } from "react-toastify";
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -103,6 +104,7 @@ const Shop = () => {
             address: customer.userData.address,
           }
         );
+        toast.success("Added to cart");
       } catch (error) {
         console.log(error);
       }
