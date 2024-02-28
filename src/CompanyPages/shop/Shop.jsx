@@ -9,6 +9,8 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatchCart, useCart } from "../../store/contextReducer";
+import Spinner from "./Spinner";
+import { toast } from "react-toastify";
 
 const productsReducer = (state, action) => {
   switch (action.type) {
@@ -102,6 +104,7 @@ const Shop = () => {
             address: customer.userData.address,
           }
         );
+        toast.success("Added to cart");
       } catch (error) {
         console.log(error);
       }
@@ -185,7 +188,11 @@ const Shop = () => {
           onKeyPress={handleSearch}
         />
       </div>
-      {state.loading && <p>Loading...</p>}
+      {state.loading && (
+        <div className="w-full h-full flex items-center justify-center">
+          <Spinner />
+        </div>
+      )}
       {state.error && <p>Error: {state.error}</p>}
 
       <div className="flex w-full gap-4 lg:gap-10 ">
