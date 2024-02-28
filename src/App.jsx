@@ -138,7 +138,7 @@ function App() {
           <Route path="/admin/feedback" element={<FeedbackPage />} />
         </Route>
       </Routes>
-      <ToastContainer limit={1} />
+      <ToastContainer limit={1} position="bottom-center" />
     </>
   );
 }

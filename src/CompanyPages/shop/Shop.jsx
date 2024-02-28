@@ -60,8 +60,8 @@ const Shop = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          // `https://simsun-backend.onrender.com/api/products?limit=${
-          `http://localhost:5000/api/products?limit=${
+          `https://simsun-backend.onrender.com/api/products?limit=${
+            // `http://localhost:5000/api/products?limit=${
             category === "" ? 24 : "all"
           }&page=${state.currentPage}`
         );
@@ -90,7 +90,8 @@ const Shop = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/Cart/addItem",
+          "https://simsun-backend.onrender.com/api/Cart/addItem",
+          // "http://localhost:5000/api/Cart/addItem",
           {
             productId: product._id,
             productName: product.name,

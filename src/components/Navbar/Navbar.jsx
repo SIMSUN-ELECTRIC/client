@@ -33,7 +33,8 @@ const Navbar = () => {
   const fetchCartData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/Cart/${userId._id}`
+        `https://simsun-backend.onrender.com/api/Cart/${userId._id}`
+        // `http://localhost:5000/api/Cart/${userId._id}`
       );
       // console.log("this is res: ", response);
       // console.log("this is userid", userId);

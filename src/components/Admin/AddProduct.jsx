@@ -44,7 +44,8 @@ const AddProduct = () => {
       formData.append("category", category);
 
       const res = await axios.post(
-        "http://localhost:5000/api/products/submitProduct",
+        "https://simsun-backend.onrender.com/api/products/submitProduct",
+        // "http://localhost:5000/api/products/submitProduct",
         formData,
         {
           headers: {

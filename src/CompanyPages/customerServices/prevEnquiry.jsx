@@ -20,7 +20,8 @@ const AdminInquiry = () => {
   const fetchInquiries = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/enquiry/prevEnquiry/${userId}`
+        // `http://localhost:5000/api/enquiry/prevEnquiry/${userId}`
+        `https://simsun-backend.onrender.com/api/enquiry/prevEnquiry/${userId}`
       );
       if (response.status !== 200) {
         throw new Error("Failed to fetch inquiries");

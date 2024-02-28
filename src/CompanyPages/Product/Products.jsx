@@ -90,7 +90,8 @@ export default function Products() {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/Cart/addItem",
+          // "http://localhost:5000/api/Cart/addItem",
+          "https://simsun-backend.onrender.com/api/Cart/addItem",
           {
             productId: product._id,
             productName: product.name,
