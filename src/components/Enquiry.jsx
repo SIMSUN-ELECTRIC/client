@@ -10,7 +10,7 @@ function Enquiry() {
   const [cartData, setCartData] = useState([]);
   const userId = useSelector((state) => state.user.userData._id);
   const Id = useSelector((state) => state.user.userData);
-  console.log("heelo ", Id);
+  // console.log("heelo ", Id);
   useEffect(() => {
     fetchCartData();
   }, [userId]);
@@ -28,25 +28,10 @@ function Enquiry() {
       console.log("this is data we r fetching:", data.items);
       setCartData(data.items);
 
-      addToEnquiry(data, Id.fullName, Id.email, Id.address);
+      // addToEnquiry(data, Id.fullName, Id.email, Id.address);
       console.log("this is cart data", cartData);
     } catch (error) {
       console.error(error);
-    }
-  };
-
-  const addToEnquiry = async (enquiryData) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/Cart/transferToEnquiry",
-        enquiryData,
-        name,
-        email,
-        address
-      );
-      console.log(response.data); // Handle success response
-    } catch (error) {
-      console.error(error); // Handle error
     }
   };
 
@@ -104,18 +89,6 @@ function Enquiry() {
     }
   };
 
-  // const subTotal = cartData.reduce((acc, order) => {
-  //   return (
-  //     acc +
-  //     order.items.reduce((itemAcc, item) => {
-  //       if (item.price && item.quantity) {
-  //         return itemAcc + item.price * item.quantity;
-  //       }
-  //       return itemAcc;
-  //     }, 0)
-  //   );
-  // }, 0);
-
   const subTotal = cartData.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
@@ -125,16 +98,6 @@ function Enquiry() {
   const discount = 0; // You can add discount logic here if needed
   const gst = 0.18 * subTotal;
   const totalAmount = subTotal + gst - discount;
-
-  const customer = useSelector((customer) => customer.user);
-
-  const handlePayment = () => {
-    if (customer?.isAuthenticated) {
-      navigate("/shipping");
-    } else {
-      navigate("/auth/consumerLogin");
-    }
-  };
 
   const [showForm, setShowForm] = useState(false);
 
@@ -151,17 +114,33 @@ function Enquiry() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     setShowForm(false);
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:5000/api/Cart/transferToEnquiry",
+    //     enquiryData,
+    //     name,
+    //     email,
+    //     phoneNumber,
+    //     address,
+    //     enquiry
+    //   );
+    //   console.log(response.data); // Handle success response
+    // } catch (error) {
+    //   console.error(error); // Handle error
+    // }
 
     try {
-      const response = await axios.put(
-        `http://localhost:5000/api/cart/Enquiry/${userId}`,
-        {
-          name,
-          phoneNumber,
-          email,
-          address,
-          enquiry,
-        }
+      const responses = await fetch(`http://localhost:5000/api/Cart/${userId}`);
+      if (!responses.ok) {
+        throw new Error("Failed to fetch cart data");
+      }
+      const data = await responses.json();
+      console.log("userId", userId);
+      console.log("Data: ", data);
+
+      const response = await axios.post(
+        "http://localhost:5000/api/Cart/transferToEnquiry",
+        { data, name, email, phoneNumber, address, enquiry, userId }
       );
 
       console.log("Form submitted successfully:", response.data);

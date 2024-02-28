@@ -30,13 +30,11 @@ const Navbar = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    fetchCartData();
-  }, [userId]);
-
   const fetchCartData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/Cart/${userId._id}`);
+      const response = await fetch(
+        `http://localhost:5000/api/Cart/${userId._id}`
+      );
       // console.log("this is res: ", response);
       // console.log("this is userid", userId);
       if (!response.ok) {
@@ -44,13 +42,18 @@ const Navbar = () => {
       }
       const data = await response.json();
       // console.log("this is my data items: ", data);
-      console.log("this is data we r fetching:", data.items);
+      // console.log("this is data we r fetching:", data.items);
       setCartData(data.items);
-      console.log("this is cart data", cartData);
+      // console.log("this is cart data", cartData);
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    fetchCartData();
+  }, [userId]);
+
   const totalQuantity = cartData.length;
 
   let headerWidth = useRef();
@@ -487,17 +490,31 @@ const Navbar = () => {
         duration-500 ${open ? "left-0" : "left-[-100%] "}
         `}
             >
-              <div className="">
-                <Link
-                  to="/"
-                  className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
-                  onClick={() => setOpen(!open)}
-                >
-                  Home
-                </Link>
-              </div>
+              {user.userData?.isAdmin ? null : (
+                <div className="">
+                  <Link
+                    to="/"
+                    className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
+                    onClick={() => setOpen(!open)}
+                  >
+                    Home
+                  </Link>
+                </div>
+              )}
+              {user.userData?.isAdmin ? null : <NavLinks />}
 
-              <NavLinks />
+              {user.userData?.isAdmin ? (
+                <div className="">
+                  <li>
+                    <Link
+                      to="/AdminInquiry"
+                      className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold"
+                    >
+                      Customer Enquiry
+                    </Link>
+                  </li>
+                </div>
+              ) : null}
 
               {user.userData?.isAdmin ? (
                 <div className="text-left cursor-pointer group ml-5">

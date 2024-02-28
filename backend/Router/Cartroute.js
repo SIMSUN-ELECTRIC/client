@@ -25,22 +25,22 @@ router.get("/:id", async (req, res) => {
 const transferDataToEnquiry = async (cartData) => {
   try {
     // Extract necessary fields from cartData
-    const { _id, items, name, phone, email, EnquiryDetails, address } =
+    const { data, name, phoneNumber, email, enquiry, address, userId } =
       cartData;
-
+    console.log(data._id, name, phoneNumber, enquiry);
     // Create a new Enquiry object
-    const enquiry = new Enquiry({
-      userId: _id,
-      items,
+    const enquirys = new Enquiry({
+      userId: userId,
+      items: data.items,
       name,
-      phone,
+      phone: phoneNumber,
       email,
-      EnquiryDetails,
+      EnquiryDetails: enquiry,
       address,
     });
 
     // Save the Enquiry object to the database
-    await enquiry.save();
+    await enquirys.save();
 
     console.log("Data transferred to Enquiry successfully");
   } catch (error) {
@@ -53,7 +53,7 @@ router.post("/transferToEnquiry", async (req, res) => {
   try {
     // Retrieve cart data from the request body
     const cartData = req.body;
-    console.log("data to transfer", cartData);
+    // console.log("data to transfer", cartData);
 
     // Transfer cart data to Enquiry
     await transferDataToEnquiry(cartData);
@@ -115,7 +115,7 @@ router.post("/addItem", async (req, res) => {
 
   try {
     let cart = await Cart.findOne({ userId }).populate("items");
-    let enquiry = await Enquiry.findOne({ userId }).populate("items");
+    // let enquiry = await Enquiry.findOne({ userId }).populate("items");
     // console.log("this is cart in backend:", cart);
     if (!cart) {
       // Create a new cart if it doesn't exist
@@ -197,29 +197,29 @@ router.delete("/delete/:userId/:productId", async (req, res) => {
   }
 });
 
-router.put("/Enquiry/:id", async (req, res) => {
-  const userId = req.params.id;
-  const { name, phoneNumber, email, address, enquiry } = req.body;
-  // console.log("this is req body in Enquiry:", req.body);
-  try {
-    let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 });
+// router.put("/Enquiry/:id", async (req, res) => {
+//   const userId = req.params.id;
+//   const { name, phoneNumber, email, address, enquiry } = req.body;
+//   // console.log("this is req body in Enquiry:", req.body);
+//   try {
+//     let cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 });
 
-    if (!cart) {
-      return res.status(404).json({ message: "Cart not found" });
-    }
+//     if (!cart) {
+//       return res.status(404).json({ message: "Cart not found" });
+//     }
 
-    (cart.name = name.toString()),
-      (cart.phone = phoneNumber.toString()),
-      (cart.email = email.toString()),
-      (cart.EnquiryDetails = enquiry.toString()),
-      (cart.address = address.toString()),
-      await cart.save();
-    res.status(201).json(cart);
-  } catch (err) {
-    console.log(err);
-    res.status(400).json({ message: err.message });
-  }
-});
+//     (cart.name = name.toString()),
+//       (cart.phone = phoneNumber.toString()),
+//       (cart.email = email.toString()),
+//       (cart.EnquiryDetails = enquiry.toString()),
+//       (cart.address = address.toString()),
+//       await cart.save();
+//     res.status(201).json(cart);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(400).json({ message: err.message });
+//   }
+// });
 
 router.put("/updateQuantity/:userId/:productId", async (req, res) => {
   const userId = req.params.userId;

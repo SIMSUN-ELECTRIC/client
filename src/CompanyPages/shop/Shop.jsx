@@ -84,7 +84,7 @@ const Shop = () => {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
     } else {
-      console.log(product, customer.userData._id);
+      // console.log("check", product, customer.userData._id);
 
       try {
         const response = await axios.post(

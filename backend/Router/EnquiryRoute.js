@@ -6,41 +6,41 @@ const router = express.Router();
 
 router.get("/allInquiry/:id", async (req, res) => {
   try {
-    // Fetch all previous inquiries
-    const previousInquiries = await Cart.find().populate("items.productId");
-    // console.log("Previous Inquiries:", previousInquiries);
-
+    // const userId = req.params.id;
+    // console.log(userId);
+    const EnquiryBy = await Cart.find().populate("items.productId");
+    const previousInquiries = await Enquiry.find().populate("items.productId");
     // Respond with the fetched inquiries
-    res.status(200).json(previousInquiries);
+    res.status(200).json({ previousInquiries, EnquiryBy });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const userId = req.params.id;
-    // console.log("id in backend", userId);
-    const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
-      "items"
-    );
-    // console.log("cart data:", cart);
-    res.json(cart);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const userId = req.params.id;
+//     // console.log("id in backend", userId);
+//     const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
+//       "items"
+//     );
+//     // console.log("cart data:", cart);
+//     res.json(cart);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
 
 router.get("/prevEnquiry/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    // console.log("User ID:", userId);
+    console.log("User ID:", userId);
 
     // Assuming you have a model named Enquiry to represent previous inquiries
     // Fetch previous inquiries based on the user ID
-    const previousInquiries = await Cart.find({ userId }).populate(
+    const previousInquiries = await Enquiry.find({ userId }).populate(
       "items.productId"
     );
     // console.log("this is previous Inquiries", previousInquiries);
@@ -52,40 +52,40 @@ router.get("/prevEnquiry/:id", async (req, res) => {
   }
 });
 
-// Route to transfer data from Cart to Enquiry
-router.post("/transferToEnquiry/:userId", async (req, res) => {
-  const userId = req.params.userId;
+// // Route to transfer data from Cart to Enquiry
+// router.post("/transferToEnquiry/:userId", async (req, res) => {
+//   const userId = req.params.userId;
 
-  try {
-    // Find the cart data for the user
-    const cart = await Cart.findOne({ userId }).populate("items.productId");
+//   try {
+//     // Find the cart data for the user
+//     const cart = await Cart.findOne({ userId }).populate("items.productId");
 
-    if (!cart) {
-      return res.status(404).json({ message: "Cart not found" });
-    }
+//     if (!cart) {
+//       return res.status(404).json({ message: "Cart not found" });
+//     }
 
-    // Extract data from cart to create an Enquiry object
-    const enquiryData = {
-      userId: cart.userId,
-      items: cart.items,
-      name: cart.name,
-      phone: cart.phone,
-      email: cart.email,
-      EnquiryDetails: cart.EnquiryDetails,
-      address: cart.address,
-    };
+//     // Extract data from cart to create an Enquiry object
+//     const enquiryData = {
+//       userId: cart.userId,
+//       items: cart.items,
+//       name: cart.name,
+//       phone: cart.phone,
+//       email: cart.email,
+//       EnquiryDetails: cart.EnquiryDetails,
+//       address: cart.address,
+//     };
 
-    // Create a new Enquiry object using the extracted data
-    const enquiry = new Enquiry(enquiryData);
+//     // Create a new Enquiry object using the extracted data
+//     const enquiry = new Enquiry(enquiryData);
 
-    // Save the Enquiry object to the Enquiry model
-    await enquiry.save();
+//     // Save the Enquiry object to the Enquiry model
+//     await enquiry.save();
 
-    res.status(201).json(enquiry);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+//     res.status(201).json(enquiry);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
 
 export default router;
