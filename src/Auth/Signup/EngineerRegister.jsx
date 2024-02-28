@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData,
+  // CityDropdown,
+} from "react-country-region-selector";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,7 +16,6 @@ const EngineerRegister = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [certificates, setCertificates] = useState(null);
   const [certificates, setCertificates] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [experience, setExperience] = useState("");
@@ -19,6 +25,9 @@ const EngineerRegister = () => {
   const [address, setaddress] = useState("");
   const [pinCode, setpinCode] = useState("");
   const [description, setdescription] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
   const navigate = useNavigate();
 
@@ -42,6 +51,9 @@ const EngineerRegister = () => {
           address,
           pinCode,
           description,
+          country: selectedCountry,
+          state: selectedState,
+          city: selectedCity,
         }
       );
 
@@ -267,6 +279,64 @@ const EngineerRegister = () => {
               required
             />
           </div>
+
+          {/* Country */}
+          {/* <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="country"
+              className="block text-md font-medium text-gray-600"
+            >
+              Country<span className="text-red-500">*</span>
+            </label>
+            <CountryDropdown
+              id="country"
+              name="country"
+              value={selectedCountry}
+              onChange={(val) => setSelectedCountry(val)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div> */}
+
+          {/* State */}
+          <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="state"
+              className="block text-md font-medium text-gray-600"
+            >
+              State<span className="text-red-500">*</span>
+            </label>
+            <RegionDropdown
+              id="state"
+              name="state"
+              // country={selectedCountry}
+              country="India"
+              value={selectedState}
+              onChange={(val) => setSelectedState(val)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+
+          {/* City */}
+          {/* <div className="mb-4 lg:w-1/2 lg:pl-2">
+            <label
+              htmlFor="city"
+              className="block text-md font-medium text-gray-600"
+            >
+              City<span className="text-red-500">*</span>
+            </label>
+            <CityDropdown
+              id="city"
+              name="city"
+              country="India"
+              region={selectedState}
+              value={selectedCity}
+              onChange={(val) => setSelectedCity(val)}
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div> */}
 
           {/* Address */}
           <div className="mb-4 lg:w-1/2 lg:pl-2">
