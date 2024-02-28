@@ -11,6 +11,7 @@ import productRoutes from "./Router/Productroute.js";
 import newsroute from "./Router/Newsroute.js";
 import feedbackRouter from "./Router/Feedbackroute.js";
 import cartRoutes from "./Router/Cartroute.js";
+import enquiryRoute from "./Router/EnquiryRoute.js";
 // import {paymentRoute} from "./Router/paymentRoute.js";
 
 dotenv.config();
@@ -37,6 +38,7 @@ app.use("/api/seed", seedRouter);
 app.use("/api/feedbacks", feedbackRouter);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/enquiry", enquiryRoute);
 app.use("/api", loginRouter);
 app.use("/api", registerRouter);
 app.use("/", newsroute);

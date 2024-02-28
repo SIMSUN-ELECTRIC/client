@@ -58,7 +58,8 @@ const Shop = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          `https://simsun-backend.onrender.com/api/products?limit=${
+          // `https://simsun-backend.onrender.com/api/products?limit=${
+          `http://localhost:5000/api/products?limit=${
             category === "" ? 24 : "all"
           }&page=${state.currentPage}`
         );
@@ -77,11 +78,13 @@ const Shop = () => {
 
   const customer = useSelector((customer) => customer.user);
 
+  // console.log("hehehe", customer.userData.fullName);
+
   const handleAddToCart = async (product) => {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
     } else {
-      console.log(product, customer.userData._id);
+      // console.log("check", product, customer.userData._id);
 
       try {
         const response = await axios.post(
@@ -92,11 +95,11 @@ const Shop = () => {
             productPrice: product.price,
             productImg: product.imageUrl,
             userId: customer.userData._id,
-            name: "",
-            phone: "",
-            email: "",
+            name: customer.userData.fullName,
+            phone: customer.userData.phoneNumber,
+            email: customer.userData.email,
             EnquiryDetails: "",
-            address: "",
+            address: customer.userData.address,
           }
         );
       } catch (error) {
