@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeItemAsync, updateQuantity } from "../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 function Enquiry() {
   const navigate = useNavigate();
@@ -17,7 +19,10 @@ function Enquiry() {
 
   const fetchCartData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/Cart/${userId}`);
+      // const response = await fetch(`http://localhost:5000/api/Cart/${userId}`);
+      const response = await fetch(
+        `https://simsun-backend.onrender.com/api/Cart/${userId}`
+      );
       // console.log("this is res: ", response);
       // console.log("this is userid", userId);
       if (!response.ok) {
@@ -55,7 +60,8 @@ function Enquiry() {
       // dispatch(updateQuantity({ id, quantity: newQuantity }));
 
       await axios.put(
-        `http://localhost:5000/api/cart/updateQuantity/${userId}/${id}`,
+        `https://simsun-backend.onrender.com/api/cart/updateQuantity/${userId}/${id}`,
+        // `http://localhost:5000/api/cart/updateQuantity/${userId}/${id}`,
         {
           quantity: newQuantity,
         }
@@ -75,7 +81,8 @@ function Enquiry() {
   const handleDelete = async (productId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/Cart/delete/${userId}/${productId}`
+        `https://simsun-backend.onrender.com/api/Cart/delete/${userId}/${productId}`
+        // `http://localhost:5000/api/Cart/delete/${userId}/${productId}`
       );
       console.log(response.data); // Log response data if needed
       dispatch(removeItemAsync(productId)); // Dispatch action to remove item from local state
@@ -114,23 +121,12 @@ function Enquiry() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     setShowForm(false);
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:5000/api/Cart/transferToEnquiry",
-    //     enquiryData,
-    //     name,
-    //     email,
-    //     phoneNumber,
-    //     address,
-    //     enquiry
-    //   );
-    //   console.log(response.data); // Handle success response
-    // } catch (error) {
-    //   console.error(error); // Handle error
-    // }
 
     try {
-      const responses = await fetch(`http://localhost:5000/api/Cart/${userId}`);
+      const responses = await fetch(
+        `https://simsun-backend.onrender.com/api/Cart/${userId}`
+      );
+      // const responses = await fetch(`http://localhost:5000/api/Cart/${userId}`);
       if (!responses.ok) {
         throw new Error("Failed to fetch cart data");
       }
@@ -139,11 +135,13 @@ function Enquiry() {
       console.log("Data: ", data);
 
       const response = await axios.post(
-        "http://localhost:5000/api/Cart/transferToEnquiry",
+        "https://simsun-backend.onrender.com/api/Cart/transferToEnquiry",
+        // "http://localhost:5000/api/Cart/transferToEnquiry",
         { data, name, email, phoneNumber, address, enquiry, userId }
       );
 
       console.log("Form submitted successfully:", response.data);
+      toast.success("Form submitted successfully");
 
       // Optionally, you can reset the form fields after successful submission
       setName("");
@@ -152,25 +150,36 @@ function Enquiry() {
       setAddress("");
       setEnquiry("");
 
+      sendEmail({ data, name, email, phoneNumber, address, enquiry, userId }); // Delete the array of items from the cart
+
+      // Delete the array of items from the cart
+      await axios.delete(
+        `https://simsun-backend.onrender.com/api/Cart/deleteItems/${userId}`
+        // `http://localhost:5000/api/Cart/deleteItems/${userId}`
+      );
+      console.log("Items array deleted from cart successfully");
       fetchCartData();
-      sendEmail();
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
-  const sendEmail = async () => {
+  const sendEmail = async (enq) => {
     try {
       // Make HTTP POST request to your backend route for sending emails
       const response = await axios.post(
-        `http://localhost:5000/api/cart/sendEmail/${userId}`,
+        `https://simsun-backend.onrender.com/api/cart/sendEmail/${userId}`,
+        // `http://localhost:5000/api/cart/sendEmail/${userId}`,
         {
           userId: "user_id_here",
+          ...enq,
         }
       );
       console.log(response.data);
+      toast.success("Email sent successfully");
     } catch (error) {
       console.error("Error sending email: ", error);
+      toast.error("Error sending email");
     }
   };
 

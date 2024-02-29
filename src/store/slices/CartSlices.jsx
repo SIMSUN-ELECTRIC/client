@@ -7,7 +7,10 @@ export const removeItemAsync = createAsyncThunk(
   async (itemId, { rejectWithValue }) => {
     try {
       // Make DELETE request to your backend API
-      await axios.delete(`http://localhost:5000/api/cart/delete/${itemId}`);
+      // await axios.delete(`http://localhost:5000/api/cart/delete/${itemId}`);
+      await axios.delete(
+        `https://simsun-backend.onrender.com/api/cart/delete/${itemId}`
+      );
       return itemId; // Return itemId if deletion is successful
     } catch (error) {
       // Return error message if deletion fails

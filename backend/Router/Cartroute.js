@@ -109,7 +109,6 @@ router.post("/addItem", async (req, res) => {
     name,
     phone,
     email,
-    EnquiryDetails,
     address,
   } = req.body;
 
@@ -125,7 +124,6 @@ router.post("/addItem", async (req, res) => {
         name,
         phone,
         email,
-        EnquiryDetails,
         address,
       });
     } else {
@@ -133,7 +131,6 @@ router.post("/addItem", async (req, res) => {
       cart.name = name;
       cart.phone = phone;
       cart.email = email;
-      cart.EnquiryDetails = EnquiryDetails;
       cart.address = address;
     }
 
@@ -167,6 +164,29 @@ router.post("/addItem", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err.message });
+  }
+});
+
+router.delete("/deleteItems/:userId", async (req, res) => {
+  const userId = req.params.userId;
+
+  try {
+    let cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+
+    // Clear the items array in the cart
+    cart.items = [];
+
+    // Save the updated cart
+    await cart.save();
+
+    res.json({ message: "Items deleted from cart successfully" });
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).json({ message: err.message });
   }
 });
 
@@ -262,22 +282,29 @@ router.put("/updateQuantity/:userId/:productId", async (req, res) => {
 router.post("/sendEmail/:id", async (req, res) => {
   try {
     const userId = req.params.id;
+    // console.log(userId);
 
     // Retrieve cart information for the user
-    const cart = await Cart.findOne({ userId }, { maxTimeMS: 20000 }).populate(
-      "items.productId"
-    );
-    // console.log("cart in email", cart);
+    const cart = await Cart.findOne({ userId }).populate("items.productId");
+
+    console.log("cart in email", cart);
     // Compose email content
     const emailContent = `
-            <h1>Cart Information</h1>
+            <h1>Enquiry Information</h1>
             <p>User ID: ${cart.userId}</p>
+            <h2>Enquiry By:</h2>
             <p>Name: ${cart.name}</p>
             <p>Email: ${cart.email}</p>
             <p>Phone: ${cart.phone}</p>
             <p>Address: ${cart.address}</p>
-            <p>Enquiry: ${cart.EnquiryDetails}</p>
-            <h2>Items:</h2>
+           
+            <h2>Enquiry Details:</h2>
+      <p>Name: ${req.body.name}</p>
+      <p>Email: ${req.body.email}</p>
+      <p>Phone: ${req.body.phoneNumber}</p>
+      <p>Address: ${req.body.address}</p>
+      <p>Enquiry: ${req.body.enquiry}</p>
+       <h2>Items:</h2>
             <ul>
                 ${cart.items
                   .map((item) => `<li>${item.name} - ${item.quantity}</li>`)
@@ -297,7 +324,8 @@ router.post("/sendEmail/:id", async (req, res) => {
     // Send mail with defined transport object
     let info = await transporter.sendMail({
       from: process.env.EMAIL_USERNAME,
-      to: "goswami@gmail.com",
+      // to: process.env.ADMIN_EMAIL,
+      to: "natureloveliness@gmail.com",
       subject: "Cart Information",
       html: emailContent,
     });
