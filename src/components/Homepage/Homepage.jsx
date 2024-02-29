@@ -31,6 +31,9 @@ const Homepage = () => {
   const images = [lift15, lift13, lift14, Esc];
   const mainImages = [e4];
   const [mainindex, setmainIndex] = useState(0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -326,7 +329,7 @@ const Homepage = () => {
               <ProductCard key={index} index={index} {...product} />
             ))}
           </div>
-          <Link to="/products">
+          <Link to="/shop">
             <button className="mt-1 border-2 bg-[#161D24] text-white p-3 text-lg md:text-xl  hover:scale-110  duration-300 rounded-md">
               More Products
             </button>

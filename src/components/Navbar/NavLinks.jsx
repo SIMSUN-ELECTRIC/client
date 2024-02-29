@@ -12,14 +12,9 @@ const SubLink = ({ slink }) => (
   <li className="py-2 flex flex-direction-col ">
     {/* {console.log(slink.productCategory)} */}
     <Link
-      to={{
-        pathname: slink.link,
-        state: {
-          productCategory: slink.productCategory,
-        },
-      }}
+      to={slink.link}
+      state={{ productCategory: slink.name }}
       className="hover:text-red-400"
-      onClick={() => setOpen(!open)}
     >
       {slink.name}
     </Link>

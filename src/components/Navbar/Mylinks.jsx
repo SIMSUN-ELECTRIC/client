@@ -22,7 +22,7 @@ export const links = [
   {
     id: 2,
     name: "Products",
-    link: "/products",
+
     submenu: true,
     sublinks: [
       {
@@ -52,7 +52,7 @@ export const links = [
           {
             id: 30,
             name: "Other Products",
-            link: "/products",
+            link: "/shop",
             productCategory: "BLT Elevator PCB",
           },
         ],

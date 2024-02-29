@@ -57,6 +57,7 @@ const Shop = () => {
   const [subOpen, setSubOpen] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const result = await axios.get(
@@ -104,7 +105,6 @@ const Shop = () => {
             address: customer.userData.address,
           }
         );
-        toast.success("Added to cart");
       } catch (error) {
         console.log(error);
       }

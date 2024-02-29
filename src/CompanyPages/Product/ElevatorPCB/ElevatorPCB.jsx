@@ -6,18 +6,26 @@ import { addItem } from "../../../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import Spinner from "../../shop/Spinner";
+import { toast } from "react-toastify";
+
 const productsReducer = (state, action) => {
   switch (action.type) {
     case "FETCH_SUCCESS":
       return {
         ...state,
-        products: action.payload.products.filter(
-          (product) => product.category === "BLT Elevator PCB"
-        ),
-        totalPages: action.payload.totalPages,
+        products:
+          action.payload.category === ""
+            ? action.payload.data.products
+            : action.payload.data.products.filter(
+                (product) => product.category === action.payload.category
+              ),
+        totalPages: action.payload.data.totalPages,
         error: null,
         loading: false,
       };
+    case "SET_SEARCH_QUERY":
+      return { ...state, searchQuery: action.payload };
     case "FETCH_ERROR":
       return { ...state, error: action.payload, loading: false };
     case "SET_CURRENT_PAGE":
@@ -33,6 +41,7 @@ const initialState = {
   error: null,
   totalPages: 1,
   currentPage: 1,
+  searchQuery: "",
 };
 
 const LiftProducts = () => {
@@ -42,35 +51,56 @@ const LiftProducts = () => {
   const category = "BLT Elevator PCB";
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          `https://simsun-backend.onrender.com/api/products?category=${encodeURIComponent(
-            category
-          )}&limit=all`
+          // `https://simsun-backend.onrender.com/api/products?limit=${
+          `http://localhost:5000/api/products?limit=${
+            category === "" ? 24 : "all"
+          }&page=${state.currentPage}`
         );
-        dispatchProducts({ type: "FETCH_SUCCESS", payload: result.data });
+
+        dispatchProducts({
+          type: "FETCH_SUCCESS",
+          payload: { data: result.data, category: category },
+        });
       } catch (error) {
         dispatchProducts({ type: "FETCH_ERROR", payload: error.message });
       }
     };
 
     fetchData();
-  }, [state.currentPage, state.searchQuery]);
+  }, [state.currentPage, state.searchQuery, category]);
 
   const customer = useSelector((customer) => customer.user);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = async (product) => {
     if (!customer?.isAuthenticated) {
       navigate("/auth/consumerLogin");
     } else {
-      dispatch(
-        addItem({
-          id: product._id,
-          name: product.name,
-          price: product.price,
-        })
-      );
+      // console.log("check", product, customer.userData._id);
+
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/Cart/addItem",
+          {
+            productId: product._id,
+            productName: product.name,
+            productPrice: product.price,
+            productImg: product.imageUrl,
+            userId: customer.userData._id,
+            name: customer.userData.fullName,
+            phone: customer.userData.phoneNumber,
+            email: customer.userData.email,
+            EnquiryDetails: "",
+            address: customer.userData.address,
+          }
+        );
+        toast.success("Added to cart");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -84,11 +114,15 @@ const LiftProducts = () => {
   };
 
   return (
-    <div className="mt-24 md:mt-24  min-h-screen bg-gray-100 p-4 pt-32 md:pt-4">
+    <div className=" md:mt-24  min-h-screen bg-gray-100 p-4 pt-32 md:pt-4">
       <h1 className="text-3xl font-semibold text-center mb-8">
         BLT Elevator PCB
       </h1>
-      {state.loading && <p>Loading...</p>}
+      {state.loading && (
+        <div className="w-full h-full flex items-center justify-center">
+          <Spinner />
+        </div>
+      )}
       {state.error && <p>Error: {state.error}</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {state.products.map((product) => (
