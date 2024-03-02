@@ -16,6 +16,10 @@ const NewsList = () => {
         const totalNewsCount = response.data.length;
 
         setTotalPages(Math.floor(totalNewsCount / itemsPerPage) + 1);
+        const sortedNews = response.data.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+        setNews(sortedNews);
       } catch (error) {
         console.error("Error fetching news:", error);
       }
@@ -28,6 +32,7 @@ const NewsList = () => {
     const fetchNews = async () => {
       try {
         const response = await axios.get(
+          // `http://localhost:5000/news?limit=${itemsPerPage}&page=${currentPage}`
           `https://simsun-backend.onrender.com/news?limit=${itemsPerPage}&page=${currentPage}`
         );
         setNews(response.data);
@@ -38,6 +43,21 @@ const NewsList = () => {
 
     fetchNews();
   }, [currentPage]);
+
+  // useEffect(() => {
+  //   const fetchNews = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://simsun-backend.onrender.com/news?limit=${itemsPerPage}&page=${currentPage}`
+  //       );
+  //       setNews(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching news:", error);
+  //     }
+  //   };
+
+  //   fetchNews();
+  // }, [currentPage]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
