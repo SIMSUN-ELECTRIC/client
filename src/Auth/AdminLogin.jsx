@@ -29,7 +29,7 @@ const AdminLogin = () => {
         const json = response.data;
         dispatch(logIn(json));
         console.log(json);
-        navigate("/");
+        navigate("/AdminInquiry");
       } else {
         toast.error("Invalid email or password");
         // Handle other status codes or errors here

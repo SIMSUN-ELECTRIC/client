@@ -99,12 +99,28 @@ const Navbar = () => {
       </div> */}
 
       <div className=" z-40 flex items-center justify-center fixed w-full ">
-        <nav
-       
-          className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
-        >
+        <nav className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto">
           <div className="flex items-center font-medium justify-between ">
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0 ">
+              {user.userData?.isAdmin ? (
+                <Link
+                  to="/AdminInquiry"
+                  className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
+                >
+                  <div className="flex justify-start   ">
+                    <img src={logo} alt="logo img" className="h-12 w-12" />
+                  </div>
+                </Link>
+              ) : (
+                <Link
+                  to="/"
+                  className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
+                >
+                  <div className="flex justify-start   ">
+                    <img src={logo} alt="logo img" className="h-12 w-12" />
+                  </div>
+                </Link>
+              )}
               <Link
                 to="/"
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
