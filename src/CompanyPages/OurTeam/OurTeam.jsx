@@ -18,8 +18,8 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "John 2",
-    position: "Software Engineer",
+    name: "Archita Singh Parmar",
+    position: "Co Founder",
     image: Esc,
     social: [
       { id: 1, icon: "twitter", link: "#" },
@@ -77,18 +77,7 @@ const teamMembers = [
       { id: 4, icon: "mail", link: "#" },
     ],
   },
-  {
-    id: 7,
-    name: "Name",
-    position: "Software Engineer",
-    image: "profile-img-1.png",
-    social: [
-      { id: 1, icon: "twitter", link: "#" },
-      { id: 2, icon: "linkedin", link: "#" },
-      { id: 3, icon: "github", link: "#" },
-      { id: 4, icon: "mail", link: "#" },
-    ],
-  },
+
   // Add more team members as needed
 ];
 
@@ -147,7 +136,7 @@ const OurTeam = () => {
     <>
       <animated.section
         style={fadeIn}
-        className="bg-purple-100 mt-0 md:mt-16  min-h-screen pt-28 p-4"
+        className="bg-purple-100 mt-0 md:mt-16  min-h-screen  p-4"
       >
         <div className="team1 ">
           <h1 className="text-4xl font-semibold text-center mb-2 mt-4 text-purple-800">

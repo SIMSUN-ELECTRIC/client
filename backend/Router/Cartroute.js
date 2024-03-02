@@ -324,8 +324,7 @@ router.post("/sendEmail/:id", async (req, res) => {
     // Send mail with defined transport object
     let info = await transporter.sendMail({
       from: process.env.EMAIL_USERNAME,
-      // to: process.env.ADMIN_EMAIL,
-      to: "natureloveliness@gmail.com",
+      to: process.env.ADMIN_EMAIL,
       subject: "Cart Information",
       html: emailContent,
     });
