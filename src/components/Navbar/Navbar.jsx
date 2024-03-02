@@ -102,25 +102,6 @@ const Navbar = () => {
         <nav className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto">
           <div className="flex items-center font-medium justify-between ">
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0 ">
-              {user.userData?.isAdmin ? (
-                <Link
-                  to="/AdminInquiry"
-                  className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
-                >
-                  <div className="flex justify-start   ">
-                    <img src={logo} alt="logo img" className="h-12 w-12" />
-                  </div>
-                </Link>
-              ) : (
-                <Link
-                  to="/"
-                  className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
-                >
-                  <div className="flex justify-start   ">
-                    <img src={logo} alt="logo img" className="h-12 w-12" />
-                  </div>
-                </Link>
-              )}
               <Link
                 to="/"
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
@@ -420,108 +401,92 @@ const Navbar = () => {
                 </div>
               )}
 
-              <div className="relative inline-block text-left">
-                {user.isAuthenticated ? (
-                  <div>
-                    <button
-                      type="button"
-                      className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full"
-                      id="options-menu"
-                      aria-haspopup="true"
-                      aria-expanded="true"
-                      onClick={toggleDropdown}
-                    >
-                      {user.userData.userName}
-                    </button>
-                  </div>
-                ) : (
-                  <div>
-                    <button
-                      type="button"
-                      className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full "
-                      id="options-menu"
-                      aria-haspopup="true"
-                      aria-expanded="true"
-                      onClick={toggleDropdown}
-                    >
-                      Login
-                    </button>
-                  </div>
-                )}
-
-                {isOpen && (
-                  <div
-                    ref={dropdownRef}
-                    className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#161D24] ring-1 ring-black ring-opacity-5 focus:outline-none"
-                  >
-                    {user.isAuthenticated ? (
-                      <>
-                        <div
-                          className="py-1"
-                          role="menu"
-                          aria-orientation="vertical"
-                          aria-labelledby="options-menu"
-                        >
-                          <a
-                            href="/auth/UserProfile"
-                            className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                            role="menuitem"
-                          >
-                            Profile
-                          </a>
-                          {user.userData?.isAdmin ? null : (
-                            <a
-                              href="/prevEnquiry"
+              <div className="text-left cursor-pointer group ml-5 relative">
+                <h2
+                  className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins] rounded-md text-white inline-block"
+                  onClick={() => {
+                    setHeading((prevHeading) =>
+                      prevHeading === "Users" ? "" : "Users"
+                    );
+                  }}
+                >
+                  {user.isAuthenticated ? user.userData.userName : "Login"}
+                </h2>
+                {
+                  <div className="absolute top-15 right-0 hidden group-hover:md:block hover:md:block z-10">
+                    <div className="py-0">
+                      <div className="w-4 h-4 left-3 absolute mt-1 rotate-45"></div>
+                    </div>
+                    <div className="bg-[#161D24] p-4 flex rounded-xl">
+                      {/* Adjusted alignment and positioning of the elements within the box */}
+                      {user.isAuthenticated ? (
+                        <div>
+                          <li className="flex flex-direction-col">
+                            <Link
+                              to="/auth/UserProfile"
                               className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                              role="menuitem"
+                              onClick={() => setOpen(!open)}
                             >
-                              Previous Enquiry
-                            </a>
+                              Profile
+                            </Link>
+                          </li>
+                          {user.userData?.isAdmin ? null : (
+                            <li className="flex flex-direction-col">
+                              <Link
+                                to="/prevEnquiry"
+                                className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
+                                onClick={() => setOpen(!open)}
+                              >
+                                Previous&nbsp;Enquiry
+                              </Link>
+                            </li>
                           )}
-
-                          <div
-                            className="dropdown-item block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                            onClick={handleLogout}
-                            role="menuitem"
-                          >
-                            Logout
-                          </div>
+                          <li className="flex flex-direction-col">
+                            <div
+                              className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
+                              onClick={() => {
+                                handleLogout();
+                                setOpen(!open);
+                              }}
+                            >
+                              Logout
+                            </div>
+                          </li>
                         </div>
-                      </>
-                    ) : (
-                      <div
-                        className="py-1"
-                        role="menu"
-                        aria-orientation="vertical"
-                        aria-labelledby="options-menu"
-                      >
-                        <a
-                          href="/auth/consumerLogin"
-                          className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                          role="menuitem"
-                        >
-                          Customer Login
-                        </a>
-                        <a
-                          href="/auth/EngineerLogin"
-                          className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                          role="menuitem"
-                        >
-                          Engineer Login
-                        </a>
-                        <a
-                          href="/auth/AdminLogin"
-                          className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl mx-4"
-                          role="menuitem"
-                        >
-                          Admin Login
-                        </a>
-                      </div>
-                    )}
+                      ) : (
+                        <div>
+                          <li className="flex flex-direction-col">
+                            <Link
+                              to="/auth/consumerLogin"
+                              className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl "
+                              onClick={() => setOpen(!open)}
+                            >
+                              Customer&nbsp;Login
+                            </Link>
+                          </li>
+                          <li className="flex flex-direction-col">
+                            <Link
+                              to="/auth/EngineerLogin"
+                              className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl "
+                              onClick={() => setOpen(!open)}
+                            >
+                              Engineer&nbsp;Login
+                            </Link>
+                          </li>
+                          <li className="flex flex-direction-col">
+                            <Link
+                              to="/auth/AdminLogin"
+                              className="block hover:text-red-400 text-xl cursor-pointer text-white font-xl "
+                              onClick={() => setOpen(!open)}
+                            >
+                              Admin&nbsp;Login
+                            </Link>
+                          </li>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
+                }
               </div>
             </ul>
 
