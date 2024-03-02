@@ -12,6 +12,8 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 
 const Navbar = () => {
   const [heading, setHeading] = useState("");
+  const menuRef = useRef(null);
+  const menuButtonRef = useRef(null);
 
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -22,9 +24,6 @@ const Navbar = () => {
   const [cartData, setCartData] = useState([]);
   const userId = useSelector((state) => state.user.userData);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
   const handleLogout = () => {
     dispatch(logOut());
     navigate("/");
@@ -55,6 +54,11 @@ const Navbar = () => {
     fetchCartData();
   }, [userId, cartData]);
 
+  const toggleDropdown = (event) => {
+    event.stopPropagation();
+    console.log("Toggle dropdown clicked");
+    setIsOpen(!isOpen);
+  };
   const totalQuantity = cartData.length;
 
   let headerWidth = useRef();
@@ -702,13 +706,14 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </div>
-              <div className="mx-5 mt-2 relative inline-block text-left">
+              <div
+                className="mx-5 mt-2 relative inline-block text-left"
+                ref={menuRef}
+              >
                 {user.isAuthenticated ? (
                   <div>
                     <button
-                      onClick={() => {
-                        toggleDropdown();
-                      }}
+                      onClick={(event) => toggleDropdown(event)}
                       className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full "
                     >
@@ -717,9 +722,7 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <button
-                    onClick={() => {
-                      toggleDropdown();
-                    }}
+                    onClick={(event) => toggleDropdown(event)}
                     className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
            rounded-md text-white md:w-auto w-full "
                   >
@@ -727,7 +730,7 @@ const Navbar = () => {
                   </button>
                 )}
 
-                {isOpen && (
+                {open && (
                   <div className="-mx-6 origin-top-right absolute right-0  w-full rounded-md  ring-1 ring-black ring-opacity-5 focus:outline-none">
                     {user.isAuthenticated ? (
                       <div>

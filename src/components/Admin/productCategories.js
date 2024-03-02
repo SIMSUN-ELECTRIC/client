@@ -60,10 +60,10 @@ const categories = [
   { id: 21, name: "Elevator Belt" },
   { id: 22, name: "Speed Limiter" },
   { id: 23, name: "Oil Can" },
-  { id: 24, name: "Lift" },
-  { id: 25, name: "Escalator" },
-  { id: 26, name: "Travelator" },
-  { id: 27, name: "Lift Spare Parts" },
+  { id: 24, name: "Elevator Encoder" },
+  { id: 25, name: "Elevator Switch Sensor" },
+  { id: 26, name: "Elevator Door Controller" },
+  { id: 27, name: "Elevator Door Motor" },
   { id: 28, name: "Escalator Spare Parts" },
 ];
 

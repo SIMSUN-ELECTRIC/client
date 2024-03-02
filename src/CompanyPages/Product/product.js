@@ -96,24 +96,15 @@ const products = [
   },
   {
     id: 21,
-    name: "Lift",
+    name: "Elevator Encoder",
   },
   {
     id: 22,
-    name: "Escalator",
+    name: "Elevator Switch Sensor",
   },
-  {
-    id: 23,
-    name: "Travelator",
-  },
-  {
-    id: 24,
-    name: "Lift Spare Parts",
-  },
-  {
-    id: 25,
-    name: "Escalator Spare Parts",
-  },
+  { id: 26, name: "Elevator Door Controller" },
+  { id: 27, name: "Elevator Door Motor" },
+  { id: 28, name: "Escalator Spare Parts" },
 ];
 
 export default products;
