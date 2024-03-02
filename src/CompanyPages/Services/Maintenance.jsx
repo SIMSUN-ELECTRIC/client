@@ -159,7 +159,7 @@ const Maintenance = () => {
         {/* section 4 */}
         <button className="mt-10 relative inline-flex items-center justify-center p-0.5 mb-2 mx-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 transition-all duration-300 ease-in group-hover:text-transparent group-hover:after:opacity-100 group-hover:after:w-6 group-hover:after:h-6 group-hover:after:bg-white group-hover:after:translate-x-3 group-hover:after:rotate-0 dark:group-hover:after:bg-gray-900 dark:group-hover:after:rotate-180 w-[80%] sm:w-full md:w-[30%] ">
           <span className="text-2xl relative px-5 py-5 transition-all ease-in duration-75 bg-white rounded-md text-black opacity-100 group-hover:opacity-0  w-full">
-            Want to learn more? Contact Us.
+            Contact Us.
           </span>
           <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-full h-full bg-white rounded-l-full rotate-90 transition-all duration-300 ease-in opacity-0 group-hover:opacity-100 dark:group-hover:rotate-90 dark:group-hover:opacity-100 flex justify-center items-center">
             <svg
