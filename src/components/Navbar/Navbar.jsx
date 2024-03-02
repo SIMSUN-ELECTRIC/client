@@ -57,7 +57,25 @@ const Navbar = () => {
 
   const totalQuantity = cartData.length;
 
-  let headerWidth = useRef();
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        isOpen
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isOpen]);
 
   return (
     <header>
@@ -78,7 +96,7 @@ const Navbar = () => {
 
       <div className=" z-40 flex items-center justify-center fixed w-full ">
         <nav
-          ref={headerWidth}
+       
           className="bg-[#161D24] text-white sticky w-full h-auto opacity-100 top-0 z-10 mx-auto"
         >
           <div className="flex items-center font-medium justify-between ">
@@ -414,7 +432,10 @@ const Navbar = () => {
                 )}
 
                 {isOpen && (
-                  <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#161D24] ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div
+                    ref={dropdownRef}
+                    className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#161D24] ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  >
                     {user.isAuthenticated ? (
                       <>
                         <div
