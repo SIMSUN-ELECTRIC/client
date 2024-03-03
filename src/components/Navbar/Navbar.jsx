@@ -708,88 +708,102 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </div>
-              <div
-                className="mx-5 mt-2 relative inline-block text-left"
-                ref={menuRef}
-              >
-                {user.isAuthenticated ? (
-                  <div>
-                    <button
-                      onClick={(event) => toggleDropdown(event)}
-                      className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full "
-                    >
-                      {user.userData.userName}
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={(event) => toggleDropdown(event)}
-                    className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full "
+
+              <div className="text-left  relative inline-block cursor-pointer group ml-5">
+                <h2
+                  className="bg-red-500 hover:bg-red-600 duration-300 flex gap-4 px-5 py-3 font-[Poppins] text-lg rounded-md text-white "
+                  onClick={() => {
+                    setHeading((prevHeading) =>
+                      prevHeading === "Users" ? "" : "Users"
+                    );
+                  }}
+                >
+                  {user.isAuthenticated ? user.userData.userName : " Login"}
+                  <span className="text-xl md:hidden inline mt-1">
+                    {heading === "Users" ? <FaAngleUp /> : <FaAngleDown />}
+                  </span>
+                  <span className="text-xl md:mt-2 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+                    <FaAngleDown />
+                  </span>
+                </h2>
+
+                {
+                  <div
+                    className={`${
+                      heading === "Users" ? "md:hidden" : "hidden"
+                    }`}
                   >
-                    Login
-                  </button>
-                )}
-
-                {open && (
-                  <div className="-mx-6 origin-top-right absolute right-0  w-full rounded-md  ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {user.isAuthenticated ? (
-                      <div>
-                        <a
-                          href="/auth/UserProfile"
-                          className="block dropdown-item"
-                          onClick={() => setOpen(!open)}
-                        >
-                          Profile
-                        </a>
-                        {user.userData?.isAdmin ? null : (
-                          <a
-                            href="/prevEnquiry"
-                            className="block w-96 dropdown-item"
-                            onClick={() => setOpen(!open)}
-                          >
-                            Previous Enquiry
-                          </a>
-                        )}
-
-                        <div
-                          className="block dropdown-item"
-                          onClick={() => {
-                            handleLogout();
-                            setOpen(!open);
-                          }}
-                        >
-                          Logout
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="w-96">
-                        <a
-                          href="/auth/consumerLogin"
-                          className="block dropdown-item"
-                          onClick={() => setOpen(!open)}
-                        >
-                          Customer Login
-                        </a>
-                        <a
-                          href="/auth/EngineerLogin"
-                          className="block dropdown-item"
-                          onClick={() => setOpen(!open)}
-                        >
-                          Engineer Login
-                        </a>
-                        <a
-                          href="/auth/AdminLogin"
-                          className="block dropdown-item"
-                          onClick={() => setOpen(!open)}
-                        >
-                          Admin Login
-                        </a>
-                      </div>
-                    )}
+                    <div>
+                      <h2 className="font-semibold md:pr-0 pr-5 flex justify-between items-center">
+                        <ul className="pl-4">
+                          {user.isAuthenticated ? (
+                            <>
+                              <li className="py-1 flex flex-direction-col">
+                                <Link
+                                  to="/auth/UserProfile"
+                                  className="block hover:text-red-400"
+                                  onClick={() => setOpen(!open)}
+                                >
+                                  Profile
+                                </Link>
+                              </li>
+                              {user.userData?.isAdmin ? null : (
+                                <li className="py-1 flex flex-direction-col">
+                                  <Link
+                                    to="/prevEnquiry"
+                                    className="block hover:text-red-400"
+                                    onClick={() => setOpen(!open)}
+                                  >
+                                    Previous Enquiry
+                                  </Link>
+                                </li>
+                              )}
+                              <div
+                                className="py-1 flex flex-direction-col"
+                                onClick={() => {
+                                  handleLogout();
+                                  setOpen(!open);
+                                }}
+                              >
+                                Logout
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <li className="py-1 flex flex-direction-col">
+                                <Link
+                                  to="/auth/consumerLogin"
+                                  className="block hover:text-red-400"
+                                  onClick={() => setOpen(!open)}
+                                >
+                                  Customer Login
+                                </Link>
+                              </li>
+                              <li className="py-1 flex flex-direction-col">
+                                <Link
+                                  to="/auth/EngineerLogin"
+                                  className="block hover:text-red-400"
+                                  onClick={() => setOpen(!open)}
+                                >
+                                  Engineer Login
+                                </Link>
+                              </li>
+                              <li className="py-1 flex flex-direction-col">
+                                <Link
+                                  to="/auth/AdminLogin"
+                                  className="block hover:text-red-400"
+                                  onClick={() => setOpen(!open)}
+                                >
+                                  Admin Login
+                                </Link>
+                              </li>
+                            </>
+                          )}
+                        </ul>
+                      </h2>
+                    </div>
                   </div>
-                )}
+                }
               </div>
             </ul>
           </div>

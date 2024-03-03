@@ -8,6 +8,93 @@ import AdminModel from "../Models/AdminModel.js";
 
 const router = express.Router();
 
+router.put("/admin/editProfile", async (req, res) => {
+  try {
+    const { prevmail, userName, email, password } = req.body;
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userData = await AdminModel.findOneAndUpdate(
+      { email: prevmail },
+      { userName, email, password: hashedPassword },
+      { new: true } // This option makes the method return the updated document
+    );
+
+    // console.log(email);
+    console.log(userData);
+
+    // Check if a document was updated
+    if (userData) {
+      // res.status(200).json({ message: "Profile updated successfully" });
+      return res.json({ success: true, userData });
+    } else {
+      // Send an error message back to the client
+      res.status(400).json({ message: "Email not found" });
+    }
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(500).json({ message: "Error updating profile" });
+  }
+});
+
+router.put("/engineer/editProfile", async (req, res) => {
+  try {
+    const { prevmail, userName, email, password } = req.body;
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userData = await EngineerModel.findOneAndUpdate(
+      { email: prevmail },
+      { userName, email, password: hashedPassword },
+      { new: true } // This option makes the method return the updated document
+    );
+
+    // console.log(email);
+    console.log(userData);
+
+    // Check if a document was updated
+    if (userData) {
+      // res.status(200).json({ message: "Profile updated successfully" });
+      return res.json({ success: true, userData });
+    } else {
+      // Send an error message back to the client
+      res.status(400).json({ message: "Email not found" });
+    }
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(500).json({ message: "Error updating profile" });
+  }
+});
+
+router.put("/customer/editProfile", async (req, res) => {
+  try {
+    const { prevmail, userName, email, password } = req.body;
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userData = await ConsumerModel.findOneAndUpdate(
+      { email: prevmail },
+      { userName, email, password: hashedPassword },
+      { new: true } // This option makes the method return the updated document
+    );
+
+    // console.log(email);
+    console.log(userData);
+
+    // Check if a document was updated
+    if (userData) {
+      // res.status(200).json({ message: "Profile updated successfully" });
+      return res.json({ success: true, userData });
+    } else {
+      // Send an error message back to the client
+      res.status(400).json({ message: "Email not found" });
+    }
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(500).json({ message: "Error updating profile" });
+  }
+});
+
 router.post("/consumerLogin", async (req, res) => {
   const KEY = process.env.KEY;
   const email = req.body.email;

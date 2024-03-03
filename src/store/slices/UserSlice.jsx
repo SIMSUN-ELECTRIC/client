@@ -21,8 +21,15 @@ const UserSlice = createSlice({
       localStorage.removeItem("userState"); // Remove the user state from localStorage
       return { isAuthenticated: false };
     },
+    updateUser(state, action) {
+      // Update the state with the new user information
+      const newState = { ...state, ...action.payload };
+      // Save the updated state to localStorage
+      localStorage.setItem("userState", JSON.stringify(newState));
+      return newState;
+    },
   },
 });
 
 export { UserSlice };
-export const { logIn, logOut } = UserSlice.actions;
+export const { logIn, logOut, updateUser } = UserSlice.actions;
