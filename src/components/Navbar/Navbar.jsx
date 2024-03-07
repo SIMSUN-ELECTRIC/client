@@ -714,13 +714,13 @@ const Navbar = () => {
                   className="bg-red-500 hover:bg-red-600 duration-300 flex gap-4 px-5 py-3 font-[Poppins] text-lg rounded-md text-white "
                   onClick={() => {
                     setHeading((prevHeading) =>
-                      prevHeading === "Users" ? "" : "Users"
+                      prevHeading === "Profile" ? "" : "Profile"
                     );
                   }}
                 >
                   {user.isAuthenticated ? user.userData.userName : " Login"}
                   <span className="text-xl md:hidden inline mt-1">
-                    {heading === "Users" ? <FaAngleUp /> : <FaAngleDown />}
+                    {heading === "Profile" ? <FaAngleUp /> : <FaAngleDown />}
                   </span>
                   <span className="text-xl md:mt-2 md:ml-2 md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                     <FaAngleDown />
@@ -730,7 +730,7 @@ const Navbar = () => {
                 {
                   <div
                     className={`${
-                      heading === "Users" ? "md:hidden" : "hidden"
+                      heading === "Profile" ? "md:hidden" : "hidden"
                     }`}
                   >
                     <div>
