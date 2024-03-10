@@ -26,7 +26,7 @@ import PrevEnquiry from "./CompanyPages/customerServices/prevEnquiry";
 import Maintenance from "./CompanyPages/Services/Maintenance";
 import EscalatorAutowalkModernization from "./CompanyPages/Services/EscalatorAutowalkModernization";
 import AddProduct from "./components/Admin/AddProduct";
-import ElevatorButton from "./CompanyPages/Product/ElevatorButton/ElevatorButton";
+import KONEElevatorParts from "./CompanyPages/Product/KoneElevatorParts";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ShippingAddress from "./components/Shipping";
@@ -69,7 +69,10 @@ function App() {
 
           <Route path="/product/ELevatorPCB" element={<ElevatorPCB />} />
           <Route path="/product/Inverter" element={<Inverter />} />
-          <Route path="/product/ElevatorButton" element={<ElevatorButton />} />
+          <Route
+            path="/product/KONEElevatorParts"
+            element={<KONEElevatorParts />}
+          />
           <Route
             path="/product/ElevatorServiceTool"
             element={<ElevatorServiceTool />}

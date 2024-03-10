@@ -25,8 +25,8 @@ const products = [
     img: lift5,
   },
   {
-    name: "Elevator Button",
-    link: "/product/ElevatorButton",
+    name: "KONE Elevator Parts",
+    link: "/product/KONEElevatorParts",
     img: lift4,
   },
 ];

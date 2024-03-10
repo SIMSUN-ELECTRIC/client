@@ -68,7 +68,7 @@ export default function Products() {
       try {
         const result = await axios.get(
           `https://simsun-backend.onrender.com/api/products?limit=${
-            category === "" ? 24 : "all"
+            category === "" ? 80 : "all"
           }&page=${state.currentPage}`
         );
 
@@ -160,22 +160,20 @@ export default function Products() {
     setOpen(false);
   };
   return (
-    <div className=" mt-0 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-28">
+    <div className=" mt-0 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-12">
       <div className="bg-white mt-10 h-full  p-4 ">
-        <h1 className="text-3xl font-semibold text-center mb-8">
-          Our Products
-        </h1>
+        <h1 className="text-3xl font-semibold text-center mb-8">{category}</h1>
         {state.loading && (
           <div className="w-full h-full flex items-center justify-center">
             <Spinner />
           </div>
         )}
         {state.error && <p>Error: {state.error}</p>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {state.products.map((product) => (
             <div
               key={product._id}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
+              className="relative pb-10 bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
             >
               <div className="overflow-hidden rounded-t-lg">
                 <img
@@ -204,36 +202,28 @@ export default function Products() {
                 ) : null}
 
                 <p className="text-green-800 font-semibold">₹{product.price}</p>
-                <button
-                  className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
-                  onClick={() => handleAddToCart(product)}
-                >
-                  Add to Enquiry
-                </button>
-                <button
-                  className="block w-full  text-white py-2 mt-2 font-[Poppins] rounded bg-red-500 hover:bg-red-600 transition duration-300"
+                {/* <button
+                  className="block bg-black text-white py-2 absolute bottom-2 left-2 right-2 rounded hover:bg-gray-800 transition duration-300" // Added absolute positioning here
                   onClick={() => handleEnquiry(product)}
                 >
                   Enquire Now
+                </button> */}
+                <button
+                  className="block bg-black text-white py-2 absolute bottom-2 left-2 right-2 rounded hover:bg-gray-800 transition duration-300" // Added absolute positioning here
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Enquiry
                 </button>
               </div>
             </div>
           ))}
         </div>
         <div className="mt-8 flex justify-center">
-          {[...Array(state.totalPages)].map((_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => handlePageChange(index + 1)}
-              className={`mx-2 px-4 py-2 rounded ${
-                state.currentPage === index + 1
-                  ? "bg-blue-500 text-white"
-                  : "bg-white text-black"
-              }`}
-            >
-              {index + 1}
+          <Link to="/shop">
+            <button className="mt-1 border-2 bg-[#161D24] text-white p-3 text-lg md:text-xl  hover:scale-110  duration-300 rounded-md">
+              More Products
             </button>
-          ))}
+          </Link>
         </div>
       </div>
     </div>

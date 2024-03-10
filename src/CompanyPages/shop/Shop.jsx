@@ -63,7 +63,7 @@ const Shop = () => {
         const result = await axios.get(
           `https://simsun-backend.onrender.com/api/products?limit=${
             // `http://localhost:5000/api/products?limit=${
-            category === "" ? 24 : "all"
+            category === "" ? 36 : "all"
           }&page=${state.currentPage}`
         );
 
@@ -169,7 +169,7 @@ const Shop = () => {
           )}
         </div>
         <h1 className="text-3xl hidden lg:block font-semibold text-center mb-8 mt-2 justify-self-center">
-          Shop
+          {category ? category : "All Products"}
         </h1>
       </div>
       <div className="mb-4">
@@ -204,7 +204,7 @@ const Shop = () => {
           }`}
         >
           <h2 className="flex flex-row items-center justify-between text-md lg:text-xl font-semibold px-2 py-4 lg:p-5">
-            Product groups
+            Categories
             {open && (
               <RxCross2
                 onClick={handleCloseSidebar}
@@ -217,7 +217,9 @@ const Shop = () => {
             {products.map((myproduct, index) => (
               <Link key={index} to={myproduct.link} className="w-full">
                 <h2
-                  className="flex justify-between items-center md:pr-0 pr-5 group hover:bg-gray-200 px-2 py-2 text-sm lg:text-md bg-white w-full"
+                  className={`flex justify-between items-center md:pr-0 pr-5 group hover:bg-gray-200 px-2 py-2 text-sm lg:text-md bg-white w-full ${
+                    category === myproduct.name ? "bg-blue-200" : ""
+                  }`}
                   onClick={() => {
                     setHeading((prevHeading) =>
                       prevHeading === myproduct.name ? "" : myproduct.name
@@ -289,7 +291,7 @@ const Shop = () => {
           {filteredProducts.map((product) => (
             <div
               key={product._id}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
+              className="relative pb-10 bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
             >
               <div className="overflow-hidden rounded-t-lg">
                 <img
@@ -317,18 +319,24 @@ const Shop = () => {
                   </div>
                 ) : null}
                 <p className="text-green-800 font-semibold">₹{product.price}</p>
-                <button
+                {/* <button
                   className="block w-full  text-white py-2 mt-2 font-[Poppins] rounded bg-red-500 hover:bg-red-600 transition duration-300"
                   onClick={() => handleEnquiry(product)}
                 >
                   Enquire Now
-                </button>
+                </button> */}
                 <button
-                  className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
+                  className="block bg-black text-white py-2 absolute bottom-2 left-2 right-2 rounded hover:bg-gray-800 transition duration-300" // Added absolute positioning here
                   onClick={() => handleAddToCart(product)}
                 >
                   Add to Enquiry
                 </button>
+                {/* <button
+                  className="block w-full bg-black text-white py-2 mt-4  rounded hover:bg-gray-800 transition duration-300"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Enquiry
+                </button> */}
               </div>
             </div>
           ))}
