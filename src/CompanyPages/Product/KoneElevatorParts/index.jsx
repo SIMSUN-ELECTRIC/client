@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem } from "../../../store/slices/CartSlices";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../../shop/Spinner";
@@ -38,8 +37,7 @@ const initialState = {
   productsPerPage: 28,
 };
 
-const TravelatorProducts = () => {
-  const dispatch = useDispatch();
+const Products = () => {
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
 
@@ -118,7 +116,7 @@ const TravelatorProducts = () => {
         {currentProducts.map((product) => (
           <div
             key={product._id}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
+            className="relative pb-10 bg-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300"
           >
             <div className="overflow-hidden rounded-t-lg">
               <img
@@ -132,7 +130,7 @@ const TravelatorProducts = () => {
               <p className="text-gray-600 mb-4">{product.description}</p>
               <p className="text-green-800 font-semibold">₹{product.price}</p>
               <button
-                className="block w-full bg-black text-white py-2 mt-4 rounded hover:bg-gray-800 transition duration-300"
+                className="block bg-black text-white py-2 absolute bottom-2 left-2 right-2 rounded hover:bg-gray-800 transition duration-300" // Added absolute positioning here
                 onClick={() => handleAddToCart(product)}
               >
                 Add to Enquiry
@@ -170,4 +168,4 @@ const TravelatorProducts = () => {
   );
 };
 
-export default TravelatorProducts;
+export default Products;

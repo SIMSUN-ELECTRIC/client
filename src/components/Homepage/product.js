@@ -5,23 +5,23 @@ import lift7 from "../../assets/img/lift7.jpg";
 import lift9 from "../../assets/img/lift9.jpg";
 const products = [
   {
-    name: "ELevator PCB",
-    link: "/product/ELevatorPCB",
+    name: "HITACHI Elevator Parts",
+    link: "/product/HitachiElevatorParts",
     img: lift1,
   },
   {
-    name: "Elevator Inverter",
-    link: "/product/Inverter",
+    name: "HYUNDAI Elevator Parts",
+    link: "/product/HYUNDAIElevatorParts",
     img: lift7,
   },
   {
-    name: "Elevator Service Tool",
-    link: "/product/ElevatorServiceTool",
+    name: "OTIS Elevator Parts",
+    link: "/product/OTISElevatorParts",
     img: lift9,
   },
   {
-    name: "Elevator Wheel",
-    link: "/product/ElevatorWheel",
+    name: "STEP Elevator Parts",
+    link: "/product/StepElevatorParts",
     img: lift5,
   },
   {

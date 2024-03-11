@@ -5,10 +5,10 @@ import OurCompany from "./CompanyPages/OurCompany/OurCompany";
 import OurTeam from "./CompanyPages/OurTeam/OurTeam";
 import News from "./CompanyPages/News/News";
 import OurCompanySuccess from "./CompanyPages/OurCompanySuccess/OurCompanySuccess";
-import ElevatorPCB from "./CompanyPages/Product/ElevatorPCB/ElevatorPCB";
-import Inverter from "./CompanyPages/Product/Inverter/Inverter";
-import ElevatorServiceTool from "./CompanyPages/Product/ElevatorServiceTool/ElevatorServiceTool";
-import ElevatorWheel from "./CompanyPages/Product/ElevatorWheel/ElevatorWheel";
+import HitachiElevatorParts from "./CompanyPages/Product/HitachiElevatorParts";
+import HYUNDAIElevatorParts from "./CompanyPages/Product/HyundaiElevatorParts";
+import OTISElevatorParts from "./CompanyPages/Product/OtisElevatorParts";
+import StepElevatorParts from "./CompanyPages/Product/StepElevatorParts";
 import NewInstallationServices from "./CompanyPages/Services/NewInstallationServices";
 import AnnualMaintainenceServices from "./CompanyPages/Services/AnnualMaintainenceServices";
 import BreakdownServices from "./CompanyPages/Services/BreakdownServices";
@@ -67,17 +67,26 @@ function App() {
             element={<OurCompanySuccess />}
           />
 
-          <Route path="/product/ELevatorPCB" element={<ElevatorPCB />} />
-          <Route path="/product/Inverter" element={<Inverter />} />
+          <Route
+            path="/product/HitachiElevatorParts"
+            element={<HitachiElevatorParts />}
+          />
+          <Route
+            path="/product/HYUNDAIElevatorParts"
+            element={<HYUNDAIElevatorParts />}
+          />
           <Route
             path="/product/KONEElevatorParts"
             element={<KONEElevatorParts />}
           />
           <Route
-            path="/product/ElevatorServiceTool"
-            element={<ElevatorServiceTool />}
+            path="/product/OTISElevatorParts"
+            element={<OTISElevatorParts />}
           />
-          <Route path="/product/ElevatorWheel" element={<ElevatorWheel />} />
+          <Route
+            path="/product/StepElevatorParts"
+            element={<StepElevatorParts />}
+          />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/products" element={<Products />} />
 

@@ -25,9 +25,10 @@ export const RESOURCES = [
 ];
 export const COMPANY = [
   { name: "Elevator PCB", link: "/product/ELevatorPCB" },
-  { name: "Elevator Inverter", link: "/product/Inverter" },
-  { name: "Elevator Service Tool", link: "/product/ElevatorServiceTool" },
+  { name: "HYUNDAI Elevator Parts", link: "/product/HyundaiElevatorParts" },
+  { name: "OTIS Elevator Parts", link: "/product/OTISElevatorParts" },
   { name: "Elevator Wheel", link: "/product/ElevatorWheel" },
+  { name: "KONE Elevator Parts", link: "/product/KONEElevatorParts" },
   { name: "Other Products", link: "/products" },
 ];
 export const SUPPORT = [
