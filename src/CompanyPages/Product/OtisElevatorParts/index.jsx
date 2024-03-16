@@ -10,8 +10,10 @@ const productsReducer = (state, action) => {
     case "FETCH_SUCCESS":
       return {
         ...state,
-        products: action.payload.data.products.filter((product) =>
-          product.name.toLowerCase().includes("otis")
+        products: action.payload.data.products.filter(
+          (product) =>
+            product.name.toLowerCase().includes("otis") ||
+            product.description.toLowerCase().includes("otis")
         ),
         totalPages: Math.ceil(
           action.payload.data.products.length / state.productsPerPage

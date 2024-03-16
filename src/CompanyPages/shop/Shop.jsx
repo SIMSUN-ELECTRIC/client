@@ -1,10 +1,9 @@
 import React, { useEffect, useReducer, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../store/slices/CartSlices";
-import { useNavigate } from "react-router-dom";
 import products from "../Product/product";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
@@ -129,10 +128,10 @@ const Shop = () => {
     product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
   );
 
-  const handleEnquiry = (product) => {
-    const mailto = `mailto:simsunelectricwork@gmail.com?subject=Product Enquiry - ${product.name}&body=Product Name: ${product.name}%0D%0ACategory: ${product.category}%0D%0ADescription: ${product.description}%0D%0AWrite Your Enquiry Here: `;
-    window.location.href = mailto;
-  };
+  // const handleEnquiry = (product) => {
+  //   const mailto = `mailto:simsunelectricwork@gmail.com?subject=Product Enquiry - ${product.name}&body=Product Name: ${product.name}%0D%0ACategory: ${product.category}%0D%0ADescription: ${product.description}%0D%0AWrite Your Enquiry Here: `;
+  //   window.location.href = mailto;
+  // };
 
   const menuRef = useRef(null);
 
@@ -218,7 +217,7 @@ const Shop = () => {
               <Link key={index} to={myproduct.link} className="w-full">
                 <h2
                   className={`flex justify-between items-center md:pr-0 pr-5 group hover:bg-gray-200 px-2 py-2 text-sm lg:text-md bg-white w-full ${
-                    category === myproduct.name ? "bg-blue-200" : ""
+                    category === myproduct.name ? "bg-blue" : ""
                   }`}
                   onClick={() => {
                     setHeading((prevHeading) =>
@@ -297,7 +296,7 @@ const Shop = () => {
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  className="w-full h-48 object-cover object-center transition-transform transform-gpu hover:scale-105"
+                  className="w-96 h-48 object-cover object-center transition-transform transform-gpu hover:scale-105"
                 />
               </div>
               <div className="p-4">

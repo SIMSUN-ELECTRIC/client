@@ -24,12 +24,12 @@ export const RESOURCES = [
   },
 ];
 export const COMPANY = [
-  { name: "Elevator PCB", link: "/product/ELevatorPCB" },
+  { name: "HITACHI Elevator Parts", link: "/product/HitachiElevatorParts" },
   { name: "HYUNDAI Elevator Parts", link: "/product/HyundaiElevatorParts" },
   { name: "OTIS Elevator Parts", link: "/product/OTISElevatorParts" },
-  { name: "Elevator Wheel", link: "/product/ElevatorWheel" },
+  { name: "STEP Elevator Parts", link: "/product/StepElevatorParts" },
   { name: "KONE Elevator Parts", link: "/product/KONEElevatorParts" },
-  { name: "Other Products", link: "/products" },
+  { name: "Other Products", link: "/shop" },
 ];
 export const SUPPORT = [
   { name: "Enquiry", link: "/Enquiry" },
