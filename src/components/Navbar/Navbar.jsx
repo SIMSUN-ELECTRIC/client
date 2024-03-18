@@ -508,7 +508,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
-              {user.userData?.isAdmin ? null : <NavLinks />}
+              {user.userData?.isAdmin ? null : <NavLinks setOpen={setOpen} />}
 
               {user.userData?.isAdmin ? (
                 <div className="">
@@ -516,6 +516,7 @@ const Navbar = () => {
                     <Link
                       to="/AdminInquiry"
                       className=" ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold"
+                      onClick={() => setOpen(!open)}
                     >
                       Customer Enquiry
                     </Link>

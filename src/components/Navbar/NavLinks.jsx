@@ -8,20 +8,21 @@ import {
   FaAngleRight,
 } from "react-icons/fa6";
 
-const SubLink = ({ slink }) => (
+const SubLink = ({ slink, setOpen }) => (
   <li className="py-2 flex flex-direction-col ">
     {/* {console.log(slink.productCategory)} */}
     <Link
       to={slink.link}
       state={{ productCategory: slink.name }}
       className="hover:text-red-400"
+      onClick={() => setOpen((open) => !open)}
     >
       {slink.name}
     </Link>
   </li>
 );
 
-const NavLinks = () => {
+const NavLinks = ({ setOpen }) => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
 
@@ -104,7 +105,11 @@ const NavLinks = () => {
                 >
                   <ul className="pl-10">
                     {slinks.sublink.map((slink) => (
-                      <SubLink key={slink.name} slink={slink} />
+                      <SubLink
+                        key={slink.name}
+                        slink={slink}
+                        setOpen={setOpen}
+                      />
                     ))}
                   </ul>
                 </h2>

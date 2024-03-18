@@ -62,7 +62,7 @@ const Shop = () => {
         const result = await axios.get(
           `https://simsun-backend.onrender.com/api/products?limit=${
             // `http://localhost:5000/api/products?limit=${
-            category === "" ? 36 : "all"
+            category === "" ? 48 : "all"
           }&page=${state.currentPage}`
         );
 
@@ -341,7 +341,7 @@ const Shop = () => {
           ))}
         </div>
       </div>
-      <div className="mt-8 flex justify-center mx-2">
+      <div className="mt-8 flex justify-center mx-2 overflow-x-auto pl-12">
         {[...Array(state.totalPages)].map((_, index) => (
           <button
             key={index + 1}
