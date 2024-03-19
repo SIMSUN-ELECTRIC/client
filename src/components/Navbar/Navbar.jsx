@@ -103,7 +103,7 @@ const Navbar = () => {
           <div className="flex items-center font-medium justify-between ">
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0 ">
               <Link
-                to="/"
+                to={user.userData?.isAdmin ? "/AdminInquiry" : "/"}
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
               >
                 <div className="flex justify-start   ">

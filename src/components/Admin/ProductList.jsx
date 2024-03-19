@@ -53,7 +53,7 @@ const AdminPanel = () => {
   );
 
   return (
-    <div className="container mx-auto p-4 pt-28 md:pt-4">
+    <div className="container mx-auto p-4 md:pt-4">
       <h1 className="mt-20 text-3xl font-semibold mb-4">Admin Panel</h1>
 
       <div className="mb-4">

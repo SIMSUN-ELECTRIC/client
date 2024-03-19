@@ -167,7 +167,7 @@ const Shop = () => {
             </div>
           )}
         </div>
-        <h1 className="text-3xl hidden lg:block font-semibold text-center mb-8 mt-2 justify-self-center">
+        <h1 className="text-3xl hidden lg:block font-semibold text-center mb-2 mt-2 justify-self-center">
           {category ? category : "All Products"}
         </h1>
       </div>
@@ -188,12 +188,6 @@ const Shop = () => {
           onKeyPress={handleSearch}
         />
       </div>
-      {state.loading && (
-        <div className="w-full h-full flex items-center justify-center">
-          <Spinner />
-        </div>
-      )}
-      {state.error && <p>Error: {state.error}</p>}
 
       <div className="flex w-full gap-4 lg:gap-10 ">
         <div
@@ -286,6 +280,12 @@ const Shop = () => {
             ))}
           </ul>
         </div>
+        {state.loading && (
+          <div className="w-full h-full flex items-center justify-center">
+            <Spinner />
+          </div>
+        )}
+        {state.error && <p>Error: {state.error}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 h-fit">
           {filteredProducts.map((product) => (
             <div
