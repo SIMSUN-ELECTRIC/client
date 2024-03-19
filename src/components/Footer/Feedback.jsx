@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const FeedbackPage = () => {
   const [feedback, setFeedback] = useState("");
-  //   const [showForm, setShowForm] = useState(false);
 
   const navigate = useNavigate();
   const state = useSelector((state) => state.user);
@@ -53,11 +52,12 @@ const FeedbackPage = () => {
             Give Us Your <span className="text-red-500 ">Feedback</span>
           </h2>
         </div>
+
         <div>
           <textarea
             rows="2"
             className="text-gray-800
-           sm:w-96 w-full sm:mr-5 mr-1  lg:mb-0 mb-4 py-2 rounded px-2 focus:outline-none"
+            sm:w-96 w-full sm:mr-5 mr-1  lg:mb-0 mb-4 py-2 rounded px-2 focus:outline-none"
             placeholder="Type your feedback here..."
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
@@ -66,13 +66,12 @@ const FeedbackPage = () => {
         <div>
           <button
             className="bg-red-500 hover:bg-red-600 duration-300 px-5 py-2.5 font-[Poppins]
-           rounded-md text-white md:w-auto w-full"
+            rounded-md text-white md:w-auto w-full"
             onClick={sendFeedback}
           >
             Send Feedback
           </button>
         </div>
-        {/* )} */}
       </div>
     </div>
   );

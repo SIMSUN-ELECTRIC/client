@@ -30,7 +30,7 @@ const NavLinks = ({ setOpen }) => {
     <>
       {links.map((link) => (
         <div key={link.name}>
-          <div className="text-left cursor-pointer group ml-5">
+          <div className="text-left cursor-pointer group ml-5 mb-2">
             {link.link != null ? (
               <Link to={link.link}>
                 <h2

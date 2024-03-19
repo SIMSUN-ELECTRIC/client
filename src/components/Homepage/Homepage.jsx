@@ -67,7 +67,7 @@ const Homepage = () => {
           style={{
             "--image-url": `url(${mainImage})`,
           }}
-          className=" w-full h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center justify-center "
+          className=" w-full h-[70vh] lg:h-screen relative bg-[image:var(--image-url)] transition-transform duration-3000 bg-bottom bg-cover  bg-[50%_50%] mr-0 flex flex-col items-center justify-center "
         >
           <div className=" mt-[8rem] md:mt-[8rem] bg-black/50 p-2 sm:p-8 relative flex flex-col justify-center items-center">
             <div
@@ -102,7 +102,7 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-        <div className="relative mt-[6.25rem] p-4 md:p-8 w-[80vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
+        <div className="relative mt-[3.05rem] p-4 md:p-8 w-[90vw] h-auto md:h-auto bg-[#202b35] rounded-[40px]  flex flex-col lg:flex-row items-center lg:place-items-start ">
           <div className=" md:w-[90%] w-[190px] sm:h-[220px] md:h-[400px] pt-0 md:p-4 flex flex-col items-center justify-around md:justify-between">
             <img
               src={ImageComponent}
@@ -143,12 +143,12 @@ const Homepage = () => {
 
         <div className="w-full text-center flex flex-col mt-20">
           <h2 className="text-black text-4xl font-bold">WHY CHOOSE US</h2>
-          <div className="flex xl:grid grid-cols-4 gap-2 flex-row flex-wrap mt-4 justify-center mx-8">
+          <div className="flex xl:grid grid-cols-4 gap-2 flex-row flex-wrap mt-4 justify-center mx-4">
             <div className=" ">
               <motion.div>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] text-white rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[280px] sm:w-[260px] md:w-[300px] h-auto md:h-[280px]"
                 >
                   <div className="flex justify-center">
                     <svg
@@ -182,7 +182,7 @@ const Homepage = () => {
               <motion.div variants={fadeIn("right", "spring", 0.5 * 1, 0.75)}>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[280px] sm:w-[260px] md:w-[300px] h-auto md:h-[280px]"
                 >
                   <div className=" flex justify-center text-white">
                     <svg
@@ -216,7 +216,7 @@ const Homepage = () => {
               <motion.div variants={fadeIn("right", "spring", 0.5 * 2, 0.75)}>
                 <div
                   options={{ max: 45, scale: 1, speed: 450 }}
-                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]"
+                  className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[280px] sm:w-[260px] md:w-[300px] h-auto md:h-[280px]"
                 >
                   <div className=" flex justify-center text-white">
                     <svg
@@ -248,7 +248,7 @@ const Homepage = () => {
             </div>
             <div className="">
               <motion.div variants={fadeIn("right", "spring", 0.5 * 3, 0.75)}>
-                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[190px] sm:w-[260px] md:w-[300px] h-[320px]">
+                <div className="flex flex-col cursor-pointer m-4 p-4 bg-[#202b35] rounded-2xl group hover:scale-110 ease-in-out duration-500 hover:rounded-2xl w-[280px] sm:w-[260px] md:w-[300px] h-auto md:h-[280px]">
                   <div className=" flex justify-center text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

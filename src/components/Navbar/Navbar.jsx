@@ -104,6 +104,7 @@ const Navbar = () => {
             <div className="z-50 p-1 lg:w-auto w-full flex justify-between m-4 lg:mr-8 lg:ml-0 ">
               <Link
                 to={user.userData?.isAdmin ? "/AdminInquiry" : "/"}
+                onClick={() => setOpen(false)}
                 className="flex text-3xl  border lg:translate-x-10  justify-center items-center overflow-hidden font-medium mb-0 md:mb-0 mr-0 "
               >
                 <div className="flex justify-start   ">
@@ -115,7 +116,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-6 lg:hidden mt-0.5 md:mt-0 z-30 mx-5">
                   {user.userData?.isAdmin ? null : (
                     <div className="text-2xl lg:hidden z-30">
-                      <Link to="/shop">
+                      <Link to="/shop" onClick={() => setOpen(false)}>
                         <HiOutlineShoppingBag className="z-50" />
                       </Link>
                     </div>
@@ -125,7 +126,7 @@ const Navbar = () => {
                     <div className="">
                       {user.isAuthenticated ? (
                         <div className="">
-                          <Link to="/Enquiry">
+                          <Link to="/Enquiry" onClick={() => setOpen(false)}>
                             <div className="flex gap-1">
                               <HiOutlineShoppingCart className="z-5 text-2xl lg:hidden " />
 
@@ -141,7 +142,10 @@ const Navbar = () => {
                         </div>
                       ) : (
                         <div className="text-2xl lg:hidden z-30">
-                          <Link to="/auth/consumerLogin">
+                          <Link
+                            to="/auth/consumerLogin"
+                            onClick={() => setOpen(false)}
+                          >
                             <HiOutlineShoppingCart className="z-50" />
                           </Link>
                         </div>
@@ -498,7 +502,7 @@ const Navbar = () => {
         `}
             >
               {user.userData?.isAdmin ? null : (
-                <div className="">
+                <div className="mb-2">
                   <Link
                     to="/"
                     className="ml-5 cursor-pointer text-xl text-white hover:text-red-400 font-semibold "
@@ -511,7 +515,7 @@ const Navbar = () => {
               {user.userData?.isAdmin ? null : <NavLinks setOpen={setOpen} />}
 
               {user.userData?.isAdmin ? (
-                <div className="">
+                <div className="mb-2">
                   <li>
                     <Link
                       to="/AdminInquiry"
@@ -525,7 +529,7 @@ const Navbar = () => {
               ) : null}
 
               {user.userData?.isAdmin ? (
-                <div className="text-left cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5 mb-2">
                   <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -578,7 +582,7 @@ const Navbar = () => {
               ) : null}
 
               {user.userData?.isAdmin ? (
-                <div className="text-left cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5 mb-2">
                   <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -639,7 +643,7 @@ const Navbar = () => {
                 </div>
               ) : null}
               {user.userData?.isAdmin ? (
-                <div className="text-left cursor-pointer group ml-5">
+                <div className="text-left cursor-pointer group ml-5 mb-4">
                   <h2
                     className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
                     onClick={() => {
@@ -700,15 +704,17 @@ const Navbar = () => {
                 </div>
               ) : null}
 
-              <div className="">
-                <Link
-                  to="/ContactUs"
-                  className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold mt-7"
-                  onClick={() => setOpen(!open)}
-                >
-                  Contact Us
-                </Link>
-              </div>
+              {user.userData?.isAdmin ? null : (
+                <div className="mb-4">
+                  <Link
+                    to="/ContactUs"
+                    className="ml-5 cursor-pointer text-white text-xl hover:text-red-400 font-semibold mt-7"
+                    onClick={() => setOpen(!open)}
+                  >
+                    Contact Us
+                  </Link>
+                </div>
+              )}
 
               <div className="text-left  relative inline-block cursor-pointer group ml-5">
                 <h2

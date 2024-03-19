@@ -1,9 +1,11 @@
 import ItemsContainer from "./ItemsContainer";
 import SocialIcons from "./SocialIcons";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Feedback from "./Feedback";
 
 const Footer = () => {
+  const state = useSelector((state) => state.user);
   //changes the copyright dynamically
   const date = new Date().getFullYear();
 
@@ -14,12 +16,11 @@ const Footer = () => {
       className={`
       bg-[#161D24] text-white section `}
     >
-      <Feedback />
       {/* <div
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
-      >
+        >
         <div>
-          <h1 className=" items-center text-md sm:text-3xl md:font-bold ">
+        <h1 className=" items-center text-md sm:text-3xl md:font-bold ">
             <span className="text-red-500 ">Free</span> Subscribe Us
           </h1>
         </div>
@@ -33,16 +34,20 @@ const Footer = () => {
           />
           <div className="flex items-center">
             <button className="bg-red-500 hover:bg-red-600 duration-300 rounded-md font-[Poppins] h-10 text-white w-16 text-lg ">
-              Submit
+            Submit
             </button>
-          </div>
+            </div>
+            </div>
+          </div> */}
+      {state.userData?.isAdmin ? null : (
+        <div>
+          <Feedback />
+          <ItemsContainer />
         </div>
-      </div> */}
-      <div>
-        <ItemsContainer />
-      </div>
+      )}
+
       <div
-        className={`flex gap-10 justify-around px-5 text-xxs md:text-sm text-gray-400 `}
+        className={`flex gap-10 justify-around px-5 text-xs md:text-sm text-gray-400 mt-4`}
       >
         <span>Copyright © {date}. All Rights Reserved. </span>
         <span>
