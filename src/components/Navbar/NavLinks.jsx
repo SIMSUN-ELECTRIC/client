@@ -15,7 +15,8 @@ const SubLink = ({ slink, setOpen }) => (
       to={slink.link}
       state={{ productCategory: slink.name }}
       className="hover:text-red-400"
-      onClick={() => setOpen((open) => !open)}
+      // onClick={() => setOpen((open) => !open)}
+      onClick={setOpen ? () => setOpen((open) => !open) : false}
     >
       {slink.name}
     </Link>

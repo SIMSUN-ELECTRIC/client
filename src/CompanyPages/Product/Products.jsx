@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useReducer, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { addItem } from "../../store/slices/CartSlices";
+import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import products from "./product";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import Spinner from "../shop/Spinner.jsx";
 
 const productsReducer = (state, action) => {
@@ -45,21 +43,17 @@ const initialState = {
   searchQuery: "",
 };
 export default function Products() {
-  const dispatch = useDispatch();
   const [state, dispatchProducts] = useReducer(productsReducer, initialState);
   const navigate = useNavigate();
-  const [heading, setHeading] = useState("");
   const [category, setCategory] = useState("");
-
-  const [open, setOpen] = useState(false);
-  const [subOpen, setSubOpen] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
     let productCategory = location.state && location.state.productCategory;
-    console.log(productCategory);
+    console.log("category", productCategory);
     setCategory(productCategory);
+    console.log(state.products);
   }, [location.state]);
 
   useEffect(() => {
@@ -117,48 +111,6 @@ export default function Products() {
     }
   };
 
-  const handlePageChange = (page) => {
-    dispatchProducts({ type: "SET_CURRENT_PAGE", payload: page });
-  };
-
-  const handleSearch = (event) => {
-    const searchQuery = event.target.value;
-    dispatchProducts({ type: "SET_SEARCH_QUERY", payload: searchQuery });
-    if (event.key === "Enter" || event.type === "click") {
-      const searchQuery = event.target.value;
-      dispatchProducts({ type: "SET_SEARCH_QUERY", payload: searchQuery });
-    }
-  };
-
-  const filteredProducts = state.products.filter((product) =>
-    product.name.toLowerCase().includes(state.searchQuery.toLowerCase())
-  );
-
-  const handleEnquiry = (product) => {
-    const mailto = `mailto:simsunelectricwork@gmail.com?subject=Product Enquiry - ${product.name}&body=Product Name: ${product.name}%0D%0ACategory: ${product.category}%0D%0ADescription: ${product.description}%0D%0AWrite Your Enquiry Here: `;
-    window.location.href = mailto;
-  };
-
-  const menuRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setOpen(false);
-        setSubOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuRef]);
-
-  const handleCloseSidebar = () => {
-    setOpen(false);
-  };
   return (
     <div className=" mt-0 flex gap-10 w-full min-h-screen bg-gray-100 z-0 pt-12">
       <div className="bg-white mt-10 h-full  p-4 ">
@@ -185,29 +137,7 @@ export default function Products() {
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
                 <p className="text-gray-600 mb-4">{product.description}</p>
-                {product.rating ? (
-                  <div className="flex items-center mb-2 text-yellow-500">
-                    {[...Array(Math.floor(product.rating))].map((_, index) => (
-                      <i key={index} className="fa fa-star" />
-                    ))}
-                    {product.rating % 1 !== 0 && (
-                      <i key="half" className="fa fa-star-half-alt" />
-                    )}
-                    {[...Array(5 - Math.ceil(product.rating))].map(
-                      (_, index) => (
-                        <i key={`empty-${index}`} className="fa fa-star-o" />
-                      )
-                    )}
-                  </div>
-                ) : null}
-
                 <p className="text-green-800 font-semibold">₹{product.price}</p>
-                {/* <button
-                  className="block bg-black text-white py-2 absolute bottom-2 left-2 right-2 rounded hover:bg-gray-800 transition duration-300" // Added absolute positioning here
-                  onClick={() => handleEnquiry(product)}
-                >
-                  Enquire Now
-                </button> */}
                 <button
                   className="block bg-black text-white py-2 absolute bottom-2 left-2 right-2 rounded hover:bg-gray-800 transition duration-300" // Added absolute positioning here
                   onClick={() => handleAddToCart(product)}
