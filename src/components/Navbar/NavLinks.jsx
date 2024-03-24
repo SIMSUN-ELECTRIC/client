@@ -9,12 +9,12 @@ import {
 } from "react-icons/fa6";
 
 const SubLink = ({ slink, setOpen }) => (
-  <li className="py-2 flex flex-direction-col ">
+  <li className="py-2 flex flex-direction-col">
     {/* {console.log(slink.productCategory)} */}
     <Link
       to={slink.link}
       state={{ productCategory: slink.name }}
-      className="hover:text-red-400"
+      className="hover:text-red-400 "
       // onClick={() => setOpen((open) => !open)}
       onClick={setOpen ? () => setOpen((open) => !open) : false}
     >
@@ -54,7 +54,7 @@ const NavLinks = ({ setOpen }) => {
               </Link>
             ) : (
               <h2
-                className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl"
+                className="flex justify-between items-center md:pr-0 pr-5 group hover:text-red-400 text-xl mt-1"
                 onClick={() => {
                   setHeading((prevHeading) =>
                     prevHeading === link.name ? "" : link.name

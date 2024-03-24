@@ -169,11 +169,11 @@ const Navbar = () => {
 
             <ul className="hidden lg:flex lg:flex-row lg:flex-wrap lg:mt-[1rem] lg:mb-[1rem] items-center gap-3 font-[Poppins] mx-8">
               {user.userData?.isAdmin ? null : (
-                <div className="">
+                <div className="mb-1">
                   <li>
                     <Link
                       to="/"
-                      className="ml-2 text-xl cursor-pointer text-white hover:text-red-400 font-medium mr-3.5"
+                      className=" hover:text-red-400 text-xl cursor-pointer text-white   font-xl mr-3.5"
                     >
                       Home
                     </Link>
