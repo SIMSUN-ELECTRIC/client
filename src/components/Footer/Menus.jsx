@@ -38,6 +38,10 @@ export const SUPPORT = [
   // { name: "Payment Settings", link: "/customerservices/PaymentSetting" },
   // { name: "Account Settings", link: "/customerservices/AccountSetting" },
 ];
+export const SUPPORTS = [
+  { name: "Enquiry", link: "/auth/consumerLogin" },
+  { name: "Previous  Enquiry", link: "/auth/consumerLogin" },
+];
 
 export const Icons = [
   { name: "logo-facebook", link: "#" },

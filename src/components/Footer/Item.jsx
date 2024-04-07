@@ -11,7 +11,7 @@ const Item = (props) => {
       </h1>
 
       {props.Links.map((link) =>
-        user.isAuthenticated & !user.userData?.isAdmin ? (
+        !user.userData?.isAdmin ? (
           <li key={link.name}>
             <Link
               to={link.link}

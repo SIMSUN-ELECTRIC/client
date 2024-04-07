@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Item from "./Item";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import logo1 from "../../assets/img/logo2.jpeg";
-import { PRODUCTS, RESOURCES, COMPANY, SUPPORT } from "./Menus";
+import { PRODUCTS, RESOURCES, COMPANY, SUPPORT, SUPPORTS } from "./Menus";
 const ItemsContainer = (props) => {
   const user = useSelector((state) => state.user);
   return (
@@ -16,10 +16,14 @@ const ItemsContainer = (props) => {
           />
         </Link>
       </div>
-      <Item class={`${props.class} `} Links={PRODUCTS} title="About Us" />
-      <Item class={`${props.class} `} Links={RESOURCES} title="Services" />
-      <Item class={`${props.class} `} Links={COMPANY} title="Product" />
-      <Item Links={SUPPORT} title="Customer Services" />
+      <Item className={`${props.class} `} Links={PRODUCTS} title="About Us" />
+      <Item className={`${props.class} `} Links={RESOURCES} title="Services" />
+      <Item className={`${props.class} `} Links={COMPANY} title="Product" />
+      {user.isAuthenticated ? (
+        <Item Links={SUPPORT} title="Customer Services" />
+      ) : (
+        <Item Links={SUPPORTS} title="Customer Services" />
+      )}
     </div>
   );
 };
