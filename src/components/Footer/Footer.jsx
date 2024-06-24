@@ -16,6 +16,10 @@ const Footer = () => {
       className={`
       bg-[#161D24] text-white section `}
     >
+      <h1 className="text-white justify-center align-center  md:flex text-2xl bg-[#0017] rounded-lg p-4">
+        <span className="text-[#bc9556]">SIMSUN ELECTRIC </span>- Work is
+        Workship
+      </h1>
       {/* <div
         className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
         >
