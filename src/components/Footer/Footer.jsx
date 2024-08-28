@@ -20,29 +20,7 @@ const Footer = () => {
         <span className="text-[#bc9556]">SIMSUN ELECTRIC </span>- Work is
         Workship
       </h1>
-      {/* <div
-        className={`flex justify-between items-center  sm:px-4 px-4 bg-[#ffffff19] py-4 `}
-        >
-        <div>
-        <h1 className=" items-center text-md sm:text-3xl md:font-bold ">
-            <span className="text-red-500 ">Free</span> Subscribe Us
-          </h1>
-        </div>
-        <div className={`sm:my-0 my-3 `}></div>
-        <div className="flex">
-          <input
-            type="text"
-            placeholder="Enter Your Email"
-            className="text-gray-800
-           w-28 sm:w-72 mr-1 lg:mb-0 py-2.5 text-sm sm:text-lg rounded px-2 focus:outline-none"
-          />
-          <div className="flex items-center">
-            <button className="bg-red-500 hover:bg-red-600 duration-300 rounded-md font-[Poppins] h-10 text-white w-16 text-lg ">
-            Submit
-            </button>
-            </div>
-            </div>
-          </div> */}
+
       {state.userData?.isAdmin ? null : (
         <div>
           <Feedback />
@@ -56,9 +34,14 @@ const Footer = () => {
         <span>Copyright © {date}. All Rights Reserved. </span>
         <span>
           Simsun Electric Pvt Ltd Designed by
-          <Link to="https://teksila.in/" className="text-red-400 ml-1">
+          {/* <Link to="https://teksila.in/" className="text-red-400 ml-1">
             Teksila.in
-          </Link>
+          </Link> */}
+          <span className="text-blue-700 font-bold cursor-pointer">
+            <a href="tel:7970693331" target="_blank" rel="noopener noreferrer">
+              Tanmay and Team
+            </a>
+          </span>
         </span>
       </div>
       <SocialIcons />
